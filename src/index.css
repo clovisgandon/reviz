@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Palette : bleu acier (principal), orange chantier (accent). Contrastes AA sur les deux thèmes. */
+:root {
+  --c-bg: 242 244 247;
+  --c-surface: 255 255 255;
+  --c-surface2: 233 237 242;
+  --c-ink: 17 24 39;
+  --c-muted: 82 94 110;
+  --c-line: 214 220 228;
+  --c-steel: 31 78 121;
+  --c-site: 196 98 10;
+  --c-ok: 21 128 61;
+  --c-ko: 185 28 28;
+  color-scheme: light;
+}
+.dark {
+  --c-bg: 12 18 27;
+  --c-surface: 22 31 44;
+  --c-surface2: 32 44 60;
+  --c-ink: 236 240 245;
+  --c-muted: 156 168 184;
+  --c-line: 45 58 76;
+  --c-steel: 110 168 222;
+  --c-site: 245 152 66;
+  --c-ok: 74 222 128;
+  --c-ko: 248 113 113;
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  @apply bg-bg text-ink font-sans antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* Pas de zoom involontaire sur iOS : police ≥ 16 px dans les champs. */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-surface border border-line;
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 font-semibold transition active:scale-[0.98] disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-steel text-white dark:text-bg;
+  }
+  .btn-accent {
+    @apply btn bg-site text-white dark:text-bg;
+  }
+  .btn-ghost {
+    @apply btn bg-surface2 text-ink;
+  }
+  .field {
+    @apply min-h-[44px] w-full rounded-xl border border-line bg-surface px-3 text-ink;
+  }
+}

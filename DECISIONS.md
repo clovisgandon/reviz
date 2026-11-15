@@ -25,6 +25,17 @@ Les corrigés de TD donnent les valeurs mais pas toujours la formule. Formules p
 - Modulations de classe structurale (tableau 4.3NF) et définitions des classes d'exposition XC/XD/XS/XF.
 - Diagramme parabole-rectangle (ε_c2 = 2 ‰, ε_cu2 = 3,5 ‰) et rectangle simplifié (λ = 0,8, η = 1) : cités dans le corrigé TD1, sans référence de cours.
 
+## Étape 2 — Squelette (2026-11-15)
+
+- **Versions figées** (exactes, pas de `^`) : Vite 5.4, React 18.3, TypeScript 5.6, Tailwind **3.4** (config JS classique, plus simple que la v4), vite-plugin-pwa 0.21, Dexie 4.0, React Router 6.28 (HashRouter), Vitest 2.1.
+- **Base GitHub Pages** : `vite.config.ts` lit `VITE_BASE` ; le workflow le fixe à `/<nom-du-repo>/` automatiquement → rien à modifier si le dépôt est renommé. En local et sur Netlify/Vercel : `/`.
+- **Service worker** en mode `prompt` : l'utilisateur choisit quand recharger (bannière « Nouvelle version dispo → Recharger »), pour ne jamais couper un partiel blanc en cours. Vérification de mise à jour toutes les heures.
+- **Précache** : JS, CSS, HTML, icônes, polices KaTeX woff2 et JSON → hors ligne complet (vérifié : appli rechargée serveur arrêté).
+- **Thème** : stocké en `localStorage` (petit réglage d'affichage, lu avant le premier rendu pour éviter le flash) ; tous les autres réglages sont dans IndexedDB (table `settings`).
+- **Seed** : `seedBuiltins` installe STAB 1 et fusionne les banques intégrées par `id` à chaque nouvelle `BUILTIN_VERSION`, sans toucher à l'historique ni aux questions perso (testé avec fake-indexeddb).
+- **Icônes** : générées par `npm run icons` (SVG → PNG avec sharp) ; l'icône Apple n'a pas de coins arrondis (iOS les ajoute).
+- **Identité Git** : configurée localement au dépôt (nom + e-mail de l'étudiant) car aucune identité globale n'existait.
+
 ## Reste à faire (étapes suivantes)
 
 Voir le plan du prompt §12 : squelette Vite/React/PWA, moteur QCM, banque STAB 1, générateurs, partiel blanc, matières perso, finitions, vérification.
