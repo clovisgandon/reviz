@@ -29,8 +29,8 @@ describe('seedBuiltins', () => {
 
     await db.questions.put(q('perso', 'manual'));
     await db.attempts.put({ id: 't', subjectId: 'stab1', mode: 'theme', startedAt: 1, config: {}, items: [], score: 0, maxScore: 0, scoreOn20: 0 });
-    await db.settings.put({ key: 'builtinVersion', value: 0 }); // simule une ancienne version
-
+    // Même contenu → rien à faire ; contenu modifié → fusion.
+    expect((await seedBuiltins(db, [q('a'), q('b')], [])).updated).toBe(false);
     await seedBuiltins(db, [q('a'), q('c')], []);
     const ids = (await db.questions.toArray()).map((x) => x.id).sort();
     expect(ids).toEqual(['a', 'c', 'perso']);

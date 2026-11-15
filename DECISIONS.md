@@ -36,6 +36,18 @@ Les corrigés de TD donnent les valeurs mais pas toujours la formule. Formules p
 - **Icônes** : générées par `npm run icons` (SVG → PNG avec sharp) ; l'icône Apple n'a pas de coins arrondis (iOS les ajoute).
 - **Identité Git** : configurée localement au dépôt (nom + e-mail de l'étudiant) car aucune identité globale n'existait.
 
+## Étape 3 — Moteur QCM (2026-11-16)
+
+- **Notation** : `multi` en tout-ou-rien ; `order` = ordre exact ; `numeric` = tolérance relative (celle de la question, sinon le réglage, 2 % par défaut), saisie acceptant la virgule et les espaces. Entraînement : 1 pt / 0 / 0. Barème du partiel (+2/−1/0) prévu dans l'état de série (`scoring`) pour l'étape 6. Note /20 bornée à [0 ; 20] même si le total est négatif.
+- **Tirage** : priorité aux questions jamais vues, puis mélange ; seed reproductible. Choix de réponse mélangés une fois par série (sauf Vrai/Faux).
+- **Séries sauvegardées** à chaque réponse dans la table `sessions` → le bouton « Continuer » de l'accueil reprend la dernière série ; quitter (✕) ne perd rien.
+- **Écran de question** hors de la barre d'onglets (plein écran, boutons Valider / Je ne sais pas en bas pour le pouce).
+- **Correction** : repliée si juste, dépliée si faux ; bonne réponse en vert (✅ + texte), ta réponse fausse en rouge (❌ + texte), explication du distracteur choisi (`wrongChoiceHints`), sources. La source n'est pas encore cliquable (visionneuse PDF à l'étape 7).
+- **Rendu Markdown + KaTeX maison** (pas de dépendance Markdown, pas de HTML brut) : paragraphes, listes, gras/italique, code, `$…$`, `$$…$$`.
+- **Mise à jour des banques** : la version des contenus intégrés est une empreinte du JSON (plus besoin d'incrémenter un numéro à la main).
+- **Mode « Mort subite »** branché dès maintenant (toutes les questions mélangées, arrêt à la première erreur ou « Je ne sais pas »). Le record sera affiché à l'étape 6.
+- **8 questions réelles** (5 types) servent de test ; ce sont les premières de la banque de l'étape 4 (dont la question C_pe à 34° avec la correction de l'erreur du corrigé).
+
 ## Reste à faire (étapes suivantes)
 
 Voir le plan du prompt §12 : squelette Vite/React/PWA, moteur QCM, banque STAB 1, générateurs, partiel blanc, matières perso, finitions, vérification.

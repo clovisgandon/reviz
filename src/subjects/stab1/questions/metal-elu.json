@@ -1,0 +1,47 @@
+[
+  {
+    "id": "stab1-metal-elu-012",
+    "subjectId": "stab1",
+    "themeIds": ["metal-elu"],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Une panne IPE 120 en S235 (classe 1) reprend $V_{Ed} = 8{,}4$ kN. Calcule $V_{pl,Rd}$.",
+    "data": [
+      { "kind": "table", "title": "Extrait catalogue IPE (partiel 2023)", "columns": ["Profilé", "A (cm²)", "A_vz (cm²)"], "rows": [["IPE 120", 13.2, 6.31]] },
+      { "kind": "formula", "latex": "V_{pl,Rd} = A_{vz}\\,\\frac{f_y/\\sqrt{3}}{\\gamma_{M0}} \\qquad f_y = 235\\ \\text{MPa},\\ \\gamma_{M0} = 1{,}00" }
+    ],
+    "answer": { "value": 85.6, "unit": "kN", "tolerancePct": 2 },
+    "explanation": "$$V_{pl,Rd} = 6{,}31\\times10^{2}\\ \\text{mm}^2 \\times \\frac{235/\\sqrt3}{1{,}00} = 85\\,600\\ \\text{N} = 85{,}6\\ \\text{kN}$$\nOn vérifie $V_{Ed} = 8{,}4 \\le 85{,}6$ kN (taux 10 %) et $V_{Ed} \\le 0{,}5\\,V_{pl,Rd} = 42{,}8$ kN : on ne tient pas compte de l'effort tranchant dans le moment résistant.\n\n**Erreurs fréquentes** : oublier le $\\sqrt3$ (→ 148 kN), laisser $A_{vz}$ en cm² (→ 0,86 kN), prendre l'aire totale $A$ au lieu de $A_{vz}$ (→ 179 kN).",
+    "source": [
+      { "docName": "POLY_2026_metal.pdf", "page": 23 },
+      { "docName": "Partiel_2023_STAB01.pdf", "page": 1 }
+    ],
+    "tags": ["partiel-2023"],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-elu-order-001",
+    "subjectId": "stab1",
+    "themeIds": ["metal-elu"],
+    "level": 2,
+    "type": "order",
+    "prompt": "Remets dans l'ordre la démarche de dimensionnement d'une panne IPE en flexion simple (méthode du TD garage).",
+    "choices": [
+      { "id": "a", "text": "Calculer la charge ELU linéique $p_u$ (combinaison la plus défavorable × entraxe)" },
+      { "id": "b", "text": "Calculer $M_{Ed} = p_u L^2/8$" },
+      { "id": "c", "text": "En déduire $W_{pl,y} \\ge M_{Ed}\\,\\gamma_{M0}/f_y$" },
+      { "id": "d", "text": "Choisir le plus petit IPE (classe 1) qui convient dans le catalogue" },
+      { "id": "e", "text": "Vérifier le tranchant : $V_{Ed} \\le V_{pl,Rd}$ et $V_{Ed} \\le 0{,}5\\,V_{pl,Rd}$" },
+      { "id": "f", "text": "Vérifier les flèches à l'ELS ($w_{max}$ et $w_3$)" }
+    ],
+    "answer": ["a", "b", "c", "d", "e", "f"],
+    "explanation": "On part toujours des **charges** : combinaisons d'actions, charge linéique = charge surfacique × entraxe (× cos α pour la neige). Puis **sollicitation** $M_{Ed}$, **module nécessaire** $W_{pl,y}$, **choix du profilé** dans le catalogue (le plus petit qui convient, IPE = classe 1). On vérifie ensuite les autres critères ELU avec le profilé choisi (tranchant, et l'interaction M-V si $V_{Ed} > 0{,}5 V_{pl,Rd}$), puis l'**ELS** (flèches avec $I_y$ du profilé).\n\nDans le TD garage : $p_u = 3{,}94$ kN/ml → $M_{Ed} = 7{,}88$ kN·m → $W_{pl,y} \\ge 32{,}9$ cm³ → IPE 100.",
+    "source": [
+      { "docName": "CORRIGE_TD_2024.pdf", "page": 18 },
+      { "docName": "POLY_2026_metal.pdf", "page": 19 }
+    ],
+    "tags": ["démarche"],
+    "origin": "builtin"
+  }
+]

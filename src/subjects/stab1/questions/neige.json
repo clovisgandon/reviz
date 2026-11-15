@@ -1,0 +1,44 @@
+[
+  {
+    "id": "stab1-neige-qcmA-002",
+    "subjectId": "stab1",
+    "themeIds": ["neige"],
+    "level": 1,
+    "type": "truefalse",
+    "prompt": "La charge de neige dépend de l'altitude de la construction.",
+    "choices": [
+      { "id": "v", "text": "Vrai" },
+      { "id": "f", "text": "Faux" }
+    ],
+    "answer": ["v"],
+    "explanation": "**Vrai.** La valeur $s_k$ du tableau correspond à une altitude inférieure à 200 m ; au-dessus, on ajoute $\\Delta s$ selon l'altitude $A$ :\n- 200–500 m : $\\Delta s_1 = A/1000 - 0{,}20$\n- 500–1000 m : $\\Delta s_1 = 1{,}5A/1000 - 0{,}45$\n- 1000–2000 m : $\\Delta s_1 = 3{,}5A/1000 - 2{,}45$\n\nExemple : Lourdes (500 m) → $0{,}45 + 0{,}30 = 0{,}75$ kN/m².",
+    "source": [
+      { "docName": "QCM_neige_et_vent_A_corrigé.pdf", "page": 1, "note": "question 2" },
+      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 17 }
+    ],
+    "tags": ["qcm-A"],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-sk-001",
+    "subjectId": "stab1",
+    "themeIds": ["neige"],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Garage à Clermont-Ferrand (région **A2**), altitude **360 m**. Calcule la valeur caractéristique $s_k$ de la charge de neige au sol.",
+    "data": [
+      { "kind": "table", "title": "Neige au sol (altitude ≤ 200 m)", "columns": ["Région", "$s_k$ (kN/m²)", "$s_{Ad}$ (kN/m²)"], "rows": [["A1", 0.45, "—"], ["A2", 0.45, 1.0], ["B1", 0.55, 1.0], ["B2", 0.55, 1.35]] },
+      { "kind": "formula", "title": "Effet de l'altitude (régions A à D)", "latex": "200 < A \\le 500\\ \\text{m} : \\Delta s_1 = \\frac{A}{1000} - 0{,}20" }
+    ],
+    "answer": { "value": 0.61, "unit": "kN/m²", "tolerancePct": 2 },
+    "explanation": "$$\\Delta s_1 = \\frac{360}{1000} - 0{,}20 = 0{,}16\\ \\text{kN/m}^2$$\n$$s_k = 0{,}45 + 0{,}16 = 0{,}61\\ \\text{kN/m}^2$$\nC'est la valeur **au sol**. Sur une toiture à 15° : $s = \\mu_1 C_e C_t s_k = 0{,}8 \\times 1 \\times 1 \\times 0{,}61 = 0{,}49$ kN/m².\n\n**Piège** : ajouter $\\Delta s$ sans retirer 0,20 (→ 0,81), ou oublier l'altitude (→ 0,45).",
+    "source": [
+      { "docName": "CORRIGE_TD_2024.pdf", "page": 3 },
+      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 17 }
+    ],
+    "tags": ["td-garage"],
+    "origin": "builtin",
+    "examStyle": true
+  }
+]

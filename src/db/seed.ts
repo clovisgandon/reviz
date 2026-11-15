@@ -2,8 +2,13 @@ import type { RevizDB } from './db';
 import { STAB1 } from '@/subjects/stab1/meta';
 import type { Flashcard, Question } from '@/lib/types';
 
-/** Version des contenus intégrés : à incrémenter quand les banques changent. */
-export const BUILTIN_VERSION = 1;
+/** Empreinte des contenus intégrés : toute modification des banques déclenche la mise à jour. */
+function fingerprint(x: unknown): string {
+  const s = JSON.stringify(x);
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = (Math.imul(h, 33) ^ s.charCodeAt(i)) >>> 0;
+  return `${s.length}-${h.toString(36)}`;
+}
 
 /** Charge les banques JSON intégrées (vides tant que l'étape 4 n'est pas faite). */
 function loadBuiltinQuestions(): Question[] {
@@ -20,9 +25,10 @@ function loadBuiltinFlashcards(): Flashcard[] {
  * l'historique, aux réglages ni aux questions créées par l'utilisateur.
  */
 export async function seedBuiltins(db: RevizDB, questions = loadBuiltinQuestions(), flashcards = loadBuiltinFlashcards()) {
-  const current = (await db.settings.get('builtinVersion'))?.value as number | undefined;
+  const version = fingerprint([STAB1, questions, flashcards]);
+  const current = (await db.settings.get('builtinVersion'))?.value;
   const hasStab1 = await db.subjects.get(STAB1.id);
-  if (current === BUILTIN_VERSION && hasStab1) return { updated: false };
+  if (current === version && hasStab1) return { updated: false };
 
   await db.transaction('rw', [db.subjects, db.questions, db.flashcards, db.settings], async () => {
     // On conserve la date d'examen éventuellement réglée par l'utilisateur.
@@ -33,7 +39,7 @@ export async function seedBuiltins(db: RevizDB, questions = loadBuiltinQuestions
     const stale = await db.questions.where('origin').equals('builtin').filter((q) => !ids.has(q.id)).primaryKeys();
     if (stale.length) await db.questions.bulkDelete(stale);
     if (flashcards.length) await db.flashcards.bulkPut(flashcards);
-    await db.settings.put({ key: 'builtinVersion', value: BUILTIN_VERSION });
+    await db.settings.put({ key: 'builtinVersion', value: version });
   });
   return { updated: true };
 }

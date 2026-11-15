@@ -1,0 +1,83 @@
+[
+  {
+    "id": "stab1-vent-qp-001",
+    "subjectId": "stab1",
+    "themeIds": ["vent"],
+    "level": 1,
+    "type": "single",
+    "prompt": "Dans $q_p(z) = c_e(z)\\cdot q_b$, que représente $z$ ?",
+    "choices": [
+      { "id": "a", "text": "L'altitude du terrain par rapport au niveau de la mer" },
+      { "id": "b", "text": "La hauteur de la construction au-dessus du sol" },
+      { "id": "c", "text": "La profondeur des fondations" },
+      { "id": "d", "text": "La distance à la côte" }
+    ],
+    "answer": ["b"],
+    "explanation": "Le cours insiste : **z n'est pas l'altitude, c'est la hauteur de la construction** (diapo de l'abaque $c_e(z)$). L'altitude intervient pour la neige ($\\Delta s$), pas pour le vent. Pour un bâtiment avec $h \\le b$, on prend une seule bande de pression et $z_e = h$.\n\nExemple du cours : La Rochelle, catégorie IIIb, $h = 10$ m → $c_e = 1{,}35$ lu sur l'abaque.",
+    "wrongChoiceHints": { "a": "Piège classique : l'altitude sert pour la neige (Δs), pas pour q_p." },
+    "source": [
+      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 55, "note": "diapo « Pression dynamique de pointe qp(z) »" },
+      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 57 }
+    ],
+    "tags": ["piège"],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-cpe-001",
+    "subjectId": "stab1",
+    "themeIds": ["vent"],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Toiture à **un versant** inclinée à $\\alpha = 34°$, vent $\\theta = 0°$. Pour une surface de $20\\ \\text{m}^2$ en **zone F**, quelle est la valeur **négative** de $c_{pe}$ ? (interpole si nécessaire)",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Toiture 1 versant, θ = 0° — $c_{pe,10}$ / $c_{pe,1}$",
+        "columns": ["α", "F", "G", "H"],
+        "rows": [
+          ["15°", "−0,9 / −2,0 et +0,2", "−0,8 / −1,5 et +0,2", "−0,3 et +0,2"],
+          ["30°", "−0,5 / −1,5 et +0,7", "−0,5 / −1,5 et +0,7", "−0,2 et +0,4"],
+          ["45°", "0,0 et +0,7", "0,0 et +0,7", "0,0 et +0,6"]
+        ],
+        "note": "Extrait du tableau donné dans le QCM neige et vent A."
+      },
+      { "kind": "formula", "title": "Surface chargée", "latex": "A \\ge 10\\ \\text{m}^2 \\Rightarrow c_{pe} = c_{pe,10}" }
+    ],
+    "answer": { "value": -0.37, "unit": "", "tolerancePct": 3 },
+    "explanation": "1. $A = 20\\ \\text{m}^2 \\ge 10\\ \\text{m}^2$ → on lit les $c_{pe,10}$.\n2. Zone F : $-0{,}5$ à $30°$ et $0{,}0$ à $45°$ → interpolation linéaire sur l'angle :\n$$c_{pe} = -0{,}5 + \\frac{34-30}{45-30}\\,\\big(0 - (-0{,}5)\\big) = -0{,}5 + 0{,}133 = -0{,}37$$\n3. La valeur positive vaut $+0{,}7$ à 30° comme à 45° : pas d'interpolation.\n\n⚠️ **Le corrigé officiel du QCM donne −0,13** : il a interpolé avec 41° au lieu de 34°. Avec le bon angle, on trouve bien **−0,37** (et +0,7).",
+    "source": [
+      { "docName": "QCM_neige_et_vent_A_corrigé.pdf", "page": 2, "note": "le corrigé se trompe d'angle (41° au lieu de 34°)" },
+      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 61 }
+    ],
+    "tags": ["qcm-A", "interpolation", "corrigé-faux"],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-cpi-001",
+    "subjectId": "stab1",
+    "themeIds": ["vent"],
+    "level": 1,
+    "type": "multi",
+    "prompt": "Méthode simplifiée (bâtiment courant, pas de face dominante) : quelles valeurs de $c_{pi}$ faut-il envisager ? Coche toutes les bonnes réponses.",
+    "choices": [
+      { "id": "a", "text": "$c_{pi} = +0{,}2$ (intérieur en surpression)" },
+      { "id": "b", "text": "$c_{pi} = -0{,}3$ (intérieur en dépression)" },
+      { "id": "c", "text": "$c_{pi} = +0{,}8$" },
+      { "id": "d", "text": "$c_{pi} = 0$ : on néglige la pression intérieure" }
+    ],
+    "answer": ["a", "b"],
+    "explanation": "Pour les bâtiments courants en situation durable, on ne considère pas de face dominante et on retient **la valeur la plus sévère entre $+0{,}2$ (surpression) et $-0{,}3$ (dépression)**. On fait donc les deux calculs de $p = q_p\\,(c_{pe} - c_{pi})$ et on garde le plus défavorable pour chaque paroi.\n\nExemple du cours (zone F, $c_{pe} = -1{,}8$) : $c_{p,net} = -1{,}8 - 0{,}2 = -2{,}0$ (le plus défavorable) ou $-1{,}8 + 0{,}3 = -1{,}5$.",
+    "wrongChoiceHints": {
+      "c": "+0,8 est un c_pe de face au vent (zone D), pas un c_pi.",
+      "d": "On ne néglige la pression intérieure que pour un effort d'ensemble où elle s'annule sur deux faces opposées (tirant du TD garage)."
+    },
+    "source": [
+      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 70 },
+      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 72 }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  }
+]
