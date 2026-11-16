@@ -1,0 +1,731 @@
+[
+  {
+    "id": "stab1-bois-els-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Bâtiment courant, élément structural : limite de $W_{inst}(Q)$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "l/200"
+      },
+      {
+        "id": "b",
+        "text": "l/300"
+      },
+      {
+        "id": "c",
+        "text": "l/125"
+      },
+      {
+        "id": "d",
+        "text": "l/150"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Critères « selon Calvi » (mémo p.6), bâtiment courant, éléments structuraux : **$W_{inst}(Q) \\le l/300$**, $W_{net,fin} \\le l/200$, $W_{fin} \\le l/125$. Pour les chevrons : $W_{net,fin} \\le l/150$ et $W_{fin} \\le l/125$.",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Critères de flèche « selon Calvi » (mémo p.6)",
+        "columns": [
+          "Cas",
+          "W_inst(Q)",
+          "W_net,fin",
+          "W_fin"
+        ],
+        "rows": [
+          [
+            "Bâtiment courant — éléments structuraux",
+            "l/300",
+            "l/200",
+            "l/125"
+          ],
+          [
+            "Bâtiment courant — chevrons",
+            "—",
+            "l/150",
+            "l/125"
+          ],
+          [
+            "Bâtiment agricole — éléments structuraux",
+            "l/200",
+            "l/150",
+            "l/100"
+          ],
+          [
+            "Bâtiment agricole — chevrons",
+            "—",
+            "l/150",
+            "l/100"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-els-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Bâtiment courant, élément structural : limite de $W_{net,fin}$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "l/300"
+      },
+      {
+        "id": "b",
+        "text": "l/200"
+      },
+      {
+        "id": "c",
+        "text": "l/125"
+      },
+      {
+        "id": "d",
+        "text": "l/100"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Mémo p.6 : $W_{net,fin} \\le l/200$ (bâtiment courant, éléments structuraux). $W_{net,fin} = U_{fin,G} + U_{fin,Q} - W_c$ : c'est la flèche finale nette de la contre-flèche. Sans contre-flèche, $W_{net,fin} = W_{fin}$ et c'est l/200 qui gouverne (plus sévère que l/125).",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 40
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Critères de flèche « selon Calvi » (mémo p.6)",
+        "columns": [
+          "Cas",
+          "W_inst(Q)",
+          "W_net,fin",
+          "W_fin"
+        ],
+        "rows": [
+          [
+            "Bâtiment courant — éléments structuraux",
+            "l/300",
+            "l/200",
+            "l/125"
+          ],
+          [
+            "Bâtiment courant — chevrons",
+            "—",
+            "l/150",
+            "l/125"
+          ],
+          [
+            "Bâtiment agricole — éléments structuraux",
+            "l/200",
+            "l/150",
+            "l/100"
+          ],
+          [
+            "Bâtiment agricole — chevrons",
+            "—",
+            "l/150",
+            "l/100"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-els-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Bâtiment courant, élément structural : limite de $W_{fin}$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "l/300"
+      },
+      {
+        "id": "b",
+        "text": "l/200"
+      },
+      {
+        "id": "c",
+        "text": "l/125"
+      },
+      {
+        "id": "d",
+        "text": "l/150"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Mémo p.6 : $W_{fin} \\le l/125$ (éléments structuraux et chevrons en bâtiment courant ; l/100 en bâtiment agricole). C'est le critère le moins sévère : quand $W_c = 0$, on vérifie surtout $W_{net,fin} \\le l/200$.",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Critères de flèche « selon Calvi » (mémo p.6)",
+        "columns": [
+          "Cas",
+          "W_inst(Q)",
+          "W_net,fin",
+          "W_fin"
+        ],
+        "rows": [
+          [
+            "Bâtiment courant — éléments structuraux",
+            "l/300",
+            "l/200",
+            "l/125"
+          ],
+          [
+            "Bâtiment courant — chevrons",
+            "—",
+            "l/150",
+            "l/125"
+          ],
+          [
+            "Bâtiment agricole — éléments structuraux",
+            "l/200",
+            "l/150",
+            "l/100"
+          ],
+          [
+            "Bâtiment agricole — chevrons",
+            "—",
+            "l/150",
+            "l/100"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-els-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Solive de portée $l = 5{,}5$ m : flèche limite $W_{inst}(Q) = l/300$ ?",
+    "answer": {
+      "value": 18.33,
+      "unit": "mm"
+    },
+    "explanation": "$$W_{inst}(Q) = \\frac{5500}{300} = 18{,}33\\ \\text{mm}$$\nEt pour la même solive : $W_{net,fin} = l/200 = 27{,}5$ mm ; $W_{fin} = l/125 = 44$ mm. Travailler en mm permet de comparer directement aux flèches calculées.",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      },
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-els-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : solive GL24h $100\\times250$ ($E_{0,mean} = 11\\,500$ MPa), $l = 5{,}5$ m, entraxe 0,6 m, $Q = 2{,}3$ kN/m². Calcule $U_{inst,Q}$.",
+    "answer": {
+      "value": 10.98,
+      "unit": "mm"
+    },
+    "explanation": "$q = 2{,}3\\times0{,}6 = 1{,}38$ kN/ml ; $I = bh^3/12 = 100\\times250^3/12 = 1{,}302\\times10^8$ mm⁴.\n$$U_{inst,Q} = \\frac{5\\,q\\,l^4}{384\\,E\\,I} = \\frac{5\\times1{,}38\\times5500^4}{384\\times11\\,500\\times1{,}302\\times10^8} = 10{,}98\\ \\text{mm}$$\n$\\le l/300 = 18{,}33$ mm → vérifié (taux 60 %).",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Critères de flèche « selon Calvi » (mémo p.6)",
+        "columns": [
+          "Cas",
+          "W_inst(Q)",
+          "W_net,fin",
+          "W_fin"
+        ],
+        "rows": [
+          [
+            "Bâtiment courant — éléments structuraux",
+            "l/300",
+            "l/200",
+            "l/125"
+          ],
+          [
+            "Bâtiment courant — chevrons",
+            "—",
+            "l/150",
+            "l/125"
+          ],
+          [
+            "Bâtiment agricole — éléments structuraux",
+            "l/200",
+            "l/150",
+            "l/100"
+          ],
+          [
+            "Bâtiment agricole — chevrons",
+            "—",
+            "l/150",
+            "l/100"
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-els-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : $U_{inst,G} = 6{,}33$ mm (G avec poids propre), CS1. Calcule $U_{fin,G}$.",
+    "answer": {
+      "value": 10.12,
+      "unit": "mm"
+    },
+    "explanation": "CS1 → $k_{def} = 0{,}6$.\n$$U_{fin,G} = (1 + k_{def})\\,U_{inst,G} = 1{,}6\\times6{,}33 = 10{,}12\\ \\text{mm}$$\nLe fluage augmente la flèche des charges permanentes de 60 % en CS1 (80 % en CS2, 200 % en CS3).",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 7
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "text",
+        "title": "γ_M (mémo p.7)",
+        "content": "BM 1,30 ; LC 1,25 ; LVL, CP, OSB 1,20 ; assemblages 1,30 ; accidentel 1,00. k_def : CS1 0,6 ; CS2 0,8 ; CS3 2,0."
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ]
+  },
+  {
+    "id": "stab1-bois-els-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : $U_{inst,Q} = 10{,}98$ mm (cat. A, $\\psi_2 = 0{,}3$), CS1. Calcule $U_{fin,Q}$.",
+    "answer": {
+      "value": 12.96,
+      "unit": "mm"
+    },
+    "explanation": "$$U_{fin,Q} = (1 + \\psi_2\\,k_{def})\\,U_{inst,Q} = (1 + 0{,}3\\times0{,}6)\\times10{,}98 = 1{,}18\\times10{,}98 = 12{,}96\\ \\text{mm}$$\nSeule la partie quasi-permanente de Q ($\\psi_2 Q$) flue.",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "text",
+        "title": "γ_M (mémo p.7)",
+        "content": "BM 1,30 ; LC 1,25 ; LVL, CP, OSB 1,20 ; assemblages 1,30 ; accidentel 1,00. k_def : CS1 0,6 ; CS2 0,8 ; CS3 2,0."
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ]
+  },
+  {
+    "id": "stab1-bois-els-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : $U_{fin,G} = 10{,}12$ mm et $U_{fin,Q} = 12{,}96$ mm, pas de contre-flèche. Calcule $W_{net,fin}$ et compare à $l/200$.",
+    "answer": {
+      "value": 23.1,
+      "unit": "mm"
+    },
+    "explanation": "$$W_{net,fin} = U_{fin,G} + U_{fin,Q} - W_c = 10{,}12 + 12{,}96 - 0 = 23{,}1\\ \\text{mm}$$\n$\\le l/200 = 27{,}5$ mm → vérifié (taux 84 %). Et $W_{fin} = 23{,}1 \\le l/125 = 44$ mm. Sans le poids propre de la solive on trouverait ≈ 21,7 mm.",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      },
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Critères de flèche « selon Calvi » (mémo p.6)",
+        "columns": [
+          "Cas",
+          "W_inst(Q)",
+          "W_net,fin",
+          "W_fin"
+        ],
+        "rows": [
+          [
+            "Bâtiment courant — éléments structuraux",
+            "l/300",
+            "l/200",
+            "l/125"
+          ],
+          [
+            "Bâtiment courant — chevrons",
+            "—",
+            "l/150",
+            "l/125"
+          ],
+          [
+            "Bâtiment agricole — éléments structuraux",
+            "l/200",
+            "l/150",
+            "l/100"
+          ],
+          [
+            "Bâtiment agricole — chevrons",
+            "—",
+            "l/150",
+            "l/100"
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ]
+  },
+  {
+    "id": "stab1-bois-els-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "TD garage (neige et vent, CS2) : pourquoi $U_{fin,Q} = U_{inst,Q}$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "parce que ψ2 = 0 pour la neige (< 1000 m) et le vent"
+      },
+      {
+        "id": "b",
+        "text": "parce que k_def = 0 en CS2"
+      },
+      {
+        "id": "c",
+        "text": "parce qu’il n’y a pas de contre-flèche"
+      },
+      {
+        "id": "d",
+        "text": "parce que le vent est instantané"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "$U_{fin,Q} = (1 + \\psi_2 k_{def})U_{inst,Q}$ : avec **ψ2 = 0** (neige sous 1000 m, vent), le terme de fluage s'annule (corrigé p.38 : « ψ2 de la neige et du vent sont égaux à 0 »). Seule $U_{fin,G} = (1 + 0{,}8)U_{inst,G}$ flue, d'où les combinaisons « 1,80 G + … ».",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 38
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 39
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-els-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 2,
+    "type": "truefalse",
+    "prompt": "Sans contre-flèche ($W_c = 0$), $W_{fin} = W_{net,fin}$.",
+    "choices": [
+      {
+        "id": "v",
+        "text": "Vrai"
+      },
+      {
+        "id": "f",
+        "text": "Faux"
+      }
+    ],
+    "answer": [
+      "v"
+    ],
+    "explanation": "**Vrai.** $W_{net,fin} = U_{fin,G} + U_{fin,Q} - W_c$ et $W_{fin} = U_{fin,G} + U_{fin,Q}$. Si $W_c = 0$ (partiel : « contreflèche : NON »), les deux sont égales ; on retient alors la limite la plus sévère, **l/200** ($W_{net,fin}$) plutôt que l/125 ($W_{fin}$) (corrigé p.40).",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 38
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-els-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Quel module utilise-t-on pour le calcul des flèches en bois ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "E_0,mean"
+      },
+      {
+        "id": "b",
+        "text": "E_0,05"
+      },
+      {
+        "id": "c",
+        "text": "E_90,mean"
+      },
+      {
+        "id": "d",
+        "text": "G_mean"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Les flèches se calculent avec le module **moyen** $E_{0,mean}$ (GL24h : 11 500 MPa ; C24 : 11 000 MPa), cf. corrigé TD p.37. $E_{0,05}$ (fractile 5 %) sert aux calculs de stabilité (flambement, déversement).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 37
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 8
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-els-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "TD garage (panne 4 m) : flèches instantanées $U_z = 2{,}059$ mm et $U_y = 2{,}286$ mm. Calcule la flèche globale.",
+    "answer": {
+      "value": 3.08,
+      "unit": "mm",
+      "tolerancePct": 1
+    },
+    "explanation": "Les flèches selon y et z sont perpendiculaires : on les combine vectoriellement.\n$$U = \\sqrt{2{,}059^2 + 2{,}286^2} = 3{,}08\\ \\text{mm} \\le l/300 = 13{,}33\\ \\text{mm}$$\nTaux 23 % (corrigé p.38). Même principe en acier : $\\sqrt{13^2 + 3^2}$ (TD p.22).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 38
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-bois-els-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Bâtiment **agricole**, élément structural : limite de $W_{net,fin}$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "l/200"
+      },
+      {
+        "id": "b",
+        "text": "l/150"
+      },
+      {
+        "id": "c",
+        "text": "l/125"
+      },
+      {
+        "id": "d",
+        "text": "l/100"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Mémo p.6, bâtiment agricole, éléments structuraux : $W_{inst}(Q) \\le l/200$ ; **$W_{net,fin} \\le l/150$** ; $W_{fin} \\le l/100$. Les critères sont moins sévères qu'en bâtiment courant (l/300 ; l/200 ; l/125).",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Critères de flèche « selon Calvi » (mémo p.6)",
+        "columns": [
+          "Cas",
+          "W_inst(Q)",
+          "W_net,fin",
+          "W_fin"
+        ],
+        "rows": [
+          [
+            "Bâtiment courant — éléments structuraux",
+            "l/300",
+            "l/200",
+            "l/125"
+          ],
+          [
+            "Bâtiment courant — chevrons",
+            "—",
+            "l/150",
+            "l/125"
+          ],
+          [
+            "Bâtiment agricole — éléments structuraux",
+            "l/200",
+            "l/150",
+            "l/100"
+          ],
+          [
+            "Bâtiment agricole — chevrons",
+            "—",
+            "l/150",
+            "l/100"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-bois-els-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "En classe de service 3, par combien est multipliée la flèche instantanée des charges permanentes pour obtenir $U_{fin,G}$ ?",
+    "answer": {
+      "value": 3,
+      "unit": "",
+      "tolerancePct": 0
+    },
+    "explanation": "CS3 → $k_{def} = 2{,}0$ → $U_{fin,G} = (1 + 2)\\,U_{inst,G} = 3\\,U_{inst,G}$. En CS1 le facteur est 1,6 et en CS2 1,8. Le fluage est donc très pénalisant pour les bois exposés aux intempéries.",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 7
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "text",
+        "title": "γ_M (mémo p.7)",
+        "content": "BM 1,30 ; LC 1,25 ; LVL, CP, OSB 1,20 ; assemblages 1,30 ; accidentel 1,00. k_def : CS1 0,6 ; CS2 0,8 ; CS3 2,0."
+      }
+    ]
+  }
+]

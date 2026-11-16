@@ -48,6 +48,19 @@ Les corrigés de TD donnent les valeurs mais pas toujours la formule. Formules p
 - **Mode « Mort subite »** branché dès maintenant (toutes les questions mélangées, arrêt à la première erreur ou « Je ne sais pas »). Le record sera affiché à l'étape 6.
 - **8 questions réelles** (5 types) servent de test ; ce sont les premières de la banque de l'étape 4 (dont la question C_pe à 34° avec la correction de l'erreur du corrigé).
 
+## Étape 4 — Banque STAB 1 (2026-11-16)
+
+- **Écriture en TypeScript, livraison en JSON** : les questions sont rédigées dans `src/subjects/stab1/bank/*.ts` (fonctions `single`, `multi`, `tf`, `num`, `order`) et compilées par `npm run bank` en `questions/<thème>.json` (format §7, validé par zod). Avantage : les **valeurs numériques sont calculées par le code** à partir des tableaux du cours (`formulaire/tables.ts`) au lieu d'être tapées à la main → pas d'erreur d'arithmétique, et l'explication affiche les mêmes nombres.
+- **Ids stables** `stab1-<thème>-<n°>` dans l'ordre d'écriture ; les 8 questions de l'étape 3 gardent leurs ids. Un id automatique déjà pris reçoit le suffixe « b ». Règle : toujours ajouter en fin de thème.
+- **Niveaux** : 29 questions calculatoires à plusieurs étapes sont classées ★★★ via une liste (`LEVEL3` dans `bank/helpers.ts`) pour atteindre 37 / 43 / 20 %.
+- **Contenu** : 314 questions (13 à 27 par thème), 152 « style examen », 67 cartes Flash ; tous les blocs Données nécessaires (catalogue, k_mod, neige, c_pe, flèches limites, sections d'acier, c_min,dur) sont joints aux questions. Sources = fichier + page ; valeurs hors cours marquées « valeur EC standard, non trouvée dans le cours ».
+- **Sujets officiels** : « QCM neige et vent – A » (11 questions dans l'ordre, propositions non mélangées, +2/−1/0, chrono 15 min, correction à la fin) et « Partiel 2023 » (20 questions taguées `partiel-2023`, correction immédiate en attendant le contrôle sur table de l'étape 5). Les sujets sont résolus dans `exams.json`.
+- **Nouvelle erreur trouvée** dans le corrigé TD garage (p.20) : flexion déviée IPE 120 = 0,87 et non 0,74 (voir NOTES §20).
+- **Questions TD5 Q2/Q3 et TD6** : pas de corrigé fourni → valeurs calculées avec la méthode du TD5, signalées comme telles.
+- **Fiche formulaire** consultable depuis la page de la matière (formules KaTeX + tableaux + catalogues complets).
+- **Chargement différé** des banques JSON (chunks séparés, précachés) : bundle principal 607 kB (194 kB gzip).
+- L'audit tourne aussi dans la GitHub Action avant chaque déploiement.
+
 ## Reste à faire (étapes suivantes)
 
 Voir le plan du prompt §12 : squelette Vite/React/PWA, moteur QCM, banque STAB 1, générateurs, partiel blanc, matières perso, finitions, vérification.

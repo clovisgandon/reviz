@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "icons": "tsx scripts/make-icons.ts",
     "audit:questions": "tsx scripts/audit-questions.ts",
-    "typecheck": "tsc -b --noEmit"
+    "typecheck": "tsc -b --noEmit",
+    "bank": "tsx scripts/build-bank.ts"
   },
   "dependencies": {
     "dexie": "4.0.10",

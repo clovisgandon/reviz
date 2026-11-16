@@ -42,12 +42,14 @@ export function selectQuestions(pool: Question[], cfg: ThemeConfig, seen: Set<st
   return [...fresh, ...old].slice(0, cfg.count);
 }
 
-function choiceOrderFor(questions: Question[], rand: () => number): Record<string, string[]> {
+function choiceOrderFor(questions: Question[], rand: () => number, shuffleChoices = true): Record<string, string[]> {
   const out: Record<string, string[]> = {};
   for (const q of questions) {
     const ids = (q.choices ?? []).map((c) => c.id);
-    // Vrai/Faux et « ordre » : on ne mélange pas les Vrai/Faux ; l'ordre est mélangé (c'est l'exercice).
-    out[q.id] = q.type === 'truefalse' ? ids : shuffle(ids, rand);
+    // Vrai/Faux jamais mélangés ; « order » toujours mélangé (c'est l'exercice).
+    // Tag « ordre-fixe » ou sujet officiel : les lettres comptent (ex. « Cocher la réponse A »).
+    const keep = q.type === 'truefalse' || q.tags?.includes('ordre-fixe') || (!shuffleChoices && q.type !== 'order');
+    out[q.id] = keep ? ids : shuffle(ids, rand);
   }
   return out;
 }
@@ -63,12 +65,14 @@ export async function createSession(params: {
   durationMin?: number;
   stopOnError?: boolean;
   seed?: number;
+  /** false = garder l'ordre des propositions (sujets officiels) */
+  shuffleChoices?: boolean;
 }): Promise<string> {
   const rand = rng(params.seed ?? newSeed());
   const state: QuizState = {
     title: params.title,
     questionIds: params.questions.map((q) => q.id),
-    choiceOrder: choiceOrderFor(params.questions, rand),
+    choiceOrder: choiceOrderFor(params.questions, rand, params.shuffleChoices ?? true),
     index: 0,
     answers: {},
     scoring: params.scoring ?? TRAINING_SCORING,

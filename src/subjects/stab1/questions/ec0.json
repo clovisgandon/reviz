@@ -1,0 +1,980 @@
+[
+  {
+    "id": "stab1-ec0-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Un état limite de **service** (ELS) concerne…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la résistance des éléments sous les charges maximales"
+      },
+      {
+        "id": "b",
+        "text": "le fonctionnement normal, le confort des personnes et l’aspect de la construction"
+      },
+      {
+        "id": "c",
+        "text": "la stabilité en cas d’incendie"
+      },
+      {
+        "id": "d",
+        "text": "uniquement la rupture des assemblages"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "L'EC0 impose deux familles de vérifications. Les **ELS** garantissent que la structure reste **apte à l'utilisation** prévue : fonctionnement en utilisation normale, confort des personnes, aspect (flèches, vibrations, déplacements). Les **ELU** garantissent la **résistance** à toutes les actions susceptibles de s'exercer (rupture, instabilité). On vérifie donc les flèches à l'ELS et les contraintes à l'ELU.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 11
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 13
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "a": "C’est la définition d’un ELU (résistance)."
+    }
+  },
+  {
+    "id": "stab1-ec0-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Quelle est la durée indicative d’utilisation de projet d’un **bâtiment courant** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "10 ans"
+      },
+      {
+        "id": "b",
+        "text": "25 ans"
+      },
+      {
+        "id": "c",
+        "text": "50 ans"
+      },
+      {
+        "id": "d",
+        "text": "100 ans"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Tableau 3.1 du poly (EC0) : catégorie 1 = 10 ans (structures provisoires) ; catégories 2 et 3 = 25 ans (éléments remplaçables, structures agricoles) ; **catégorie 4 = 50 ans (bâtiments courants)** ; catégorie 5 = 100 ans (bâtiments monumentaux ou stratégiques, ponts). Cette durée sert notamment à choisir la classe structurale pour les enrobages en béton armé.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 11
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "d": "100 ans : bâtiments monumentaux ou stratégiques."
+    }
+  },
+  {
+    "id": "stab1-ec0-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Une **structure agricole** a une durée indicative d’utilisation de projet de…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "10 ans"
+      },
+      {
+        "id": "b",
+        "text": "25 ans"
+      },
+      {
+        "id": "c",
+        "text": "50 ans"
+      },
+      {
+        "id": "d",
+        "text": "100 ans"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "D'après le tableau 3.1 de l'EC0 reproduit dans le poly, les structures agricoles sont en **catégorie 3 : 25 ans**, comme les éléments structuraux remplaçables (catégorie 2). Les bâtiments courants sont à 50 ans, les structures provisoires à 10 ans et les bâtiments monumentaux à 100 ans.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 11
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ec0-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "La neige « normale » sur une toiture est une action…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "permanente (G)"
+      },
+      {
+        "id": "b",
+        "text": "variable (Q)"
+      },
+      {
+        "id": "c",
+        "text": "accidentelle (A)"
+      },
+      {
+        "id": "d",
+        "text": "sismique (A_E)"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Le cours classe les actions en **G** (permanentes : poids propres), **Q** (variables : mobilier, personnes, **vent, neige**), **A** (accidentelles) et **A_E** (sismiques). La neige courante, de période de retour 50 ans, est une action **variable**. Attention : la neige **exceptionnelle** ($s_{Ad}$) et l'accumulation exceptionnelle sont, elles, des actions **accidentelles**.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 5
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 11
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "c": "Seule la neige exceptionnelle (s_Ad) est accidentelle."
+    }
+  },
+  {
+    "id": "stab1-ec0-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Le poids des cloisons et du carrelage d’un plancher est une action…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "permanente (G)"
+      },
+      {
+        "id": "b",
+        "text": "variable (Q)"
+      },
+      {
+        "id": "c",
+        "text": "accidentelle (A)"
+      },
+      {
+        "id": "d",
+        "text": "d’exploitation (cat. A)"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Les **poids propres** des éléments de construction (poutres, planchers, cloisons fixes, revêtements, tuiles…) sont des actions **permanentes G** : elles agissent pendant toute la durée de vie avec une intensité quasi constante (cours, diapo « classification des actions »). Les charges d'exploitation (mobilier, personnes) sont variables Q.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 5
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ec0-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "truefalse",
+    "prompt": "Le séisme est classé parmi les actions accidentelles **A**.",
+    "choices": [
+      {
+        "id": "v",
+        "text": "Vrai"
+      },
+      {
+        "id": "f",
+        "text": "Faux"
+      }
+    ],
+    "answer": [
+      "f"
+    ],
+    "explanation": "**Faux.** L'EC0 distingue **quatre** classes : permanentes G, variables Q, accidentelles **A** (choc d'un bateau sur une pile de pont, explosion…) et **sismiques A_E**. Le séisme a sa propre classe et sa propre combinaison : $\\sum G_{k,j} + A_{Ed} + \\sum \\psi_{2,i} Q_{k,i}$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 7
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 8
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ec0-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Quelle est la combinaison **fondamentale** ELU (situations durables et transitoires) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$G + Q_1 + \\sum \\psi_{0,i} Q_i$"
+      },
+      {
+        "id": "b",
+        "text": "$1{,}35\\,G_{sup} + 1{,}00\\,G_{inf} + 1{,}5\\,Q_1 + 1{,}5\\sum \\psi_{0,i} Q_i$"
+      },
+      {
+        "id": "c",
+        "text": "$1{,}5\\,G + 1{,}35\\,Q_1$"
+      },
+      {
+        "id": "d",
+        "text": "$G + A_d + \\psi_{2,1} Q_1$"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.12 : $1{,}35\\,G_{k,sup} + 1{,}00\\,G_{k,inf} + 1{,}50\\,Q_{k,1} + 1{,}50 \\sum \\psi_{0,i} Q_{k,i}$.\n- $Q_{k,1}$ = action variable **dominante** (pleine valeur) ;\n- les autres variables sont réduites par $\\psi_0$ ;\n- $G$ défavorable × 1,35, $G$ favorable × 1,00 (cas du soulèvement par le vent).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "a": "C’est la combinaison ELS caractéristique.",
+      "d": "C’est (presque) la combinaison accidentelle."
+    }
+  },
+  {
+    "id": "stab1-ec0-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Quelle combinaison utilise-t-on pour vérifier les **flèches** (ELS caractéristique) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$\\sum G_{k,j} + Q_{k,1} + \\sum \\psi_{0,i} Q_{k,i}$"
+      },
+      {
+        "id": "b",
+        "text": "$1{,}35\\,G + 1{,}5\\,Q$"
+      },
+      {
+        "id": "c",
+        "text": "$\\sum G_{k,j} + \\sum \\psi_{2,i} Q_{k,i}$ uniquement"
+      },
+      {
+        "id": "d",
+        "text": "$1{,}35\\,G$"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "La combinaison **caractéristique** (état limite irréversible) est $\\sum G_{k,j} + Q_{k,1} + \\sum \\psi_{0,i} Q_{k,i}$ : **pas de coefficients 1,35 / 1,5**, qui sont réservés à l'ELU. Au partiel 2023 : « G + Q = 2,1 kN/ml » est le chargement ELS à utiliser pour la flèche, et « 1,35G + 1,5Q = 3,1 kN/ml » sert au moment et au tranchant.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 13
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ec0-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Le coefficient $\\psi_0$ de la **neige** pour un bâtiment situé à moins de 1000 m vaut…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "0"
+      },
+      {
+        "id": "b",
+        "text": "0,2"
+      },
+      {
+        "id": "c",
+        "text": "0,5"
+      },
+      {
+        "id": "d",
+        "text": "0,7"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Tableau 3.2 du poly : neige (H ≤ 1000 m) **ψ0 = 0,5** et ψ2 = 0 ; vent ψ0 = 0,6 et ψ2 = 0 ; exploitation catégorie A ψ0 = 0,7 et ψ2 = 0,3. Au-dessus de 1000 m, la neige passe à ψ0 = 0,7 et ψ2 = 0,2 (mémo p.7).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 7
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Coefficients ψ pour les bâtiments (poly p.12, mémo p.7)",
+        "columns": [
+          "Action",
+          "ψ0",
+          "ψ1",
+          "ψ2"
+        ],
+        "rows": [
+          [
+            "Exploitation cat. A (habitation)",
+            0.7,
+            0.5,
+            0.3
+          ],
+          [
+            "Exploitation cat. B (bureaux)",
+            0.7,
+            0.5,
+            0.3
+          ],
+          [
+            "Exploitation cat. C (réunion)",
+            0.7,
+            0.7,
+            0.6
+          ],
+          [
+            "Exploitation cat. E (stockage)",
+            1,
+            0.9,
+            0.8
+          ],
+          [
+            "Toits cat. H",
+            0,
+            0,
+            0
+          ],
+          [
+            "Neige, H ≤ 1000 m",
+            0.5,
+            0.2,
+            0
+          ],
+          [
+            "Neige, H > 1000 m",
+            0.7,
+            0.5,
+            0.2
+          ],
+          [
+            "Vent",
+            0.6,
+            0.2,
+            0
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ec0-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Que représente la valeur $\\psi_2 Q_k$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la valeur de combinaison"
+      },
+      {
+        "id": "b",
+        "text": "la valeur fréquente"
+      },
+      {
+        "id": "c",
+        "text": "la valeur quasi-permanente"
+      },
+      {
+        "id": "d",
+        "text": "la valeur accidentelle"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "ψ0 donne la **valeur de combinaison** (utilisée pour les actions d'accompagnement), ψ1 la **valeur fréquente**, ψ2 la **valeur quasi-permanente** (part de l'action présente « en permanence »). ψ2 sert notamment pour le fluage du bois ($U_{fin} = (1 + \\psi_2 k_{def})U_{inst}$) et dans les combinaisons accidentelle et sismique.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ec0-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Plancher d'habitation : $G = 2{,}0$ kN/m², $Q = 1{,}5$ kN/m² (cat. A, seule action variable). Calcule la charge **ELU**.",
+    "answer": {
+      "value": 4.95,
+      "unit": "kN/m²"
+    },
+    "explanation": "Une seule action variable → elle est dominante :\n$$p_{ELU} = 1{,}35 \\times 2{,}0 + 1{,}5 \\times 1{,}5 = 2{,}70 + 2{,}25 = 4{,}95\\ \\text{kN/m}^2$$\nErreur fréquente : appliquer ψ0 = 0,7 à Q alors qu'il n'y a pas d'autre action variable (ψ0 ne s'applique qu'aux actions d'**accompagnement**).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ec0-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Même plancher : $G = 2{,}0$ kN/m², $Q = 1{,}5$ kN/m². Calcule la charge **ELS caractéristique**.",
+    "answer": {
+      "value": 3.5,
+      "unit": "kN/m²"
+    },
+    "explanation": "Combinaison caractéristique : $G + Q_1 = 2{,}0 + 1{,}5 = 3{,}5$ kN/m². Pas de coefficients partiels à l'ELS. C'est cette charge qui sert au calcul de la flèche $w_{max}$ ; la flèche $w_3$ se calcule avec Q seul (1,5 kN/m²).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ec0-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Toiture : $G = 0{,}50$, neige $S = 0{,}60$, vent en pression $W = 0{,}30$ kN/m² (altitude < 1000 m). Calcule $1{,}35G + 1{,}5S + 1{,}5\\,\\psi_0 W$ (neige dominante).",
+    "answer": {
+      "value": 1.845,
+      "unit": "kN/m²"
+    },
+    "explanation": "Neige dominante, vent d'accompagnement avec $\\psi_0 = 0{,}6$ :\n$$1{,}35\\times0{,}50 + 1{,}5\\times0{,}60 + 1{,}5\\times0{,}6\\times0{,}30 = 0{,}675 + 0{,}900 + 0{,}270 = 1{,}845\\ \\text{kN/m}^2$$\nC'est la forme de la combinaison 06 du TD garage ($1{,}35G + 1{,}5S_n + 1{,}5\\times0{,}6\\,W^+$), qui y était dimensionnante.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Coefficients ψ pour les bâtiments (poly p.12, mémo p.7)",
+        "columns": [
+          "Action",
+          "ψ0",
+          "ψ1",
+          "ψ2"
+        ],
+        "rows": [
+          [
+            "Exploitation cat. A (habitation)",
+            0.7,
+            0.5,
+            0.3
+          ],
+          [
+            "Exploitation cat. B (bureaux)",
+            0.7,
+            0.5,
+            0.3
+          ],
+          [
+            "Exploitation cat. C (réunion)",
+            0.7,
+            0.7,
+            0.6
+          ],
+          [
+            "Exploitation cat. E (stockage)",
+            1,
+            0.9,
+            0.8
+          ],
+          [
+            "Toits cat. H",
+            0,
+            0,
+            0
+          ],
+          [
+            "Neige, H ≤ 1000 m",
+            0.5,
+            0.2,
+            0
+          ],
+          [
+            "Neige, H > 1000 m",
+            0.7,
+            0.5,
+            0.2
+          ],
+          [
+            "Vent",
+            0.6,
+            0.2,
+            0
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-ec0-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Même toiture ($G = 0{,}50$ ; $S = 0{,}60$ ; $W = +0{,}30$ kN/m²). Quelle est la valeur de la combinaison ELU **la plus défavorable** (neige dominante OU vent dominant) ?",
+    "answer": {
+      "value": 1.845,
+      "unit": "kN/m²"
+    },
+    "explanation": "On teste les deux actions dominantes possibles :\n- neige dominante : $1{,}35\\times0{,}5 + 1{,}5\\times0{,}6 + 1{,}5\\times0{,}6\\times0{,}3 = 1{,}845$ ;\n- vent dominant : $1{,}35\\times0{,}5 + 1{,}5\\times0{,}3 + 1{,}5\\times0{,}5\\times0{,}6 = 0{,}675 + 0{,}45 + 0{,}45 = 1{,}575$.\nOn retient le maximum : **1,845 kN/m²** (neige dominante). Penser à utiliser $\\psi_0 = 0{,}5$ pour la neige d'accompagnement et 0,6 pour le vent.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Coefficients ψ pour les bâtiments (poly p.12, mémo p.7)",
+        "columns": [
+          "Action",
+          "ψ0",
+          "ψ1",
+          "ψ2"
+        ],
+        "rows": [
+          [
+            "Exploitation cat. A (habitation)",
+            0.7,
+            0.5,
+            0.3
+          ],
+          [
+            "Exploitation cat. B (bureaux)",
+            0.7,
+            0.5,
+            0.3
+          ],
+          [
+            "Exploitation cat. C (réunion)",
+            0.7,
+            0.7,
+            0.6
+          ],
+          [
+            "Exploitation cat. E (stockage)",
+            1,
+            0.9,
+            0.8
+          ],
+          [
+            "Toits cat. H",
+            0,
+            0,
+            0
+          ],
+          [
+            "Neige, H ≤ 1000 m",
+            0.5,
+            0.2,
+            0
+          ],
+          [
+            "Neige, H > 1000 m",
+            0.7,
+            0.5,
+            0.2
+          ],
+          [
+            "Vent",
+            0.6,
+            0.2,
+            0
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-ec0-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Soulèvement : toiture légère $G = 0{,}45$ kN/m², vent en dépression $W = -0{,}90$ kN/m². Calcule $1{,}00\\,G + 1{,}5\\,W$.",
+    "answer": {
+      "value": -0.9,
+      "unit": "kN/m²"
+    },
+    "explanation": "Quand le vent soulève, le poids propre est **favorable** : on le prend avec $\\gamma_{G,inf} = 1{,}00$ (et non 1,35).\n$$1{,}00\\times0{,}45 + 1{,}5\\times(-0{,}90) = 0{,}45 - 1{,}35 = -0{,}90\\ \\text{kN/m}^2$$\nLe résultat négatif signifie un **soulèvement** net : il faut vérifier les attaches et les éléments sous charge ascendante (TD garage, combinaison 05).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ec0-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Pourquoi prend-on $1{,}00\\,G$ (et non $1{,}35\\,G$) dans la combinaison $1{,}00G + 1{,}5W^-$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "parce que le vent est une action accidentelle"
+      },
+      {
+        "id": "b",
+        "text": "parce que le poids propre s’oppose au soulèvement : il est favorable"
+      },
+      {
+        "id": "c",
+        "text": "parce que ψ0 du vent vaut 0,6"
+      },
+      {
+        "id": "d",
+        "text": "parce qu’on est à l’ELS"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Les coefficients partiels couvrent l'incertitude **dans le sens défavorable**. Si G aide (il retient la toiture contre le soulèvement), le majorer serait dangereux : on prend la valeur basse $G_{k,inf}$ avec $\\gamma = 1{,}00$. D'où la combinaison $1{,}35\\,G_{k,sup} + 1{,}00\\,G_{k,inf} + \\dots$ du poly.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ec0-017",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 1,
+    "type": "multi",
+    "prompt": "Coche les actions **variables** (Q).",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Neige"
+      },
+      {
+        "id": "b",
+        "text": "Vent"
+      },
+      {
+        "id": "c",
+        "text": "Charges d’exploitation (mobilier, personnes)"
+      },
+      {
+        "id": "d",
+        "text": "Poids propre de la charpente"
+      },
+      {
+        "id": "e",
+        "text": "Séisme"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ],
+    "explanation": "Les actions variables sont celles dont l'intensité varie dans le temps : **exploitation, neige, vent** (cours p.5 ; poly p.11). Le poids propre est permanent (G) ; le séisme forme une classe à part (A_E). Attention aux pièges : la neige **exceptionnelle** est accidentelle.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 5
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 11
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ec0-018",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 3,
+    "type": "single",
+    "prompt": "Quelle est la bonne écriture de la combinaison **accidentelle** (EN 1990) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$1{,}35\\,G + A_d + 1{,}5\\,Q_1$"
+      },
+      {
+        "id": "b",
+        "text": "$\\sum G_{k,j} + A_d + (\\psi_{1,1}\\ \\text{ou}\\ \\psi_{2,1})\\,Q_{k,1} + \\sum \\psi_{2,i}\\,Q_{k,i}$"
+      },
+      {
+        "id": "c",
+        "text": "$\\sum G_{k,j} + A_d + (\\psi_{1,1}\\ \\text{ou}\\ \\psi_{2,1})\\,Q_{k,1} + 1{,}50\\sum \\psi_{0,i}\\,Q_{k,i}$"
+      },
+      {
+        "id": "d",
+        "text": "$G + Q + A_d$"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "En situation accidentelle, **pas de coefficient 1,35 ni 1,5** : $\\sum G_{k,j} + A_d + (\\psi_{1,1}\\ \\text{ou}\\ \\psi_{2,1})Q_{k,1} + \\sum\\psi_{2,i}Q_{k,i}$.\n⚠️ Le poly (p.12) écrit « + 1,50 Σψ0,i Qk,i » pour le dernier terme : c'est une **coquille**, l'EN 1990 donne bien $\\sum \\psi_{2,i} Q_{k,i}$. Exemple : neige exceptionnelle $s_{Ad}$ (accidentelle) + poids propre.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12,
+        "note": "coquille dans le dernier terme"
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "EN 1990 §6.4.3.3"
+      }
+    ],
+    "origin": "builtin",
+    "wrongChoiceHints": {
+      "c": "C’est l’écriture du poly, qui contient une coquille (1,50 Σψ0)."
+    }
+  },
+  {
+    "id": "stab1-ec0-019",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 2,
+    "type": "order",
+    "prompt": "Remets dans l’ordre la démarche pour obtenir la charge de calcul d’une panne.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Recenser les actions (G, Q, neige, vent) et leurs valeurs caractéristiques"
+      },
+      {
+        "id": "b",
+        "text": "Passer en charges linéiques (× entraxe, × cos α pour la neige)"
+      },
+      {
+        "id": "c",
+        "text": "Écrire les combinaisons ELU (chaque action variable dominante tour à tour)"
+      },
+      {
+        "id": "d",
+        "text": "Retenir la combinaison la plus défavorable"
+      },
+      {
+        "id": "e",
+        "text": "En déduire $M_{Ed}$ et $V_{Ed}$"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "explanation": "C'est la démarche du TD garage : bilan des charges (p.16), passage en kN/ml avec la largeur de reprise (p.17), liste des combinaisons 01 à 09 (p.18) avec chaque action variable dominante à son tour, choix de la plus défavorable (combinaison 06 = 3,86 kN/ml), puis sollicitations $M_{Ed} = p_uL^2/8$ et $V_{Ed} = p_uL/2$.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 16
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 17
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ec0-020",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Dans la combinaison $1{,}35G + 1{,}5Q_1 + 1{,}5\\sum\\psi_{0,i}Q_i$, que désigne $Q_{k,1}$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la plus petite action variable"
+      },
+      {
+        "id": "b",
+        "text": "l’action variable dominante, prise à sa valeur caractéristique complète"
+      },
+      {
+        "id": "c",
+        "text": "l’action accidentelle"
+      },
+      {
+        "id": "d",
+        "text": "toujours la charge d’exploitation"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "$Q_{k,1}$ est l'action variable **dominante** (non réduite) ; les autres sont des actions d'**accompagnement**, réduites par $\\psi_0$. Comme on ne sait pas d'avance laquelle est la plus défavorable, on écrit une combinaison par action dominante possible et on garde la pire (TD garage : neige dominante = combinaison 06, vent dominant = combinaison 08).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  }
+]

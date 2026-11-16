@@ -2,43 +2,1804 @@
   {
     "id": "stab1-neige-qcmA-002",
     "subjectId": "stab1",
-    "themeIds": ["neige"],
+    "themeIds": [
+      "neige"
+    ],
     "level": 1,
     "type": "truefalse",
-    "prompt": "La charge de neige dépend de l'altitude de la construction.",
+    "prompt": "La charge de neige dépend de l’altitude de la construction.",
     "choices": [
-      { "id": "v", "text": "Vrai" },
-      { "id": "f", "text": "Faux" }
+      {
+        "id": "v",
+        "text": "Vrai"
+      },
+      {
+        "id": "f",
+        "text": "Faux"
+      }
     ],
-    "answer": ["v"],
+    "answer": [
+      "v"
+    ],
     "explanation": "**Vrai.** La valeur $s_k$ du tableau correspond à une altitude inférieure à 200 m ; au-dessus, on ajoute $\\Delta s$ selon l'altitude $A$ :\n- 200–500 m : $\\Delta s_1 = A/1000 - 0{,}20$\n- 500–1000 m : $\\Delta s_1 = 1{,}5A/1000 - 0{,}45$\n- 1000–2000 m : $\\Delta s_1 = 3{,}5A/1000 - 2{,}45$\n\nExemple : Lourdes (500 m) → $0{,}45 + 0{,}30 = 0{,}75$ kN/m².",
     "source": [
-      { "docName": "QCM_neige_et_vent_A_corrigé.pdf", "page": 1, "note": "question 2" },
-      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 17 }
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 2"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 17
+      }
     ],
-    "tags": ["qcm-A"],
     "origin": "builtin",
+    "tags": [
+      "qcm-A"
+    ],
     "examStyle": true
+  },
+  {
+    "id": "stab1-neige-qcmA-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "La valeur caractéristique de la neige $s_k$ est une valeur qui correspond à une charge…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "à une altitude conventionnelle européenne"
+      },
+      {
+        "id": "b",
+        "text": "à une altitude aléatoire"
+      },
+      {
+        "id": "c",
+        "text": "au sol"
+      },
+      {
+        "id": "d",
+        "text": "sur une toiture plane à moins de 10 m de haut"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "$s_k$ est la **charge de neige au sol** de période de retour 50 ans (probabilité annuelle de dépassement 0,02). On passe à la charge **sur la toiture** avec $s = \\mu_i\\,C_e\\,C_t\\,s_k$, où le coefficient de forme $\\mu_i$ tient compte de la pente et de la forme de la toiture (QCM neige et vent A, question 3).",
+    "source": [
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 3"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 11
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "qcm-A"
+    ],
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "d": "La toiture intervient via μ, pas dans la définition de s_k."
+    }
+  },
+  {
+    "id": "stab1-neige-qcmA-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Les coefficients $\\mu_i$ destinés à prendre en compte les dispositions des toitures sont appelés…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "coefficients d’exposition"
+      },
+      {
+        "id": "b",
+        "text": "coefficients de forme"
+      },
+      {
+        "id": "c",
+        "text": "coefficients d’influence"
+      },
+      {
+        "id": "d",
+        "text": "coefficients de situation"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Dans $s = \\mu_i\\,C_e\\,C_t\\,s_k$ : $\\mu_i$ = **coefficient de forme** (pente, versants, noues, obstacles), $C_e$ = coefficient d'**exposition** (1,0 site normal, 1,25 site protégé), $C_t$ = coefficient **thermique** (1,0 sauf toitures très déperditives). Question 4 du QCM neige et vent A.",
+    "source": [
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 4"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 19
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "qcm-A"
+    ],
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "a": "C’est C_e, pas μ."
+    }
   },
   {
     "id": "stab1-neige-sk-001",
     "subjectId": "stab1",
-    "themeIds": ["neige"],
+    "themeIds": [
+      "neige"
+    ],
     "level": 2,
     "type": "numeric",
     "prompt": "Garage à Clermont-Ferrand (région **A2**), altitude **360 m**. Calcule la valeur caractéristique $s_k$ de la charge de neige au sol.",
-    "data": [
-      { "kind": "table", "title": "Neige au sol (altitude ≤ 200 m)", "columns": ["Région", "$s_k$ (kN/m²)", "$s_{Ad}$ (kN/m²)"], "rows": [["A1", 0.45, "—"], ["A2", 0.45, 1.0], ["B1", 0.55, 1.0], ["B2", 0.55, 1.35]] },
-      { "kind": "formula", "title": "Effet de l'altitude (régions A à D)", "latex": "200 < A \\le 500\\ \\text{m} : \\Delta s_1 = \\frac{A}{1000} - 0{,}20" }
-    ],
-    "answer": { "value": 0.61, "unit": "kN/m²", "tolerancePct": 2 },
+    "answer": {
+      "value": 0.61,
+      "unit": "kN/m²"
+    },
     "explanation": "$$\\Delta s_1 = \\frac{360}{1000} - 0{,}20 = 0{,}16\\ \\text{kN/m}^2$$\n$$s_k = 0{,}45 + 0{,}16 = 0{,}61\\ \\text{kN/m}^2$$\nC'est la valeur **au sol**. Sur une toiture à 15° : $s = \\mu_1 C_e C_t s_k = 0{,}8 \\times 1 \\times 1 \\times 0{,}61 = 0{,}49$ kN/m².\n\n**Piège** : ajouter $\\Delta s$ sans retirer 0,20 (→ 0,81), ou oublier l'altitude (→ 0,45).",
     "source": [
-      { "docName": "CORRIGE_TD_2024.pdf", "page": 3 },
-      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 17 }
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 3
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 17
+      }
     ],
-    "tags": ["td-garage"],
     "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "Majoration d’altitude Δs (cours p.17), A en m",
+        "columns": [
+          "Altitude",
+          "Δs1 (régions A1 à D)",
+          "Δs2 (région E)"
+        ],
+        "rows": [
+          [
+            "200 à 500 m",
+            "A/1000 − 0,20",
+            "1,5A/1000 − 0,30"
+          ],
+          [
+            "500 à 1000 m",
+            "1,5A/1000 − 0,45",
+            "3,5A/1000 − 1,30"
+          ],
+          [
+            "1000 à 2000 m",
+            "3,5A/1000 − 2,45",
+            "7A/1000 − 4,80"
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      "td-garage"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Dans quelle région de neige se trouve la **Charente-Maritime** (17) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "A1"
+      },
+      {
+        "id": "b",
+        "text": "A2"
+      },
+      {
+        "id": "c",
+        "text": "B1"
+      },
+      {
+        "id": "d",
+        "text": "C2"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Carte du cours (p.12) : Charente (16) et **Charente-Maritime (17) = A2** ; Deux-Sèvres, Vendée et Vienne = A1. En A2 : $s_k = 0{,}45$ kN/m² et il existe une neige exceptionnelle $s_{Ad} = 1{,}00$ kN/m² (accidentelle). En A1, pas de neige exceptionnelle.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 12
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Valeur caractéristique de la neige au sol $s_k$ à **La Rochelle** (altitude ≈ 20 m) ?",
+    "answer": {
+      "value": 0.45,
+      "unit": "kN/m²"
+    },
+    "explanation": "La Rochelle est en région **A2** et sous 200 m d'altitude → pas de majoration $\\Delta s$ : $s_k = 0{,}45$ kN/m² (cours p.18). La neige exceptionnelle y vaut $s_{Ad} = 1{,}00$ kN/m² (action accidentelle). Paris (A1) a aussi $s_k = 0{,}45$ mais pas de $s_{Ad}$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 1,
+    "type": "truefalse",
+    "prompt": "À Paris (région A1), il faut considérer une charge de neige exceptionnelle $s_{Ad}$.",
+    "choices": [
+      {
+        "id": "v",
+        "text": "Vrai"
+      },
+      {
+        "id": "f",
+        "text": "Faux"
+      }
+    ],
+    "answer": [
+      "f"
+    ],
+    "explanation": "**Faux.** Le tableau du cours ne donne pas de $s_{Ad}$ pour les régions **A1, C1 et E**. À Paris (A1) il n'y a donc pas de neige exceptionnelle à étudier ; à La Rochelle (A2) il faut l'étudier : $s_{Ad} = 1{,}00$ kN/m² en combinaison accidentelle (cours p.18).",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 16
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Lourdes : région A2, altitude **500 m**. Calcule $s_k$.",
+    "answer": {
+      "value": 0.75,
+      "unit": "kN/m²"
+    },
+    "explanation": "500 m est la borne haute de la tranche 200–500 m : $\\Delta s_1 = A/1000 - 0{,}20 = 0{,}50 - 0{,}20 = 0{,}30$ kN/m² (même résultat avec la formule suivante : $1{,}5\\times0{,}5 - 0{,}45 = 0{,}30$).\n$$s_k = 0{,}45 + 0{,}30 = 0{,}75\\ \\text{kN/m}^2$$\n(exemple du cours p.18).",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "Majoration d’altitude Δs (cours p.17), A en m",
+        "columns": [
+          "Altitude",
+          "Δs1 (régions A1 à D)",
+          "Δs2 (région E)"
+        ],
+        "rows": [
+          [
+            "200 à 500 m",
+            "A/1000 − 0,20",
+            "1,5A/1000 − 0,30"
+          ],
+          [
+            "500 à 1000 m",
+            "1,5A/1000 − 0,45",
+            "3,5A/1000 − 1,30"
+          ],
+          [
+            "1000 à 2000 m",
+            "3,5A/1000 − 2,45",
+            "7A/1000 − 4,80"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-neige-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Gourette : « même région que La Rochelle » (A2), altitude **1400 m**. Calcule $s_k$.",
+    "answer": {
+      "value": 2.9,
+      "unit": "kN/m²"
+    },
+    "explanation": "Tranche 1000–2000 m : $\\Delta s_1 = 3{,}5A/1000 - 2{,}45 = 3{,}5\\times1{,}4 - 2{,}45 = 4{,}90 - 2{,}45 = 2{,}45$ kN/m².\n$$s_k = 0{,}45 + 2{,}45 = 2{,}90\\ \\text{kN/m}^2 \\approx 290\\ \\text{kg/m}^2$$\nAu-dessus de 1000 m, la neige passe aussi en **moyen terme** pour le bois ($k_{mod}$ 0,8 au lieu de 0,9) et ψ0 = 0,7.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "Majoration d’altitude Δs (cours p.17), A en m",
+        "columns": [
+          "Altitude",
+          "Δs1 (régions A1 à D)",
+          "Δs2 (région E)"
+        ],
+        "rows": [
+          [
+            "200 à 500 m",
+            "A/1000 − 0,20",
+            "1,5A/1000 − 0,30"
+          ],
+          [
+            "500 à 1000 m",
+            "1,5A/1000 − 0,45",
+            "3,5A/1000 − 1,30"
+          ],
+          [
+            "1000 à 2000 m",
+            "3,5A/1000 − 2,45",
+            "7A/1000 − 4,80"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-neige-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "À quelle période de retour correspond la valeur caractéristique $s_k$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "10 ans"
+      },
+      {
+        "id": "b",
+        "text": "50 ans"
+      },
+      {
+        "id": "c",
+        "text": "100 ans"
+      },
+      {
+        "id": "d",
+        "text": "1000 ans"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Cours p.11 : $s_k$ a une **probabilité annuelle de dépassement de 0,02**, soit une période de retour de $1/0{,}02 = 50$ ans. C'est la même convention que pour la vitesse de référence du vent $v_{b,0}$. La neige exceptionnelle correspond à une chute « exceptionnellement rare » → action accidentelle.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 11
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "La charge de neige **exceptionnelle** $s_{Ad}$ est considérée comme une action…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "permanente"
+      },
+      {
+        "id": "b",
+        "text": "variable"
+      },
+      {
+        "id": "c",
+        "text": "accidentelle"
+      },
+      {
+        "id": "d",
+        "text": "sismique"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Cours p.11 et p.19 : la charge de neige au sol exceptionnelle et l'accumulation exceptionnelle (annexe B) sont des actions **accidentelles**. On les combine en situation accidentelle ($s = \\mu_i C_e C_t s_{Ad}$), sans coefficients 1,35/1,5, et on ne cumule pas neige exceptionnelle et accumulation (TD garage p.3).",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 11
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 19
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Toiture à 2 versants inclinés à 20°. Valeur de $\\mu_1$ ?",
+    "answer": {
+      "value": 0.8,
+      "unit": ""
+    },
+    "explanation": "Pour $0° \\le \\alpha \\le 30°$ : $\\mu_1 = 0{,}8$ (graphe du cours p.22). Le coefficient ne diminue qu'à partir de 30° (la neige commence à glisser) et s'annule à 60°.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 22
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Coefficient de forme μ1 (cours p.22)",
+        "latex": "\\mu_1 = \\begin{cases} 0{,}8 & 0° \\le \\alpha \\le 30° \\\\ 0{,}8\\,\\dfrac{60-\\alpha}{30} & 30° < \\alpha < 60° \\\\ 0 & \\alpha \\ge 60° \\end{cases}"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Toiture à 1 versant inclinée à **45°**. Valeur de $\\mu_1$ ?",
+    "answer": {
+      "value": 0.4,
+      "unit": ""
+    },
+    "explanation": "Pour $30° < \\alpha < 60°$ : $\\mu_1 = 0{,}8\\,\\dfrac{60 - \\alpha}{30} = 0{,}8 \\times \\dfrac{15}{30} = 0{,}4$ (exemple du cours p.23). La charge sur la toiture est alors deux fois plus faible qu'au sol × 0,8.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 22
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 23
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Coefficient de forme μ1 (cours p.22)",
+        "latex": "\\mu_1 = \\begin{cases} 0{,}8 & 0° \\le \\alpha \\le 30° \\\\ 0{,}8\\,\\dfrac{60-\\alpha}{30} & 30° < \\alpha < 60° \\\\ 0 & \\alpha \\ge 60° \\end{cases}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-neige-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Toiture inclinée à **40°**. Valeur de $\\mu_1$ ?",
+    "answer": {
+      "value": 0.533,
+      "unit": ""
+    },
+    "explanation": "$$\\mu_1 = 0{,}8\\,\\frac{60 - 40}{30} = 0{,}8 \\times 0{,}667 = 0{,}533$$\nInterpolation linéaire entre 0,8 (30°) et 0 (60°). Erreur fréquente : garder 0,8 au-delà de 30°.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 22
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Coefficient de forme μ1 (cours p.22)",
+        "latex": "\\mu_1 = \\begin{cases} 0{,}8 & 0° \\le \\alpha \\le 30° \\\\ 0{,}8\\,\\dfrac{60-\\alpha}{30} & 30° < \\alpha < 60° \\\\ 0 & \\alpha \\ge 60° \\end{cases}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-neige-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "La Rochelle, toiture plate à arêtes vives, site normal : charge de neige **normale** sur la toiture $s$ ?",
+    "answer": {
+      "value": 0.36,
+      "unit": "kN/m²"
+    },
+    "explanation": "$$s = \\mu_1\\,C_e\\,C_t\\,s_k = 0{,}8 \\times 1{,}0 \\times 1{,}0 \\times 0{,}45 = 0{,}36\\ \\text{kN/m}^2$$\n(application du cours p.37). Toiture plate → $\\alpha = 0$ → $\\mu_1 = 0{,}8$ ; site normal $C_e = 1$ ; $C_t = 1$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 33
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 37
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Même toiture plate à La Rochelle : charge de neige **accidentelle** (neige exceptionnelle) sur la toiture ?",
+    "answer": {
+      "value": 0.8,
+      "unit": "kN/m²"
+    },
+    "explanation": "$$s = \\mu_1\\,C_e\\,C_t\\,s_{Ad} = 0{,}8 \\times 1 \\times 1 \\times 1{,}00 = 0{,}80\\ \\text{kN/m}^2$$\n⚠️ Une diapo du cours (p.39) écrit « 0,8 × 1 = 0,36 kN/m² » : c'est une **coquille** (copier-coller de la ligne précédente). La bonne valeur est 0,8 kN/m², comme sur la diapo p.38.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 38
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 39,
+        "note": "coquille 0,36 au lieu de 0,8"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-neige-017",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Valeur de $C_e$ pour un **site protégé** (abri quasi permanent par les bâtiments voisins) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "0,8"
+      },
+      {
+        "id": "b",
+        "text": "1,0"
+      },
+      {
+        "id": "c",
+        "text": "1,25"
+      },
+      {
+        "id": "d",
+        "text": "1,5"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Cours p.20 : $C_e = 1{,}25$ en site **protégé** (le vent ne peut pas emporter la neige, elle s'accumule) ; $C_e = 1{,}0$ en site normal. Un site protégé **augmente** donc la charge. $C_t$ (thermique) vaut 1,0 dans les cas courants.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 20
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-018",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "L’accumulation de neige au pied d’un acrotère se calcule avec…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$s = \\mu_i C_e C_t s_k$ en situation durable"
+      },
+      {
+        "id": "b",
+        "text": "$s = \\mu_i\\,s_k$, en situation accidentelle"
+      },
+      {
+        "id": "c",
+        "text": "$s = 1{,}35\\,\\mu_i\\,s_k$"
+      },
+      {
+        "id": "d",
+        "text": "elle est négligée par l’Eurocode"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Cours p.19 et p.31 : l'accumulation exceptionnelle au droit d'un obstacle (annexe B) est une **charge accidentelle** : $s = \\mu_i\\,s_k$ avec $\\mu_1 = 0{,}8$ et $\\mu_2 = \\gamma h/s_k$ borné entre 0,8 et 2,0 ($\\gamma = 2$ kN/m³). Dans l'exemple de La Rochelle, il n'y a pas d'acrotère → pas d'accumulation.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 19
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 31
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-neige-019",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Acrotère de hauteur $h = 0{,}6$ m, $s_k = 0{,}45$ kN/m², poids volumique de la neige $\\gamma = 2$ kN/m³. Valeur de $\\mu_2$ à retenir ?",
+    "answer": {
+      "value": 2,
+      "unit": ""
+    },
+    "explanation": "$$\\mu_2 = \\frac{\\gamma h}{s_k} = \\frac{2\\times0{,}6}{0{,}45} = 2{,}67$$\nmais le cours borne : $0{,}8 \\le \\mu_2 \\le 2{,}0$ (1,6 entre deux acrotères) → on retient **$\\mu_2 = 2{,}0$**. La charge accidentelle au pied de l'acrotère vaut alors $2{,}0\\times0{,}45 = 0{,}90$ kN/m².",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 31
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-neige-020",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Acrotère de hauteur $h = 1{,}5$ m : longueur d’accumulation $l_s$ à retenir ?",
+    "answer": {
+      "value": 5,
+      "unit": "m"
+    },
+    "explanation": "Cours p.31 : $l_s = 2h = 3$ m, avec la condition $5\\ \\text{m} \\le l_s \\le 15\\ \\text{m}$ → on retient **$l_s = 5$ m**. La charge varie linéairement de $\\mu_2 s_k$ au pied de l'obstacle à $\\mu_1 s_k$ à la distance $l_s$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 31
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-neige-021",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Pour une toiture à 2 versants, quel cas de charge le cours qualifie-t-il de « plus intéressant » (le plus courant à étudier) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "cas (i) : $\\mu_1(\\alpha_1)$ et $\\mu_1(\\alpha_2)$ sur les deux versants"
+      },
+      {
+        "id": "b",
+        "text": "cas (ii) : $0{,}5\\mu_1(\\alpha_1)$ et $\\mu_1(\\alpha_2)$"
+      },
+      {
+        "id": "c",
+        "text": "cas (iii) : $\\mu_1(\\alpha_1)$ et $0{,}5\\mu_1(\\alpha_2)$"
+      },
+      {
+        "id": "d",
+        "text": "$\\mu_2$ sur toute la toiture"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Cours p.24-25 : trois cas pour 2 versants. Le cas (i), **neige non déplacée** ($\\mu_1$ sur chaque versant), est le plus défavorable pour les pannes et les portiques symétriques. Les cas (ii) et (iii) (neige déplacée par le vent, un versant à moitié) servent pour les effets dissymétriques. $\\mu_2$ concerne les noues des versants multiples.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 24
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-neige-022",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Construction en région **B1**, altitude **300 m**. Calcule $s_k$.",
+    "answer": {
+      "value": 0.65,
+      "unit": "kN/m²"
+    },
+    "explanation": "Valeur de base (≤ 200 m) en B1 : $s_{k,0} = 0{,}55$ kN/m².\nMajoration : $\\Delta s_1 = A/1000 - 0{,}20$ → $\\Delta s = 0{,}1$ kN/m².\n$$s_k = 0{,}55 + 0{,}1 = 0{,}65\\ \\text{kN/m}^2$$\nLes régions A1 à D utilisent $\\Delta s_1$ ; seule la région E utilise $\\Delta s_2$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 14
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 17
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "Majoration d’altitude Δs (cours p.17), A en m",
+        "columns": [
+          "Altitude",
+          "Δs1 (régions A1 à D)",
+          "Δs2 (région E)"
+        ],
+        "rows": [
+          [
+            "200 à 500 m",
+            "A/1000 − 0,20",
+            "1,5A/1000 − 0,30"
+          ],
+          [
+            "500 à 1000 m",
+            "1,5A/1000 − 0,45",
+            "3,5A/1000 − 1,30"
+          ],
+          [
+            "1000 à 2000 m",
+            "3,5A/1000 − 2,45",
+            "7A/1000 − 4,80"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-neige-023",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Construction en région **C2**, altitude **700 m**. Calcule $s_k$.",
+    "answer": {
+      "value": 1.25,
+      "unit": "kN/m²"
+    },
+    "explanation": "Valeur de base (≤ 200 m) en C2 : $s_{k,0} = 0{,}65$ kN/m².\nMajoration : $\\Delta s_1 = 1{,}5A/1000 - 0{,}45$ → $\\Delta s = 0{,}6$ kN/m².\n$$s_k = 0{,}65 + 0{,}6 = 1{,}25\\ \\text{kN/m}^2$$\nLes régions A1 à D utilisent $\\Delta s_1$ ; seule la région E utilise $\\Delta s_2$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 14
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 17
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "Majoration d’altitude Δs (cours p.17), A en m",
+        "columns": [
+          "Altitude",
+          "Δs1 (régions A1 à D)",
+          "Δs2 (région E)"
+        ],
+        "rows": [
+          [
+            "200 à 500 m",
+            "A/1000 − 0,20",
+            "1,5A/1000 − 0,30"
+          ],
+          [
+            "500 à 1000 m",
+            "1,5A/1000 − 0,45",
+            "3,5A/1000 − 1,30"
+          ],
+          [
+            "1000 à 2000 m",
+            "3,5A/1000 − 2,45",
+            "7A/1000 − 4,80"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-neige-024",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Construction en région **D**, altitude **150 m**. Calcule $s_k$.",
+    "answer": {
+      "value": 0.9,
+      "unit": "kN/m²"
+    },
+    "explanation": "Valeur de base (≤ 200 m) en D : $s_{k,0} = 0{,}9$ kN/m².\nMajoration : pas de majoration (altitude ≤ 200 m) → $\\Delta s = 0$ kN/m².\n$$s_k = 0{,}9 + 0 = 0{,}9\\ \\text{kN/m}^2$$\nLes régions A1 à D utilisent $\\Delta s_1$ ; seule la région E utilise $\\Delta s_2$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 14
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 17
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "Majoration d’altitude Δs (cours p.17), A en m",
+        "columns": [
+          "Altitude",
+          "Δs1 (régions A1 à D)",
+          "Δs2 (région E)"
+        ],
+        "rows": [
+          [
+            "200 à 500 m",
+            "A/1000 − 0,20",
+            "1,5A/1000 − 0,30"
+          ],
+          [
+            "500 à 1000 m",
+            "1,5A/1000 − 0,45",
+            "3,5A/1000 − 1,30"
+          ],
+          [
+            "1000 à 2000 m",
+            "3,5A/1000 − 2,45",
+            "7A/1000 − 4,80"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-neige-025",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Construction en région **E**, altitude **400 m**. Calcule $s_k$.",
+    "answer": {
+      "value": 1.7,
+      "unit": "kN/m²"
+    },
+    "explanation": "Valeur de base (≤ 200 m) en E : $s_{k,0} = 1{,}4$ kN/m².\nMajoration : $\\Delta s_2 = 1{,}5A/1000 - 0{,}30$ → $\\Delta s = 0{,}3$ kN/m².\n$$s_k = 1{,}4 + 0{,}3 = 1{,}7\\ \\text{kN/m}^2$$\nAttention : la région E utilise la formule $\\Delta s_2$, plus sévère.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 14
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 17
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "Majoration d’altitude Δs (cours p.17), A en m",
+        "columns": [
+          "Altitude",
+          "Δs1 (régions A1 à D)",
+          "Δs2 (région E)"
+        ],
+        "rows": [
+          [
+            "200 à 500 m",
+            "A/1000 − 0,20",
+            "1,5A/1000 − 0,30"
+          ],
+          [
+            "500 à 1000 m",
+            "1,5A/1000 − 0,45",
+            "3,5A/1000 − 1,30"
+          ],
+          [
+            "1000 à 2000 m",
+            "3,5A/1000 − 2,45",
+            "7A/1000 − 4,80"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-neige-026",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Toiture à 1 versant inclinée à **35°**, région **B2**, altitude **250 m**, site normal. Calcule la charge de neige sur la toiture $s$.",
+    "answer": {
+      "value": 0.4,
+      "unit": "kN/m²"
+    },
+    "explanation": "1. $s_k = 0{,}55 + (250/1000 - 0{,}20) = 0{,}55 + 0{,}05 = 0{,}60$ kN/m².\n2. $\\mu_1 = 0{,}8\\,(60 - 35)/30 = 0{,}667$ (on est au-delà de 30°).\n3. $s = \\mu_1 C_e C_t s_k = 0{,}667\\times1\\times1\\times0{,}60 = 0{,}4$ kN/m².\nPièges : garder 0,8 pour μ1, ou oublier la majoration d'altitude.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 17
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 22
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Charge de neige au sol, altitude ≤ 200 m (cours p.14-17)",
+        "columns": [
+          "Région",
+          "s_k (kN/m²)",
+          "s_Ad (kN/m²)"
+        ],
+        "rows": [
+          [
+            "A1",
+            0.45,
+            "—"
+          ],
+          [
+            "A2",
+            0.45,
+            1
+          ],
+          [
+            "B1",
+            0.55,
+            1
+          ],
+          [
+            "B2",
+            0.55,
+            1.35
+          ],
+          [
+            "C1",
+            0.65,
+            "—"
+          ],
+          [
+            "C2",
+            0.65,
+            1.35
+          ],
+          [
+            "D",
+            0.9,
+            1.8
+          ],
+          [
+            "E",
+            1.4,
+            "—"
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "Majoration d’altitude Δs (cours p.17), A en m",
+        "columns": [
+          "Altitude",
+          "Δs1 (régions A1 à D)",
+          "Δs2 (région E)"
+        ],
+        "rows": [
+          [
+            "200 à 500 m",
+            "A/1000 − 0,20",
+            "1,5A/1000 − 0,30"
+          ],
+          [
+            "500 à 1000 m",
+            "1,5A/1000 − 0,45",
+            "3,5A/1000 − 1,30"
+          ],
+          [
+            "1000 à 2000 m",
+            "3,5A/1000 − 2,45",
+            "7A/1000 − 4,80"
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "title": "Coefficient de forme μ1 (cours p.22)",
+        "latex": "\\mu_1 = \\begin{cases} 0{,}8 & 0° \\le \\alpha \\le 30° \\\\ 0{,}8\\,\\dfrac{60-\\alpha}{30} & 30° < \\alpha < 60° \\\\ 0 & \\alpha \\ge 60° \\end{cases}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-qcmA-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige",
+      "vent"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Cocher la réponse A.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "A"
+      },
+      {
+        "id": "b",
+        "text": "B"
+      },
+      {
+        "id": "c",
+        "text": "C"
+      },
+      {
+        "id": "d",
+        "text": "D"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Première question du QCM neige et vent A : c'est un **piège d'attention**. Il suffit de lire la consigne et de cocher A : +2 points « gratuits ». Avec le barème +2 / −1 / 0, une erreur d'inattention coûte 3 points d'écart. Lis toujours chaque énoncé jusqu'au bout avant de cocher.",
+    "source": [
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 1"
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "qcm-A",
+      "piège",
+      "ordre-fixe"
+    ],
     "examStyle": true
   }
 ]

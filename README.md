@@ -76,7 +76,11 @@ npm run dev
 | `npm run build` | build de production dans `dist/` |
 | `npm test` | tests Vitest (générateurs de calcul, seed, banques) |
 | `npm run icons` | régénère les icônes PNG depuis le SVG |
-| `npm run audit:questions` | audit des banques de questions (à partir de l'étape 4) |
+| `npm run bank` | recompile la banque STAB 1 (`src/subjects/stab1/bank/*.ts` → `questions/*.json`, `flashcards.json`, `exams.json`) |
+| `npm run audit:questions` | audit des banques (schéma, ids, explications, sources, répartition) |
+
+### Modifier ou ajouter une question STAB 1
+Les questions s'écrivent dans `src/subjects/stab1/bank/` (un fichier par bloc : `actions.ts`, `metal.ts`, `bois.ts`, `ba.ts`). Ajoute toujours **à la fin** d'un thème (les ids sont numérotés dans l'ordre), puis lance `npm run bank` et `npm run audit:questions`. L'appli met à jour les questions au prochain lancement sans toucher à l'historique.
 
 Stack : Vite + React 18 + TypeScript strict, Tailwind, vite-plugin-pwa (Workbox), Dexie (IndexedDB), KaTeX, React Router (hash), Vitest.
 

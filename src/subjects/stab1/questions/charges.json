@@ -1,0 +1,476 @@
+[
+  {
+    "id": "stab1-charges-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Pannes espacées de **2,588 m**, charges permanentes de toiture $g = 0{,}45$ kN/m². Calcule la charge permanente **linéique** sur une panne courante (hors poids propre).",
+    "answer": {
+      "value": 1.16,
+      "unit": "kN/ml"
+    },
+    "explanation": "Charge linéique = charge surfacique × **largeur de reprise** (pour une panne courante : l'entraxe, une demi-travée de chaque côté).\n$$g_{lin} = 0{,}45 \\times 2{,}588 = 1{,}16\\ \\text{kN/ml}$$\nC'est la valeur du TD garage (p.17), à laquelle on ajoute ensuite le poids propre de la panne.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 17
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-charges-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Neige sur la toiture : $s = 0{,}49$ kN/m² (**projection horizontale**), entraxe des pannes 2,588 m mesuré sur le rampant, pente $\\alpha = 15°$. Calcule la charge de neige linéique sur une panne.",
+    "answer": {
+      "value": 1.23,
+      "unit": "kN/ml",
+      "tolerancePct": 2.5
+    },
+    "explanation": "La neige est donnée **par m² de surface horizontale**. Une bande de rampant de largeur 2,588 m correspond à une largeur horizontale de $2{,}588\\cos15°$ :\n$$s_{lin} = 0{,}49 \\times 2{,}588 \\times \\cos 15° = 0{,}49\\times2{,}500 = 1{,}23\\ \\text{kN/ml}$$\n(1,27 kN/ml si on oublie le cos α). Le vent, lui, agit déjà perpendiculairement au versant : on ne le projette pas.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 17
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-charges-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "La charge de neige linéique verticale sur une panne vaut 1,23 kN/ml, versant à 15°. Quelle est sa composante **perpendiculaire au versant** (axe z de la panne) ?",
+    "answer": {
+      "value": 1.19,
+      "unit": "kN/ml"
+    },
+    "explanation": "Une charge verticale $P$ sur une panne inclinée se décompose en $P\\cos\\alpha$ (perpendiculaire au versant, flexion autour de y) et $P\\sin\\alpha$ (parallèle au versant, flexion autour de z) :\n$$S_{n,z} = 1{,}23 \\times \\cos 15° = 1{,}19\\ \\text{kN/ml}$$\nC'est la valeur utilisée dans la combinaison 06 du TD garage.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 17
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 76
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-charges-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Même charge verticale de neige 1,23 kN/ml, versant à 15°. Quelle est sa composante **parallèle au versant** (axe y de la panne) ?",
+    "answer": {
+      "value": 0.32,
+      "unit": "kN/ml",
+      "tolerancePct": 3
+    },
+    "explanation": "$$S_{n,y} = 1{,}23 \\times \\sin 15° = 1{,}23\\times0{,}259 = 0{,}32\\ \\text{kN/ml}$$\nCette composante fait fléchir la panne autour de son axe faible z (moment $M_{Ed,z}$) : c'est elle qui impose la vérification en **flexion déviée** et souvent des **liernes** à mi-portée.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 19
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 76
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-charges-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Toiture inaccessible (cat. H) de pente 15° sans étanchéité : quelle charge d’entretien retenir (AN de l’EC1-1) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "q_k = 0,8 kN/m² répartie"
+      },
+      {
+        "id": "b",
+        "text": "Q_k = 1,5 kN ponctuelle (q_k = 0)"
+      },
+      {
+        "id": "c",
+        "text": "q_k = 1,5 kN/m²"
+      },
+      {
+        "id": "d",
+        "text": "aucune charge d’exploitation"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Tableau 6.10 (NF) : toiture de pente < 15 % recevant une étanchéité → $q_k = 0{,}8$ kN/m² et $Q_k = 1{,}5$ kN ; **autres toitures → $q_k = 0$ et $Q_k = 1{,}5$ kN**. 15° correspond à $100\\tan15° = 26{,}8\\ \\%$ > 15 % → charge unique de 1,5 kN placée au milieu de la panne (TD garage p.13).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 13
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "a": "Valable seulement pour une pente < 15 % avec étanchéité."
+    }
+  },
+  {
+    "id": "stab1-charges-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Exprime en pourcentage une pente de toiture de 15°.",
+    "answer": {
+      "value": 26.8,
+      "unit": "%"
+    },
+    "explanation": "Pente en % = $100 \\times \\tan\\alpha = 100\\times\\tan15° = 26{,}8\\ \\%$. Piège : comparer directement « 15° » au seuil « 15 % » de l'Annexe nationale ; 15 % ne correspond qu'à 8,5°. Ici la pente dépasse 15 % → toiture « autre » → charge ponctuelle de 1,5 kN.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 13
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-charges-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 2,
+    "type": "truefalse",
+    "prompt": "La charge d’entretien d’une toiture cat. H se cumule avec la neige dans les combinaisons.",
+    "choices": [
+      {
+        "id": "v",
+        "text": "Vrai"
+      },
+      {
+        "id": "f",
+        "text": "Faux"
+      }
+    ],
+    "answer": [
+      "f"
+    ],
+    "explanation": "**Faux.** L'Annexe nationale précise que les charges d'exploitation des toitures de catégorie H **ne sont pas prises simultanément avec la neige ni avec le vent** (TD garage p.13). La combinaison $1{,}35G + 1{,}5Q$ est étudiée seule (et, la charge étant ponctuelle, elle se compare en moment, pas en kN/ml).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 13
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-charges-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Pourquoi multiplie-t-on la neige par $\\cos\\alpha$ pour obtenir la charge par mètre de panne, mais pas les charges permanentes ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "parce que la neige est une action variable"
+      },
+      {
+        "id": "b",
+        "text": "parce que la neige est donnée par m² de projection horizontale, les permanentes par m² de rampant"
+      },
+      {
+        "id": "c",
+        "text": "parce que la neige glisse sur le versant"
+      },
+      {
+        "id": "d",
+        "text": "c’est une erreur : il faut aussi projeter G"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Les poids de couverture (bac, isolant…) sont donnés **par m² de toiture réelle** (rampant) : $g\\times e$ suffit. La neige $s = \\mu_1 C_e C_t s_k$ est une charge **par m² de surface horizontale** (comme la neige au sol) : sur une bande de rampant de largeur $e$, la surface horizontale vaut $e\\cos\\alpha$, d'où $s\\,e\\cos\\alpha$ (TD garage p.17).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 17
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-charges-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Complexe de toiture du TD garage : bac acier 0,08 ; chevrons 0,03 ; contre-liteaux 0,01 ; OSB 16 mm 0,11 ; fibre de bois 0,11 ; lambris 0,05 ; divers 0,05 kN/m². Calcule la charge permanente totale.",
+    "answer": {
+      "value": 0.44,
+      "unit": "kN/m²",
+      "tolerancePct": 3
+    },
+    "explanation": "Somme : $0{,}08 + 0{,}03 + 0{,}01 + 0{,}11 + 0{,}11 + 0{,}05 + 0{,}05 = 0{,}44$ kN/m². Le tableau du corrigé (sortie logiciel) annonce **0,45 kN/m²** car les valeurs affichées sont arrondies : les deux réponses sont acceptées. À cette charge s'ajoute le poids propre de la panne, inconnu tant que le profilé n'est pas choisi.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 14
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-charges-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Un IPE 100 pèse 8,1 kg/m. Quelle charge linéique (kN/ml) représente son poids propre ? (prendre $g \\approx 10$ m/s²)",
+    "answer": {
+      "value": 0.081,
+      "unit": "kN/ml",
+      "tolerancePct": 3
+    },
+    "explanation": "$8{,}1\\ \\text{kg/m} \\times 10\\ \\text{N/kg} = 81\\ \\text{N/m} = 0{,}081\\ \\text{kN/ml}$ (valeur du TD garage p.19). Avec $g = 9{,}81$ on trouverait 0,079 kN/ml, accepté aussi. Le poids propre des profilés se lit dans la colonne G (kg/m) du catalogue.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 19
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 38
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-charges-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Panne en lamellé-collé GL24h de section $120\\times280$ mm, $\\rho_{mean} = 420$ kg/m³. Calcule son poids propre linéique.",
+    "answer": {
+      "value": 0.141,
+      "unit": "kN/ml"
+    },
+    "explanation": "$$pp = b\\,h\\,\\rho\\,g = 0{,}12 \\times 0{,}28 \\times 4{,}2\\ \\text{kN/m}^3 = 0{,}141\\ \\text{kN/ml}$$\n(420 kg/m³ ≈ 4,2 kN/m³ avec g ≈ 10). C'est le terme « 4,2 × 0,12 × 0,28 » de la combinaison du TD garage (p.32). On utilise $\\rho_{mean}$ (masse volumique moyenne), pas $\\rho_k$.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 32
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 8
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-charges-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Solive GL24h $100\\times250$ mm ($\\rho_{mean} = 420$ kg/m³). Calcule son poids propre linéique.",
+    "answer": {
+      "value": 0.105,
+      "unit": "kN/ml"
+    },
+    "explanation": "$$pp = 0{,}10\\times0{,}25\\times4{,}2 = 0{,}105\\ \\text{kN/ml}$$\nAu partiel 2023 bois, le moment $M_{Ed} = 11{,}88$ kN·m de l'énoncé correspond à $p = 3{,}142$ kN/m $= 1{,}35(1{,}15\\times0{,}6 + 0{,}105) + 1{,}5\\times2{,}3\\times0{,}6$ : le poids propre est donc inclus.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 8
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-charges-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Dalle en béton armé de 20 cm d’épaisseur (poids volumique 25 kN/m³). Calcule son poids surfacique.",
+    "answer": {
+      "value": 5,
+      "unit": "kN/m²"
+    },
+    "explanation": "$g = e \\times \\gamma_{béton} = 0{,}20\\ \\text{m} \\times 25\\ \\text{kN/m}^3 = 5{,}0\\ \\text{kN/m}^2$ (TD6 de béton armé). On ajoute ensuite les surcharges permanentes (cloisons, revêtements, faux plafonds : 1 kN/m² dans ce TD) avant de passer en charge linéique sur la poutre.",
+    "source": [
+      {
+        "docName": "Sujets_de_TD_STAB1_BA_2026-2027.pdf",
+        "page": 11
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-charges-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Un bâtiment de **bureaux** relève de quelle catégorie de charge d’exploitation ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "A"
+      },
+      {
+        "id": "b",
+        "text": "B"
+      },
+      {
+        "id": "c",
+        "text": "C"
+      },
+      {
+        "id": "d",
+        "text": "H"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "EC1-1 : catégorie **A** = habitation, **B = bureaux** (q_k = 2,5 kN/m² dans le TD6 BA), C = lieux de réunion, D = commerces, E = stockage, H = toitures inaccessibles sauf entretien. Les ψ des catégories A et B sont identiques : 0,7 / 0,5 / 0,3.",
+    "source": [
+      {
+        "docName": "Sujets_de_TD_STAB1_BA_2026-2027.pdf",
+        "page": 11
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 7
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-charges-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Quelle largeur de toiture une **panne intermédiaire** reprend-elle ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la distance entre portiques"
+      },
+      {
+        "id": "b",
+        "text": "l’entraxe des pannes (une demi-distance de chaque côté)"
+      },
+      {
+        "id": "c",
+        "text": "la moitié de l’entraxe"
+      },
+      {
+        "id": "d",
+        "text": "toute la longueur du rampant"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Chaque panne reprend la bande de couverture comprise entre les **mi-distances** avec ses voisines, soit l'entraxe pour une panne courante (2,588 m dans le TD garage). Une panne de rive ne reprend qu'une demi-largeur (plus l'éventuel débord). La **portée** de la panne, elle, est la distance entre portiques (4 ou 8 m dans le TD).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 16
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 17
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-charges-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Pression du vent sur un long-pan $W_y = 0{,}57$ kN/m², portiques espacés de $l = 5$ m. Quelle charge linéique $q_w$ un portique courant reçoit-il ?",
+    "answer": {
+      "value": 2.85,
+      "unit": "kN/ml"
+    },
+    "explanation": "Poly p.9 (figure 2.4) : le portique reprend la surface d'influence de largeur $l$ (moitié de chaque côté) : $q_w = W_y \\times l = 0{,}57\\times5 = 2{,}85$ kN/ml. Les lisses transmettent en réalité des efforts ponctuels, que l'on assimile à cette charge répartie.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 9
+      }
+    ],
+    "origin": "builtin"
+  }
+]

@@ -10,21 +10,23 @@ function fingerprint(x: unknown): string {
   return `${s.length}-${h.toString(36)}`;
 }
 
-/** Charge les banques JSON intégrées (vides tant que l'étape 4 n'est pas faite). */
-function loadBuiltinQuestions(): Question[] {
-  const mods = import.meta.glob<{ default: Question[] }>('../subjects/*/questions/*.json', { eager: true });
-  return Object.values(mods).flatMap((m) => m.default);
+/** Charge les banques JSON intégrées (fichiers séparés du bundle principal, précachés pour le hors ligne). */
+async function loadBuiltinQuestions(): Promise<Question[]> {
+  const mods = import.meta.glob<{ default: Question[] }>('../subjects/*/questions/*.json');
+  return (await Promise.all(Object.values(mods).map((load) => load()))).flatMap((m) => m.default);
 }
-function loadBuiltinFlashcards(): Flashcard[] {
-  const mods = import.meta.glob<{ default: Flashcard[] }>('../subjects/*/flashcards.json', { eager: true });
-  return Object.values(mods).flatMap((m) => m.default);
+async function loadBuiltinFlashcards(): Promise<Flashcard[]> {
+  const mods = import.meta.glob<{ default: Flashcard[] }>('../subjects/*/flashcards.json');
+  return (await Promise.all(Object.values(mods).map((load) => load()))).flatMap((m) => m.default);
 }
 
 /**
  * Installe ou met à jour les contenus intégrés (merge par id) sans toucher à
  * l'historique, aux réglages ni aux questions créées par l'utilisateur.
  */
-export async function seedBuiltins(db: RevizDB, questions = loadBuiltinQuestions(), flashcards = loadBuiltinFlashcards()) {
+export async function seedBuiltins(db: RevizDB, q?: Question[], fc?: Flashcard[]) {
+  const questions = q ?? (await loadBuiltinQuestions());
+  const flashcards = fc ?? (await loadBuiltinFlashcards());
   const version = fingerprint([STAB1, questions, flashcards]);
   const current = (await db.settings.get('builtinVersion'))?.value;
   const hasStab1 = await db.subjects.get(STAB1.id);

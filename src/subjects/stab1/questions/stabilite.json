@@ -1,0 +1,534 @@
+[
+  {
+    "id": "stab1-stabilite-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Le vent sur le **pignon** est repris en toiture par…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "les lisses de bardage"
+      },
+      {
+        "id": "b",
+        "text": "la poutre au vent (contreventement transversal de toiture)"
+      },
+      {
+        "id": "c",
+        "text": "les palées de stabilité directement"
+      },
+      {
+        "id": "d",
+        "text": "les liernes"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Cheminement (poly p.9) : bardage → lisses → **potelets** → fondations et pannes → **poutre au vent** (treillis horizontal en toiture formé par les pannes, les portiques et des diagonales) → **palées de stabilité** de long-pan → fondations. La poutre au vent est une poutre à treillis sur 2 appuis, les palées sont ses appuis.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 9
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 84
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-stabilite-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Quel est le rôle d’une **palée de stabilité** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "reprendre la neige sur la toiture"
+      },
+      {
+        "id": "b",
+        "text": "ramener aux fondations l’effort horizontal longitudinal (poutre au vent) dans le plan du long-pan"
+      },
+      {
+        "id": "c",
+        "text": "supporter le bardage"
+      },
+      {
+        "id": "d",
+        "text": "empêcher la panne de déverser"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Cours p.85 : « La poutre au vent en toiture apporte un effort en long-pan qui doit être repris par une ou plusieurs **palées de stabilité** influant sur les fondations. » Ce sont des contreventements verticaux de façade (croix de Saint-André), comportant des poutres treillis en console qui assurent la stabilité **longitudinale** du bâtiment.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 85
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 9
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-stabilite-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Dans une croix de contreventement (palée) en ronds ou cornières fines, quelle diagonale travaille sous un vent donné ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la diagonale tendue"
+      },
+      {
+        "id": "b",
+        "text": "la diagonale comprimée"
+      },
+      {
+        "id": "c",
+        "text": "les deux, à parts égales"
+      },
+      {
+        "id": "d",
+        "text": "aucune : c’est le poteau qui reprend tout"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Les diagonales minces flambent sous un faible effort de compression : on ne compte que la **diagonale tendue** (cours p.85 : « traction dans la diagonale »). L'autre diagonale sert lorsque le vent souffle dans l'autre sens. C'est pourquoi on dimensionne ces barres en **traction** ($N_{pl,Rd}$, $N_{u,Rd}$) comme le tirant du TD garage.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 85
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 26
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-stabilite-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Qu’est-ce qui assure la stabilité d’un portique sous un vent soufflant sur le long-pan ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "l’encastrement entre poteaux et traverse (effet cadre)"
+      },
+      {
+        "id": "b",
+        "text": "la poutre au vent"
+      },
+      {
+        "id": "c",
+        "text": "les liernes"
+      },
+      {
+        "id": "d",
+        "text": "les pieds de poteaux articulés"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Poly p.9 : « C'est l'**encastrement des poteaux avec la traverse** qui assure la stabilité du portique et permet la transmission des charges à la fondation. » Les pieds étant en général articulés, c'est l'effet cadre (nœuds rigides en tête) qui reprend l'effort transversal.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 9
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-stabilite-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 2,
+    "type": "order",
+    "prompt": "Remets dans l’ordre le cheminement d’une charge **verticale** (neige) jusqu’au sol.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Couverture (bac acier)"
+      },
+      {
+        "id": "b",
+        "text": "Pannes"
+      },
+      {
+        "id": "c",
+        "text": "Traverses des portiques"
+      },
+      {
+        "id": "d",
+        "text": "Poteaux"
+      },
+      {
+        "id": "e",
+        "text": "Fondations"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "explanation": "Poly p.8 (figure 2.3) : la couverture porte entre pannes, les pannes portent entre portiques et chargent les **traverses**, qui descendent aux **poteaux**, puis aux **fondations**. Le « cheminement des charges » consiste à suivre la charge de son point d'application jusqu'au sol, en passant par toutes les attaches.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 8
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-stabilite-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 2,
+    "type": "order",
+    "prompt": "Remets dans l’ordre le cheminement de l’effort du **vent sur pignon**.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Bardage du pignon"
+      },
+      {
+        "id": "b",
+        "text": "Lisses de bardage"
+      },
+      {
+        "id": "c",
+        "text": "Potelets"
+      },
+      {
+        "id": "d",
+        "text": "Pannes (comprimées)"
+      },
+      {
+        "id": "e",
+        "text": "Poutre au vent en toiture"
+      },
+      {
+        "id": "f",
+        "text": "Palées de stabilité de long-pan"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "explanation": "Poly p.9 : « les forces sont transmises par les lisses aux potelets, les potelets les transmettent aux fondations et aux pannes, les pannes (comprimées) les transmettent alors au contreventement transversal de toiture (poutre au vent), […] dont les 2 appuis sont réalisés par les 2 contreventements verticaux de façade long-pan » = palées de stabilité.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 9
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 10
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-stabilite-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Sur une toiture en pente, les **liernes** (ou entretoises) reprennent principalement…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la composante $P\\cos\\alpha$ des charges"
+      },
+      {
+        "id": "b",
+        "text": "la composante $P\\sin\\alpha$ des charges, parallèle au versant"
+      },
+      {
+        "id": "c",
+        "text": "le vent sur le pignon"
+      },
+      {
+        "id": "d",
+        "text": "le poids propre des portiques"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Cours p.76-77 : une charge verticale P sur une panne inclinée donne $P\\cos\\alpha$ (⊥ versant) et $P\\sin\\alpha$ (// versant). La panne est faible autour de z : les liernes créent des appuis intermédiaires pour cette composante et cumulent les efforts ($P_1$, $2P_1$, $3P_1$…) jusqu'au faîtage ou à un point fixe. Dans le TD garage, elles divisent la flèche en y par 16.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 76
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 77
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 22
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-stabilite-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Panne continue sur 2 travées reliée par une lierne : $p = 3$ kN/ml, $L = 4$ m, pente $\\alpha = 15°$. Effort repris par la lierne : $P_1 = 0{,}625\\,p\\,L\\sin\\alpha$.",
+    "answer": {
+      "value": 1.94,
+      "unit": "kN"
+    },
+    "explanation": "$$P_1 = 0{,}625\\times3\\times4\\times\\sin15° = 7{,}5\\times0{,}2588 = 1{,}94\\ \\text{kN}$$\n0,625 pL est la réaction d'appui central d'une poutre continue à 2 travées égales (5pL/8). La lierne voisine reprend $2P_1$, etc., jusqu'à l'ancrage (cours p.77).",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 77
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-stabilite-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 1,
+    "type": "truefalse",
+    "prompt": "Les pieds de poteaux d’une halle métallique sont en général **articulés**.",
+    "choices": [
+      {
+        "id": "v",
+        "text": "Vrai"
+      },
+      {
+        "id": "f",
+        "text": "Faux"
+      }
+    ],
+    "answer": [
+      "v"
+    ],
+    "explanation": "**Vrai.** Poly p.25 : les pieds de poteaux réalisent « en général une **articulation**, rarement un encastrement ». Conséquence : la stabilité transversale vient de l'effet cadre en tête (encastrement poteau-traverse) et la stabilité longitudinale des palées. Une articulation simplifie les fondations (pas de moment).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-stabilite-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 2,
+    "type": "multi",
+    "prompt": "Coche les éléments qui appartiennent à la **charpente de pignon**.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Lisses de bardage"
+      },
+      {
+        "id": "b",
+        "text": "Potelets"
+      },
+      {
+        "id": "c",
+        "text": "Bardage"
+      },
+      {
+        "id": "d",
+        "text": "Pannes"
+      },
+      {
+        "id": "e",
+        "text": "Palées de stabilité"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ],
+    "explanation": "Poly p.7 : les charpentes de pignon sont parallèles au plan des portiques et comprennent **lisses, bardage, potelets**. Les pannes appartiennent à la toiture, les palées de stabilité aux façades de **long-pan** (contreventements verticaux).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 7
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 8
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-stabilite-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Dans la poutre au vent (treillis de toiture), comment travaillent les **pannes** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "en traction"
+      },
+      {
+        "id": "b",
+        "text": "en compression (montants du treillis)"
+      },
+      {
+        "id": "c",
+        "text": "en torsion"
+      },
+      {
+        "id": "d",
+        "text": "elles ne participent pas"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Les pannes servent de **montants** au treillis horizontal et transmettent l'effort des potelets : elles sont **comprimées** (poly p.9 : « les pannes (comprimées) les transmettent alors au contreventement transversal »). Les diagonales (croix) travaillent en traction (cours p.84). Une panne doit donc aussi être vérifiée en flexion + compression.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 9
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 84
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-stabilite-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Pour qu’une halle (boîte de 6 faces) soit stable, il faut que…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "tous les assemblages soient soudés"
+      },
+      {
+        "id": "b",
+        "text": "chacun des plans soit rigide dans son plan, par effet cadre ou par contreventement"
+      },
+      {
+        "id": "c",
+        "text": "les pieds de poteaux soient encastrés"
+      },
+      {
+        "id": "d",
+        "text": "la toiture soit en béton"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.7 : « Pour assurer la stabilité de cette boîte, il est nécessaire que chacune des 3 directions soit **rigide dans son plan**, par **effet cadre ou par contreventement**. » On décompose ensuite l'ossature en sous-structures planes : portiques, pignons, long-pans, toiture.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 7
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-stabilite-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "La flèche d'une panne dans le plan du versant vaut 36,7 mm sur 4 m. On ajoute une lierne à mi-portée : quelle flèche obtient-on ?",
+    "answer": {
+      "value": 2.29,
+      "unit": "mm",
+      "tolerancePct": 3
+    },
+    "explanation": "La flèche d'une poutre isostatique sous charge répartie varie en $L^4$ ($w = 5pL^4/384EI$). Avec une lierne à L/2, la portée est divisée par 2 → flèche divisée par $2^4 = 16$ :\n$$w = 36{,}7/16 = 2{,}29\\ \\text{mm}$$\n(TD garage p.22 : de 0,0367 m à ≈ 0,003 m, ce qui rend la flèche acceptable).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 22
+      }
+    ],
+    "origin": "builtin"
+  }
+]

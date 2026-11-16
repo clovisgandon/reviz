@@ -1,0 +1,1007 @@
+[
+  {
+    "id": "stab1-fc-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "front": "Combinaison fondamentale ELU",
+    "back": "$1{,}35\\,G_{k,sup} + 1{,}00\\,G_{k,inf} + 1{,}5\\,Q_{k,1} + 1{,}5\\sum\\psi_{0,i}Q_{k,i}$",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "front": "Combinaison ELS caractéristique",
+    "back": "$\\sum G_{k,j} + Q_{k,1} + \\sum\\psi_{0,i}Q_{k,i}$ (sans coefficients partiels)",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "front": "Combinaison accidentelle",
+    "back": "$\\sum G_{k,j} + A_d + (\\psi_{1,1}\\text{ ou }\\psi_{2,1})Q_{k,1} + \\sum\\psi_{2,i}Q_{k,i}$",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "front": "Combinaison sismique",
+    "back": "$\\sum G_{k,j} + A_{Ed} + \\sum\\psi_{2,i}Q_{k,i}$",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "front": "ψ0 / ψ2 : exploitation cat. A, neige (≤ 1000 m), vent",
+    "back": "Cat. A : 0,7 / 0,3 — Neige : 0,5 / 0 — Vent : 0,6 / 0",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 12
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ec0"
+    ],
+    "front": "Durées d’utilisation de projet",
+    "back": "10 ans provisoire ; 25 ans remplaçable / agricole ; 50 ans bâtiment courant ; 100 ans monumental",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 11
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "front": "Charge de neige sur toiture (durable)",
+    "back": "$s = \\mu_i\\,C_e\\,C_t\\,s_k$",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 19
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "front": "Charge de neige accidentelle (neige exceptionnelle / accumulation)",
+    "back": "$s = \\mu_i\\,C_e\\,C_t\\,s_{Ad}$ ; accumulation : $s = \\mu_i\\,s_k$",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 19
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "front": "s_k (≤ 200 m) par région",
+    "back": "A1 = A2 = 0,45 ; B1 = B2 = 0,55 ; C1 = C2 = 0,65 ; D = 0,90 ; E = 1,40 kN/m²",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 16
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "front": "s_Ad par région",
+    "back": "A2 1,00 ; B1 1,00 ; B2 1,35 ; C2 1,35 ; D 1,80 kN/m² ; pas de s_Ad en A1, C1, E",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 16
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "front": "Δs1 pour 200 < A ≤ 500 m",
+    "back": "$\\Delta s_1 = A/1000 - 0{,}20$ (500–1000 : $1{,}5A/1000 - 0{,}45$ ; 1000–2000 : $3{,}5A/1000 - 2{,}45$)",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 17
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "front": "Coefficient μ1",
+    "back": "0,8 pour α ≤ 30° ; $0{,}8(60-\\alpha)/30$ entre 30 et 60° ; 0 au-delà de 60°",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 22
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "front": "C_e et C_t",
+    "back": "C_e = 1,0 site normal, 1,25 site protégé ; C_t = 1,0 en général",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 20
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "neige"
+    ],
+    "front": "μ2 au droit d’un acrotère",
+    "back": "$\\mu_2 = \\gamma h/s_k$, $0{,}8 \\le \\mu_2 \\le 2{,}0$, γ = 2 kN/m³ ; $l_s = 2h$ entre 5 et 15 m",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 31
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "front": "Pression dynamique de référence",
+    "back": "$q_b = \\tfrac12\\rho v_b^2$, ρ = 1,225 kg/m³, $v_b = c_{dir}c_{season}v_{b,0}$",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 47
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "front": "v_b,0 par région",
+    "back": "1 = 22 ; 2 = 24 ; 3 = 26 ; 4 = 28 m/s",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 48
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-017",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "front": "Pression dynamique de pointe",
+    "back": "$q_p(z) = c_e(z)\\,q_b$ — z = hauteur de la construction (pas l'altitude)",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 50
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-018",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "front": "Pression nette sur une paroi",
+    "back": "$p = q_p\\,(c_{pe} - c_{pi})$, $c_{p,net} = c_{pe} - c_{pi}$",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 59
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-019",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "front": "c_pi (méthode simplifiée)",
+    "back": "+0,2 (surpression intérieure) et −0,3 (dépression) : garder le plus défavorable",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 70
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-020",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "front": "Paramètre e du zonage",
+    "back": "$e = \\min(b\\ ;\\ 2h)$, b = largeur au vent ; A sur e/5, B sur 4e/5",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 63
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-021",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "front": "c_pe selon la surface A",
+    "back": "A ≤ 1 m² : $c_{pe,1}$ ; A ≥ 10 m² : $c_{pe,10}$ ; entre : $c_{pe,1} + (c_{pe,10}-c_{pe,1})\\log_{10}A$",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 61
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-022",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "front": "c_pe,10 toiture plate à arêtes vives",
+    "back": "F −1,8 ; G −1,2 ; H −0,7 ; I ±0,2",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 68
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-023",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "front": "c_pe,10 murs (h/d ≤ 0,25)",
+    "back": "A −1,2 ; B −0,8 ; C −0,5 ; D +0,7 ; E −0,3",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 63
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-024",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "front": "Charge linéique sur une panne",
+    "back": "surfacique × entraxe ; neige : $s\\times e\\times\\cos\\alpha$ ; composantes $P\\cos\\alpha$ (z) et $P\\sin\\alpha$ (y)",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 17
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-025",
+    "subjectId": "stab1",
+    "themeIds": [
+      "charges"
+    ],
+    "front": "Charge d’entretien toiture cat. H (pente > 15 %)",
+    "back": "Q_k = 1,5 kN ponctuelle, q_k = 0 ; non cumulée avec neige ni vent",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 13
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-026",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "front": "Cheminement du vent sur pignon",
+    "back": "lisses → potelets → pannes (comprimées) → poutre au vent → palées de stabilité → fondations",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 9
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-027",
+    "subjectId": "stab1",
+    "themeIds": [
+      "stabilite"
+    ],
+    "front": "Effort dans une lierne (2 travées)",
+    "back": "$P_1 = 0{,}625\\,p\\,L\\sin\\alpha$, cumul $P_1, 2P_1, 3P_1$…",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 77
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-028",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "front": "S235 / S275 / S355 : f_y et f_u",
+    "back": "235/360 ; 275/430 ; 355/490 MPa (t ≤ 40 mm)",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-029",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "front": "Constantes de l’acier",
+    "back": "E = 210 000 MPa ; ν = 0,3 ; ρ = 7850 kg/m³ ; α = 1,2·10⁻⁵ K⁻¹",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-030",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "front": "Coefficients γ_M (EC3, bâtiments)",
+    "back": "γ_M0 = 1,00 ; γ_M1 = 1,00 ; γ_M2 = 1,25",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-031",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "front": "Traction : section brute",
+    "back": "$N_{pl,Rd} = A\\,f_y/\\gamma_{M0}$",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 18
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-032",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "front": "Traction : section nette",
+    "back": "$N_{u,Rd} = 0{,}9\\,A_{net}\\,f_u/\\gamma_{M2}$, $A_{net} = bt - n\\,d_0\\,t$",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 18
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-033",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "front": "Moment résistant classe 1-2 / classe 3",
+    "back": "$M_{pl,Rd} = W_{pl}f_y/\\gamma_{M0}$ ; $M_{el,Rd} = W_{el}f_y/\\gamma_{M0}$",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 19
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-034",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "front": "Résistance au cisaillement",
+    "back": "$V_{pl,Rd} = A_{vz}\\,(f_y/\\sqrt3)/\\gamma_{M0}$ ; si $V_{Ed} \\le 0{,}5V_{pl,Rd}$ : pas d'interaction",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 23
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-035",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "front": "Flexion biaxiale profilé en I",
+    "back": "$(M_y/M_{N,y,Rd})^2 + (M_z/M_{N,z,Rd})^{\\beta} \\le 1$, β = 5n ≥ 1",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 24
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-036",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "front": "Classe d’un profilé",
+    "back": "max(classe de l’âme ; classe de la semelle) ; ε = √(235/f_y)",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 21
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-037",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "front": "Flèche poutre isostatique, charge uniforme",
+    "back": "$w = \\dfrac{5\\,p\\,L^4}{384\\,E\\,I}$",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 13
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-038",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "front": "Flèches limites toiture en général",
+    "back": "w_max ≤ L/200 ; w_3 ≤ L/250",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 14
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-039",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "front": "Flèches limites planchers",
+    "back": "en général L/200 et L/300 ; cloisons fragiles L/250 et L/350 ; supportant des poteaux L/400 et L/500",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 14
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-040",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "front": "Déplacement horizontal, bâtiment industriel 1 niveau",
+    "back": "H/150 en tête de poteau (autres bâtiments : H/250)",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 14
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-041",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "front": "Pied de poteau : qui reprend quoi ?",
+    "back": "N_c → platine ; V → frottement ou bêche ; N_t (soulèvement) → tiges d’ancrage",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-042",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-coef"
+    ],
+    "front": "Résistance de calcul en flexion",
+    "back": "$f_{m,d} = f_{m,k}\\,k_{mod}\\,k_h/\\gamma_M$",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-043",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-coef"
+    ],
+    "front": "k_h lamellé-collé",
+    "back": "$h < 600$ mm : $\\min[(600/h)^{0,1} ; 1{,}1]$",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-044",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-coef"
+    ],
+    "front": "k_h bois massif",
+    "back": "$h < 150$ mm : $\\min[(150/h)^{0,2} ; 1{,}3]$",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-045",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-coef"
+    ],
+    "front": "k_mod CS1-CS2 (perm. / LT / MT / CT / inst.)",
+    "back": "0,6 / 0,7 / 0,8 / 0,9 / 1,1 (CS3 : 0,5 / 0,55 / 0,65 / 0,7 / 0,9)",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 7
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-046",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-coef"
+    ],
+    "front": "Classes de durée des actions",
+    "back": "G permanente ; exploitation moyen terme ; neige < 1000 m court terme ; vent instantané",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 7
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-047",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-coef"
+    ],
+    "front": "γ_M et k_def",
+    "back": "γ_M : BM 1,30 ; LC 1,25 ; LVL 1,20 — k_def : CS1 0,6 ; CS2 0,8 ; CS3 2,0",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 7
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-048",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-coef"
+    ],
+    "front": "GL24h : propriétés",
+    "back": "f_m,k 24 ; f_t,0,k 19,2 ; f_v,k 3,5 ; E_0,mean 11 500 MPa ; ρ_mean 420 kg/m³",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 8
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-049",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "front": "Contrainte de flexion (rectangle)",
+    "back": "$\\sigma_{m,d} = 6M/(bh^2)$",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-050",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "front": "Cisaillement bois",
+    "back": "$\\tau_d = 3V/(2bh) \\le f_{v,k}\\,k_{mod}\\,k_{cr}/\\gamma_M$, k_cr = 1",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 3
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-051",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "front": "Traction axiale bois",
+    "back": "$\\sigma_{t,0,d} \\le f_{t,0,k}\\,k_{mod}\\,k_l/\\gamma_M$",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 4
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-052",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "front": "Flexion déviée bois",
+    "back": "$\\sigma_y/f_y + k_m\\sigma_z/f_z \\le 1$ et $k_m\\sigma_y/f_y + \\sigma_z/f_z \\le 1$, k_m = 0,7",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 34
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-053",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "front": "Combinaison dimensionnante en bois",
+    "back": "la plus grande valeur de charge / k_mod",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 30
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-054",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "front": "Flèches finales bois",
+    "back": "$U_{fin,G} = (1+k_{def})U_{inst,G}$ ; $U_{fin,Q} = (1+\\psi_2k_{def})U_{inst,Q}$",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-055",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-els"
+    ],
+    "front": "Critères Calvi, bâtiment courant",
+    "back": "W_inst(Q) l/300 ; W_net,fin l/200 ; W_fin l/125",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 6
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-056",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "front": "Résistances du béton",
+    "back": "$f_{cd} = f_{ck}/1{,}5$ ; $f_{cm} = f_{ck} + 8$ ; $f_{ctm} = 0{,}3f_{ck}^{2/3}$ ; $f_{ctk,0,05} = 0{,}7f_{ctm}$",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-057",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "front": "Modules du béton",
+    "back": "$E_{cm} = 22\\,000(f_{cm}/10)^{0,3}$ ; $E_{c,eff} = E_{cm}/(1+\\varphi)$, φ = 2",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-058",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "front": "Acier B500",
+    "back": "$f_{yd} = 500/1{,}15 = 435$ MPa ; $E_s = 200$ GPa ; $\\varepsilon_{yd} = 2{,}17$ ‰",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-059",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "front": "Rectangle simplifié",
+    "back": "hauteur $0{,}8x_u$, contrainte $f_{cd}$ : $F_c = 0{,}8\\,x_u\\,b\\,f_{cd}$ ; ε_cu2 = 3,5 ‰",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-060",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "front": "Enrobage nominal",
+    "back": "$c_{nom} = \\max(c_{min,b} ; c_{min,dur} ; 10) + 10$ mm ; $c_{min,b} = \\varphi$",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-061",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "front": "Espacement entre barres",
+    "back": "$e_h \\ge \\max(20\\text{ mm} ; \\varphi ; d_g + 5\\text{ mm})$",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-062",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "front": "Adhérence et ancrage",
+    "back": "$f_{bd} = 2{,}25\\eta_1\\eta_2f_{ctd}$ ; $l_{b,rqd} = (\\varphi/4)(f_{yd}/f_{bd})$ ; η1 = 0,7 si barres hautes (h > 250)",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-063",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "front": "l_b,rqd en B500, bonnes conditions",
+    "back": "≈ 46,8φ (C20) ; 40,4φ (C25) ; 35,7φ (C30) ; 32,2φ (C35)",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-064",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "front": "Coefficient α des poteaux",
+    "back": "$\\alpha = 0{,}86/(1 + (\\lambda/62)^2)$ si λ ≤ 60 ; $(32/\\lambda)^{1,3}$ si 60 < λ ≤ 120",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-065",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "front": "Section minimale d’un poteau",
+    "back": "$A_{s,min} = \\max(0{,}10N_{Ed}/f_{yd} ; 0{,}002A_c)$, φ_L ≥ 8 mm",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-066",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "front": "Flexion simple : démarche",
+    "back": "$\\mu_{cu} = M_u/(bd^2f_{cd})$ ; si ≤ 0,372 : $\\beta = (1+\\sqrt{1-2\\mu})/2$ ; $A_s = M_u/(\\beta d f_{yd})$",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "stab1-fc-067",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "front": "Sections min / max (poutre)",
+    "back": "$A_{s,min} = \\max(0{,}26f_{ctm}bd/f_{yk} ; 0{,}0013bd)$ ; $A_{s,max} = 0{,}04A_c$",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ]
+  }
+]

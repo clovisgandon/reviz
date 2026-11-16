@@ -1,0 +1,622 @@
+[
+  {
+    "id": "stab1-ba-poteaux-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Élancement d’un poteau $\\lambda$ :",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$l_0/i$ avec $i = \\sqrt{I/A}$"
+      },
+      {
+        "id": "b",
+        "text": "$l_0/h$"
+      },
+      {
+        "id": "c",
+        "text": "$i/l_0$"
+      },
+      {
+        "id": "d",
+        "text": "$l_0\\,i$"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Corrigé TD4 : « L'élancement λ d'une pièce comprimée de section constante est le rapport de sa longueur de flambement $l_0$ au rayon de giration $i$ de la section droite du béton seul (non fissurée), calculé dans le plan de flambement. » Rectangle : $i = h/\\sqrt{12}$.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q1_et_Q2.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Poteaux (méthode simplifiée, corrigé TD4)",
+        "latex": "\\lambda = \\frac{l_0}{i} \\quad i = \\frac{h}{\\sqrt{12}} \\quad \\alpha = \\frac{0{,}86}{1 + (\\lambda/62)^2}\\ (\\lambda \\le 60) \\quad A_{s,min} = \\max\\left(\\frac{0{,}10\\,N_{Ed}}{f_{yd}}\\ ;\\ 0{,}002\\,A_c\\right)"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-poteaux-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Rayon de giration d’un poteau rectangulaire de dimension $h = 0{,}20$ m dans le plan de flambement ?",
+    "answer": {
+      "value": 57.7,
+      "unit": "mm",
+      "tolerancePct": 1
+    },
+    "explanation": "$$i = \\sqrt{\\frac{I}{A}} = \\sqrt{\\frac{bh^3/12}{bh}} = \\frac{h}{\\sqrt{12}} = \\frac{200}{3{,}464} = 57{,}7\\ \\text{mm}$$\n(corrigé TD4 : 5,77·10⁻² m pour le poteau P1 autour de Y).",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q1_et_Q2.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Poteaux (méthode simplifiée, corrigé TD4)",
+        "latex": "\\lambda = \\frac{l_0}{i} \\quad i = \\frac{h}{\\sqrt{12}} \\quad \\alpha = \\frac{0{,}86}{1 + (\\lambda/62)^2}\\ (\\lambda \\le 60) \\quad A_{s,min} = \\max\\left(\\frac{0{,}10\\,N_{Ed}}{f_{yd}}\\ ;\\ 0{,}002\\,A_c\\right)"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-poteaux-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Poteau P2 : $\\lambda = 34$. Calcule le coefficient $\\alpha$.",
+    "answer": {
+      "value": 0.661,
+      "unit": "",
+      "tolerancePct": 1
+    },
+    "explanation": "$\\lambda \\le 60$ :\n$$\\alpha = \\frac{0{,}86}{1 + (\\lambda/62)^2} = \\frac{0{,}86}{1 + (34/62)^2} = \\frac{0{,}86}{1{,}301} = 0{,}661$$\n(corrigé TD4 Q3). α réduit la capacité portante pour tenir compte du flambement.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Poteaux (méthode simplifiée, corrigé TD4)",
+        "latex": "\\lambda = \\frac{l_0}{i} \\quad i = \\frac{h}{\\sqrt{12}} \\quad \\alpha = \\frac{0{,}86}{1 + (\\lambda/62)^2}\\ (\\lambda \\le 60) \\quad A_{s,min} = \\max\\left(\\frac{0{,}10\\,N_{Ed}}{f_{yd}}\\ ;\\ 0{,}002\\,A_c\\right)"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-poteaux-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Poteau P1 : $\\lambda = 36$. Calcule $\\alpha$.",
+    "answer": {
+      "value": 0.643,
+      "unit": "",
+      "tolerancePct": 1
+    },
+    "explanation": "$\\lambda = 36 \\le 60$ :\n$$\\alpha = \\frac{0{,}86}{1 + (36/62)^2} = \\frac{0{,}86}{1{,}337} = 0{,}643$$\n(corrigé TD4 Q3). Plus le poteau est élancé, plus α diminue, donc plus la charge admissible baisse.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Poteaux (méthode simplifiée, corrigé TD4)",
+        "latex": "\\lambda = \\frac{l_0}{i} \\quad i = \\frac{h}{\\sqrt{12}} \\quad \\alpha = \\frac{0{,}86}{1 + (\\lambda/62)^2}\\ (\\lambda \\le 60) \\quad A_{s,min} = \\max\\left(\\frac{0{,}10\\,N_{Ed}}{f_{yd}}\\ ;\\ 0{,}002\\,A_c\\right)"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-poteaux-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Poteau P0 : $\\lambda = 42$. Calcule $\\alpha$.",
+    "answer": {
+      "value": 0.589,
+      "unit": "",
+      "tolerancePct": 1
+    },
+    "explanation": "$$\\alpha = \\frac{0{,}86}{1 + (42/62)^2} = \\frac{0{,}86}{1{,}459} = 0{,}589$$\n(corrigé TD4 Q3). Pour $60 < \\lambda \\le 120$, on utiliserait $\\alpha = (32/\\lambda)^{1,3}$.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Poteaux (méthode simplifiée, corrigé TD4)",
+        "latex": "\\lambda = \\frac{l_0}{i} \\quad i = \\frac{h}{\\sqrt{12}} \\quad \\alpha = \\frac{0{,}86}{1 + (\\lambda/62)^2}\\ (\\lambda \\le 60) \\quad A_{s,min} = \\max\\left(\\frac{0{,}10\\,N_{Ed}}{f_{yd}}\\ ;\\ 0{,}002\\,A_c\\right)"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-poteaux-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Poteau P1 : longueur de flambement $l_0 = 2{,}04$ m, rayon de giration $i = 5{,}77$ cm. Élancement ?",
+    "answer": {
+      "value": 35.4,
+      "unit": "",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$\\lambda = \\frac{l_0}{i} = \\frac{2{,}04}{0{,}0577} = 35{,}4$$\n(corrigé TD4 Q2 : 35,3). Autour de l'autre axe : $l_0 = 1{,}75$ m, $i = 6{,}35$ cm → λ = 27,6. On retient le plus grand → flambement dans le plan 0XZ (le sujet impose λ = 36).",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q1_et_Q2.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Poteaux (méthode simplifiée, corrigé TD4)",
+        "latex": "\\lambda = \\frac{l_0}{i} \\quad i = \\frac{h}{\\sqrt{12}} \\quad \\alpha = \\frac{0{,}86}{1 + (\\lambda/62)^2}\\ (\\lambda \\le 60) \\quad A_{s,min} = \\max\\left(\\frac{0{,}10\\,N_{Ed}}{f_{yd}}\\ ;\\ 0{,}002\\,A_c\\right)"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-poteaux-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Poteau P2 ($22\\times20$ cm, $N_{Ed} = 420$ kN, B500) : calcule $A_{s,min} = \\max(0{,}10N_{Ed}/f_{yd}\\ ;\\ 0{,}002A_c)$.",
+    "answer": {
+      "value": 0.966,
+      "unit": "cm²",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$0{,}10\\times420\\,000/434{,}8 = 96{,}6$ mm² ; $0{,}002\\times220\\times200 = 88$ mm².\n$$A_{s,min} = \\max(96{,}6\\ ;\\ 88) = 96{,}6\\ \\text{mm}^2 = 0{,}966\\ \\text{cm}^2$$\n(corrigé TD4 Q3). Le calcul de résistance ne demandant pas d'acier, on place le minimum… mais au moins 4 barres HA8.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "EN 1992-1-1 §9.5.2"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Poteaux (méthode simplifiée, corrigé TD4)",
+        "latex": "\\lambda = \\frac{l_0}{i} \\quad i = \\frac{h}{\\sqrt{12}} \\quad \\alpha = \\frac{0{,}86}{1 + (\\lambda/62)^2}\\ (\\lambda \\le 60) \\quad A_{s,min} = \\max\\left(\\frac{0{,}10\\,N_{Ed}}{f_{yd}}\\ ;\\ 0{,}002\\,A_c\\right)"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-poteaux-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Diamètre minimal des armatures longitudinales d’un poteau ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "6 mm"
+      },
+      {
+        "id": "b",
+        "text": "8 mm"
+      },
+      {
+        "id": "c",
+        "text": "10 mm"
+      },
+      {
+        "id": "d",
+        "text": "12 mm"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Corrigé TD4 : « les aciers mini sont des **HA8** pour les poteaux » (EC2 §9.5.2 : φ_L,min = 8 mm). Pour P2, A_s,min = 0,97 cm² serait couvert par moins de 4HA8, mais on met au minimum **4HA8** (une barre par angle).",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-poteaux-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Poteau de largeur $b = 200$ mm, armatures longitudinales HA14. Espacement maximal des cadres $s_{cl,t,max} = \\min(20\\varphi_L\\ ;\\ b\\ ;\\ 400\\ \\text{mm})$ ?",
+    "answer": {
+      "value": 200,
+      "unit": "mm",
+      "tolerancePct": 0
+    },
+    "explanation": "$\\min(20\\times14 = 280\\ ;\\ 200\\ ;\\ 400) = 200$ mm (corrigé TD4, poteau P1). Pour P2 (HA8) : $\\min(160 ; 200 ; 400) = 160$ mm, réduit à $0{,}6\\times160 = 96$ mm dans les zones de recouvrement.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-poteaux-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "TD4, poteau P2 ($N_{Ed} = 420$ kN, C35, 22 × 20 cm) : quel ferraillage longitudinal retient le corrigé ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "aucun acier"
+      },
+      {
+        "id": "b",
+        "text": "4HA8 (section minimale)"
+      },
+      {
+        "id": "c",
+        "text": "6HA14"
+      },
+      {
+        "id": "d",
+        "text": "4HA32"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "L'équation donne $A_s < 0$ : le béton seul suffit, **pas d'acier de résistance**. On place la section minimale : $A_{s,min} = 0{,}97$ cm² et au moins 4 barres HA8 → **4HA8 = 2,01 cm²** (ρ = 0,5 %).",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-poteaux-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "TD4, poteau P1 ($N_{Ed} = 750$ kN, λ = 36) : quel ferraillage retient le corrigé ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "4HA8"
+      },
+      {
+        "id": "b",
+        "text": "4HA12"
+      },
+      {
+        "id": "c",
+        "text": "6HA14 (9,24 cm²)"
+      },
+      {
+        "id": "d",
+        "text": "4HA32"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Le calcul donne $A_s \\approx 8{,}6$ cm² (9,6 avec la valeur approchée de $k_h$) > $A_{s,min} = 1{,}73$ cm² → **6HA14 = 9,24 cm²**, ρ = 2,1 % (entre 2 et 3 % pour un acier de résistance). Cadres espacés au plus de 200 mm.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Sections d’acier (cm²) pour n barres (corrigé TD1 BA)",
+        "columns": [
+          "φ (mm)",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "rows": [
+          [
+            "6",
+            0.28,
+            0.57,
+            0.85,
+            1.13,
+            1.41,
+            1.7,
+            1.98,
+            2.26
+          ],
+          [
+            "8",
+            0.5,
+            1.01,
+            1.51,
+            2.01,
+            2.51,
+            3.02,
+            3.52,
+            4.02
+          ],
+          [
+            "10",
+            0.79,
+            1.57,
+            2.36,
+            3.14,
+            3.93,
+            4.71,
+            5.5,
+            6.28
+          ],
+          [
+            "12",
+            1.13,
+            2.26,
+            3.39,
+            4.52,
+            5.65,
+            6.79,
+            7.92,
+            9.05
+          ],
+          [
+            "14",
+            1.54,
+            3.08,
+            4.62,
+            6.16,
+            7.7,
+            9.24,
+            10.78,
+            12.32
+          ],
+          [
+            "16",
+            2.01,
+            4.02,
+            6.03,
+            8.04,
+            10.05,
+            12.06,
+            14.07,
+            16.08
+          ],
+          [
+            "20",
+            3.14,
+            6.28,
+            9.42,
+            12.57,
+            15.71,
+            18.85,
+            21.99,
+            25.13
+          ],
+          [
+            "25",
+            4.91,
+            9.82,
+            14.73,
+            19.63,
+            24.54,
+            29.45,
+            34.36,
+            39.27
+          ],
+          [
+            "32",
+            8.04,
+            16.08,
+            24.13,
+            32.17,
+            40.21,
+            48.25,
+            56.3,
+            64.34
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-poteaux-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 3,
+    "type": "single",
+    "prompt": "TD4, poteau P0 ($N_{Ed} = 1085$ kN, λ = 42, 22 × 20 cm) : conclusion du corrigé ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "4HA8 suffisent"
+      },
+      {
+        "id": "b",
+        "text": "6HA14 suffisent"
+      },
+      {
+        "id": "c",
+        "text": "A_s ≈ 30 cm² (ρ ≈ 6,8 %) : section de béton insuffisante, il faut agrandir le poteau"
+      },
+      {
+        "id": "d",
+        "text": "le poteau ne flambe pas"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Le calcul donne $A_s \\approx 29{,}8$ cm², soit ρ = 6,8 % de la section : c'est **beaucoup trop** (le corrigé : « il faut rester entre 2 et 3 % ») et au-delà de la limite de 4 %. Il faut augmenter la section de béton du poteau (ou la classe de béton) plutôt que d'ajouter de l'acier.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-poteaux-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Poteau du TD4 : $c_{nom} = 20$ mm sous les cadres φ6, barres longitudinales HA14. Distance $d'$ du centre des barres au parement ?",
+    "answer": {
+      "value": 33,
+      "unit": "mm",
+      "tolerancePct": 0
+    },
+    "explanation": "$$d' = c_{nom} + \\varphi_t + \\varphi_L/2 = 20 + 6 + 7 = 33\\ \\text{mm}$$\npuis $\\delta = d'/h = 33/200 = 0{,}165$ (intervient dans $k_h$). Le corrigé garde 20 mm sous les cadres car 24 − 6 = 18 mm serait insuffisant pour les cadres eux-mêmes.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-poteaux-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Poteau contreventé de hauteur $l = 3$ m, raideurs relatives aux extrémités $k_1 = k_2 = 0{,}1$. Longueur de flambement $l_0 = 0{,}5\\,l\\sqrt{(1 + \\frac{k_1}{0{,}45 + k_1})(1 + \\frac{k_2}{0{,}45 + k_2})}$ ?",
+    "answer": {
+      "value": 1.773,
+      "unit": "m",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$1 + \\dfrac{0{,}1}{0{,}55} = 1{,}182$ ; avec $k_1 = k_2$ la racine vaut 1,182.\n$$l_0 = 0{,}5\\times3\\times1{,}182 = 1{,}77\\ \\text{m}$$\nBornes : $0{,}5\\,l \\le l_0 \\le l$ (encastrement parfait → 0,5l ; articulations → l). Formule du corrigé TD4 Q2.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q1_et_Q2.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "EN 1992-1-1 §5.8.3.2"
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-poteaux-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-poteaux"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Dans le calcul des raideurs pour $l_0$ (TD4), pourquoi divise-t-on l’inertie des poutres par 1,5 ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "pour tenir compte du fluage"
+      },
+      {
+        "id": "b",
+        "text": "parce que l’élément est fissuré : on néglige le béton tendu"
+      },
+      {
+        "id": "c",
+        "text": "par sécurité vis-à-vis du feu"
+      },
+      {
+        "id": "d",
+        "text": "parce que les poutres sont en T"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Corrigé TD4 Q2 : « l'élément étant fissuré, on ne prend pas en compte le béton tendu dans le calcul d'inertie : $I_f = I/1{,}5$ ». Une poutre fissurée est plus souple, elle retient moins la rotation du poteau, ce qui augmente $l_0$.",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q1_et_Q2.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  }
+]

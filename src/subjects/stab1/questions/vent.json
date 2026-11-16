@@ -2,82 +2,1190 @@
   {
     "id": "stab1-vent-qp-001",
     "subjectId": "stab1",
-    "themeIds": ["vent"],
+    "themeIds": [
+      "vent"
+    ],
     "level": 1,
     "type": "single",
     "prompt": "Dans $q_p(z) = c_e(z)\\cdot q_b$, que représente $z$ ?",
     "choices": [
-      { "id": "a", "text": "L'altitude du terrain par rapport au niveau de la mer" },
-      { "id": "b", "text": "La hauteur de la construction au-dessus du sol" },
-      { "id": "c", "text": "La profondeur des fondations" },
-      { "id": "d", "text": "La distance à la côte" }
+      {
+        "id": "a",
+        "text": "L’altitude du terrain par rapport au niveau de la mer"
+      },
+      {
+        "id": "b",
+        "text": "La hauteur de la construction au-dessus du sol"
+      },
+      {
+        "id": "c",
+        "text": "La profondeur des fondations"
+      },
+      {
+        "id": "d",
+        "text": "La distance à la côte"
+      }
     ],
-    "answer": ["b"],
+    "answer": [
+      "b"
+    ],
     "explanation": "Le cours insiste : **z n'est pas l'altitude, c'est la hauteur de la construction** (diapo de l'abaque $c_e(z)$). L'altitude intervient pour la neige ($\\Delta s$), pas pour le vent. Pour un bâtiment avec $h \\le b$, on prend une seule bande de pression et $z_e = h$.\n\nExemple du cours : La Rochelle, catégorie IIIb, $h = 10$ m → $c_e = 1{,}35$ lu sur l'abaque.",
-    "wrongChoiceHints": { "a": "Piège classique : l'altitude sert pour la neige (Δs), pas pour q_p." },
     "source": [
-      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 55, "note": "diapo « Pression dynamique de pointe qp(z) »" },
-      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 57 }
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 55,
+        "note": "diapo « Pression dynamique de pointe qp(z) »"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 57
+      }
     ],
-    "tags": ["piège"],
     "origin": "builtin",
-    "examStyle": true
+    "tags": [
+      "piège"
+    ],
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "a": "Piège classique : l’altitude sert pour la neige (Δs), pas pour q_p."
+    }
   },
   {
     "id": "stab1-vent-cpe-001",
     "subjectId": "stab1",
-    "themeIds": ["vent"],
+    "themeIds": [
+      "vent"
+    ],
     "level": 3,
     "type": "numeric",
     "prompt": "Toiture à **un versant** inclinée à $\\alpha = 34°$, vent $\\theta = 0°$. Pour une surface de $20\\ \\text{m}^2$ en **zone F**, quelle est la valeur **négative** de $c_{pe}$ ? (interpole si nécessaire)",
+    "answer": {
+      "value": -0.37,
+      "unit": "",
+      "tolerancePct": 3
+    },
+    "explanation": "1. $A = 20\\ \\text{m}^2 \\ge 10\\ \\text{m}^2$ → on lit les $c_{pe,10}$.\n2. Zone F : $-0{,}5$ à $30°$ et $0{,}0$ à $45°$ → interpolation linéaire sur l'angle :\n$$c_{pe} = -0{,}5 + \\frac{34-30}{45-30}\\,\\big(0 - (-0{,}5)\\big) = -0{,}5 + 0{,}133 = -0{,}37$$\n3. La valeur positive vaut $+0{,}7$ à 30° comme à 45° : pas d'interpolation.\n\n⚠️ **Le corrigé officiel du QCM donne −0,13** : il a interpolé avec 41° au lieu de 34°. Avec le bon angle, on trouve bien **−0,37** (et +0,7).",
+    "source": [
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 2,
+        "note": "le corrigé se trompe d’angle (41° au lieu de 34°)"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 61
+      }
+    ],
+    "origin": "builtin",
     "data": [
       {
         "kind": "table",
-        "title": "Toiture 1 versant, θ = 0° — $c_{pe,10}$ / $c_{pe,1}$",
-        "columns": ["α", "F", "G", "H"],
-        "rows": [
-          ["15°", "−0,9 / −2,0 et +0,2", "−0,8 / −1,5 et +0,2", "−0,3 et +0,2"],
-          ["30°", "−0,5 / −1,5 et +0,7", "−0,5 / −1,5 et +0,7", "−0,2 et +0,4"],
-          ["45°", "0,0 et +0,7", "0,0 et +0,7", "0,0 et +0,6"]
+        "title": "Toiture 1 versant, θ = 0° — c_pe,10 / c_pe,1 (QCM neige et vent A)",
+        "columns": [
+          "α",
+          "F",
+          "G",
+          "H"
         ],
-        "note": "Extrait du tableau donné dans le QCM neige et vent A."
+        "rows": [
+          [
+            "5°",
+            "−1,7 / −2,5 et 0,0",
+            "−1,2 / −2,0 et 0,0",
+            "−0,6 / −1,2 et 0,0"
+          ],
+          [
+            "15°",
+            "−0,9 / −2,0 et +0,2",
+            "−0,8 / −1,5 et +0,2",
+            "−0,3 et +0,2"
+          ],
+          [
+            "30°",
+            "−0,5 / −1,5 et +0,7",
+            "−0,5 / −1,5 et +0,7",
+            "−0,2 et +0,4"
+          ],
+          [
+            "45°",
+            "0,0 et +0,7",
+            "0,0 et +0,7",
+            "0,0 et +0,6"
+          ],
+          [
+            "60°",
+            "+0,7",
+            "+0,7",
+            "+0,7"
+          ],
+          [
+            "75°",
+            "+0,8",
+            "+0,8",
+            "+0,8"
+          ]
+        ]
       },
-      { "kind": "formula", "title": "Surface chargée", "latex": "A \\ge 10\\ \\text{m}^2 \\Rightarrow c_{pe} = c_{pe,10}" }
+      {
+        "kind": "formula",
+        "title": "Surface chargée",
+        "latex": "A \\ge 10\\ \\text{m}^2 \\Rightarrow c_{pe} = c_{pe,10}"
+      }
     ],
-    "answer": { "value": -0.37, "unit": "", "tolerancePct": 3 },
-    "explanation": "1. $A = 20\\ \\text{m}^2 \\ge 10\\ \\text{m}^2$ → on lit les $c_{pe,10}$.\n2. Zone F : $-0{,}5$ à $30°$ et $0{,}0$ à $45°$ → interpolation linéaire sur l'angle :\n$$c_{pe} = -0{,}5 + \\frac{34-30}{45-30}\\,\\big(0 - (-0{,}5)\\big) = -0{,}5 + 0{,}133 = -0{,}37$$\n3. La valeur positive vaut $+0{,}7$ à 30° comme à 45° : pas d'interpolation.\n\n⚠️ **Le corrigé officiel du QCM donne −0,13** : il a interpolé avec 41° au lieu de 34°. Avec le bon angle, on trouve bien **−0,37** (et +0,7).",
-    "source": [
-      { "docName": "QCM_neige_et_vent_A_corrigé.pdf", "page": 2, "note": "le corrigé se trompe d'angle (41° au lieu de 34°)" },
-      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 61 }
+    "tags": [
+      "qcm-A",
+      "interpolation",
+      "corrigé-faux"
     ],
-    "tags": ["qcm-A", "interpolation", "corrigé-faux"],
-    "origin": "builtin",
     "examStyle": true
   },
   {
     "id": "stab1-vent-cpi-001",
     "subjectId": "stab1",
-    "themeIds": ["vent"],
+    "themeIds": [
+      "vent"
+    ],
     "level": 1,
     "type": "multi",
     "prompt": "Méthode simplifiée (bâtiment courant, pas de face dominante) : quelles valeurs de $c_{pi}$ faut-il envisager ? Coche toutes les bonnes réponses.",
     "choices": [
-      { "id": "a", "text": "$c_{pi} = +0{,}2$ (intérieur en surpression)" },
-      { "id": "b", "text": "$c_{pi} = -0{,}3$ (intérieur en dépression)" },
-      { "id": "c", "text": "$c_{pi} = +0{,}8$" },
-      { "id": "d", "text": "$c_{pi} = 0$ : on néglige la pression intérieure" }
+      {
+        "id": "a",
+        "text": "$c_{pi} = +0{,}2$ (intérieur en surpression)"
+      },
+      {
+        "id": "b",
+        "text": "$c_{pi} = -0{,}3$ (intérieur en dépression)"
+      },
+      {
+        "id": "c",
+        "text": "$c_{pi} = +0{,}8$"
+      },
+      {
+        "id": "d",
+        "text": "$c_{pi} = 0$ : on néglige la pression intérieure"
+      }
     ],
-    "answer": ["a", "b"],
+    "answer": [
+      "a",
+      "b"
+    ],
     "explanation": "Pour les bâtiments courants en situation durable, on ne considère pas de face dominante et on retient **la valeur la plus sévère entre $+0{,}2$ (surpression) et $-0{,}3$ (dépression)**. On fait donc les deux calculs de $p = q_p\\,(c_{pe} - c_{pi})$ et on garde le plus défavorable pour chaque paroi.\n\nExemple du cours (zone F, $c_{pe} = -1{,}8$) : $c_{p,net} = -1{,}8 - 0{,}2 = -2{,}0$ (le plus défavorable) ou $-1{,}8 + 0{,}3 = -1{,}5$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 70
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 72
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
     "wrongChoiceHints": {
       "c": "+0,8 est un c_pe de face au vent (zone D), pas un c_pi.",
-      "d": "On ne néglige la pression intérieure que pour un effort d'ensemble où elle s'annule sur deux faces opposées (tirant du TD garage)."
-    },
+      "d": "On ne néglige la pression intérieure que pour un effort d’ensemble où elle s’annule sur deux faces opposées (tirant du TD garage)."
+    }
+  },
+  {
+    "id": "stab1-vent-qcmA-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Comment appelle-t-on une face qui reçoit le vent ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "face alfa"
+      },
+      {
+        "id": "b",
+        "text": "face au vent"
+      },
+      {
+        "id": "c",
+        "text": "face sous le vent"
+      },
+      {
+        "id": "d",
+        "text": "face Victor"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "La direction moyenne du vent est supposée horizontale : la paroi frappée est la face **au vent** (zone D, $c_{pe}$ positif), la paroi opposée est la face **sous le vent** (zone E, dépression). Question 5 du QCM neige et vent A.",
     "source": [
-      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 70 },
-      { "docName": "STAB1_Cours_2_2022_Masson.pdf", "page": 72 }
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 5"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 43
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "qcm-A"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-qcmA-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "L’effet du vent sur une structure est principalement…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "linéique"
+      },
+      {
+        "id": "b",
+        "text": "ponctuel"
+      },
+      {
+        "id": "c",
+        "text": "surfacique"
+      },
+      {
+        "id": "d",
+        "text": "volumique"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Le vent s'exerce sous forme de **pression** sur les parois ($w = q_p\\,c_p$ en kN/m²) : c'est une action **surfacique**. On la transforme ensuite en charge linéique sur les lisses, pannes ou portiques en multipliant par la largeur de reprise. Question 6 du QCM A.",
+    "source": [
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 6"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 42
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "qcm-A"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-qcmA-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "La direction de l’action du vent sur une paroi est majoritairement…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "normale"
+      },
+      {
+        "id": "b",
+        "text": "tangente"
+      },
+      {
+        "id": "c",
+        "text": "quelconque"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Cours p.42 : le vent s'exerce sous forme de pression, ce qui engendre des **efforts perpendiculaires (normaux) aux surfaces**. Les frottements tangentiels existent mais sont négligeables pour les bâtiments courants. Question 7 du QCM A.",
+    "source": [
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 7"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 42
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "qcm-A"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-qcmA-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Le vent engendre, en réalité, des efforts…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "dynamiques"
+      },
+      {
+        "id": "b",
+        "text": "statiques"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Le vent est turbulent (rafales) : ses efforts sont en réalité **dynamiques**. L'Eurocode les remplace par une pression statique équivalente ($q_p$, pression dynamique **de pointe**, qui intègre les rafales via $c_e$). Question 8 du QCM A.",
+    "source": [
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 8"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 42
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "qcm-A"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-qcmA-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "La valeur de base de la vitesse de référence ($v_{b,0}$) est fonction…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "de l’existence ou non de masques aux alentours"
+      },
+      {
+        "id": "b",
+        "text": "de la hauteur z"
+      },
+      {
+        "id": "c",
+        "text": "du lieu de l’ouvrage"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "$v_{b,0}$ se lit sur la **carte des régions de vent** (1 = 22, 2 = 24, 3 = 26, 4 = 28 m/s) : elle ne dépend que du **lieu**. Les masques et la rugosité interviennent via la catégorie de terrain dans $c_e(z)$, et la hauteur z aussi via $c_e(z)$. Question 9 du QCM A.",
+    "source": [
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 9"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 47
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 48
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "qcm-A"
+    ],
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "b": "La hauteur z intervient dans c_e(z), pas dans v_b,0."
+    }
+  },
+  {
+    "id": "stab1-vent-qcmA-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "$c_{pe}$ et $c_{pi}$ sont positifs tous deux lorsque…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la face reçoit le vent"
+      },
+      {
+        "id": "b",
+        "text": "la paroi subit une pression sur ses deux faces"
+      },
+      {
+        "id": "c",
+        "text": "la paroi subit une dépression sur chaque face"
+      },
+      {
+        "id": "d",
+        "text": "les actions intérieure et extérieure vont « de l’extérieur vers l’intérieur »"
+      },
+      {
+        "id": "e",
+        "text": "les actions intérieure et extérieure vont « de l’intérieur vers l’extérieur »"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Convention : un coefficient **positif = pression** (l'air pousse **vers la paroi**), négatif = dépression (succion). $c_{pe} > 0$ : pression sur la face extérieure ; $c_{pi} > 0$ : pression sur la face intérieure. Les deux positifs = **pression sur les deux faces** (les actions sont alors de sens opposés et se retranchent : $c_{p,net} = c_{pe} - c_{pi}$). Question 10 du QCM A.",
+    "source": [
+      {
+        "docName": "QCM_neige_et_vent_A_corrigé.pdf",
+        "page": 1,
+        "note": "question 10"
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 57
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "qcm-A"
+    ],
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "a": "Une face au vent a c_pe > 0 mais c_pi peut être négatif.",
+      "d": "c_pi > 0 pousse de l’intérieur vers l’extérieur : les deux actions ne vont pas dans le même sens."
+    }
+  },
+  {
+    "id": "stab1-vent-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "La Rochelle, région de vent **3**. Calcule la pression dynamique de référence $q_b$ (prendre $\\rho = 1{,}225$ kg/m³, $c_{dir} = c_{season} = 1$).",
+    "answer": {
+      "value": 0.414,
+      "unit": "kN/m²",
+      "tolerancePct": 2.5
+    },
+    "explanation": "$v_b = c_{dir}\\,c_{season}\\,v_{b,0} = 26$ m/s.\n$$q_b = \\tfrac12\\,\\rho\\,v_b^2 = 0{,}5\\times1{,}225\\times26^2 = 414\\ \\text{N/m}^2 = 0{,}414\\ \\text{kN/m}^2$$\n⚠️ Le cours affiche **0,422 kN/m²** car une diapo (p.47-48) utilise $\\rho = 1{,}25$. Les deux valeurs sont acceptées ici (écart 2 %).",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 48
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 58,
+        "note": "ρ = 1,25 sur certaines diapos"
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-vent-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Clermont-Ferrand, région de vent **2**. Calcule $q_b$ ($\\rho = 1{,}225$ kg/m³).",
+    "answer": {
+      "value": 0.353,
+      "unit": "kN/m²"
+    },
+    "explanation": "$$q_b = 0{,}5\\times1{,}225\\times24^2 = 352{,}8\\ \\text{N/m}^2 = 0{,}353\\ \\text{kN/m}^2$$\nPuis, en catégorie IIIb à 8,5–10 m ($c_e \\approx 1{,}35$) : $q_p = 1{,}35\\times0{,}353 = 0{,}48$ kN/m², valeur du TD garage.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 58
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 3
+      }
     ],
     "origin": "builtin",
     "examStyle": true
+  },
+  {
+    "id": "stab1-vent-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "La Rochelle : $q_b = 0{,}422$ kN/m² (valeur du cours), catégorie IIIb, $h = 10$ m, $c_e(10) = 1{,}35$ lu sur l'abaque. Calcule $q_p$.",
+    "answer": {
+      "value": 0.57,
+      "unit": "kN/m²",
+      "tolerancePct": 2.5
+    },
+    "explanation": "$$q_p(z) = c_e(z)\\,q_b = 1{,}35\\times0{,}422 = 0{,}570\\ \\text{kN/m}^2$$\n(avec $q_b = 0{,}414$ on trouve 0,559, accepté). $c_e$ intègre la rugosité du terrain (IIIb = zone industrielle) et la topographie (terrain plat). z = **hauteur** du bâtiment (10 m), pas l'altitude.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 58
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Bâtiment dans une **zone industrielle**. Catégorie de terrain ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "0"
+      },
+      {
+        "id": "b",
+        "text": "II"
+      },
+      {
+        "id": "c",
+        "text": "IIIa"
+      },
+      {
+        "id": "d",
+        "text": "IIIb"
+      },
+      {
+        "id": "e",
+        "text": "IV"
+      }
+    ],
+    "answer": [
+      "d"
+    ],
+    "explanation": "Cours p.51-53 : **0** = mer, côte exposée, lacs ; **II** = rase campagne ; **IIIa** = campagne avec haies, vignobles, habitat dispersé ; **IIIb = zones urbanisées ou industrielles, bocage dense, vergers** ; **IV** = zones urbaines denses (≥ 15 % de bâtiments de plus de 15 m), forêts. C'est la catégorie de l'exemple de La Rochelle.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 52
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 53
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Construction en bord de mer, face au large. Catégorie de terrain ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "0"
+      },
+      {
+        "id": "b",
+        "text": "II"
+      },
+      {
+        "id": "c",
+        "text": "IIIb"
+      },
+      {
+        "id": "d",
+        "text": "IV"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "La catégorie **0** correspond à la mer ou une zone côtière exposée aux vents de mer, et aux lacs et plans d'eau parcourus par le vent sur au moins 5 km (cours p.52). C'est la rugosité la plus faible → $c_e(z)$ le plus élevé → pression la plus forte.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 52
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Bâtiment $b = 20$ m (face au vent), $d = 50$ m, $h = 10$ m. Calcule $e$ pour le zonage des parois.",
+    "answer": {
+      "value": 20,
+      "unit": "m"
+    },
+    "explanation": "$$e = \\min(b\\ ;\\ 2h) = \\min(20\\ ;\\ 20) = 20\\ \\text{m}$$\n$e < d = 50$ m → trois zones A, B, C sur les parois parallèles au vent : A sur $e/5 = 4$ m, B sur $4e/5 = 16$ m, C sur le reste (30 m) (exemple du cours p.64-65). b est **la largeur exposée au vent**.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 63
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 64
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_pe des murs verticaux — c_pe,10 (c_pe,1) (cours p.63)",
+        "columns": [
+          "h/d",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rows": [
+          [
+            "5",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,7"
+          ],
+          [
+            "1",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,5"
+          ],
+          [
+            "≤ 0,25",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,7 (+1,0)",
+            "−0,3"
+          ]
+        ],
+        "note": "Interpolation linéaire sur h/d. e = min(b ; 2h) ; A sur e/5, B sur 4e/5 si e < d."
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "TD garage, vent sur le long-pan : $b = 8$ m, $d = 21$ m, $h = 8{,}5$ m. Calcule $e$.",
+    "answer": {
+      "value": 8,
+      "unit": "m"
+    },
+    "explanation": "$e = \\min(b\\ ;\\ 2h) = \\min(8\\ ;\\ 17) = 8$ m. Comme $e < d$, on a les zones A ($e/5 = 1{,}6$ m), B ($4e/5 = 6{,}4$ m) et C (13 m), comme sur la sortie logiciel du corrigé (p.5, p.9). En toiture, les bandes F/G font $e/10 = 0{,}8$ m.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 9
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 5
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_pe des murs verticaux — c_pe,10 (c_pe,1) (cours p.63)",
+        "columns": [
+          "h/d",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rows": [
+          [
+            "5",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,7"
+          ],
+          [
+            "1",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,5"
+          ],
+          [
+            "≤ 0,25",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,7 (+1,0)",
+            "−0,3"
+          ]
+        ],
+        "note": "Interpolation linéaire sur h/d. e = min(b ; 2h) ; A sur e/5, B sur 4e/5 si e < d."
+      }
+    ]
+  },
+  {
+    "id": "stab1-vent-017",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Bâtiment $b = 20$ m, $h = 10$ m, $d = 50$ m. Largeur de la zone **A** sur les parois latérales ?",
+    "answer": {
+      "value": 4,
+      "unit": "m"
+    },
+    "explanation": "$e = \\min(20\\ ;\\ 20) = 20$ m < d. La zone A s'étend sur $e/5 = 4$ m depuis l'angle au vent, B sur $4e/5 = 16$ m, C sur $50 - 20 = 30$ m (cours p.65). La zone A est la plus dépressionnaire ($c_{pe,10} = -1{,}2$) car l'écoulement décolle à l'angle.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 63
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 65
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_pe des murs verticaux — c_pe,10 (c_pe,1) (cours p.63)",
+        "columns": [
+          "h/d",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rows": [
+          [
+            "5",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,7"
+          ],
+          [
+            "1",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,5"
+          ],
+          [
+            "≤ 0,25",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,7 (+1,0)",
+            "−0,3"
+          ]
+        ],
+        "note": "Interpolation linéaire sur h/d. e = min(b ; 2h) ; A sur e/5, B sur 4e/5 si e < d."
+      }
+    ]
+  },
+  {
+    "id": "stab1-vent-018",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Paroi au vent (zone D) d'un bâtiment avec $h/d = 0{,}4$. Calcule $c_{pe,10}$ par interpolation.",
+    "answer": {
+      "value": 0.72,
+      "unit": ""
+    },
+    "explanation": "Tableau : D = +0,7 pour $h/d \\le 0{,}25$ et +0,8 pour $h/d = 1$.\n$$c_{pe,D} = 0{,}7 + (0{,}8 - 0{,}7)\\,\\frac{0{,}4 - 0{,}25}{1 - 0{,}25} = 0{,}7 + 0{,}02 = 0{,}72$$\nDe même pour E : $-0{,}3 + (-0{,}2)\\times0{,}2 = -0{,}34$ (TD garage, vent sur long-pan, p.9).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 9
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 63
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_pe des murs verticaux — c_pe,10 (c_pe,1) (cours p.63)",
+        "columns": [
+          "h/d",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rows": [
+          [
+            "5",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,7"
+          ],
+          [
+            "1",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,5"
+          ],
+          [
+            "≤ 0,25",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,7 (+1,0)",
+            "−0,3"
+          ]
+        ],
+        "note": "Interpolation linéaire sur h/d. e = min(b ; 2h) ; A sur e/5, B sur 4e/5 si e < d."
+      }
+    ]
+  },
+  {
+    "id": "stab1-vent-019",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Toiture plate (zone F, $c_{pe,10} = -1{,}8$), $q_p = 0{,}570$ kN/m². Calcule la pression nette **la plus défavorable** avec $c_{pi} = +0{,}2$ ou $-0{,}3$.",
+    "answer": {
+      "value": -1.14,
+      "unit": "kN/m²"
+    },
+    "explanation": "$$c_{p,net} = c_{pe} - c_{pi} = -1{,}8 - 0{,}2 = -2{,}0\\quad(\\text{ou } -1{,}8 + 0{,}3 = -1{,}5)$$\nOn retient $-2{,}0$ : $p = q_p\\,c_{p,net} = 0{,}570\\times(-2{,}0) = -1{,}14$ kN/m² (dépression, exemple du cours p.73). La surpression intérieure aggrave la dépression extérieure en toiture.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 72
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 73
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Toiture plate à arêtes vives — c_pe,10 (cours p.68)",
+        "columns": [
+          "Zone",
+          "F",
+          "G",
+          "H",
+          "I"
+        ],
+        "rows": [
+          [
+            "c_pe,10",
+            "−1,8",
+            "−1,2",
+            "−0,7",
+            "±0,2"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-020",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Paroi au vent (zone D, $c_{pe} = +0{,}7$), $q_p = 0{,}570$ kN/m². Pression nette la plus défavorable ?",
+    "answer": {
+      "value": 0.57,
+      "unit": "kN/m²"
+    },
+    "explanation": "Pour une paroi en pression, le cas le pire est l'intérieur en **dépression** : $c_{p,net} = 0{,}7 - (-0{,}3) = 1{,}0$.\n$$p = 0{,}570\\times1{,}0 = +0{,}57\\ \\text{kN/m}^2$$\n(cours p.73 : « + 0,57 kN/m² (surpression) »). Avec $c_{pi} = +0{,}2$ on n'aurait que $0{,}5\\times0{,}57 = 0{,}29$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 72
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 73
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_pe des murs verticaux — c_pe,10 (c_pe,1) (cours p.63)",
+        "columns": [
+          "h/d",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rows": [
+          [
+            "5",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,7"
+          ],
+          [
+            "1",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,8 (+1,0)",
+            "−0,5"
+          ],
+          [
+            "≤ 0,25",
+            "−1,2 (−1,4)",
+            "−0,8 (−1,1)",
+            "−0,5",
+            "+0,7 (+1,0)",
+            "−0,3"
+          ]
+        ],
+        "note": "Interpolation linéaire sur h/d. e = min(b ; 2h) ; A sur e/5, B sur 4e/5 si e < d."
+      }
+    ]
+  },
+  {
+    "id": "stab1-vent-021",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD garage, vent sur pignon : sur la panne de 8 m, la zone F/G ($p = -0{,}72$ kN/m²) occupe 1,7 m et la zone H ($p = -0{,}38$) occupe 6,3 m. Calcule la pression **linéarisée** (moyenne pondérée) sur la panne.",
+    "answer": {
+      "value": -0.45,
+      "unit": "kN/m²",
+      "tolerancePct": 3
+    },
+    "explanation": "On remplace les deux zones par une pression uniforme équivalente :\n$$p = \\frac{1{,}7\\times(-0{,}72) + 6{,}3\\times(-0{,}38)}{8} = \\frac{-1{,}224 - 2{,}394}{8} = -0{,}45\\ \\text{kN/m}^2$$\nC'est la dépression $W^-$ retenue pour les pannes (corrigé p.12). En surpression, on retient +0,24 kN/m² (vent sur long-pan, zone H).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 12
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-vent-022",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Zone F d'une toiture 1 versant à 5° ($c_{pe,10} = -1{,}7$ ; $c_{pe,1} = -2{,}5$). Surface chargée $A = 5$ m². Calcule $c_{pe}$.",
+    "answer": {
+      "value": -1.94,
+      "unit": ""
+    },
+    "explanation": "Pour $1 < A < 10$ m² : $c_{pe} = c_{pe,1} + (c_{pe,10} - c_{pe,1})\\log_{10}A$ (cours p.61).\n$$c_{pe} = -2{,}5 + (-1{,}7 + 2{,}5)\\times\\log_{10}5 = -2{,}5 + 0{,}8\\times0{,}699 = -1{,}94$$\nLes petites surfaces (fixations, éléments de bardage) subissent des pointes plus fortes, d'où $c_{pe,1}$.",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 61
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Toiture 1 versant, θ = 0° — c_pe,10 / c_pe,1 (QCM neige et vent A)",
+        "columns": [
+          "α",
+          "F",
+          "G",
+          "H"
+        ],
+        "rows": [
+          [
+            "5°",
+            "−1,7 / −2,5 et 0,0",
+            "−1,2 / −2,0 et 0,0",
+            "−0,6 / −1,2 et 0,0"
+          ],
+          [
+            "15°",
+            "−0,9 / −2,0 et +0,2",
+            "−0,8 / −1,5 et +0,2",
+            "−0,3 et +0,2"
+          ],
+          [
+            "30°",
+            "−0,5 / −1,5 et +0,7",
+            "−0,5 / −1,5 et +0,7",
+            "−0,2 et +0,4"
+          ],
+          [
+            "45°",
+            "0,0 et +0,7",
+            "0,0 et +0,7",
+            "0,0 et +0,6"
+          ],
+          [
+            "60°",
+            "+0,7",
+            "+0,7",
+            "+0,7"
+          ],
+          [
+            "75°",
+            "+0,8",
+            "+0,8",
+            "+0,8"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-vent-023",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Bâtiment de hauteur $h = 10$ m et de largeur au vent $b = 20$ m : comment découper la hauteur pour $z_e$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "une seule bande, $z_e = h = 10$ m"
+      },
+      {
+        "id": "b",
+        "text": "deux bandes : $z_e = b$ en bas, $z_e = h$ en haut"
+      },
+      {
+        "id": "c",
+        "text": "des bandes de 1 m"
+      },
+      {
+        "id": "d",
+        "text": "$z_e$ = altitude du site"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Cours p.57 : si $h \\le b$ → **une seule bande**, $z_e = h$ ; si $b < h \\le 2b$ → deux bandes ; si $h > 2b$ → plusieurs bandes. Ici $10 < 20$ → $z_e = 10$ m, et c'est à cette hauteur qu'on lit $c_e(z_e)$ sur l'abaque (exemple du cours p.58).",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 57
+      },
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 58
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-vent-024",
+    "subjectId": "stab1",
+    "themeIds": [
+      "vent"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Région de vent **4**. Calcule $q_b$ ($\\rho = 1{,}225$ kg/m³).",
+    "answer": {
+      "value": 0.48,
+      "unit": "kN/m²"
+    },
+    "explanation": "$v_{b,0} = 28$ m/s (région 4) :\n$$q_b = 0{,}5\\times1{,}225\\times28^2 = 480\\ \\text{N/m}^2 = 0{,}480\\ \\text{kN/m}^2$$\nRetenir les vitesses : 22 / 24 / 26 / 28 m/s pour les régions 1 à 4 (80 / 88 / 93 / 101 km/h).",
+    "source": [
+      {
+        "docName": "STAB1_Cours_2_2022_Masson.pdf",
+        "page": 48
+      }
+    ],
+    "origin": "builtin"
   }
 ]

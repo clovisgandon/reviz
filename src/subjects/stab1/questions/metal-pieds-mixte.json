@@ -1,0 +1,567 @@
+[
+  {
+    "id": "stab1-metal-pieds-mixte-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Un pied de poteau de charpente métallique est en général…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "une articulation"
+      },
+      {
+        "id": "b",
+        "text": "un encastrement"
+      },
+      {
+        "id": "c",
+        "text": "un appui glissant"
+      },
+      {
+        "id": "d",
+        "text": "une rotule plastique"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Poly p.25 : les pieds de poteaux réalisent une liaison « **en général une articulation**, rarement un encastrement » entre la structure et son support en béton. L'articulation transmet N et V mais pas de moment, ce qui allège les fondations.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Par quel élément l’effort de **compression** $N_c$ est-il transmis à la fondation ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la plaque d’appui (platine)"
+      },
+      {
+        "id": "b",
+        "text": "les tiges d’ancrage"
+      },
+      {
+        "id": "c",
+        "text": "la bêche"
+      },
+      {
+        "id": "d",
+        "text": "les connecteurs"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Poly p.25 : $N_c$ transite à travers une « plaque d'appui » (**platine**) sur la semelle de fondation en béton ; le rôle de la platine est de **répartir la compression** sur le béton. V passe par frottement ou par une bêche, $N_t$ (soulèvement) par les tiges d'ancrage.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Par quel élément l’effort **tranchant** $V$ d’un pied de poteau est-il repris ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "les tiges d’ancrage"
+      },
+      {
+        "id": "b",
+        "text": "le frottement de la platine ou une bêche"
+      },
+      {
+        "id": "c",
+        "text": "le scellement de la platine"
+      },
+      {
+        "id": "d",
+        "text": "la soudure du poteau"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.25 : les efforts tranchants transitent soit par **frottement** de la plaque d'appui sur le massif, soit par **cisaillement d'une bêche**. Les tiges d'ancrage ne sont pas faites pour reprendre le cisaillement : elles reprennent le soulèvement.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Les **tiges d’ancrage** reprennent…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la compression"
+      },
+      {
+        "id": "b",
+        "text": "l’effort tranchant"
+      },
+      {
+        "id": "c",
+        "text": "les efforts de soulèvement (traction)"
+      },
+      {
+        "id": "d",
+        "text": "le moment de flexion du poteau"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Poly p.25 : « Les tiges d'ancrage reprennent les efforts de **soulèvement** amenés par le poteau » (traction $N_t$, par exemple sous vent en dépression). Types : scellement droit, courbe (crosse), avec plaque d'ancrage, ou ancrées sur un sommier noyé.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Qu’est-ce qu’une **bêche** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "une tige d’ancrage recourbée"
+      },
+      {
+        "id": "b",
+        "text": "une chute de profilé I ou H soudée sous la platine"
+      },
+      {
+        "id": "c",
+        "text": "une plaque de répartition en béton"
+      },
+      {
+        "id": "d",
+        "text": "un raidisseur de platine"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.25 : « La bêche, quasiment obligatoire avec l'Eurocode 3, est généralement une **chute de profilé I ou H de faible hauteur soudée sous la platine**. » Noyée dans le béton de calage, elle reprend l'effort tranchant par butée.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 2,
+    "type": "multi",
+    "prompt": "Coche les types de tiges d’ancrage présentés dans le poly.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "À scellement droit"
+      },
+      {
+        "id": "b",
+        "text": "À scellement courbe (crosse)"
+      },
+      {
+        "id": "c",
+        "text": "Munies d’une plaque d’ancrage"
+      },
+      {
+        "id": "d",
+        "text": "Ancrées sur un sommier noyé dans le béton"
+      },
+      {
+        "id": "e",
+        "text": "Soudées sur l’armature de la semelle"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "explanation": "Poly p.25 (figure 7.3) : tiges **droites**, **courbes** (crosse avec rayon r > 3φ et retour 1,5φ ≤ L2 ≤ 2φ), **avec plaque d'ancrage** d'extrémité, ou **ancrées sur un sommier** noyé dans le béton. Elles ne sont pas soudées aux armatures.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Dans une construction mixte acier-béton, le béton sert surtout à reprendre…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la compression"
+      },
+      {
+        "id": "b",
+        "text": "la traction"
+      },
+      {
+        "id": "c",
+        "text": "le cisaillement"
+      },
+      {
+        "id": "d",
+        "text": "la torsion"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Poly p.27 : on associe « le **béton pour résister aux efforts de compression** ; l'**acier pour résister aux efforts de traction et aux efforts tranchants** », comme dans le béton armé. L'adhérence entre les deux matériaux réduit les contraintes maximales et les flèches.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 27
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Comment solidarise-t-on la dalle béton et la poutre acier d’une poutre mixte ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "par collage"
+      },
+      {
+        "id": "b",
+        "text": "par des connecteurs (goujons soudés, cornières, butées)"
+      },
+      {
+        "id": "c",
+        "text": "par simple frottement"
+      },
+      {
+        "id": "d",
+        "text": "par précontrainte"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.27 : la solidarisation est obtenue par des **organes de liaison (connecteurs)** fixés sur l'élément métallique : goujons soudés, cornières soudées ou clouées, butées. Sans connexion, la dalle et la poutre glisseraient l'une sur l'autre et travailleraient séparément.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 27
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Qu’est-ce qu’un **plancher collaborant** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "une dalle mixte : béton coulé sur un bac acier nervuré mince, connecté par goujons"
+      },
+      {
+        "id": "b",
+        "text": "un plancher bois-béton"
+      },
+      {
+        "id": "c",
+        "text": "une dalle préfabriquée posée sur poutrelles"
+      },
+      {
+        "id": "d",
+        "text": "un plancher en caillebotis"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Poly p.27-28 : la **dalle mixte ou plancher collaborant** est obtenue en coulant du béton sur des **bacs en acier nervurés à parois minces**, la connexion étant assurée par des ancrages mécaniques (goujons soudés). Des armatures placées dans les ondes permettent un coupe-feu jusqu'à 2 h.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 27
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 28
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 2,
+    "type": "multi",
+    "prompt": "Coche les **avantages** de la construction mixte cités dans le poly.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Réduction du poids de la structure à chargement égal"
+      },
+      {
+        "id": "b",
+        "text": "Grandes portées entre poteaux (12, 15, 20 m)"
+      },
+      {
+        "id": "c",
+        "text": "Meilleure résistance au feu"
+      },
+      {
+        "id": "d",
+        "text": "Délais de construction réduits"
+      },
+      {
+        "id": "e",
+        "text": "Suppression de toute fondation"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "explanation": "Poly p.28 : 1) réduction du poids à chargement égal ; 2) portées de 12, 15 ou 20 m (parkings, bureaux sans poteaux) ; 3) augmentation de la résistance au feu ; 4) réduction des délais ; 5) ouvrages d'art de 100 à 300 m économiques. Les fondations restent évidemment nécessaires.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 28
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Quelles portées entre poteaux la construction mixte permet-elle couramment en bâtiment (selon le poly) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "3 à 5 m"
+      },
+      {
+        "id": "b",
+        "text": "6 à 8 m"
+      },
+      {
+        "id": "c",
+        "text": "12, 15 ou 20 m"
+      },
+      {
+        "id": "d",
+        "text": "50 à 100 m"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Poly p.28 : « Portées entre poteaux de **12, 15 ou 20 mètres** (parkings, facilités d'agencement de bureaux sans poteaux). » Pour les ouvrages d'art (ponts mixtes), on atteint 100 à 300 m de manière économique.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 28
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 1,
+    "type": "truefalse",
+    "prompt": "Avec l’Eurocode 3, la bêche est quasiment obligatoire en pied de poteau.",
+    "choices": [
+      {
+        "id": "v",
+        "text": "Vrai"
+      },
+      {
+        "id": "f",
+        "text": "Faux"
+      }
+    ],
+    "answer": [
+      "v"
+    ],
+    "explanation": "**Vrai.** Poly p.25 : « La bêche, **quasiment obligatoire avec l'Eurocode 3**, est généralement une chute de profilé I ou H de faible hauteur soudée sous la platine. » On ne compte pas sur le seul frottement pour reprendre l'effort tranchant.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Un **poteau mixte** peut être…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "une section acier enrobée de béton, ou un tube acier rempli de béton"
+      },
+      {
+        "id": "b",
+        "text": "un poteau béton armé de barres HA"
+      },
+      {
+        "id": "c",
+        "text": "un poteau bois cerclé d’acier"
+      },
+      {
+        "id": "d",
+        "text": "un poteau acier peint"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Poly p.27 (figure 8.2) : le poteau mixte comporte soit une section en acier **totalement ou partiellement enrobée** de béton, soit une **section tubulaire remplie de béton** (éventuellement armé). Le béton augmente la résistance en compression et au feu, l'acier confine le béton.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 27
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-pieds-mixte-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-pieds-mixte"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Pour une tige d’ancrage courbe (crosse), quelle condition sur le rayon de courbure le poly indique-t-il ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$r > 3\\varphi$"
+      },
+      {
+        "id": "b",
+        "text": "$r > \\varphi$"
+      },
+      {
+        "id": "c",
+        "text": "$r < 2\\varphi$"
+      },
+      {
+        "id": "d",
+        "text": "$r = 10\\varphi$"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Figure 7.3 du poly : tige courbe avec **$r > 3\\varphi$** et longueur de retour $1{,}5\\varphi \\le L_2 \\le 2\\varphi$. Un rayon trop faible écraserait le béton à l'intérieur de la courbe et fragiliserait l'acier.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 25
+      }
+    ],
+    "origin": "builtin"
+  }
+]

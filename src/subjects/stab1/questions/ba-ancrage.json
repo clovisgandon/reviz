@@ -1,0 +1,505 @@
+[
+  {
+    "id": "stab1-ba-ancrage-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Contrainte ultime d’adhérence $f_{bd}$ :",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$2{,}25\\,\\eta_1\\,\\eta_2\\,f_{ctd}$"
+      },
+      {
+        "id": "b",
+        "text": "$0{,}7\\,f_{ctm}$"
+      },
+      {
+        "id": "c",
+        "text": "$f_{ck}/1{,}5$"
+      },
+      {
+        "id": "d",
+        "text": "$2{,}25\\,f_{cd}$"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Corrigé TD3 (EC2 §8.4.2) : $f_{bd} = 2{,}25\\,\\eta_1\\,\\eta_2\\,f_{ctd}$ avec $f_{ctd} = f_{ctk,0,05}/\\gamma_c$ ; η1 = 1 en bonnes conditions d'adhérence, 0,7 sinon ; η2 = 1 pour φ ≤ 32 mm.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Adhérence (corrigé TD3)",
+        "latex": "f_{ctd} = \\frac{f_{ctk,0,05}}{1{,}5} \\quad f_{bd} = 2{,}25\\,\\eta_1\\eta_2\\,f_{ctd} \\quad l_{b,rqd} = \\frac{\\varphi}{4}\\,\\frac{f_{yd}}{f_{bd}}"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-ancrage-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Valeur de $\\eta_1$ en conditions d’adhérence **médiocres** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "1,0"
+      },
+      {
+        "id": "b",
+        "text": "0,7"
+      },
+      {
+        "id": "c",
+        "text": "0,5"
+      },
+      {
+        "id": "d",
+        "text": "1,4"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "η1 = 1 si les conditions d'adhérence sont **bonnes**, **0,7** dans les autres cas, par exemple des barres en partie supérieure d'un élément de hauteur > 250 mm (bulles et ressuage sous les barres hautes). Corrigé TD3, cas 1-c.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-ancrage-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Résistance de calcul en traction $f_{ctd}$ d’un **C25/30** ?",
+    "answer": {
+      "value": 1.2,
+      "unit": "MPa",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$f_{ctm} = 2{,}56$ MPa → $f_{ctk,0,05} = 0{,}7\\times2{,}56 = 1{,}80$ MPa →\n$$f_{ctd} = \\frac{f_{ctk,0,05}}{1{,}5} = 1{,}20\\ \\text{MPa}$$\n(corrigé TD3).",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Béton (corrigé TD1)",
+        "latex": "f_{cd} = \\frac{f_{ck}}{1{,}5} \\quad f_{cm} = f_{ck} + 8 \\quad f_{ctm} = 0{,}30\\,f_{ck}^{2/3} \\quad f_{ctk,0,05} = 0{,}7\\,f_{ctm} \\quad E_{cm} = 22\\,000\\left(\\frac{f_{cm}}{10}\\right)^{0,3}"
+      },
+      {
+        "kind": "formula",
+        "title": "Adhérence (corrigé TD3)",
+        "latex": "f_{ctd} = \\frac{f_{ctk,0,05}}{1{,}5} \\quad f_{bd} = 2{,}25\\,\\eta_1\\eta_2\\,f_{ctd} \\quad l_{b,rqd} = \\frac{\\varphi}{4}\\,\\frac{f_{yd}}{f_{bd}}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-ancrage-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Dalle en C25/30, barres en partie inférieure (bonnes conditions). Calcule $f_{bd}$.",
+    "answer": {
+      "value": 2.69,
+      "unit": "MPa",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$f_{ctd} = 0{,}7\\times2{,}56/1{,}5 = 1{,}20$ MPa, puis :\n$$f_{bd} = 2{,}25\\times1\\times1\\times1{,}20 = 2{,}69\\ \\text{MPa}$$\n(corrigé TD3, cas 1-a). Barres en partie inférieure → η1 = 1 ; φ ≤ 32 mm → η2 = 1.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Adhérence (corrigé TD3)",
+        "latex": "f_{ctd} = \\frac{f_{ctk,0,05}}{1{,}5} \\quad f_{bd} = 2{,}25\\,\\eta_1\\eta_2\\,f_{ctd} \\quad l_{b,rqd} = \\frac{\\varphi}{4}\\,\\frac{f_{yd}}{f_{bd}}"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-ancrage-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Dalle C25/30, HA8 en B500, bonnes conditions ($f_{bd} = 2{,}69$ MPa). Longueur d’ancrage de référence $l_{b,rqd}$ ?",
+    "answer": {
+      "value": 323,
+      "unit": "mm",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$l_{b,rqd} = \\frac{\\varphi}{4}\\,\\frac{f_{yd}}{f_{bd}} = \\frac{8}{4}\\times\\frac{434{,}8}{2{,}69} = 323\\ \\text{mm}$$\n(corrigé TD3). C'est aussi la « longueur de scellement droit » pour une barre utilisée à $f_{yd}$.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Adhérence (corrigé TD3)",
+        "latex": "f_{ctd} = \\frac{f_{ctk,0,05}}{1{,}5} \\quad f_{bd} = 2{,}25\\,\\eta_1\\eta_2\\,f_{ctd} \\quad l_{b,rqd} = \\frac{\\varphi}{4}\\,\\frac{f_{yd}}{f_{bd}}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-ancrage-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Poutre en C30/37, barres en partie inférieure. Calcule $f_{bd}$.",
+    "answer": {
+      "value": 3.04,
+      "unit": "MPa",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$f_{ctm} = 0{,}3\\times30^{2/3} = 2{,}90$ ; $f_{ctk} = 2{,}03$ ; $f_{ctd} = 1{,}35$ MPa.\n$$f_{bd} = 2{,}25\\times1{,}35 = 3{,}04\\ \\text{MPa}$$\n(corrigé TD3, cas 1-b).",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Béton (corrigé TD1)",
+        "latex": "f_{cd} = \\frac{f_{ck}}{1{,}5} \\quad f_{cm} = f_{ck} + 8 \\quad f_{ctm} = 0{,}30\\,f_{ck}^{2/3} \\quad f_{ctk,0,05} = 0{,}7\\,f_{ctm} \\quad E_{cm} = 22\\,000\\left(\\frac{f_{cm}}{10}\\right)^{0,3}"
+      },
+      {
+        "kind": "formula",
+        "title": "Adhérence (corrigé TD3)",
+        "latex": "f_{ctd} = \\frac{f_{ctk,0,05}}{1{,}5} \\quad f_{bd} = 2{,}25\\,\\eta_1\\eta_2\\,f_{ctd} \\quad l_{b,rqd} = \\frac{\\varphi}{4}\\,\\frac{f_{yd}}{f_{bd}}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-ancrage-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Poutre C30/37, HA16 en **B400**, partie inférieure ($f_{bd} = 3{,}04$ MPa). Calcule $l_{b,rqd}$.",
+    "answer": {
+      "value": 457,
+      "unit": "mm",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$f_{yd} = 400/1{,}15 = 347{,}8$ MPa.\n$$l_{b,rqd} = \\frac{16}{4}\\times\\frac{347{,}8}{3{,}04} = 457\\ \\text{mm}$$\nAvec tous les $\\alpha_i = 1$ : $l_{bd} = l_{b,rqd} = 457$ mm ≥ $l_{b,min}$ = 160 mm (corrigé TD3).",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Adhérence (corrigé TD3)",
+        "latex": "f_{ctd} = \\frac{f_{ctk,0,05}}{1{,}5} \\quad f_{bd} = 2{,}25\\,\\eta_1\\eta_2\\,f_{ctd} \\quad l_{b,rqd} = \\frac{\\varphi}{4}\\,\\frac{f_{yd}}{f_{bd}}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-ancrage-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Poutre de 450 mm en C25/30, HA14 en **B400** placés en **partie supérieure**. Calcule $l_{b,rqd}$.",
+    "answer": {
+      "value": 646,
+      "unit": "mm",
+      "tolerancePct": 1.5
+    },
+    "explanation": "Partie supérieure avec h > 250 mm → conditions médiocres → η1 = 0,7 : $f_{bd} = 2{,}25\\times0{,}7\\times1{,}20 = 1{,}89$ MPa.\n$$l_{b,rqd} = \\frac{14}{4}\\times\\frac{347{,}8}{1{,}89} = 646\\ \\text{mm}$$\n(corrigé TD3, cas 1-c). Sans η1, on trouverait 452 mm : erreur de 30 % côté insécurité.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Adhérence (corrigé TD3)",
+        "latex": "f_{ctd} = \\frac{f_{ctk,0,05}}{1{,}5} \\quad f_{bd} = 2{,}25\\,\\eta_1\\eta_2\\,f_{ctd} \\quad l_{b,rqd} = \\frac{\\varphi}{4}\\,\\frac{f_{yd}}{f_{bd}}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-ancrage-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Barre tendue HA16 avec $l_{b,rqd} = 457$ mm : calcule $l_{b,min} = \\max(0{,}3\\,l_{b,rqd}\\ ;\\ 10\\varphi\\ ;\\ 100\\ \\text{mm})$.",
+    "answer": {
+      "value": 160,
+      "unit": "mm",
+      "tolerancePct": 0
+    },
+    "explanation": "$\\max(0{,}3\\times457 = 137\\ ;\\ 10\\times16 = 160\\ ;\\ 100) = 160$ mm (corrigé TD3 : $L_{b,min} = 160$ mm). La longueur d'ancrage de calcul $l_{bd} = \\alpha_1\\cdots\\alpha_5\\,l_{b,rqd}$ ne peut pas descendre sous $l_{b,min}$.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "EN 1992-1-1 §8.4.4"
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-ancrage-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Béton C25/30, acier B500, bonnes conditions : longueur d’ancrage de référence approximative ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$30\\varphi$"
+      },
+      {
+        "id": "b",
+        "text": "$35{,}7\\varphi$"
+      },
+      {
+        "id": "c",
+        "text": "$40{,}4\\varphi$"
+      },
+      {
+        "id": "d",
+        "text": "$46{,}8\\varphi$"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Corrigé TD3, exercice 2 (B500, bonnes conditions) : $l_{b,rqd} \\approx 46{,}8\\varphi$ (C20) ; **40,4φ (C25)** ; 35,7φ (C30) ; 32,2φ (C35). Formule simple : $l_{b,rqd} \\approx 103{,}5\\,\\varphi/f_{ctm}$. Plus le béton est résistant, plus l'ancrage est court.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "d": "46,8φ correspond au C20."
+    }
+  },
+  {
+    "id": "stab1-ba-ancrage-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "C25/30, HA12 en B500, bonnes conditions. Calcule $l_{b,rqd}$.",
+    "answer": {
+      "value": 484,
+      "unit": "mm",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$l_{b,rqd} = \\frac{12}{4}\\times\\frac{434{,}8}{2{,}69} = 484\\ \\text{mm} \\approx 40{,}4\\times12$$\n(corrigé TD3, exercice 3). Pour un ancrage courbe, cette longueur est la longueur **développée** $L_1 + L_2 + L_3$.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Adhérence (corrigé TD3)",
+        "latex": "f_{ctd} = \\frac{f_{ctk,0,05}}{1{,}5} \\quad f_{bd} = 2{,}25\\,\\eta_1\\eta_2\\,f_{ctd} \\quad l_{b,rqd} = \\frac{\\varphi}{4}\\,\\frac{f_{yd}}{f_{bd}}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-ancrage-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Dans quel cas les conditions d’adhérence sont-elles « médiocres » ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "barres en partie supérieure d’un élément de plus de 250 mm de hauteur"
+      },
+      {
+        "id": "b",
+        "text": "barres en partie inférieure d’une dalle"
+      },
+      {
+        "id": "c",
+        "text": "barres de diamètre ≤ 32 mm"
+      },
+      {
+        "id": "d",
+        "text": "béton de classe C25"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Corrigé TD3 (figure EC2) : les barres situées dans la **partie haute** d'un élément de hauteur > 250 mm (zone hachurée sur la figure) sont en conditions médiocres (η1 = 0,7), car le béton y est moins compact (ressuage). En partie basse : bonnes conditions.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-ancrage-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Diamètre minimal du mandrin de cintrage pour une barre HA12 ($\\varphi \\le 16$ mm) ?",
+    "answer": {
+      "value": 48,
+      "unit": "mm",
+      "tolerancePct": 0
+    },
+    "explanation": "EC2 : $\\varphi_{m,min} = 4\\varphi$ si φ ≤ 16 mm, $7\\varphi$ si φ > 16 mm → $4\\times12 = 48$ mm. On choisit ensuite un mandrin réel dans la série de Renard (16, 20, 25, 32, 40, **50**, 63…) → 50 mm (corrigé TD3, exercice 3).",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-ancrage-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Que signifie l’indice « rqd » de $l_{b,rqd}$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "réduit"
+      },
+      {
+        "id": "b",
+        "text": "required (requise)"
+      },
+      {
+        "id": "c",
+        "text": "radial"
+      },
+      {
+        "id": "d",
+        "text": "recouvrement"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Corrigé TD3 : b = « bond » (adhérence) et **rqd = « required »** (exigée, nécessaire). $l_{b,rqd}$ est la longueur d'ancrage de **référence** ; la longueur de calcul $l_{bd}$ l'affecte des coefficients α1 à α5.",
+    "source": [
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-ancrage-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-ancrage"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Poteau C35, HA14 en B500 : $l_{b,rqd} = 451$ mm. Longueur de recouvrement retenue dans le corrigé TD4 ($l_r = 0{,}7,l_{b,rqd}$) ?",
+    "answer": {
+      "value": 316,
+      "unit": "mm",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$l_r = 0{,}7\\times451 = 316\\ \\text{mm}$$\n(corrigé TD4 Q3, recouvrement des barres du poteau P1 sur celles du poteau inférieur). $l_{b,rqd} = (14/4)\\times434{,}8/3{,}37 = 451$ mm pour un C35 ($f_{bd} = 3{,}37$ MPa).",
+    "source": [
+      {
+        "docName": "Correction_TD4_moodle_Q3.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  }
+]

@@ -4,6 +4,8 @@ import { db } from '@/db/db';
 import { PageHeader } from '@/components/PageHeader';
 import { newSeed, rng, shuffle } from '@/lib/random';
 import { createSession } from '@/features/quiz/engine';
+import { getSetting } from '@/lib/settings';
+import STAB1_EXAMS from '@/subjects/stab1/exams.json';
 
 type Mode = { id: string; emoji: string; name: string; to?: string; ready: boolean };
 
@@ -35,6 +37,23 @@ export function SubjectPage() {
   if (data === undefined) return <PageHeader title="…" back />;
   if (data === null) return <PageHeader title="Matière introuvable" back />;
   const { subject, questions, mastery } = data;
+
+  const fixed = subjectId === 'stab1' ? STAB1_EXAMS : [];
+  const startFixed = async (e: (typeof STAB1_EXAMS)[number]) => {
+    const qs = (await db.questions.bulkGet(e.questionIds)).filter((q): q is NonNullable<typeof q> => !!q);
+    const id = await createSession({
+      subjectId,
+      mode: e.examScoring ? 'exam' : 'theme',
+      title: e.title,
+      questions: qs,
+      config: { fixedExam: e.id },
+      deferred: e.examScoring,
+      scoring: e.examScoring ? await getSetting('scoring') : undefined,
+      durationMin: e.durationMin,
+      shuffleChoices: false,
+    });
+    nav(`/serie/${id}`);
+  };
 
   const suddenDeath = async () => {
     const id = await createSession({
@@ -97,6 +116,39 @@ export function SubjectPage() {
             })}
           </ul>
         </section>
+
+        {fixed.length > 0 && (
+          <section aria-labelledby="fixed-h">
+            <h2 id="fixed-h" className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted">
+              Sujets officiels
+            </h2>
+            <ul className="space-y-2">
+              {fixed.map((e) => (
+                <li key={e.id}>
+                  <button type="button" onClick={() => startFixed(e)} className="card flex w-full items-center gap-3 p-3 text-left">
+                    <span className="text-2xl" aria-hidden>
+                      {e.examScoring ? '🗒️' : '📄'}
+                    </span>
+                    <span className="flex-1">
+                      <span className="block font-semibold">{e.title}</span>
+                      <span className="block text-xs text-muted">
+                        {e.questionIds.length} questions · {e.description}
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <Link to={`/matieres/${subjectId}/formulaire`} className="card flex min-h-[56px] items-center gap-3 px-4">
+          <span className="text-2xl" aria-hidden>
+            📐
+          </span>
+          <span className="flex-1 font-semibold">Fiche formulaire</span>
+          <span className="text-xs text-muted">tableaux & formules</span>
+        </Link>
 
         <section aria-labelledby="themes-h">
           <h2 id="themes-h" className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted">

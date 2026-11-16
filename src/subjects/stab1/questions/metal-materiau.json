@@ -1,0 +1,924 @@
+[
+  {
+    "id": "stab1-metal-materiau-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "L’acier est un alliage de fer et de carbone. Quelle est la teneur en carbone (en masse) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "moins de 0,008 %"
+      },
+      {
+        "id": "b",
+        "text": "entre 0,02 % et 2 %"
+      },
+      {
+        "id": "c",
+        "text": "entre 2,1 % et 5 %"
+      },
+      {
+        "id": "d",
+        "text": "environ 10 %"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.3 : l'acier contient du fer (très majoritaire) et **0,02 % à 2 %** de carbone. En dessous de 0,008 %, on parle de « fer » (malléable) ; au-delà de 2,1 %, de **fonte**. Plus il y a de carbone, plus l'acier est dur et moins il est ductile (aciers doux → extra-durs).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "c": "Au-delà de 2,1 % de carbone, c’est de la fonte."
+    }
+  },
+  {
+    "id": "stab1-metal-materiau-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Un alliage fer-carbone contenant plus de 2,1 % de carbone s’appelle…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "un acier extra-dur"
+      },
+      {
+        "id": "b",
+        "text": "une fonte"
+      },
+      {
+        "id": "c",
+        "text": "un acier inoxydable"
+      },
+      {
+        "id": "d",
+        "text": "du fer pur"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Au-delà de 2,1 % de carbone, « la température de fusion et les propriétés mécaniques de l'alliage sont très modifiées et l'on parle de **fonte** » (poly p.3). La fonte est fragile, peu ductile : elle n'est pas utilisée pour les profilés de charpente.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-materiau-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Quelle proportion de la charpente métallique et des bardages est recyclée ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "50 %"
+      },
+      {
+        "id": "b",
+        "text": "75 %"
+      },
+      {
+        "id": "c",
+        "text": "95 %"
+      },
+      {
+        "id": "d",
+        "text": "100 %"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Poly p.4 : grâce à la filière ferraille, **95 %** de la structure métallique et des bardages sont recyclés, contre 50 % des armatures du béton armé. Le recyclage (démolition, déconstruction) fait partie des atouts environnementaux de la construction métallique.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 4
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-materiau-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "multi",
+    "prompt": "Coche les **inconvénients** de l’acier cités dans le poly.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Grande énergie de fabrication"
+      },
+      {
+        "id": "b",
+        "text": "Mauvaise résistance à la corrosion"
+      },
+      {
+        "id": "c",
+        "text": "Mauvaise tenue au feu"
+      },
+      {
+        "id": "d",
+        "text": "Faible ductilité"
+      },
+      {
+        "id": "e",
+        "text": "Impossible à recycler"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ],
+    "explanation": "Poly p.4 : inconvénients = **énergie de fabrication**, **corrosion** (remède : peinture, galvanisation, inox) et **feu** (perte de résistance, remède : flocage, peintures intumescentes). La ductilité est au contraire un atout, et l'acier est recyclable à 95 %.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 4
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-materiau-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Limite d’élasticité $f_y$ d’un acier **S235** (épaisseur ≤ 40 mm) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "235 MPa"
+      },
+      {
+        "id": "b",
+        "text": "275 MPa"
+      },
+      {
+        "id": "c",
+        "text": "360 MPa"
+      },
+      {
+        "id": "d",
+        "text": "510 MPa"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "La désignation « S235 » donne directement la **limite d'élasticité** $f_y = 235$ MPa pour la gamme d'épaisseur la plus faible (t ≤ 40 mm). Sa résistance à la traction vaut $f_u = 360$ MPa (poly p.44 ; mémo p.1). Au-delà de 40 mm, $f_y$ tombe à 215 MPa.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "c": "360 MPa est f_u (rupture), pas f_y."
+    }
+  },
+  {
+    "id": "stab1-metal-materiau-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Résistance à la traction $f_u$ d’un acier **S235** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "235 MPa"
+      },
+      {
+        "id": "b",
+        "text": "360 MPa"
+      },
+      {
+        "id": "c",
+        "text": "430 MPa"
+      },
+      {
+        "id": "d",
+        "text": "490 MPa"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Tableau 10.1 du poly : S235 → $f_y = 235$, $f_u = 360$ MPa ; S275 → 275 / 430 ; S355 → 355 / 490 ; S450 → 440 / 550. $f_u$ intervient au droit des trous : $N_{u,Rd} = 0{,}9\\,A_{net}\\,f_u/\\gamma_{M2}$.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-materiau-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Limite d’élasticité d’un acier **S355** pour une épaisseur de **50 mm** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "355 MPa"
+      },
+      {
+        "id": "b",
+        "text": "335 MPa"
+      },
+      {
+        "id": "c",
+        "text": "315 MPa"
+      },
+      {
+        "id": "d",
+        "text": "490 MPa"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Pour $40 < t \\le 80$ mm, les valeurs baissent : S235 → 215 ; S275 → 255 ; **S355 → 335** ; S450 → 410 MPa (poly p.44, mémo p.1). Le chiffre de la nuance correspond à la gamme d'épaisseur **la plus faible**.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-materiau-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Module d’élasticité longitudinal $E$ de l’acier (en MPa) ?",
+    "answer": {
+      "value": 210000,
+      "unit": "MPa",
+      "tolerancePct": 1
+    },
+    "explanation": "Poly p.44 : $E = 210\\,000$ MPa ; coefficient de Poisson ν = 0,3 ; masse volumique 7850 kg/m³ ; dilatation $1{,}2\\cdot10^{-5}$ K⁻¹. E sert au calcul des flèches $w = 5pL^4/384EI$ (attention aux unités : N et mm → MPa).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-materiau-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Quelle caractéristique géométrique sert au calcul de la **flèche** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "l’aire A"
+      },
+      {
+        "id": "b",
+        "text": "le moment d’inertie I"
+      },
+      {
+        "id": "c",
+        "text": "le module élastique W_el"
+      },
+      {
+        "id": "d",
+        "text": "le module plastique W_pl"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Table 1.1 du poly : **A** (cm²) → traction/compression ; **I** (cm⁴) → **flexion, calcul de la déformation (flèche)** ; $W_{el}$ (cm³) → résistance élastique ; $W_{pl}$ (cm³) → résistance plastique. On travaille avec $I_y$ (axe fort).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-materiau-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Sur un profilé en I, l’axe **y-y** est…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "parallèle aux semelles (axe fort)"
+      },
+      {
+        "id": "b",
+        "text": "perpendiculaire aux semelles (axe faible)"
+      },
+      {
+        "id": "c",
+        "text": "l’axe longitudinal de la barre"
+      },
+      {
+        "id": "d",
+        "text": "la diagonale de la section"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Poly p.6 (figure 1.3) : l'axe **y-y est parallèle aux semelles** (forte inertie, la panne fléchit « normalement » autour de lui) ; l'axe z-z est perpendiculaire aux semelles (faible inertie). L'axe x est l'axe longitudinal de la barre.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-materiau-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Pour une section de **classe 1 ou 2**, le moment résistant se calcule avec…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "le module plastique $W_{pl}$"
+      },
+      {
+        "id": "b",
+        "text": "le module élastique $W_{el}$"
+      },
+      {
+        "id": "c",
+        "text": "le moment d’inertie $I$"
+      },
+      {
+        "id": "d",
+        "text": "l’aire $A$"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Poly p.19 : classe 1 ou 2 → $M_{pl,Rd} = W_{pl} f_y/\\gamma_{M0}$ (la section peut se plastifier entièrement) ; classe 3 → $M_{el,Rd} = W_{el} f_y/\\gamma_{M0}$ (voilement local avant plastification). Les IPE en S235 sont de classe 1 en flexion.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 19
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "b": "W_el sert pour les sections de classe 3."
+    }
+  },
+  {
+    "id": "stab1-metal-materiau-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "La **ductilité** d’un acier est caractérisée par…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "sa limite d’élasticité"
+      },
+      {
+        "id": "b",
+        "text": "son allongement à la rupture"
+      },
+      {
+        "id": "c",
+        "text": "son module d’Young"
+      },
+      {
+        "id": "d",
+        "text": "sa masse volumique"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.5 : « L'**allongement à la rupture** caractérise la ductilité de l'acier, qualité que l'on recherche dans les aciers de construction afin d'éviter les ruptures fragiles. » $A = (L_R - L_0)/L_0$, mesuré à l'essai de traction.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 5
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-materiau-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Comment améliore-t-on la tenue au feu d’une charpente métallique ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "par galvanisation"
+      },
+      {
+        "id": "b",
+        "text": "par flocage ou peinture intumescente"
+      },
+      {
+        "id": "c",
+        "text": "en augmentant la teneur en carbone"
+      },
+      {
+        "id": "d",
+        "text": "en utilisant de la fonte"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.4 : la mauvaise résistance au feu (perte de résistance mécanique) se compense par des **flocages** ou des **peintures intumescentes**. La galvanisation et la peinture classique protègent contre la **corrosion**. La construction mixte améliore aussi la tenue au feu (p.28).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 4
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "a": "La galvanisation protège de la corrosion, pas du feu."
+    }
+  },
+  {
+    "id": "stab1-metal-materiau-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Calcule $\\varepsilon = \\sqrt{235/f_y}$ pour un acier S355.",
+    "answer": {
+      "value": 0.81,
+      "unit": "",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$\\varepsilon = \\sqrt{\\frac{235}{355}} = \\sqrt{0{,}662} = 0{,}814 \\approx 0{,}81$$\nε sert aux limites d'élancement de la classification (ex. âme fléchie classe 1 : $c/t \\le 72\\varepsilon$). Plus l'acier est résistant, plus ε est petit et plus les parois doivent être épaisses pour rester en classe 1 (poly p.20).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 20
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-materiau-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Module de cisaillement de l’acier $G = E/(2(1+\\nu))$ avec $E = 210\\,000$ MPa et $\\nu = 0{,}3$ ?",
+    "answer": {
+      "value": 80769,
+      "unit": "MPa",
+      "tolerancePct": 1
+    },
+    "explanation": "$$G = \\frac{210\\,000}{2\\times1{,}3} = 80\\,769\\ \\text{MPa} \\approx 81\\ \\text{GPa}$$\n(poly p.44). G intervient dans les calculs de torsion et de déversement (non traités en STAB 1).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-materiau-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Que signifie la désignation **S235** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "acier de construction (S) de limite d’élasticité minimale 235 MPa (faibles épaisseurs)"
+      },
+      {
+        "id": "b",
+        "text": "acier inoxydable à 23,5 % de chrome"
+      },
+      {
+        "id": "c",
+        "text": "acier de résistance à la rupture 235 MPa"
+      },
+      {
+        "id": "d",
+        "text": "acier soudable de 235 mm d’épaisseur maximale"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Poly p.44 : « Les aciers sont désignés par une lettre (S pour les aciers de construction) et un nombre, la **limite d'élasticité** pour la gamme d'épaisseur la plus faible. » S235 : $f_y = 235$ MPa, $f_u = 360$ MPa pour t ≤ 40 mm.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-materiau-017",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Lis dans le catalogue la valeur de $W_{pl,y}$ du **IPE 200**.",
+    "answer": {
+      "value": 221,
+      "unit": "cm³",
+      "tolerancePct": 1
+    },
+    "explanation": "Lecture directe : IPE 200 → $W_{pl,y} = 221$ cm³. Piège de lecture : ne pas confondre la ligne (profilé) ni la colonne (W_el / W_pl, axe y / axe z). Dans le poly, les valeurs statiques sont sur la page qui suit celle des dimensions, avec des unités multipliées (×10⁴ mm⁴ = cm⁴, ×10³ mm³ = cm³, ×10² mm² = cm²).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 39
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "I_y (cm⁴)",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "IPE 140",
+            16.4,
+            541,
+            77.3,
+            88.3,
+            7.64
+          ],
+          [
+            "IPE 160",
+            20.1,
+            869,
+            109,
+            124,
+            9.66
+          ],
+          [
+            "IPE 180",
+            23.9,
+            1317,
+            146,
+            166,
+            11.3
+          ],
+          [
+            "IPE 200",
+            28.5,
+            1943,
+            194,
+            221,
+            14
+          ],
+          [
+            "IPE 220",
+            33.4,
+            2772,
+            252,
+            285,
+            15.9
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-materiau-018",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Lis dans le catalogue la valeur de $I_y$ du **HEA 200**.",
+    "answer": {
+      "value": 3692,
+      "unit": "cm⁴",
+      "tolerancePct": 1
+    },
+    "explanation": "Lecture directe : HEA 200 → $I_y = 3\\,692$ cm⁴. Piège de lecture : ne pas confondre la ligne (profilé) ni la colonne (W_el / W_pl, axe y / axe z). Dans le poly, les valeurs statiques sont sur la page qui suit celle des dimensions, avec des unités multipliées (×10⁴ mm⁴ = cm⁴, ×10³ mm³ = cm³, ×10² mm² = cm²).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 31
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "I_y (cm⁴)",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "HEA 180",
+            45.3,
+            2510,
+            293.6,
+            324.9,
+            14.47
+          ],
+          [
+            "HEA 200",
+            53.8,
+            3692,
+            388.6,
+            429.5,
+            18.08
+          ],
+          [
+            "HEB 180",
+            65.3,
+            3831,
+            425.7,
+            481.4,
+            20.24
+          ],
+          [
+            "HEB 200",
+            78.1,
+            5696,
+            569.6,
+            642.5,
+            24.83
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-materiau-019",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Lis dans le catalogue la valeur de $A_{vz}$ du **IPE 160**.",
+    "answer": {
+      "value": 9.66,
+      "unit": "cm²",
+      "tolerancePct": 1
+    },
+    "explanation": "Lecture directe : IPE 160 → $A_{vz} = 9{,}66$ cm². Piège de lecture : ne pas confondre la ligne (profilé) ni la colonne (W_el / W_pl, axe y / axe z). Dans le poly, les valeurs statiques sont sur la page qui suit celle des dimensions, avec des unités multipliées (×10⁴ mm⁴ = cm⁴, ×10³ mm³ = cm³, ×10² mm² = cm²).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 39
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "I_y (cm⁴)",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "IPE 140",
+            16.4,
+            541,
+            77.3,
+            88.3,
+            7.64
+          ],
+          [
+            "IPE 160",
+            20.1,
+            869,
+            109,
+            124,
+            9.66
+          ],
+          [
+            "IPE 180",
+            23.9,
+            1317,
+            146,
+            166,
+            11.3
+          ],
+          [
+            "IPE 200",
+            28.5,
+            1943,
+            194,
+            221,
+            14
+          ],
+          [
+            "IPE 220",
+            33.4,
+            2772,
+            252,
+            285,
+            15.9
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-materiau-020",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-materiau"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Lis dans le catalogue la valeur de $A$ du **HEB 200**.",
+    "answer": {
+      "value": 78.1,
+      "unit": "cm²",
+      "tolerancePct": 1
+    },
+    "explanation": "Lecture directe : HEB 200 → $A = 78{,}1$ cm². Piège de lecture : ne pas confondre la ligne (profilé) ni la colonne (W_el / W_pl, axe y / axe z). Dans le poly, les valeurs statiques sont sur la page qui suit celle des dimensions, avec des unités multipliées (×10⁴ mm⁴ = cm⁴, ×10³ mm³ = cm³, ×10² mm² = cm²).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 31
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "I_y (cm⁴)",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "HEA 180",
+            45.3,
+            2510,
+            293.6,
+            324.9,
+            14.47
+          ],
+          [
+            "HEA 200",
+            53.8,
+            3692,
+            388.6,
+            429.5,
+            18.08
+          ],
+          [
+            "HEB 180",
+            65.3,
+            3831,
+            425.7,
+            481.4,
+            20.24
+          ],
+          [
+            "HEB 200",
+            78.1,
+            5696,
+            569.6,
+            642.5,
+            24.83
+          ]
+        ]
+      }
+    ]
+  }
+]

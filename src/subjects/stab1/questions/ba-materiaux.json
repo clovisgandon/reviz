@@ -1,0 +1,832 @@
+[
+  {
+    "id": "stab1-ba-materiaux-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Résistance de calcul en compression $f_{cd}$ d’un béton **C25/30** ?",
+    "answer": {
+      "value": 16.67,
+      "unit": "MPa"
+    },
+    "explanation": "$$f_{cd} = \\frac{\\alpha_{cc}\\,f_{ck}}{\\gamma_c} = \\frac{1\\times25}{1{,}5} = 16{,}67\\ \\text{MPa}$$\nC25/30 : $f_{ck} = 25$ MPa sur cylindre (30 sur cube). α_cc = 1 en général ; γ_c = 1,5 (corrigé TD1, TD5).",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Béton (corrigé TD1)",
+        "latex": "f_{cd} = \\frac{f_{ck}}{1{,}5} \\quad f_{cm} = f_{ck} + 8 \\quad f_{ctm} = 0{,}30\\,f_{ck}^{2/3} \\quad f_{ctk,0,05} = 0{,}7\\,f_{ctm} \\quad E_{cm} = 22\\,000\\left(\\frac{f_{cm}}{10}\\right)^{0,3}"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-materiaux-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Un béton a une résistance de calcul $f_{cd} = 16{,}6$ MPa. Quelle est sa résistance caractéristique $f_{ck}$ ?",
+    "answer": {
+      "value": 24.9,
+      "unit": "MPa"
+    },
+    "explanation": "On inverse $f_{cd} = f_{ck}/\\gamma_c$ avec $\\gamma_c = 1{,}5$ (et $\\alpha_{cc} = 1$) :\n$$f_{ck} = 1{,}5\\times f_{cd} = 1{,}5\\times16{,}6 = 24{,}9\\ \\text{MPa}$$\nQuestion 1 du TD1. Voir la question suivante pour la classe de ce béton (piège du corrigé).",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Sujets_de_TD_STAB1_BA_2026-2027.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Béton (corrigé TD1)",
+        "latex": "f_{cd} = \\frac{f_{ck}}{1{,}5} \\quad f_{cm} = f_{ck} + 8 \\quad f_{ctm} = 0{,}30\\,f_{ck}^{2/3} \\quad f_{ctk,0,05} = 0{,}7\\,f_{ctm} \\quad E_{cm} = 22\\,000\\left(\\frac{f_{cm}}{10}\\right)^{0,3}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-materiaux-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Béton de $f_{ck} = 24{,}9$ MPa : de quelle classe est-il ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "C20/25"
+      },
+      {
+        "id": "b",
+        "text": "C25/30"
+      },
+      {
+        "id": "c",
+        "text": "C30/37"
+      },
+      {
+        "id": "d",
+        "text": "C35/45"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "24,9 MPa ≈ 25 MPa → **C25/30** ($f_{cd} = 16{,}67$ MPa ≈ 16,6). ⚠️ Le corrigé moodle affiche « C20 » à côté de 24,90 MPa : c'est une **erreur** (un C20/25 a $f_{ck} = 20$ MPa et $f_{cd} = 13{,}33$ MPa). Le premier nombre de la classe est $f_{ck}$ (cylindre), le second la résistance sur cube.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1,
+        "note": "le corrigé indique « C20 » par erreur"
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "corrigé-faux"
+    ],
+    "wrongChoiceHints": {
+      "a": "Erreur du corrigé moodle : un C20 a f_ck = 20 MPa."
+    }
+  },
+  {
+    "id": "stab1-ba-materiaux-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Résistance moyenne $f_{cm}$ d’un béton **C30/37** ?",
+    "answer": {
+      "value": 38,
+      "unit": "MPa",
+      "tolerancePct": 0.5
+    },
+    "explanation": "$f_{cm} = f_{ck} + 8 = 30 + 8 = 38$ MPa (corrigé TD1). Réciproquement, la question 8 du TD1 donne $f_{cm} = 38$ MPa → $f_{ck} = 30$ MPa → $f_{cd} = 20$ MPa.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Béton (corrigé TD1)",
+        "latex": "f_{cd} = \\frac{f_{ck}}{1{,}5} \\quad f_{cm} = f_{ck} + 8 \\quad f_{ctm} = 0{,}30\\,f_{ck}^{2/3} \\quad f_{ctk,0,05} = 0{,}7\\,f_{ctm} \\quad E_{cm} = 22\\,000\\left(\\frac{f_{cm}}{10}\\right)^{0,3}"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-materiaux-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Résistance moyenne à la traction $f_{ctm}$ d’un **C25/30** ?",
+    "answer": {
+      "value": 2.56,
+      "unit": "MPa"
+    },
+    "explanation": "Pour $f_{ck} \\le 50$ MPa : $f_{ctm} = 0{,}30\\,f_{ck}^{2/3}$.\n$$f_{ctm} = 0{,}30\\times25^{2/3} = 0{,}30\\times8{,}55 = 2{,}56\\ \\text{MPa}$$\nLe béton résiste environ 10 fois moins en traction qu'en compression, d'où les armatures.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Béton (corrigé TD1)",
+        "latex": "f_{cd} = \\frac{f_{ck}}{1{,}5} \\quad f_{cm} = f_{ck} + 8 \\quad f_{ctm} = 0{,}30\\,f_{ck}^{2/3} \\quad f_{ctk,0,05} = 0{,}7\\,f_{ctm} \\quad E_{cm} = 22\\,000\\left(\\frac{f_{cm}}{10}\\right)^{0,3}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-materiaux-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Résistance caractéristique à la traction $f_{ctk,0,05}$ d’un **C25/30** ?",
+    "answer": {
+      "value": 1.8,
+      "unit": "MPa",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$f_{ctk,0,05} = 0{,}7\\,f_{ctm} = 0{,}7\\times2{,}56 = 1{,}80\\ \\text{MPa}$$\nFractile 5 % : 5 % des valeurs n'atteignent pas ce seuil. L'autre valeur caractéristique, $f_{ctk,0,95} = 1{,}3\\,f_{ctm} = 3{,}33$ MPa, est rarement utilisée. $f_{ctk,0,05}$ sert à l'adhérence ($f_{ctd}$, $f_{bd}$).",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Correction_TD3_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Béton (corrigé TD1)",
+        "latex": "f_{cd} = \\frac{f_{ck}}{1{,}5} \\quad f_{cm} = f_{ck} + 8 \\quad f_{ctm} = 0{,}30\\,f_{ck}^{2/3} \\quad f_{ctk,0,05} = 0{,}7\\,f_{ctm} \\quad E_{cm} = 22\\,000\\left(\\frac{f_{cm}}{10}\\right)^{0,3}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-materiaux-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Module d’élasticité instantané $E_{cm}$ d’un **C25/30** ?",
+    "answer": {
+      "value": 31476,
+      "unit": "MPa"
+    },
+    "explanation": "$f_{cm} = 25 + 8 = 33$ MPa.\n$$E_{cm} = 22\\,000\\left(\\frac{33}{10}\\right)^{0,3} = 22\\,000\\times1{,}431 = 31\\,476\\ \\text{MPa} \\approx 31{,}5\\ \\text{GPa}$$\n(le corrigé, avec $f_{ck} = 24{,}9$, trouve 31 447 MPa). $E_{cm}$ est un module **sécant** entre σ = 0 et σ = 0,4 f_cm.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Béton (corrigé TD1)",
+        "latex": "f_{cd} = \\frac{f_{ck}}{1{,}5} \\quad f_{cm} = f_{ck} + 8 \\quad f_{ctm} = 0{,}30\\,f_{ck}^{2/3} \\quad f_{ctk,0,05} = 0{,}7\\,f_{ctm} \\quad E_{cm} = 22\\,000\\left(\\frac{f_{cm}}{10}\\right)^{0,3}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-materiaux-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Module différé $E_{c,eff}$ d'un C25/30 ($E_{cm} = 31\\,476$ MPa) avec un coefficient de fluage $\\varphi = 2$ ?",
+    "answer": {
+      "value": 10492,
+      "unit": "MPa"
+    },
+    "explanation": "$$E_{c,eff} = \\frac{E_{cm}}{1 + \\varphi} = \\frac{31\\,476}{3} = 10\\,492\\ \\text{MPa}$$\nC'est le module « à long terme », qui tient compte du fluage : les flèches à long terme sont environ 3 fois les flèches instantanées.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-materiaux-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Béton C35, ciment CEM 42,5N ($s = 0{,}25$). Calcule $\\beta_{cc}$ à **10 jours**.",
+    "answer": {
+      "value": 0.845,
+      "unit": "",
+      "tolerancePct": 1
+    },
+    "explanation": "$$\\beta_{cc}(t) = \\exp\\left[s\\left(1 - \\sqrt{28/t}\\right)\\right] = \\exp\\left[0{,}25\\,(1 - \\sqrt{2{,}8})\\right] = \\exp(-0{,}168) = 0{,}845$$\nValeurs du corrigé : 0,504 (2 j) ; 0,845 (10 j) ; 0,955 (20 j) ; → 1 à 28 j.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-materiaux-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "C35 (f_cm = 43 MPa), $\\beta_{cc}(10\\ \\text{j}) = 0{,}845$. Calcule $f_{ck}(10\\ \\text{j})$.",
+    "answer": {
+      "value": 28.34,
+      "unit": "MPa",
+      "tolerancePct": 1
+    },
+    "explanation": "$f_{cm}(t) = \\beta_{cc}(t)\\,f_{cm} = 0{,}845\\times43 = 36{,}34$ MPa, puis $f_{ck}(t) = f_{cm}(t) - 8 = 28{,}34$ MPa.\n⚠️ Cette relation n'est valable qu'**à partir de 3 jours** (à 2 j, le corrigé barre la valeur 13,67). Conclusion du TD : croissance rapide les premiers jours (la moitié de la résistance en 2 jours), puis ralentissement.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-materiaux-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Résistance de calcul $f_{yd}$ d’un acier **B500** ?",
+    "answer": {
+      "value": 434.8,
+      "unit": "MPa"
+    },
+    "explanation": "$$f_{yd} = \\frac{f_{yk}}{\\gamma_s} = \\frac{500}{1{,}15} = 434{,}8\\ \\text{MPa}$$\n(B400 : 348 MPa). On arrondit souvent à 435 MPa. γ_s = 1,15 est le coefficient partiel de l'acier en situation durable ; c'est $f_{yd}$ (et non $f_{yk}$) qui entre dans le calcul des sections d'armatures.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Acier",
+        "latex": "f_{yd} = \\frac{f_{yk}}{1{,}15} \\qquad E_s = 200\\,000\\ \\text{MPa} \\qquad \\varepsilon_{yd} = \\frac{f_{yd}}{E_s}"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-materiaux-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Un acier a une résistance de calcul $f_{yd} = 348$ MPa. Quelle est sa limite d’élasticité caractéristique $f_{yk}$ ?",
+    "answer": {
+      "value": 400,
+      "unit": "MPa",
+      "tolerancePct": 0.5
+    },
+    "explanation": "On inverse $f_{yd} = f_{yk}/\\gamma_s$ avec $\\gamma_s = 1{,}15$ :\n$$f_{yk} = 1{,}15\\times348 = 400{,}2 \\approx 400\\ \\text{MPa}$$\n→ acier **B400** (question 10 du TD1). Un B500 donnerait $f_{yd} = 434{,}8$ MPa.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Acier",
+        "latex": "f_{yd} = \\frac{f_{yk}}{1{,}15} \\qquad E_s = 200\\,000\\ \\text{MPa} \\qquad \\varepsilon_{yd} = \\frac{f_{yd}}{E_s}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-materiaux-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Module d’élasticité des aciers d’armature $E_s$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "30 GPa"
+      },
+      {
+        "id": "b",
+        "text": "200 GPa"
+      },
+      {
+        "id": "c",
+        "text": "210 GPa"
+      },
+      {
+        "id": "d",
+        "text": "500 GPa"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Pour le béton armé, l'EC2 prend **$E_s = 200$ GPa** (corrigé TD1, question 12). Attention : en construction métallique (EC3), on prend $E = 210\\,000$ MPa. Ne pas mélanger les deux.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "c": "210 GPa est la valeur de l’EC3 (charpente), pas de l’EC2."
+    }
+  },
+  {
+    "id": "stab1-ba-materiaux-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Déformation limite élastique de calcul $\\varepsilon_{yd}$ d’un acier B500 (en ‰) ?",
+    "answer": {
+      "value": 2.17,
+      "unit": "‰",
+      "tolerancePct": 2
+    },
+    "explanation": "$$\\varepsilon_{yd} = \\frac{f_{yd}}{E_s} = \\frac{434{,}8}{200\\,000} = 2{,}17\\ ‰$$\n⚠️ Le corrigé TD1 calcule $f_{yk}/E_s = 2{,}5$ ‰ ; la définition de **calcul** utilise $f_{yd}$. C'est 2,17 ‰ qui intervient dans $\\mu_{cu,yd}$.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1,
+        "note": "le corrigé utilise f_yk/E_s = 2,5 ‰"
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "valeur EC standard, non trouvée dans le cours"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Acier",
+        "latex": "f_{yd} = \\frac{f_{yk}}{1{,}15} \\qquad E_s = 200\\,000\\ \\text{MPa} \\qquad \\varepsilon_{yd} = \\frac{f_{yd}}{E_s}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-materiaux-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Déformation ultime du béton $\\varepsilon_{cu2}$ (diagramme parabole-rectangle, $f_{ck} \\le 50$ MPa) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "2 ‰"
+      },
+      {
+        "id": "b",
+        "text": "3,5 ‰"
+      },
+      {
+        "id": "c",
+        "text": "5 ‰"
+      },
+      {
+        "id": "d",
+        "text": "10 ‰"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Corrigé TD1 (question 8) : $\\varepsilon_{c2} = 2$ ‰ (déformation atteinte quand la contrainte est maximale) et **$\\varepsilon_{cu2} = 3{,}5$ ‰** (déformation ultime). Au-delà, le béton est considéré comme écrasé.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "a": "2 ‰ = ε_c2 (contrainte maximale atteinte), pas la déformation ultime."
+    }
+  },
+  {
+    "id": "stab1-ba-materiaux-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Diagramme rectangulaire simplifié : la zone comprimée a une hauteur de…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$x_u$"
+      },
+      {
+        "id": "b",
+        "text": "$0{,}8\\,x_u$"
+      },
+      {
+        "id": "c",
+        "text": "$0{,}5\\,x_u$"
+      },
+      {
+        "id": "d",
+        "text": "$d$"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Pour les bétons normaux (f_ck ≤ 50 MPa) : **λ = 0,8** et η = 1 → bloc de contrainte $f_{cd}$ sur une hauteur $0{,}8\\,x_u$. La résultante vaut $F_c = 0{,}8\\,x_u\\,b\\,f_{cd}$ et s'applique à $0{,}4\\,x_u$ de la fibre supérieure.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-materiaux-017",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Poutre en C20, $b = 18$ cm, axe neutre à $x_u = 10$ cm. Calcule la résultante de compression $F_c$ (en MN).",
+    "answer": {
+      "value": 0.192,
+      "unit": "MN",
+      "tolerancePct": 2
+    },
+    "explanation": "$f_{cd} = 20/1{,}5 = 13{,}33$ MPa.\n$$F_c = 0{,}8\\,x_u\\,b\\,f_{cd} = 0{,}8\\times0{,}10\\times0{,}18\\times13{,}33 = 0{,}192\\ \\text{MN}$$\n⚠️ Le corrigé affiche aussi 0,29 MN, calculé par erreur avec $f_{cd} = 20$ MPa (béton C30 de la question précédente).",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1,
+        "note": "valeur 0,29 MN erronée dans le corrigé"
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-materiaux-018",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Même poutre : $F_c = 0{,}192$ MN, aciers B500. Section d’acier nécessaire $A_s$ ?",
+    "answer": {
+      "value": 4.42,
+      "unit": "cm²",
+      "tolerancePct": 2
+    },
+    "explanation": "Équilibre : $F_s = F_c$ avec $F_s = A_s\\,f_{yd}$.\n$$A_s = \\frac{0{,}192}{434{,}8} = 4{,}42\\times10^{-4}\\ \\text{m}^2 = 4{,}42\\ \\text{cm}^2$$\n→ par exemple **3HA14** (4,62 cm²) (corrigé TD1, question 14).",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Sections d’acier (cm²) pour n barres (corrigé TD1 BA)",
+        "columns": [
+          "φ (mm)",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "rows": [
+          [
+            "6",
+            0.28,
+            0.57,
+            0.85,
+            1.13,
+            1.41,
+            1.7,
+            1.98,
+            2.26
+          ],
+          [
+            "8",
+            0.5,
+            1.01,
+            1.51,
+            2.01,
+            2.51,
+            3.02,
+            3.52,
+            4.02
+          ],
+          [
+            "10",
+            0.79,
+            1.57,
+            2.36,
+            3.14,
+            3.93,
+            4.71,
+            5.5,
+            6.28
+          ],
+          [
+            "12",
+            1.13,
+            2.26,
+            3.39,
+            4.52,
+            5.65,
+            6.79,
+            7.92,
+            9.05
+          ],
+          [
+            "14",
+            1.54,
+            3.08,
+            4.62,
+            6.16,
+            7.7,
+            9.24,
+            10.78,
+            12.32
+          ],
+          [
+            "16",
+            2.01,
+            4.02,
+            6.03,
+            8.04,
+            10.05,
+            12.06,
+            14.07,
+            16.08
+          ],
+          [
+            "20",
+            3.14,
+            6.28,
+            9.42,
+            12.57,
+            15.71,
+            18.85,
+            21.99,
+            25.13
+          ],
+          [
+            "25",
+            4.91,
+            9.82,
+            14.73,
+            19.63,
+            24.54,
+            29.45,
+            34.36,
+            39.27
+          ],
+          [
+            "32",
+            8.04,
+            16.08,
+            24.13,
+            32.17,
+            40.21,
+            48.25,
+            56.3,
+            64.34
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-materiaux-019",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Béton C35 en classe XD : contrainte de compression limite à l’ELS (combinaison caractéristique) ?",
+    "answer": {
+      "value": 21,
+      "unit": "MPa",
+      "tolerancePct": 0.5
+    },
+    "explanation": "EC2 §7.2 (corrigé TD1, question 6) : en classes d'exposition XD, XF ou XS, sous combinaison caractéristique, $\\sigma_c \\le 0{,}6\\,f_{ck} = 0{,}6\\times35 = 21$ MPa (pour éviter les fissures longitudinales).",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "EN 1992-1-1 §7.2"
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-materiaux-020",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Béton C25 : contrainte maximale sous charges quasi-permanentes pour que le fluage reste **linéaire** ?",
+    "answer": {
+      "value": 11.25,
+      "unit": "MPa",
+      "tolerancePct": 0.5
+    },
+    "explanation": "Si $\\sigma_c \\le 0{,}45\\,f_{ck}$ sous charges quasi-permanentes, on admet un fluage linéaire (EN 1992 §3.1.4) : $0{,}45\\times25 = 11{,}25$ MPa (corrigé TD1, question 7). Au-delà, le fluage est non linéaire.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-materiaux-021",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Allongement caractéristique sous charge maximale $\\varepsilon_{uk}$ d’un acier **ductile (classe B)** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "2,5 %"
+      },
+      {
+        "id": "b",
+        "text": "5 %"
+      },
+      {
+        "id": "c",
+        "text": "7,5 %"
+      },
+      {
+        "id": "d",
+        "text": "10 %"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Corrigé TD1 (question 11) : classe A (peu ductile, écroui à froid) → $\\varepsilon_{uk} = 2{,}5$ % ; **classe B (ductile, laminé à chaud) → 5 %**. Les barres HA courantes sont de classe B (B500B dans le TD6).",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-materiaux-022",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Combien de kN/m² vaut 1 MPa ?",
+    "answer": {
+      "value": 1000,
+      "unit": "kN/m²",
+      "tolerancePct": 0
+    },
+    "explanation": "1 MPa = 1 N/mm² = $10^6$ N/m² = **1000 kN/m²** = 10 bar. Tableau du TD1 : 100 000 N/m² = 100 kN/m² = 0,1 MPa = 1 bar. Retenir : 1 kN/m² = 0,001 MPa. Piège classique : comparer une charge en kN/m² à une contrainte en MPa sans convertir.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-materiaux-023",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-materiaux"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Combien de N·mm vaut 1 kN·m ?",
+    "answer": {
+      "value": 1000000,
+      "unit": "N·mm",
+      "tolerancePct": 0
+    },
+    "explanation": "1 kN·m = 1000 N × 1000 mm = **$10^6$ N·mm**. C'est la conversion clé des calculs de contraintes ($\\sigma = 6M/bh^2$ avec M en N·mm et les longueurs en mm → MPa). Et 1 MN·m = 1000 kN·m = $10^9$ N·mm (tableau de conversions du corrigé TD1).",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  }
+]

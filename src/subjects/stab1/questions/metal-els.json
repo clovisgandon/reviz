@@ -1,0 +1,935 @@
+[
+  {
+    "id": "stab1-metal-els-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Partiel 2023 : quel chargement doit-on considérer pour le calcul de la **flèche** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ELS : G + Q = 2,1 kN/ml"
+      },
+      {
+        "id": "b",
+        "text": "ELU : 1,35G + 1,5Q = 3,1 kN/ml"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Les flèches sont un critère de **service** : on les calcule avec les charges **non pondérées** (combinaison caractéristique $G + Q$). Les coefficients 1,35 et 1,5 sont réservés aux vérifications de résistance (ELU : moment, tranchant). C'est la première question du partiel métal.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 1
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 13
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-els-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Que désigne $w_3$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "la contre-flèche"
+      },
+      {
+        "id": "b",
+        "text": "la flèche sous charges permanentes"
+      },
+      {
+        "id": "c",
+        "text": "la flèche due aux actions variables"
+      },
+      {
+        "id": "d",
+        "text": "la flèche totale"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Poly p.13 : $w_c$ = contre-flèche ; $w_1$ = flèche sous charges permanentes ; $w_2$ = flèche à long terme sous permanentes ; **$w_3$ = flèche due aux actions variables** ; $w_{tot} = w_1 + w_2 + w_3$ ; $w_{max} = w_{tot} - w_c$.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 13
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 5
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-els-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Limite de $w_{max}$ pour une **toiture en général** (accès pour entretien seulement) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "L/150"
+      },
+      {
+        "id": "b",
+        "text": "L/200"
+      },
+      {
+        "id": "c",
+        "text": "L/250"
+      },
+      {
+        "id": "d",
+        "text": "L/300"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Table 4.1 (Annexe nationale) : toitures en général $w_{max} \\le L/200$ et $w_3 \\le L/250$. Une toiture « en général » est non accessible aux usagers, avec seulement le passage du personnel d'entretien.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 14
+      },
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Valeurs limites des flèches verticales (Annexe nationale, poly p.14)",
+        "columns": [
+          "Condition",
+          "w_max",
+          "w_3"
+        ],
+        "rows": [
+          [
+            "Toitures en général (accès entretien seul)",
+            "L/200",
+            "L/250"
+          ],
+          [
+            "Toitures avec personnel autre qu’entretien",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers en général",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers/toitures avec cloisons fragiles ou rigides",
+            "L/250",
+            "L/350"
+          ],
+          [
+            "Planchers supportant des poteaux",
+            "L/400",
+            "L/500"
+          ],
+          [
+            "w_max nuisant à l’aspect",
+            "L/250",
+            "—"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-els-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Limite de $w_3$ pour une **toiture en général** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "L/200"
+      },
+      {
+        "id": "b",
+        "text": "L/250"
+      },
+      {
+        "id": "c",
+        "text": "L/300"
+      },
+      {
+        "id": "d",
+        "text": "L/350"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Table 4.1 : toitures en général → $w_{max} = L/200$, **$w_3 = L/250$** ; planchers en général → L/200 et L/300 ; avec cloisons fragiles → L/250 et L/350 ; planchers supportant des poteaux → L/400 et L/500.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 14
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Valeurs limites des flèches verticales (Annexe nationale, poly p.14)",
+        "columns": [
+          "Condition",
+          "w_max",
+          "w_3"
+        ],
+        "rows": [
+          [
+            "Toitures en général (accès entretien seul)",
+            "L/200",
+            "L/250"
+          ],
+          [
+            "Toitures avec personnel autre qu’entretien",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers en général",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers/toitures avec cloisons fragiles ou rigides",
+            "L/250",
+            "L/350"
+          ],
+          [
+            "Planchers supportant des poteaux",
+            "L/400",
+            "L/500"
+          ],
+          [
+            "w_max nuisant à l’aspect",
+            "L/250",
+            "—"
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-els-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Panne de toiture de portée $L = 5{,}50$ m : flèche limite $w_{max} = L/200$ ?",
+    "answer": {
+      "value": 27.5,
+      "unit": "mm"
+    },
+    "explanation": "$$w_{lim} = \\frac{L}{200} = \\frac{5500\\ \\text{mm}}{200} = 27{,}5\\ \\text{mm}$$\net $w_{3,lim} = L/250 = 22$ mm. Travailler en mm évite les erreurs d'unités quand on compare à la flèche calculée.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-els-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : $p = G + Q = 2{,}1$ kN/ml, $L = 5{,}50$ m, $E = 210\\,000$ MPa, $I_y = 1200$ cm⁴ (valeur imposée par l'énoncé). Calcule la flèche à mi-portée.",
+    "answer": {
+      "value": 9.93,
+      "unit": "mm"
+    },
+    "explanation": "Unités N et mm : $p = 2{,}1$ N/mm, $L = 5500$ mm, $I = 1200\\times10^4$ mm⁴.\n$$w = \\frac{5\\times2{,}1\\times5500^4}{384\\times210\\,000\\times1{,}2\\times10^7} = 9{,}93\\ \\text{mm} \\le 27{,}5\\ \\text{mm}$$\nVérifié avec l'inertie de l'énoncé. ⚠️ Mais aucun IPE du catalogue n'a $I_y = 1200$ cm⁴ (IPE 120 : 317,8) : voir la question suivante.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "latex": "w = \\frac{5\\,p\\,L^4}{384\\,E\\,I_y} \\qquad E = 210\\,000\\ \\text{MPa}"
+      },
+      {
+        "kind": "table",
+        "title": "Valeurs limites des flèches verticales (Annexe nationale, poly p.14)",
+        "columns": [
+          "Condition",
+          "w_max",
+          "w_3"
+        ],
+        "rows": [
+          [
+            "Toitures en général (accès entretien seul)",
+            "L/200",
+            "L/250"
+          ],
+          [
+            "Toitures avec personnel autre qu’entretien",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers en général",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers/toitures avec cloisons fragiles ou rigides",
+            "L/250",
+            "L/350"
+          ],
+          [
+            "Planchers supportant des poteaux",
+            "L/400",
+            "L/500"
+          ],
+          [
+            "w_max nuisant à l’aspect",
+            "L/250",
+            "—"
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-els-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : flèche $w_3$ sous $Q = 1{,}4$ kN/ml seul ($L = 5{,}50$ m, $I_y = 1200$ cm⁴).",
+    "answer": {
+      "value": 6.62,
+      "unit": "mm"
+    },
+    "explanation": "$$w_3 = \\frac{5\\times1{,}4\\times5500^4}{384\\times210\\,000\\times1{,}2\\times10^7} = 6{,}62\\ \\text{mm} \\le L/250 = 22\\ \\text{mm}$$\n$w_3$ ne prend que les actions **variables** (ici Q = 1,4 kN/ml), alors que $w_{max}$ prend G + Q.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "latex": "w = \\frac{5\\,p\\,L^4}{384\\,E\\,I_y} \\qquad E = 210\\,000\\ \\text{MPa}"
+      },
+      {
+        "kind": "table",
+        "title": "Valeurs limites des flèches verticales (Annexe nationale, poly p.14)",
+        "columns": [
+          "Condition",
+          "w_max",
+          "w_3"
+        ],
+        "rows": [
+          [
+            "Toitures en général (accès entretien seul)",
+            "L/200",
+            "L/250"
+          ],
+          [
+            "Toitures avec personnel autre qu’entretien",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers en général",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers/toitures avec cloisons fragiles ou rigides",
+            "L/250",
+            "L/350"
+          ],
+          [
+            "Planchers supportant des poteaux",
+            "L/400",
+            "L/500"
+          ],
+          [
+            "w_max nuisant à l’aspect",
+            "L/250",
+            "—"
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ]
+  },
+  {
+    "id": "stab1-metal-els-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Partiel 2023 refait avec la **vraie** inertie de l'IPE 120 ($I_y = 317{,}8$ cm⁴) : flèche sous $G + Q = 2{,}1$ kN/ml, $L = 5{,}50$ m.",
+    "answer": {
+      "value": 37.5,
+      "unit": "mm"
+    },
+    "explanation": "$$w = \\frac{5\\times2{,}1\\times5500^4}{384\\times210\\,000\\times317{,}8\\times10^4} = 37{,}5\\ \\text{mm} > 27{,}5\\ \\text{mm}$$\n**Non vérifié** : l'énoncé imposait $I_y = 1200$ cm⁴, incohérent avec le catalogue. Avec l'IPE 120 réel, la flèche gouverne le dimensionnement (voir question suivante).",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 2,
+        "note": "I_y = 1200 cm⁴ incohérent avec le catalogue"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Catalogue IPE donné au partiel 2023 (S235, classe 1)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "I_y (cm⁴)",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "IPE 80",
+            7.64,
+            80.14,
+            20.03,
+            23.22,
+            3.58
+          ],
+          [
+            "IPE 100",
+            10.3,
+            171,
+            34.2,
+            39.41,
+            5.08
+          ],
+          [
+            "IPE 120",
+            13.2,
+            317.8,
+            52.96,
+            60.73,
+            6.31
+          ],
+          [
+            "IPE 140",
+            16.4,
+            541.2,
+            77.32,
+            88.34,
+            7.64
+          ],
+          [
+            "IPE 160",
+            20.1,
+            869.3,
+            108.7,
+            123.9,
+            9.66
+          ],
+          [
+            "IPE 180",
+            23.9,
+            1317,
+            146.3,
+            166.4,
+            11.25
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "latex": "w = \\frac{5\\,p\\,L^4}{384\\,E\\,I_y} \\qquad E = 210\\,000\\ \\text{MPa}"
+      }
+    ],
+    "tags": [
+      "partiel-2023",
+      "corrigé-faux"
+    ]
+  },
+  {
+    "id": "stab1-metal-els-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 3,
+    "type": "single",
+    "prompt": "Partiel 2023 avec les vraies inerties du catalogue ($L = 5{,}50$ m, $G + Q = 2{,}1$ kN/ml, $Q = 1{,}4$ kN/ml, toiture) : quel est le plus petit IPE qui vérifie **les deux** flèches ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "IPE 120"
+      },
+      {
+        "id": "b",
+        "text": "IPE 140"
+      },
+      {
+        "id": "c",
+        "text": "IPE 160"
+      },
+      {
+        "id": "d",
+        "text": "IPE 180"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "$w$ est inversement proportionnel à $I_y$ : $w = 9{,}93\\times1200/I_y$ et $w_3 = 6{,}62\\times1200/I_y$.\n- IPE 120 ($I_y = 317{,}8$) : $w = 37{,}5 > 27{,}5$ ✗\n- **IPE 140** ($I_y = 541{,}2$) : $w = 22{,}0 \\le 27{,}5$ ✓ et $w_3 = 14{,}7 \\le 22$ ✓\nL'IPE 140 suffit (l'IPE 160 marche aussi mais n'est pas le plus petit).",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Catalogue IPE donné au partiel 2023 (S235, classe 1)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "I_y (cm⁴)",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "IPE 80",
+            7.64,
+            80.14,
+            20.03,
+            23.22,
+            3.58
+          ],
+          [
+            "IPE 100",
+            10.3,
+            171,
+            34.2,
+            39.41,
+            5.08
+          ],
+          [
+            "IPE 120",
+            13.2,
+            317.8,
+            52.96,
+            60.73,
+            6.31
+          ],
+          [
+            "IPE 140",
+            16.4,
+            541.2,
+            77.32,
+            88.34,
+            7.64
+          ],
+          [
+            "IPE 160",
+            20.1,
+            869.3,
+            108.7,
+            123.9,
+            9.66
+          ],
+          [
+            "IPE 180",
+            23.9,
+            1317,
+            146.3,
+            166.4,
+            11.25
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "latex": "w = \\frac{5\\,p\\,L^4}{384\\,E\\,I_y} \\qquad E = 210\\,000\\ \\text{MPa}"
+      },
+      {
+        "kind": "table",
+        "title": "Valeurs limites des flèches verticales (Annexe nationale, poly p.14)",
+        "columns": [
+          "Condition",
+          "w_max",
+          "w_3"
+        ],
+        "rows": [
+          [
+            "Toitures en général (accès entretien seul)",
+            "L/200",
+            "L/250"
+          ],
+          [
+            "Toitures avec personnel autre qu’entretien",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers en général",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers/toitures avec cloisons fragiles ou rigides",
+            "L/250",
+            "L/350"
+          ],
+          [
+            "Planchers supportant des poteaux",
+            "L/400",
+            "L/500"
+          ],
+          [
+            "w_max nuisant à l’aspect",
+            "L/250",
+            "—"
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
+    "wrongChoiceHints": {
+      "c": "L’IPE 160 convient, mais l’IPE 140 suffit déjà."
+    }
+  },
+  {
+    "id": "stab1-metal-els-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD garage : IPE 120 ($I_y = 318$ cm⁴), $L = 4$ m, charge ELS perpendiculaire au versant $p_z = 2{,}78$ kN/ml. Calcule $w_{max,z}$.",
+    "answer": {
+      "value": 13.9,
+      "unit": "mm"
+    },
+    "explanation": "$$w = \\frac{5\\times2{,}78\\times4000^4}{384\\times210\\,000\\times318\\times10^4} = 13{,}9\\ \\text{mm} \\le L/200 = 20\\ \\text{mm}$$\nOK selon z (corrigé p.22 : 0,0138 m). Selon y ($I_z = 27{,}7$ cm⁴), la flèche atteint 36,7 mm → liernes nécessaires.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 22
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "latex": "w = \\frac{5\\,p\\,L^4}{384\\,E\\,I_y} \\qquad E = 210\\,000\\ \\text{MPa}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-els-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Limite de $w_{max}$ pour des **planchers supportant des poteaux** ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "L/200"
+      },
+      {
+        "id": "b",
+        "text": "L/250"
+      },
+      {
+        "id": "c",
+        "text": "L/400"
+      },
+      {
+        "id": "d",
+        "text": "L/500"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Table 4.1 : planchers supportant des poteaux (sauf si la flèche est incluse dans l'analyse ELU) → $w_{max} = L/400$ et $w_3 = L/500$ : ce sont les critères les plus sévères du tableau, car une flèche du plancher fait descendre les poteaux qu'il porte.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 14
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Valeurs limites des flèches verticales (Annexe nationale, poly p.14)",
+        "columns": [
+          "Condition",
+          "w_max",
+          "w_3"
+        ],
+        "rows": [
+          [
+            "Toitures en général (accès entretien seul)",
+            "L/200",
+            "L/250"
+          ],
+          [
+            "Toitures avec personnel autre qu’entretien",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers en général",
+            "L/200",
+            "L/300"
+          ],
+          [
+            "Planchers/toitures avec cloisons fragiles ou rigides",
+            "L/250",
+            "L/350"
+          ],
+          [
+            "Planchers supportant des poteaux",
+            "L/400",
+            "L/500"
+          ],
+          [
+            "w_max nuisant à l’aspect",
+            "L/250",
+            "—"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-els-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Bâtiment industriel à un niveau sans pont roulant, parois non fragiles : déplacement horizontal limite en tête de poteau ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "H/150"
+      },
+      {
+        "id": "b",
+        "text": "H/250"
+      },
+      {
+        "id": "c",
+        "text": "H/300"
+      },
+      {
+        "id": "d",
+        "text": "H/500"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Table 4.2 du poly : bâtiment industriel à niveau unique sans pont roulant avec parois non fragiles → **H/150** en tête de poteau (et H/150 en différentiel entre deux portiques). Pour les autres bâtiments à un niveau (exigences d'aspect, parois fragiles) : H/250.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 14
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-els-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Portique industriel de hauteur $H = 6$ m (sans pont roulant) : déplacement horizontal admissible en tête ?",
+    "answer": {
+      "value": 40,
+      "unit": "mm"
+    },
+    "explanation": "$$u_{lim} = \\frac{H}{150} = \\frac{6000}{150} = 40\\ \\text{mm}$$\n(table 4.2 du poly). Pour un « autre bâtiment à niveau unique », on aurait $H/250 = 24$ mm.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 14
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-els-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 2,
+    "type": "truefalse",
+    "prompt": "La flèche $w_{max}$ comparée aux limites tient compte de la contre-flèche : $w_{max} = w_{tot} - w_c$.",
+    "choices": [
+      {
+        "id": "v",
+        "text": "Vrai"
+      },
+      {
+        "id": "f",
+        "text": "Faux"
+      }
+    ],
+    "answer": [
+      "v"
+    ],
+    "explanation": "**Vrai.** Poly p.13 et mémo p.5 : $w_{tot} = w_1 + w_2 + w_3$ et $w_{max} = w_{tot} - w_c$, où $w_c$ est la contre-flèche donnée à l'élément non chargé. Sans contre-flèche (cas du partiel), $w_{max} = w_{tot}$.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 13
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 5
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-els-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-els"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Dans $w = 5pL^4/(384EI)$ avec E en MPa, p en N/mm et L en mm, en quelle unité doit être $I$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "cm⁴"
+      },
+      {
+        "id": "b",
+        "text": "mm⁴"
+      },
+      {
+        "id": "c",
+        "text": "m⁴"
+      },
+      {
+        "id": "d",
+        "text": "cm³"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Avec E en MPa (= N/mm²), p en N/mm (1 kN/m = 1 N/mm) et L en mm, il faut **I en mm⁴** pour obtenir w en mm. Le catalogue donne $I_y$ en cm⁴ : multiplier par $10^4$ (1 cm⁴ = $10^4$ mm⁴). Oublier cette conversion donne une flèche 10 000 fois trop grande.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 2
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 6
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  }
+]

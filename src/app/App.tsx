@@ -8,6 +8,7 @@ import { SettingsPage } from '@/features/settings/SettingsPage';
 import { QuizSetupPage } from '@/features/quiz/QuizSetupPage';
 import { QuizPage } from '@/features/quiz/QuizPage';
 import { ResultsPage } from '@/features/results/ResultsPage';
+import { FormulairePage } from '@/features/subjects/FormulairePage';
 import { PageHeader } from '@/components/PageHeader';
 
 /** Routage en mode hash (/#/...) : marche sur GitHub Pages sans configuration serveur. */
@@ -22,6 +23,7 @@ export function App() {
           <Route path="matieres" element={<SubjectsPage />} />
           <Route path="matieres/:subjectId" element={<SubjectPage />} />
           <Route path="matieres/:subjectId/entrainement" element={<QuizSetupPage />} />
+          <Route path="matieres/:subjectId/formulaire" element={<FormulairePage />} />
           <Route path="resultats/:attemptId" element={<ResultsPage />} />
           <Route path="historique" element={<HistoryPage />} />
           <Route path="reglages" element={<SettingsPage />} />

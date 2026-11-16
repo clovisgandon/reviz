@@ -2,46 +2,1054 @@
   {
     "id": "stab1-metal-elu-012",
     "subjectId": "stab1",
-    "themeIds": ["metal-elu"],
+    "themeIds": [
+      "metal-elu"
+    ],
     "level": 2,
     "type": "numeric",
     "prompt": "Une panne IPE 120 en S235 (classe 1) reprend $V_{Ed} = 8{,}4$ kN. Calcule $V_{pl,Rd}$.",
-    "data": [
-      { "kind": "table", "title": "Extrait catalogue IPE (partiel 2023)", "columns": ["Profilé", "A (cm²)", "A_vz (cm²)"], "rows": [["IPE 120", 13.2, 6.31]] },
-      { "kind": "formula", "latex": "V_{pl,Rd} = A_{vz}\\,\\frac{f_y/\\sqrt{3}}{\\gamma_{M0}} \\qquad f_y = 235\\ \\text{MPa},\\ \\gamma_{M0} = 1{,}00" }
-    ],
-    "answer": { "value": 85.6, "unit": "kN", "tolerancePct": 2 },
+    "answer": {
+      "value": 85.6,
+      "unit": "kN"
+    },
     "explanation": "$$V_{pl,Rd} = 6{,}31\\times10^{2}\\ \\text{mm}^2 \\times \\frac{235/\\sqrt3}{1{,}00} = 85\\,600\\ \\text{N} = 85{,}6\\ \\text{kN}$$\nOn vérifie $V_{Ed} = 8{,}4 \\le 85{,}6$ kN (taux 10 %) et $V_{Ed} \\le 0{,}5\\,V_{pl,Rd} = 42{,}8$ kN : on ne tient pas compte de l'effort tranchant dans le moment résistant.\n\n**Erreurs fréquentes** : oublier le $\\sqrt3$ (→ 148 kN), laisser $A_{vz}$ en cm² (→ 0,86 kN), prendre l'aire totale $A$ au lieu de $A_{vz}$ (→ 179 kN).",
     "source": [
-      { "docName": "POLY_2026_metal.pdf", "page": 23 },
-      { "docName": "Partiel_2023_STAB01.pdf", "page": 1 }
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 23
+      },
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 1
+      }
     ],
-    "tags": ["partiel-2023"],
     "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait catalogue IPE (partiel 2023)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "IPE 120",
+            13.2,
+            6.31
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "latex": "V_{pl,Rd} = A_{vz}\\,\\frac{f_y/\\sqrt3}{\\gamma_{M0}}"
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
     "examStyle": true
   },
   {
     "id": "stab1-metal-elu-order-001",
     "subjectId": "stab1",
-    "themeIds": ["metal-elu"],
+    "themeIds": [
+      "metal-elu"
+    ],
     "level": 2,
     "type": "order",
-    "prompt": "Remets dans l'ordre la démarche de dimensionnement d'une panne IPE en flexion simple (méthode du TD garage).",
+    "prompt": "Remets dans l’ordre la démarche de dimensionnement d’une panne IPE en flexion simple (méthode du TD garage).",
     "choices": [
-      { "id": "a", "text": "Calculer la charge ELU linéique $p_u$ (combinaison la plus défavorable × entraxe)" },
-      { "id": "b", "text": "Calculer $M_{Ed} = p_u L^2/8$" },
-      { "id": "c", "text": "En déduire $W_{pl,y} \\ge M_{Ed}\\,\\gamma_{M0}/f_y$" },
-      { "id": "d", "text": "Choisir le plus petit IPE (classe 1) qui convient dans le catalogue" },
-      { "id": "e", "text": "Vérifier le tranchant : $V_{Ed} \\le V_{pl,Rd}$ et $V_{Ed} \\le 0{,}5\\,V_{pl,Rd}$" },
-      { "id": "f", "text": "Vérifier les flèches à l'ELS ($w_{max}$ et $w_3$)" }
+      {
+        "id": "a",
+        "text": "Calculer la charge ELU linéique $p_u$ (combinaison la plus défavorable × entraxe)"
+      },
+      {
+        "id": "b",
+        "text": "Calculer $M_{Ed} = p_u L^2/8$"
+      },
+      {
+        "id": "c",
+        "text": "En déduire $W_{pl,y} \\ge M_{Ed}\\,\\gamma_{M0}/f_y$"
+      },
+      {
+        "id": "d",
+        "text": "Choisir le plus petit IPE (classe 1) qui convient dans le catalogue"
+      },
+      {
+        "id": "e",
+        "text": "Vérifier le tranchant : $V_{Ed} \\le V_{pl,Rd}$ et $V_{Ed} \\le 0{,}5\\,V_{pl,Rd}$"
+      },
+      {
+        "id": "f",
+        "text": "Vérifier les flèches à l'ELS ($w_{max}$ et $w_3$)"
+      }
     ],
-    "answer": ["a", "b", "c", "d", "e", "f"],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
     "explanation": "On part toujours des **charges** : combinaisons d'actions, charge linéique = charge surfacique × entraxe (× cos α pour la neige). Puis **sollicitation** $M_{Ed}$, **module nécessaire** $W_{pl,y}$, **choix du profilé** dans le catalogue (le plus petit qui convient, IPE = classe 1). On vérifie ensuite les autres critères ELU avec le profilé choisi (tranchant, et l'interaction M-V si $V_{Ed} > 0{,}5 V_{pl,Rd}$), puis l'**ELS** (flèches avec $I_y$ du profilé).\n\nDans le TD garage : $p_u = 3{,}94$ kN/ml → $M_{Ed} = 7{,}88$ kN·m → $W_{pl,y} \\ge 32{,}9$ cm³ → IPE 100.",
     "source": [
-      { "docName": "CORRIGE_TD_2024.pdf", "page": 18 },
-      { "docName": "POLY_2026_metal.pdf", "page": 19 }
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 18
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 19
+      }
     ],
-    "tags": ["démarche"],
+    "origin": "builtin",
+    "tags": [
+      "démarche"
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Diagonale en cornière L50×5 ($A = 4{,}80$ cm²), acier S235. Calcule $N_{pl,Rd}$.",
+    "answer": {
+      "value": 112.8,
+      "unit": "kN"
+    },
+    "explanation": "$$N_{pl,Rd} = \\frac{A f_y}{\\gamma_{M0}} = \\frac{480\\ \\text{mm}^2\\times235}{1{,}00} = 112\\,800\\ \\text{N} = 112{,}8\\ \\text{kN}$$\nC'est la résistance de la **section brute**. S'il y a des trous de boulons, il faut aussi vérifier $N_{u,Rd}$ sur la section nette (poly p.18).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 18
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 42
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "latex": "N_{pl,Rd} = \\frac{A f_y}{\\gamma_{M0}} \\qquad N_{u,Rd} = 0{,}9\\,\\frac{A_{net} f_u}{\\gamma_{M2}},\\ \\gamma_{M2} = 1{,}25"
+      },
+      {
+        "kind": "table",
+        "title": "Cornière (poly p.42)",
+        "columns": [
+          "Profil",
+          "A (cm²)"
+        ],
+        "rows": [
+          [
+            "L50×5",
+            4.8
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-elu-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Plat de $100\\times10$ mm percé de **2 trous** de $d_0 = 18$ mm dans la même section. Calcule l'aire nette $A_{net}$.",
+    "answer": {
+      "value": 6.4,
+      "unit": "cm²"
+    },
+    "explanation": "Poly p.18 (rangées parallèles) : $A_{net} = b\\,t - n\\,d_0\\,t$.\n$$A_{net} = 100\\times10 - 2\\times18\\times10 = 1000 - 360 = 640\\ \\text{mm}^2 = 6{,}40\\ \\text{cm}^2$$\nOn ne retire que les trous situés **dans une même section transversale**.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 18
+      }
+    ],
     "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-elu-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Même plat S235 ($A_{net} = 640$ mm², $f_u = 360$ MPa). Calcule $N_{u,Rd}$.",
+    "answer": {
+      "value": 165.9,
+      "unit": "kN"
+    },
+    "explanation": "$$N_{u,Rd} = 0{,}9\\,\\frac{A_{net} f_u}{\\gamma_{M2}} = 0{,}9\\times\\frac{640\\times360}{1{,}25} = 165\\,900\\ \\text{N} = 165{,}9\\ \\text{kN}$$\nÀ comparer à $N_{pl,Rd} = 1000\\times235 = 235$ kN (section brute) : ici c'est la section nette qui gouverne. γ_M2 = 1,25 (rupture), γ_M0 = 1,00 (plastification).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "latex": "N_{pl,Rd} = \\frac{A f_y}{\\gamma_{M0}} \\qquad N_{u,Rd} = 0{,}9\\,\\frac{A_{net} f_u}{\\gamma_{M2}},\\ \\gamma_{M2} = 1{,}25"
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "TD garage : tirant en cornière **L20×3** ($A = 1{,}12$ cm²), S235. Calcule $N_{pl,Rd}$.",
+    "answer": {
+      "value": 26.3,
+      "unit": "kN"
+    },
+    "explanation": "$$N_{pl,Rd} = \\frac{112\\ \\text{mm}^2\\times235}{1{,}00} = 26\\,320\\ \\text{N} = 26{,}3\\ \\text{kN} \\ge N_{Ed} = 10{,}67\\ \\text{kN}$$\n(corrigé TD p.26). La cornière L20×3 n'est pas dans le catalogue du poly : son aire est donnée dans le corrigé.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 26
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "latex": "N_{pl,Rd} = \\frac{A f_y}{\\gamma_{M0}} \\qquad N_{u,Rd} = 0{,}9\\,\\frac{A_{net} f_u}{\\gamma_{M2}},\\ \\gamma_{M2} = 1{,}25"
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Même cornière L20×3 attachée par un boulon M8 (trou $d_0 = 9$ mm, épaisseur 3 mm, un seul trou dans la section). Calcule $N_{u,Rd}$ (S235, $f_u = 360$ MPa).",
+    "answer": {
+      "value": 22.03,
+      "unit": "kN"
+    },
+    "explanation": "$A_{net} = 1{,}12 - 0{,}9\\times0{,}3 = 0{,}85$ cm² (on retire $d_0\\,t$ pour **un seul** trou).\n$$N_{u,Rd} = 0{,}9\\times\\frac{85\\times360}{1{,}25} = 22\\,030\\ \\text{N} = 22{,}03\\ \\text{kN} \\ge 10{,}67\\ \\text{kN}$$\nLa cornière est validée en traction : $N_{Ed} \\le N_{pl,Rd}$ et $N_{Ed} \\le N_{u,Rd}$ (corrigé p.28).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 28
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "latex": "N_{pl,Rd} = \\frac{A f_y}{\\gamma_{M0}} \\qquad N_{u,Rd} = 0{,}9\\,\\frac{A_{net} f_u}{\\gamma_{M2}},\\ \\gamma_{M2} = 1{,}25"
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : $M_{Ed} = 11{,}6$ kN·m, IPE en S235. Calcule le module plastique **minimal** $W_{pl,y}$.",
+    "answer": {
+      "value": 49.4,
+      "unit": "cm³"
+    },
+    "explanation": "$$W_{pl,y} \\ge \\frac{M_{Ed}\\,\\gamma_{M0}}{f_y} = \\frac{11{,}6\\times10^6\\ \\text{N·mm}}{235} = 49\\,362\\ \\text{mm}^3 = 49{,}4\\ \\text{cm}^3$$\nConversion clé : 1 kN·m = $10^6$ N·mm et 1 cm³ = $10^3$ mm³.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 1
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 19
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "latex": "M_{pl,Rd} = \\frac{W_{pl,y}\\,f_y}{\\gamma_{M0}} \\qquad f_y = 235\\ \\text{MPa},\\ \\gamma_{M0} = 1{,}00"
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-elu-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Partiel 2023 : il faut $W_{pl,y} \\ge 49{,}4$ cm³. Quel est le plus petit IPE qui convient ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "IPE 100"
+      },
+      {
+        "id": "b",
+        "text": "IPE 120"
+      },
+      {
+        "id": "c",
+        "text": "IPE 140"
+      },
+      {
+        "id": "d",
+        "text": "IPE 160"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Catalogue du partiel : IPE 100 → $W_{pl,y} = 39{,}41$ cm³ < 49,4 ✗ ; **IPE 120 → 60,73 cm³ ≥ 49,4 ✓**. Alors $M_{pl,Rd} = 60{,}73\\times235/1000 = 14{,}27$ kN·m et $\\eta = 11{,}6/14{,}27 = 81\\ \\%$. Attention : il faudra aussi vérifier la flèche, qui peut imposer un profilé plus grand.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Catalogue IPE donné au partiel 2023 (S235, classe 1)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "I_y (cm⁴)",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "IPE 80",
+            7.64,
+            80.14,
+            20.03,
+            23.22,
+            3.58
+          ],
+          [
+            "IPE 100",
+            10.3,
+            171,
+            34.2,
+            39.41,
+            5.08
+          ],
+          [
+            "IPE 120",
+            13.2,
+            317.8,
+            52.96,
+            60.73,
+            6.31
+          ],
+          [
+            "IPE 140",
+            16.4,
+            541.2,
+            77.32,
+            88.34,
+            7.64
+          ],
+          [
+            "IPE 160",
+            20.1,
+            869.3,
+            108.7,
+            123.9,
+            9.66
+          ],
+          [
+            "IPE 180",
+            23.9,
+            1317,
+            146.3,
+            166.4,
+            11.25
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "a": "W_pl,y = 39,41 cm³ < 49,4 cm³."
+    }
+  },
+  {
+    "id": "stab1-metal-elu-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Calcule le taux de travail en flexion de l’IPE 120 du partiel : $M_{Ed} = 11{,}6$ kN·m, $M_{pl,Rd} = 14{,}27$ kN·m.",
+    "answer": {
+      "value": 81.3,
+      "unit": "%",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$\\eta = \\frac{M_{Ed}}{M_{pl,Rd}} = \\frac{11{,}6}{14{,}27} = 0{,}813 = 81\\ \\%$$\nη ≤ 100 % → **le profilé convient** vis-à-vis du moment fléchissant. Une conclusion rédigée attendue au partiel : « M_Ed ≤ M_pl,Rd, l'IPE 120 est vérifié en flexion (taux de travail 81 %) ».",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "partiel-2023"
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD garage, IPE 100 : $M_{Ed,y} = 7{,}88$ ; $M_{pl,Rd,y} = 9{,}26$ ; $M_{Ed,z} = 1{,}80$ ; $M_{pl,Rd,z} = 2{,}16$ kN·m ; $N_{Ed} = 0$. Calcule le critère de flexion déviée.",
+    "answer": {
+      "value": 1.557,
+      "unit": "",
+      "tolerancePct": 1.5
+    },
+    "explanation": "Section en I, $n = 0$ → $M_{N,Rd} = M_{pl,Rd}$ et $\\alpha = 2$, $\\beta = 5n$ avec $\\beta \\ge 1$ → $\\beta = 1$.\n$$\\left(\\frac{7{,}88}{9{,}26}\\right)^2 + \\left(\\frac{1{,}80}{2{,}16}\\right)^1 = 0{,}72 + 0{,}83 = 1{,}55 > 1$$\n**Non vérifié** → on passe à l'IPE 120 : $(7{,}88/14{,}26)^2 + 1{,}80/3{,}20 = 0{,}31 + 0{,}56 = 0{,}87 \\le 1$ → OK.\n⚠️ Le corrigé écrit « 0,31 + 0,43 = 0,74 » : $1{,}80/3{,}20$ vaut 0,56, pas 0,43. La conclusion (IPE 120 vérifié) reste juste.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 20
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 24
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion biaxiale (poly p.24)",
+        "latex": "\\left(\\frac{M_{y,Ed}}{M_{N,y,Rd}}\\right)^{\\alpha} + \\left(\\frac{M_{z,Ed}}{M_{N,z,Rd}}\\right)^{\\beta} \\le 1 \\quad\\text{I : } \\alpha = 2,\\ \\beta = 5n \\ge 1"
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-012b",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Flexion déviée d’un profilé en I **sans effort normal** : valeurs de $\\alpha$ et $\\beta$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$\\alpha = \\beta = 1$"
+      },
+      {
+        "id": "b",
+        "text": "$\\alpha = 2$, $\\beta = 1$"
+      },
+      {
+        "id": "c",
+        "text": "$\\alpha = \\beta = 2$"
+      },
+      {
+        "id": "d",
+        "text": "$\\alpha = 1$, $\\beta = 2$"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Table 5.7 du poly (I ou H laminés) : $\\alpha = 2$ et $\\beta = 5n$ avec $\\beta \\ge 1$. Sans effort normal, $n = N_{Ed}/N_{pl,Rd} = 0$ → $\\beta = 1$ (borne). Le critère devient $(M_y/M_{pl,y})^2 + M_z/M_{pl,z} \\le 1$ (TD garage p.20). Pour les tubes circulaires, $\\alpha = \\beta = 2$.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 24
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 20
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-elu-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 1,
+    "type": "truefalse",
+    "prompt": "Si $V_{Ed} \\le 0{,}5\\,V_{pl,Rd}$, on ne tient pas compte de l'effort tranchant dans le calcul du moment résistant.",
+    "choices": [
+      {
+        "id": "v",
+        "text": "Vrai"
+      },
+      {
+        "id": "f",
+        "text": "Faux"
+      }
+    ],
+    "answer": [
+      "v"
+    ],
+    "explanation": "**Vrai.** Poly p.23 : « Le moment résistant plastique d'une section est réduit par la présence de cisaillement. Toutefois, si $V_{Ed} \\le 0{,}5\\,V_{pl,Rd}$ on ne tient pas compte de son action. » C'est le cas presque toujours pour les pannes (partiel : 8,4 kN ≪ 42,8 kN).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 23
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-elu-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Un profilé a une âme de **classe 2** et des semelles de **classe 1**. Quelle est sa classe ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "classe 1"
+      },
+      {
+        "id": "b",
+        "text": "classe 2"
+      },
+      {
+        "id": "c",
+        "text": "classe 3"
+      },
+      {
+        "id": "d",
+        "text": "on ne peut pas conclure"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.21 : « La classe du profilé est donnée par le **maximum** de la classe de l'âme ou de la semelle. » Âme classe 2 + semelle classe 1 → **profilé de classe 2** → on peut encore utiliser $W_{pl}$ ($M_{pl,Rd}$). C'est la paroi la plus élancée qui gouverne le risque de voilement local.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 21
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-elu-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Pour une section de **classe 3**, le moment résistant vaut…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$W_{pl}\\,f_y/\\gamma_{M0}$"
+      },
+      {
+        "id": "b",
+        "text": "$W_{el}\\,f_y/\\gamma_{M0}$"
+      },
+      {
+        "id": "c",
+        "text": "$I\\,f_y/\\gamma_{M0}$"
+      },
+      {
+        "id": "d",
+        "text": "$A\\,f_y/\\gamma_{M0}$"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Classe 3 : la fibre extrême atteint $f_y$ mais le voilement local empêche la plastification complète → $M_{el,Rd} = W_{el} f_y/\\gamma_{M0}$ (poly p.19, mémo p.2). Les classes 1 et 2 utilisent $W_{pl}$ ; la classe 4 (sections minces) n'est pas traitée en STAB 1.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 19
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-elu-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Poteau court (massif, sans flambement) en **HEA 100**, acier **S275**. Calcule $N_{pl,Rd}$ en compression.",
+    "answer": {
+      "value": 583,
+      "unit": "kN"
+    },
+    "explanation": "Poly p.19 : pièce massive → $N_{pl,Rd} = A f_y/\\gamma_{M0}$ (flambement négligé).\n$$N_{pl,Rd} = 21{,}2\\times10^2\\times275 = 583\\,000\\ \\text{N} = 583\\ \\text{kN}$$\nPièce « massive » = longueur inférieure à 6 fois sa plus petite dimension ; sinon il faut un calcul au flambement (hors programme).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 19
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "I_y (cm⁴)"
+        ],
+        "rows": [
+          [
+            "HEA 100",
+            21.2,
+            349.2
+          ],
+          [
+            "HEA 120",
+            25.3,
+            606.2
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-017",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "À quoi sert le coefficient $\\gamma_{M2} = 1{,}25$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "à la résistance des sections brutes"
+      },
+      {
+        "id": "b",
+        "text": "à la résistance à la rupture des sections nettes (trous)"
+      },
+      {
+        "id": "c",
+        "text": "aux instabilités (flambement)"
+      },
+      {
+        "id": "d",
+        "text": "aux flèches"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Poly p.44 : $\\gamma_{M0} = 1{,}00$ (résistance des sections), $\\gamma_{M1} = 1{,}00$ (instabilités), **$\\gamma_{M2} = 1{,}25$ (rupture des sections transversales, au droit des trous)** → $N_{u,Rd} = 0{,}9 A_{net} f_u/\\gamma_{M2}$.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 44
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 18
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-elu-018",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "IPE 100 : $A = 10{,}3$ cm², $b = 55$ mm, $t_f = 5{,}7$ mm. Calcule $a = (A - 2\\,b\\,t_f)/A$ (table 5.7).",
+    "answer": {
+      "value": 0.391,
+      "unit": "",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$a = \\frac{1030 - 2\\times55\\times5{,}7}{1030} = \\frac{1030 - 627}{1030} = 0{,}391$$\na représente la part d'âme dans la section. Avec $n = 0$ : $n \\le 0{,}5a$ et $n \\le 0{,}25$ → $M_{N,y,Rd} = M_{pl,y,Rd}$ ; $n \\le a$ → $M_{N,z,Rd} = M_{pl,z,Rd}$ (TD garage p.20).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 20
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 24
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-elu-019",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 3,
+    "type": "order",
+    "prompt": "Remets dans l’ordre la vérification d’un tirant boulonné (TD garage).",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Calculer l’effort ELU dans le tirant (1,5 × effort du vent, projection selon l’angle)"
+      },
+      {
+        "id": "b",
+        "text": "En déduire l'aire minimale $A \\ge N_{Ed}\\,\\gamma_{M0}/f_y$"
+      },
+      {
+        "id": "c",
+        "text": "Choisir une section commerciale (rond, cornière)"
+      },
+      {
+        "id": "d",
+        "text": "Vérifier $N_{Ed} \\le N_{pl,Rd}$ (section brute)"
+      },
+      {
+        "id": "e",
+        "text": "Calculer $A_{net}$ au droit du trou"
+      },
+      {
+        "id": "f",
+        "text": "Vérifier $N_{Ed} \\le N_{u,Rd} = 0{,}9 A_{net} f_u/\\gamma_{M2}$"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "explanation": "Corrigé TD p.25-28 : $F = 1{,}5\\times4{,}44 = 6{,}65$ kN → $N_{Ed} = 6{,}65/\\sin38{,}56° = 10{,}67$ kN → $A \\ge 0{,}454$ cm² → L20×3 → $N_{pl,Rd} = 26{,}3$ kN → $A_{net} = 0{,}85$ cm² → $N_{u,Rd} = 22{,}03$ kN : vérifié.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 25
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 26
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 28
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-metal-elu-020",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Calcule le moment résistant plastique $M_{pl,Rd,y}$ d'un **IPE 160** en S235 (classe 1).",
+    "answer": {
+      "value": 29.14,
+      "unit": "kN·m"
+    },
+    "explanation": "$$M_{pl,Rd} = \\frac{W_{pl,y} f_y}{\\gamma_{M0}} = \\frac{124\\times10^3\\ \\text{mm}^3\\times235}{1{,}00} = 29{,}14\\ \\text{kN·m}$$\nConversion : cm³ × 10³ = mm³ ; N·mm ÷ 10⁶ = kN·m. Erreur fréquente : prendre $W_{el,y}$ (= 109$ cm³) au lieu de $W_{pl,y}$ pour une section de classe 1.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 19
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 39
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "IPE 160",
+            109,
+            124,
+            9.66
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "latex": "M_{pl,Rd} = \\frac{W_{pl,y}\\,f_y}{\\gamma_{M0}} \\qquad f_y = 235\\ \\text{MPa},\\ \\gamma_{M0} = 1{,}00"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-metal-elu-021",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Calcule le moment résistant plastique $M_{pl,Rd,y}$ d'un **IPE 200** en S235 (classe 1).",
+    "answer": {
+      "value": 51.94,
+      "unit": "kN·m"
+    },
+    "explanation": "$$M_{pl,Rd} = \\frac{W_{pl,y} f_y}{\\gamma_{M0}} = \\frac{221\\times10^3\\ \\text{mm}^3\\times235}{1{,}00} = 51{,}94\\ \\text{kN·m}$$\nConversion : cm³ × 10³ = mm³ ; N·mm ÷ 10⁶ = kN·m. Erreur fréquente : prendre $W_{el,y}$ (= 194$ cm³) au lieu de $W_{pl,y}$ pour une section de classe 1.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 19
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 39
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "IPE 200",
+            194,
+            221,
+            14
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "latex": "M_{pl,Rd} = \\frac{W_{pl,y}\\,f_y}{\\gamma_{M0}} \\qquad f_y = 235\\ \\text{MPa},\\ \\gamma_{M0} = 1{,}00"
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-022",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Calcule le moment résistant plastique $M_{pl,Rd,y}$ d'un **HEA 160** en S235 (classe 1).",
+    "answer": {
+      "value": 57.6,
+      "unit": "kN·m"
+    },
+    "explanation": "$$M_{pl,Rd} = \\frac{W_{pl,y} f_y}{\\gamma_{M0}} = \\frac{245{,}1\\times10^3\\ \\text{mm}^3\\times235}{1{,}00} = 57{,}6\\ \\text{kN·m}$$\nConversion : cm³ × 10³ = mm³ ; N·mm ÷ 10⁶ = kN·m. Erreur fréquente : prendre $W_{el,y}$ (= 220{,}1$ cm³) au lieu de $W_{pl,y}$ pour une section de classe 1.",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 19
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 31
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "W_el,y (cm³)",
+          "W_pl,y (cm³)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "HEA 160",
+            220.1,
+            245.1,
+            13.21
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "latex": "M_{pl,Rd} = \\frac{W_{pl,y}\\,f_y}{\\gamma_{M0}} \\qquad f_y = 235\\ \\text{MPa},\\ \\gamma_{M0} = 1{,}00"
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-023",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Calcule la résistance au cisaillement $V_{pl,Rd}$ d'un **IPE 200** en S235.",
+    "answer": {
+      "value": 189.9,
+      "unit": "kN"
+    },
+    "explanation": "$$V_{pl,Rd} = A_{vz}\\,\\frac{f_y/\\sqrt3}{\\gamma_{M0}} = 1\\,400\\ \\text{mm}^2\\times\\frac{235}{\\sqrt3} = 189{,}9\\ \\text{kN}$$\n$A_{vz}$ (aire de cisaillement) se lit dans le catalogue ; à défaut, $A_v = A - 2bt_f + (t_w + 2r)t_f$ pour un I ou H laminé (table 5.6).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 23
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 39
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "IPE 200",
+            28.5,
+            14
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "latex": "V_{pl,Rd} = A_{vz}\\,\\frac{f_y/\\sqrt3}{\\gamma_{M0}}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-metal-elu-024",
+    "subjectId": "stab1",
+    "themeIds": [
+      "metal-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Calcule la résistance au cisaillement $V_{pl,Rd}$ d'un **HEB 160** en S235.",
+    "answer": {
+      "value": 238.7,
+      "unit": "kN"
+    },
+    "explanation": "$$V_{pl,Rd} = A_{vz}\\,\\frac{f_y/\\sqrt3}{\\gamma_{M0}} = 1\\,759\\ \\text{mm}^2\\times\\frac{235}{\\sqrt3} = 238{,}7\\ \\text{kN}$$\n$A_{vz}$ (aire de cisaillement) se lit dans le catalogue ; à défaut, $A_v = A - 2bt_f + (t_w + 2r)t_f$ pour un I ou H laminé (table 5.6).",
+    "source": [
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 23
+      },
+      {
+        "docName": "POLY_2026_metal.pdf",
+        "page": 31
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Extrait du catalogue (poly métal p.38-41)",
+        "columns": [
+          "Profilé",
+          "A (cm²)",
+          "A_vz (cm²)"
+        ],
+        "rows": [
+          [
+            "HEB 160",
+            54.3,
+            17.59
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "latex": "V_{pl,Rd} = A_{vz}\\,\\frac{f_y/\\sqrt3}{\\gamma_{M0}}"
+      }
+    ]
   }
 ]

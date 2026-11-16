@@ -1,0 +1,1347 @@
+[
+  {
+    "id": "stab1-ba-enrobage-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Marge pour tolérances d’exécution $\\Delta c_{dev}$ (Annexe nationale) ?",
+    "answer": {
+      "value": 10,
+      "unit": "mm",
+      "tolerancePct": 0
+    },
+    "explanation": "$c_{nom} = c_{min} + \\Delta c_{dev}$ avec **$\\Delta c_{dev} = 10$ mm** (valeur recommandée par l'Annexe nationale, EC2 §4.4.1.3). Elle couvre les imprécisions de pose des armatures.",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Enrobage",
+        "latex": "c_{nom} = c_{min} + \\Delta c_{dev} \\quad c_{min} = \\max(c_{min,b}\\ ;\\ c_{min,dur}\\ ;\\ 10\\ \\text{mm}) \\quad \\Delta c_{dev} = 10\\ \\text{mm}"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-enrobage-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Enrobage minimal vis-à-vis de l’**adhérence** $c_{min,b}$ pour une barre isolée ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "10 mm"
+      },
+      {
+        "id": "b",
+        "text": "le diamètre de la barre φ"
+      },
+      {
+        "id": "c",
+        "text": "2φ"
+      },
+      {
+        "id": "d",
+        "text": "d_g + 5 mm"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "Pour une barre isolée : **$c_{min,b} = \\varphi$** (corrigé TD2 : « c_min,b > diamètre de la barre »). Ex. HA16 → 16 mm, cadre HA6 → 6 mm. On retient ensuite $c_{min} = \\max(c_{min,b} ; c_{min,dur} ; 10\\ \\text{mm})$.",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Enrobage",
+        "latex": "c_{nom} = c_{min} + \\Delta c_{dev} \\quad c_{min} = \\max(c_{min,b}\\ ;\\ c_{min,dur}\\ ;\\ 10\\ \\text{mm}) \\quad \\Delta c_{dev} = 10\\ \\text{mm}"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-enrobage-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Pile de pont soumise à des cycles humidification/séchage et à des projections de sels de déverglaçage : classe d’exposition ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "XC4"
+      },
+      {
+        "id": "b",
+        "text": "XD1"
+      },
+      {
+        "id": "c",
+        "text": "XD3"
+      },
+      {
+        "id": "d",
+        "text": "XS3"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "XD = corrosion par les **chlorures autres que l'eau de mer** (sels de déverglaçage). **XD3 = alternativement humide et sec** (éléments de ponts, parkings). XC4 = carbonatation en alternance humide/sec sans chlorures ; XS = eau de mer (corrigé TD2, exercice 1).",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Sujets_de_TD_STAB1_BA_2026-2027.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "d": "XS concerne l’eau de mer, pas les sels de déverglaçage."
+    }
+  },
+  {
+    "id": "stab1-ba-enrobage-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Poutre à l’intérieur d’un bâtiment à **air sec** : classe d’exposition ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "X0"
+      },
+      {
+        "id": "b",
+        "text": "XC1"
+      },
+      {
+        "id": "c",
+        "text": "XC3"
+      },
+      {
+        "id": "d",
+        "text": "XD1"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "**XC1** = sec ou humide en permanence (intérieur de bâtiment à faible humidité). XC3 = humidité modérée (intérieur humide, extérieur abrité). X0 = aucun risque (béton non armé). Corrigé TD2, exercice 3 ; TD4 et TD5 sont aussi en XC1.",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-enrobage-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Poutre à l’intérieur d’un bâtiment à **humidité modérée** : classe d’exposition ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "XC1"
+      },
+      {
+        "id": "b",
+        "text": "XC2"
+      },
+      {
+        "id": "c",
+        "text": "XC3"
+      },
+      {
+        "id": "d",
+        "text": "XC4"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Humidité modérée (intérieur humide, ou extérieur abrité de la pluie) → **XC3** (corrigé TD2, exercice 2). XC2 = humide, rarement sec (fondations) ; XC4 = alternance humide/sec (extérieur exposé).",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-enrobage-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Classe structurale **S4**, exposition **XC1** : valeur de $c_{min,dur}$ ?",
+    "answer": {
+      "value": 15,
+      "unit": "mm",
+      "tolerancePct": 0
+    },
+    "explanation": "Tableau 4.4N, ligne S4 : X0 10 ; **XC1 15** ; XC2/XC3 25 ; XC4 30 ; XD1 35 ; XD2 40 ; XD3 45 mm. S4 est la classe de référence pour 50 ans (corrigé TD5 : C25, XC1 → 15 mm).",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_min,dur (mm) — tableau 4.4N, référence S4 = 50 ans (corrigé TD2)",
+        "columns": [
+          "Classe",
+          "X0",
+          "XC1",
+          "XC2/XC3",
+          "XC4",
+          "XD1/XS1",
+          "XD2/XS2",
+          "XD3/XS3"
+        ],
+        "rows": [
+          [
+            "S1",
+            10,
+            10,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          [
+            "S2",
+            10,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35
+          ],
+          [
+            "S3",
+            10,
+            10,
+            20,
+            25,
+            30,
+            35,
+            40
+          ],
+          [
+            "S4",
+            10,
+            15,
+            25,
+            30,
+            35,
+            40,
+            45
+          ],
+          [
+            "S5",
+            15,
+            20,
+            30,
+            35,
+            40,
+            45,
+            50
+          ],
+          [
+            "S6",
+            20,
+            25,
+            35,
+            40,
+            45,
+            50,
+            55
+          ]
+        ],
+        "note": "+2 classes pour 100 ans ; −1 classe si béton de résistance élevée (ex. ≥ C30/37 en XC1-XC3, ≥ C40/50 en XD/XS)."
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-enrobage-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD2 ex.1 : pont XD3, béton C45, durée de 100 ans, barres longitudinales φ16. Enrobage nominal $c_{nom}$ ?",
+    "answer": {
+      "value": 60,
+      "unit": "mm"
+    },
+    "explanation": "Classe structurale : S4 + 2 (100 ans) − 1 (béton C45, résistance élevée) = **S5** → XD3 : $c_{min,dur} = 50$ mm.\n$c_{min} = \\max(16\\ ;\\ 50\\ ;\\ 10) = 50$ mm → $c_{nom} = 50 + 10 = 60$ mm.\nLa durabilité gouverne largement l'adhérence en milieu agressif.",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_min,dur (mm) — tableau 4.4N, référence S4 = 50 ans (corrigé TD2)",
+        "columns": [
+          "Classe",
+          "X0",
+          "XC1",
+          "XC2/XC3",
+          "XC4",
+          "XD1/XS1",
+          "XD2/XS2",
+          "XD3/XS3"
+        ],
+        "rows": [
+          [
+            "S1",
+            10,
+            10,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          [
+            "S2",
+            10,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35
+          ],
+          [
+            "S3",
+            10,
+            10,
+            20,
+            25,
+            30,
+            35,
+            40
+          ],
+          [
+            "S4",
+            10,
+            15,
+            25,
+            30,
+            35,
+            40,
+            45
+          ],
+          [
+            "S5",
+            15,
+            20,
+            30,
+            35,
+            40,
+            45,
+            50
+          ],
+          [
+            "S6",
+            20,
+            25,
+            35,
+            40,
+            45,
+            50,
+            55
+          ]
+        ],
+        "note": "+2 classes pour 100 ans ; −1 classe si béton de résistance élevée (ex. ≥ C30/37 en XC1-XC3, ≥ C40/50 en XD/XS)."
+      },
+      {
+        "kind": "formula",
+        "title": "Enrobage",
+        "latex": "c_{nom} = c_{min} + \\Delta c_{dev} \\quad c_{min} = \\max(c_{min,b}\\ ;\\ c_{min,dur}\\ ;\\ 10\\ \\text{mm}) \\quad \\Delta c_{dev} = 10\\ \\text{mm}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-enrobage-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD2 ex.2 : poutre XC3, C30, armatures 4HA12, cadres φ6. Enrobage nominal $c_{nom}$ ?",
+    "answer": {
+      "value": 30,
+      "unit": "mm"
+    },
+    "explanation": "C30 en XC3 → réduction d'une classe : S4 − 1 = **S3** → $c_{min,dur} = 20$ mm. Barre HA12 : $c_{min,b} = 12$ mm.\n$c_{min} = \\max(12\\ ;\\ 20\\ ;\\ 10) = 20$ mm → $c_{nom} = 20 + 10 = 30$ mm (corrigé TD2).",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_min,dur (mm) — tableau 4.4N, référence S4 = 50 ans (corrigé TD2)",
+        "columns": [
+          "Classe",
+          "X0",
+          "XC1",
+          "XC2/XC3",
+          "XC4",
+          "XD1/XS1",
+          "XD2/XS2",
+          "XD3/XS3"
+        ],
+        "rows": [
+          [
+            "S1",
+            10,
+            10,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          [
+            "S2",
+            10,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35
+          ],
+          [
+            "S3",
+            10,
+            10,
+            20,
+            25,
+            30,
+            35,
+            40
+          ],
+          [
+            "S4",
+            10,
+            15,
+            25,
+            30,
+            35,
+            40,
+            45
+          ],
+          [
+            "S5",
+            15,
+            20,
+            30,
+            35,
+            40,
+            45,
+            50
+          ],
+          [
+            "S6",
+            20,
+            25,
+            35,
+            40,
+            45,
+            50,
+            55
+          ]
+        ],
+        "note": "+2 classes pour 100 ans ; −1 classe si béton de résistance élevée (ex. ≥ C30/37 en XC1-XC3, ≥ C40/50 en XD/XS)."
+      },
+      {
+        "kind": "formula",
+        "title": "Enrobage",
+        "latex": "c_{nom} = c_{min} + \\Delta c_{dev} \\quad c_{min} = \\max(c_{min,b}\\ ;\\ c_{min,dur}\\ ;\\ 10\\ \\text{mm}) \\quad \\Delta c_{dev} = 10\\ \\text{mm}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-enrobage-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "TD2 ex.2 : poutre de hauteur 400 mm, $c_{nom} = 30$ mm (sur les cadres φ6), barres HA12. Hauteur utile $d$ ?",
+    "answer": {
+      "value": 358,
+      "unit": "mm",
+      "tolerancePct": 0.5
+    },
+    "explanation": "$$d = h - c_{nom} - \\varphi_t - \\varphi_L/2 = 400 - 30 - 6 - 6 = 358\\ \\text{mm}$$\nd est la distance entre la fibre la plus comprimée et le centre de gravité des aciers tendus.",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-enrobage-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD2 ex.3 : XC1, C35, barres HA20 ($c_{nom} = 30$ mm) et cadres HA6 ($c_{nom} = 20$ mm). Quelle épaisseur de cale faut-il réellement prévoir sous les cadres ?",
+    "answer": {
+      "value": 25,
+      "unit": "mm",
+      "tolerancePct": 0
+    },
+    "explanation": "Pour garantir 30 mm sur les HA20, il faut au moins $30 - 6 = 24$ mm sous les cadres (≥ 20 mm requis pour les cadres eux-mêmes). Les cales existent de 5 en 5 mm → **25 mm** (corrigé TD2). L'enrobage nominal est mesuré jusqu'à la **première armature rencontrée** (le cadre).",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-enrobage-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Granulat maximal $d_g = 15$ mm, barres HA12 : espacement horizontal minimal entre barres ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "12 mm"
+      },
+      {
+        "id": "b",
+        "text": "15 mm"
+      },
+      {
+        "id": "c",
+        "text": "20 mm"
+      },
+      {
+        "id": "d",
+        "text": "25 mm"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "$e_h \\ge \\max(20\\ \\text{mm}\\ ;\\ \\varphi_L\\ ;\\ d_g + 5\\ \\text{mm}) = \\max(20\\ ;\\ 12\\ ;\\ 20) = 20$ mm (corrigé TD2). L'espacement doit laisser passer le béton (granulats) et assurer l'adhérence.",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-enrobage-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Granulat maximal $d_g = 25$ mm, barres HA20 : espacement horizontal minimal $e_h$ ?",
+    "answer": {
+      "value": 30,
+      "unit": "mm",
+      "tolerancePct": 0
+    },
+    "explanation": "$e_h \\ge \\max(20\\ \\text{mm}\\ ;\\ \\varphi_L\\ ;\\ d_g + 5\\ \\text{mm})$ :\n$$e_h \\ge \\max(20\\ ;\\ 20\\ ;\\ 25 + 5) = 30\\ \\text{mm}$$\nIci c'est la taille du **granulat** qui gouverne : le béton doit pouvoir passer entre les barres pour bien les enrober.",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-enrobage-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Pour une durée d’utilisation de projet de **100 ans**, la classe structurale…",
+    "choices": [
+      {
+        "id": "a",
+        "text": "diminue de 1"
+      },
+      {
+        "id": "b",
+        "text": "ne change pas"
+      },
+      {
+        "id": "c",
+        "text": "augmente de 2"
+      },
+      {
+        "id": "d",
+        "text": "augmente de 1"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explanation": "Tableau 4.3NF : durée de 100 ans → **+2 classes** (S4 → S6 en partant de la référence). Une résistance de béton élevée ou un enrobage compact peuvent faire baisser d'une classe. Pont du TD2 : S4 + 2 − 1 = S5.",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_min,dur (mm) — tableau 4.4N, référence S4 = 50 ans (corrigé TD2)",
+        "columns": [
+          "Classe",
+          "X0",
+          "XC1",
+          "XC2/XC3",
+          "XC4",
+          "XD1/XS1",
+          "XD2/XS2",
+          "XD3/XS3"
+        ],
+        "rows": [
+          [
+            "S1",
+            10,
+            10,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          [
+            "S2",
+            10,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35
+          ],
+          [
+            "S3",
+            10,
+            10,
+            20,
+            25,
+            30,
+            35,
+            40
+          ],
+          [
+            "S4",
+            10,
+            15,
+            25,
+            30,
+            35,
+            40,
+            45
+          ],
+          [
+            "S5",
+            15,
+            20,
+            30,
+            35,
+            40,
+            45,
+            50
+          ],
+          [
+            "S6",
+            20,
+            25,
+            35,
+            40,
+            45,
+            50,
+            55
+          ]
+        ],
+        "note": "+2 classes pour 100 ans ; −1 classe si béton de résistance élevée (ex. ≥ C30/37 en XC1-XC3, ≥ C40/50 en XD/XS)."
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-enrobage-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD2 ex.5 : poutre extérieure, humidité modérée et chlorures (XD1), $f_{ck} = 30$ MPa. Enrobage nominal ?",
+    "answer": {
+      "value": 45,
+      "unit": "mm",
+      "tolerancePct": 0
+    },
+    "explanation": "XD1 en S4 (pas de réduction pour un C30 en XD1) → $c_{min,dur} = 35$ mm ; $c_{min} = \\max(\\varphi\\ ;\\ 35\\ ;\\ 10) = 35$ mm → $c_{nom} = 35 + 10 = 45$ mm (corrigé TD2, exercice 5).",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "c_min,dur (mm) — tableau 4.4N, référence S4 = 50 ans (corrigé TD2)",
+        "columns": [
+          "Classe",
+          "X0",
+          "XC1",
+          "XC2/XC3",
+          "XC4",
+          "XD1/XS1",
+          "XD2/XS2",
+          "XD3/XS3"
+        ],
+        "rows": [
+          [
+            "S1",
+            10,
+            10,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          [
+            "S2",
+            10,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35
+          ],
+          [
+            "S3",
+            10,
+            10,
+            20,
+            25,
+            30,
+            35,
+            40
+          ],
+          [
+            "S4",
+            10,
+            15,
+            25,
+            30,
+            35,
+            40,
+            45
+          ],
+          [
+            "S5",
+            15,
+            20,
+            30,
+            35,
+            40,
+            45,
+            50
+          ],
+          [
+            "S6",
+            20,
+            25,
+            35,
+            40,
+            45,
+            50,
+            55
+          ]
+        ],
+        "note": "+2 classes pour 100 ans ; −1 classe si béton de résistance élevée (ex. ≥ C30/37 en XC1-XC3, ≥ C40/50 en XD/XS)."
+      },
+      {
+        "kind": "formula",
+        "title": "Enrobage",
+        "latex": "c_{nom} = c_{min} + \\Delta c_{dev} \\quad c_{min} = \\max(c_{min,b}\\ ;\\ c_{min,dur}\\ ;\\ 10\\ \\text{mm}) \\quad \\Delta c_{dev} = 10\\ \\text{mm}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-enrobage-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "TD2 ex.5 (b = 20 cm, c_nom = 45 mm, cadres φ6, d_g = 15, besoin 7,6 cm²) : quelle solution respecte l’espacement minimal ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "2HA20 + 1HA14 sur un lit"
+      },
+      {
+        "id": "b",
+        "text": "3HA12 + 3HA14 sur un lit"
+      },
+      {
+        "id": "c",
+        "text": "4HA12 + 4HA10"
+      },
+      {
+        "id": "d",
+        "text": "4HA16 (8,04 cm²)"
+      }
+    ],
+    "answer": [
+      "d"
+    ],
+    "explanation": "Le corrigé calcule les espacements : 2HA20 + 1HA14 → 12 mm ; 3HA12 + 3HA14 → 18 mm ; 4HA12 + 4HA10 → 10 mm ; **4HA16 → 46 mm ≥ 20 mm** (disposé en 2 lits), d = 385 mm. ⚠️ Le corrigé annonce 9,36 cm² pour 2HA20 + 1HA14 : en réalité 6,28 + 1,54 = 7,82 cm².",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Sections d’acier (cm²) pour n barres (corrigé TD1 BA)",
+        "columns": [
+          "φ (mm)",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "rows": [
+          [
+            "6",
+            0.28,
+            0.57,
+            0.85,
+            1.13,
+            1.41,
+            1.7,
+            1.98,
+            2.26
+          ],
+          [
+            "8",
+            0.5,
+            1.01,
+            1.51,
+            2.01,
+            2.51,
+            3.02,
+            3.52,
+            4.02
+          ],
+          [
+            "10",
+            0.79,
+            1.57,
+            2.36,
+            3.14,
+            3.93,
+            4.71,
+            5.5,
+            6.28
+          ],
+          [
+            "12",
+            1.13,
+            2.26,
+            3.39,
+            4.52,
+            5.65,
+            6.79,
+            7.92,
+            9.05
+          ],
+          [
+            "14",
+            1.54,
+            3.08,
+            4.62,
+            6.16,
+            7.7,
+            9.24,
+            10.78,
+            12.32
+          ],
+          [
+            "16",
+            2.01,
+            4.02,
+            6.03,
+            8.04,
+            10.05,
+            12.06,
+            14.07,
+            16.08
+          ],
+          [
+            "20",
+            3.14,
+            6.28,
+            9.42,
+            12.57,
+            15.71,
+            18.85,
+            21.99,
+            25.13
+          ],
+          [
+            "25",
+            4.91,
+            9.82,
+            14.73,
+            19.63,
+            24.54,
+            29.45,
+            34.36,
+            39.27
+          ],
+          [
+            "32",
+            8.04,
+            16.08,
+            24.13,
+            32.17,
+            40.21,
+            48.25,
+            56.3,
+            64.34
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-enrobage-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Section d’acier de **3HA20** ?",
+    "answer": {
+      "value": 9.42,
+      "unit": "cm²"
+    },
+    "explanation": "$$A_s = 3\\times\\frac{\\pi\\times20^2}{4} = 3\\times314{,}2 = 942\\ \\text{mm}^2 = 9{,}42\\ \\text{cm}^2$$\nÀ lire dans le tableau des sections (corrigé TD1). Retenir : HA10 0,79 ; HA12 1,13 ; HA14 1,54 ; HA16 2,01 ; HA20 3,14 ; HA25 4,91 cm² par barre.",
+    "source": [
+      {
+        "docName": "Correction_TD1_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Sections d’acier (cm²) pour n barres (corrigé TD1 BA)",
+        "columns": [
+          "φ (mm)",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "rows": [
+          [
+            "6",
+            0.28,
+            0.57,
+            0.85,
+            1.13,
+            1.41,
+            1.7,
+            1.98,
+            2.26
+          ],
+          [
+            "8",
+            0.5,
+            1.01,
+            1.51,
+            2.01,
+            2.51,
+            3.02,
+            3.52,
+            4.02
+          ],
+          [
+            "10",
+            0.79,
+            1.57,
+            2.36,
+            3.14,
+            3.93,
+            4.71,
+            5.5,
+            6.28
+          ],
+          [
+            "12",
+            1.13,
+            2.26,
+            3.39,
+            4.52,
+            5.65,
+            6.79,
+            7.92,
+            9.05
+          ],
+          [
+            "14",
+            1.54,
+            3.08,
+            4.62,
+            6.16,
+            7.7,
+            9.24,
+            10.78,
+            12.32
+          ],
+          [
+            "16",
+            2.01,
+            4.02,
+            6.03,
+            8.04,
+            10.05,
+            12.06,
+            14.07,
+            16.08
+          ],
+          [
+            "20",
+            3.14,
+            6.28,
+            9.42,
+            12.57,
+            15.71,
+            18.85,
+            21.99,
+            25.13
+          ],
+          [
+            "25",
+            4.91,
+            9.82,
+            14.73,
+            19.63,
+            24.54,
+            29.45,
+            34.36,
+            39.27
+          ],
+          [
+            "32",
+            8.04,
+            16.08,
+            24.13,
+            32.17,
+            40.21,
+            48.25,
+            56.3,
+            64.34
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-enrobage-017",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 2,
+    "type": "multi",
+    "prompt": "Il faut au moins **6 cm²** d’acier. Coche les solutions qui conviennent.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "4HA14"
+      },
+      {
+        "id": "b",
+        "text": "2HA20"
+      },
+      {
+        "id": "c",
+        "text": "6HA12"
+      },
+      {
+        "id": "d",
+        "text": "3HA14"
+      },
+      {
+        "id": "e",
+        "text": "5HA12"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ],
+    "explanation": "4HA14 = 6,16 ✓ ; 2HA20 = 6,28 ✓ ; 6HA12 = 6,79 ✓ ; 3HA14 = 4,62 ✗ ; 5HA12 = 5,65 ✗ (corrigé TD2, exercice 4, qui propose aussi 2HA16 + 2HA14 = 7,1 cm²). On choisit ensuite selon la largeur de la poutre (espacements).",
+    "source": [
+      {
+        "docName": "Correction_TD2_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Sections d’acier (cm²) pour n barres (corrigé TD1 BA)",
+        "columns": [
+          "φ (mm)",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "rows": [
+          [
+            "6",
+            0.28,
+            0.57,
+            0.85,
+            1.13,
+            1.41,
+            1.7,
+            1.98,
+            2.26
+          ],
+          [
+            "8",
+            0.5,
+            1.01,
+            1.51,
+            2.01,
+            2.51,
+            3.02,
+            3.52,
+            4.02
+          ],
+          [
+            "10",
+            0.79,
+            1.57,
+            2.36,
+            3.14,
+            3.93,
+            4.71,
+            5.5,
+            6.28
+          ],
+          [
+            "12",
+            1.13,
+            2.26,
+            3.39,
+            4.52,
+            5.65,
+            6.79,
+            7.92,
+            9.05
+          ],
+          [
+            "14",
+            1.54,
+            3.08,
+            4.62,
+            6.16,
+            7.7,
+            9.24,
+            10.78,
+            12.32
+          ],
+          [
+            "16",
+            2.01,
+            4.02,
+            6.03,
+            8.04,
+            10.05,
+            12.06,
+            14.07,
+            16.08
+          ],
+          [
+            "20",
+            3.14,
+            6.28,
+            9.42,
+            12.57,
+            15.71,
+            18.85,
+            21.99,
+            25.13
+          ],
+          [
+            "25",
+            4.91,
+            9.82,
+            14.73,
+            19.63,
+            24.54,
+            29.45,
+            34.36,
+            39.27
+          ],
+          [
+            "32",
+            8.04,
+            16.08,
+            24.13,
+            32.17,
+            40.21,
+            48.25,
+            56.3,
+            64.34
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-enrobage-018",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-enrobage"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Poutre $h = 450$ mm, $c_{nom} = 25$ mm, cadres φ6, aciers en 2 lits (HA16 + HA14), centre de gravité pris entre les lits. Hauteur utile réelle $d$ (corrigé TD5) ?",
+    "answer": {
+      "value": 403,
+      "unit": "mm",
+      "tolerancePct": 0.5
+    },
+    "explanation": "Le corrigé TD5 calcule $d_{réel} = 450 - 25 - 6 - 16 = 403$ mm (centre de gravité au niveau du contact entre le lit de HA16 et le lit supérieur) ≥ $d_{calcul} = 400$ mm → OK. Approximation courante : $d \\approx 0{,}9h = 405$ mm.",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  }
+]

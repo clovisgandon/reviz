@@ -1,0 +1,90 @@
+import type { Flashcard, SourceRef } from '@/lib/types';
+import { COURS, POLY, MEMO, TD, BA, BA4, r } from './helpers';
+
+type Card = [theme: string, front: string, back: string, src: SourceRef];
+
+const cards: Card[] = [
+  // EC0
+  ['ec0', 'Combinaison fondamentale ELU', r`$1{,}35\,G_{k,sup} + 1{,}00\,G_{k,inf} + 1{,}5\,Q_{k,1} + 1{,}5\sum\psi_{0,i}Q_{k,i}$`, POLY(12)],
+  ['ec0', 'Combinaison ELS caractéristique', r`$\sum G_{k,j} + Q_{k,1} + \sum\psi_{0,i}Q_{k,i}$ (sans coefficients partiels)`, POLY(12)],
+  ['ec0', 'Combinaison accidentelle', r`$\sum G_{k,j} + A_d + (\psi_{1,1}\text{ ou }\psi_{2,1})Q_{k,1} + \sum\psi_{2,i}Q_{k,i}$`, POLY(12)],
+  ['ec0', 'Combinaison sismique', r`$\sum G_{k,j} + A_{Ed} + \sum\psi_{2,i}Q_{k,i}$`, POLY(12)],
+  ['ec0', 'ψ0 / ψ2 : exploitation cat. A, neige (≤ 1000 m), vent', 'Cat. A : 0,7 / 0,3 — Neige : 0,5 / 0 — Vent : 0,6 / 0', POLY(12)],
+  ['ec0', 'Durées d’utilisation de projet', '10 ans provisoire ; 25 ans remplaçable / agricole ; 50 ans bâtiment courant ; 100 ans monumental', POLY(11)],
+  // Neige
+  ['neige', 'Charge de neige sur toiture (durable)', r`$s = \mu_i\,C_e\,C_t\,s_k$`, COURS(19)],
+  ['neige', 'Charge de neige accidentelle (neige exceptionnelle / accumulation)', r`$s = \mu_i\,C_e\,C_t\,s_{Ad}$ ; accumulation : $s = \mu_i\,s_k$`, COURS(19)],
+  ['neige', 's_k (≤ 200 m) par région', 'A1 = A2 = 0,45 ; B1 = B2 = 0,55 ; C1 = C2 = 0,65 ; D = 0,90 ; E = 1,40 kN/m²', COURS(16)],
+  ['neige', 's_Ad par région', 'A2 1,00 ; B1 1,00 ; B2 1,35 ; C2 1,35 ; D 1,80 kN/m² ; pas de s_Ad en A1, C1, E', COURS(16)],
+  ['neige', 'Δs1 pour 200 < A ≤ 500 m', r`$\Delta s_1 = A/1000 - 0{,}20$ (500–1000 : $1{,}5A/1000 - 0{,}45$ ; 1000–2000 : $3{,}5A/1000 - 2{,}45$)`, COURS(17)],
+  ['neige', 'Coefficient μ1', r`0,8 pour α ≤ 30° ; $0{,}8(60-\alpha)/30$ entre 30 et 60° ; 0 au-delà de 60°`, COURS(22)],
+  ['neige', 'C_e et C_t', 'C_e = 1,0 site normal, 1,25 site protégé ; C_t = 1,0 en général', COURS(20)],
+  ['neige', 'μ2 au droit d’un acrotère', r`$\mu_2 = \gamma h/s_k$, $0{,}8 \le \mu_2 \le 2{,}0$, γ = 2 kN/m³ ; $l_s = 2h$ entre 5 et 15 m`, COURS(31)],
+  // Vent
+  ['vent', 'Pression dynamique de référence', r`$q_b = \tfrac12\rho v_b^2$, ρ = 1,225 kg/m³, $v_b = c_{dir}c_{season}v_{b,0}$`, COURS(47)],
+  ['vent', 'v_b,0 par région', '1 = 22 ; 2 = 24 ; 3 = 26 ; 4 = 28 m/s', COURS(48)],
+  ['vent', 'Pression dynamique de pointe', r`$q_p(z) = c_e(z)\,q_b$ — z = hauteur de la construction (pas l'altitude)`, COURS(50)],
+  ['vent', 'Pression nette sur une paroi', r`$p = q_p\,(c_{pe} - c_{pi})$, $c_{p,net} = c_{pe} - c_{pi}$`, COURS(59)],
+  ['vent', 'c_pi (méthode simplifiée)', '+0,2 (surpression intérieure) et −0,3 (dépression) : garder le plus défavorable', COURS(70)],
+  ['vent', 'Paramètre e du zonage', r`$e = \min(b\ ;\ 2h)$, b = largeur au vent ; A sur e/5, B sur 4e/5`, COURS(63)],
+  ['vent', 'c_pe selon la surface A', r`A ≤ 1 m² : $c_{pe,1}$ ; A ≥ 10 m² : $c_{pe,10}$ ; entre : $c_{pe,1} + (c_{pe,10}-c_{pe,1})\log_{10}A$`, COURS(61)],
+  ['vent', 'c_pe,10 toiture plate à arêtes vives', 'F −1,8 ; G −1,2 ; H −0,7 ; I ±0,2', COURS(68)],
+  ['vent', 'c_pe,10 murs (h/d ≤ 0,25)', 'A −1,2 ; B −0,8 ; C −0,5 ; D +0,7 ; E −0,3', COURS(63)],
+  // Charges / stabilité
+  ['charges', 'Charge linéique sur une panne', r`surfacique × entraxe ; neige : $s\times e\times\cos\alpha$ ; composantes $P\cos\alpha$ (z) et $P\sin\alpha$ (y)`, TD(17)],
+  ['charges', 'Charge d’entretien toiture cat. H (pente > 15 %)', 'Q_k = 1,5 kN ponctuelle, q_k = 0 ; non cumulée avec neige ni vent', TD(13)],
+  ['stabilite', 'Cheminement du vent sur pignon', 'lisses → potelets → pannes (comprimées) → poutre au vent → palées de stabilité → fondations', POLY(9)],
+  ['stabilite', 'Effort dans une lierne (2 travées)', r`$P_1 = 0{,}625\,p\,L\sin\alpha$, cumul $P_1, 2P_1, 3P_1$…`, COURS(77)],
+  // Métal
+  ['metal-materiau', 'S235 / S275 / S355 : f_y et f_u', '235/360 ; 275/430 ; 355/490 MPa (t ≤ 40 mm)', POLY(44)],
+  ['metal-materiau', 'Constantes de l’acier', 'E = 210 000 MPa ; ν = 0,3 ; ρ = 7850 kg/m³ ; α = 1,2·10⁻⁵ K⁻¹', POLY(44)],
+  ['metal-materiau', 'Coefficients γ_M (EC3, bâtiments)', 'γ_M0 = 1,00 ; γ_M1 = 1,00 ; γ_M2 = 1,25', POLY(44)],
+  ['metal-elu', 'Traction : section brute', r`$N_{pl,Rd} = A\,f_y/\gamma_{M0}$`, POLY(18)],
+  ['metal-elu', 'Traction : section nette', r`$N_{u,Rd} = 0{,}9\,A_{net}\,f_u/\gamma_{M2}$, $A_{net} = bt - n\,d_0\,t$`, POLY(18)],
+  ['metal-elu', 'Moment résistant classe 1-2 / classe 3', r`$M_{pl,Rd} = W_{pl}f_y/\gamma_{M0}$ ; $M_{el,Rd} = W_{el}f_y/\gamma_{M0}$`, POLY(19)],
+  ['metal-elu', 'Résistance au cisaillement', r`$V_{pl,Rd} = A_{vz}\,(f_y/\sqrt3)/\gamma_{M0}$ ; si $V_{Ed} \le 0{,}5V_{pl,Rd}$ : pas d'interaction`, POLY(23)],
+  ['metal-elu', 'Flexion biaxiale profilé en I', r`$(M_y/M_{N,y,Rd})^2 + (M_z/M_{N,z,Rd})^{\beta} \le 1$, β = 5n ≥ 1`, POLY(24)],
+  ['metal-elu', 'Classe d’un profilé', 'max(classe de l’âme ; classe de la semelle) ; ε = √(235/f_y)', POLY(21)],
+  ['metal-els', 'Flèche poutre isostatique, charge uniforme', r`$w = \dfrac{5\,p\,L^4}{384\,E\,I}$`, POLY(13)],
+  ['metal-els', 'Flèches limites toiture en général', 'w_max ≤ L/200 ; w_3 ≤ L/250', POLY(14)],
+  ['metal-els', 'Flèches limites planchers', 'en général L/200 et L/300 ; cloisons fragiles L/250 et L/350 ; supportant des poteaux L/400 et L/500', POLY(14)],
+  ['metal-els', 'Déplacement horizontal, bâtiment industriel 1 niveau', 'H/150 en tête de poteau (autres bâtiments : H/250)', POLY(14)],
+  ['metal-pieds-mixte', 'Pied de poteau : qui reprend quoi ?', 'N_c → platine ; V → frottement ou bêche ; N_t (soulèvement) → tiges d’ancrage', POLY(25)],
+  // Bois
+  ['bois-coef', 'Résistance de calcul en flexion', r`$f_{m,d} = f_{m,k}\,k_{mod}\,k_h/\gamma_M$`, MEMO(2)],
+  ['bois-coef', 'k_h lamellé-collé', r`$h < 600$ mm : $\min[(600/h)^{0,1} ; 1{,}1]$`, MEMO(2)],
+  ['bois-coef', 'k_h bois massif', r`$h < 150$ mm : $\min[(150/h)^{0,2} ; 1{,}3]$`, MEMO(2)],
+  ['bois-coef', 'k_mod CS1-CS2 (perm. / LT / MT / CT / inst.)', '0,6 / 0,7 / 0,8 / 0,9 / 1,1 (CS3 : 0,5 / 0,55 / 0,65 / 0,7 / 0,9)', MEMO(7)],
+  ['bois-coef', 'Classes de durée des actions', 'G permanente ; exploitation moyen terme ; neige < 1000 m court terme ; vent instantané', MEMO(7)],
+  ['bois-coef', 'γ_M et k_def', 'γ_M : BM 1,30 ; LC 1,25 ; LVL 1,20 — k_def : CS1 0,6 ; CS2 0,8 ; CS3 2,0', MEMO(7)],
+  ['bois-coef', 'GL24h : propriétés', 'f_m,k 24 ; f_t,0,k 19,2 ; f_v,k 3,5 ; E_0,mean 11 500 MPa ; ρ_mean 420 kg/m³', MEMO(8)],
+  ['bois-elu', 'Contrainte de flexion (rectangle)', r`$\sigma_{m,d} = 6M/(bh^2)$`, MEMO(2)],
+  ['bois-elu', 'Cisaillement bois', r`$\tau_d = 3V/(2bh) \le f_{v,k}\,k_{mod}\,k_{cr}/\gamma_M$, k_cr = 1`, MEMO(3)],
+  ['bois-elu', 'Traction axiale bois', r`$\sigma_{t,0,d} \le f_{t,0,k}\,k_{mod}\,k_l/\gamma_M$`, MEMO(4)],
+  ['bois-elu', 'Flexion déviée bois', r`$\sigma_y/f_y + k_m\sigma_z/f_z \le 1$ et $k_m\sigma_y/f_y + \sigma_z/f_z \le 1$, k_m = 0,7`, TD(34)],
+  ['bois-elu', 'Combinaison dimensionnante en bois', 'la plus grande valeur de charge / k_mod', TD(30)],
+  ['bois-els', 'Flèches finales bois', r`$U_{fin,G} = (1+k_{def})U_{inst,G}$ ; $U_{fin,Q} = (1+\psi_2k_{def})U_{inst,Q}$`, MEMO(6)],
+  ['bois-els', 'Critères Calvi, bâtiment courant', 'W_inst(Q) l/300 ; W_net,fin l/200 ; W_fin l/125', MEMO(6)],
+  // BA
+  ['ba-materiaux', 'Résistances du béton', r`$f_{cd} = f_{ck}/1{,}5$ ; $f_{cm} = f_{ck} + 8$ ; $f_{ctm} = 0{,}3f_{ck}^{2/3}$ ; $f_{ctk,0,05} = 0{,}7f_{ctm}$`, BA(1)],
+  ['ba-materiaux', 'Modules du béton', r`$E_{cm} = 22\,000(f_{cm}/10)^{0,3}$ ; $E_{c,eff} = E_{cm}/(1+\varphi)$, φ = 2`, BA(1)],
+  ['ba-materiaux', 'Acier B500', r`$f_{yd} = 500/1{,}15 = 435$ MPa ; $E_s = 200$ GPa ; $\varepsilon_{yd} = 2{,}17$ ‰`, BA(1)],
+  ['ba-materiaux', 'Rectangle simplifié', r`hauteur $0{,}8x_u$, contrainte $f_{cd}$ : $F_c = 0{,}8\,x_u\,b\,f_{cd}$ ; ε_cu2 = 3,5 ‰`, BA(1)],
+  ['ba-enrobage', 'Enrobage nominal', r`$c_{nom} = \max(c_{min,b} ; c_{min,dur} ; 10) + 10$ mm ; $c_{min,b} = \varphi$`, BA(2)],
+  ['ba-enrobage', 'Espacement entre barres', r`$e_h \ge \max(20\text{ mm} ; \varphi ; d_g + 5\text{ mm})$`, BA(2)],
+  ['ba-ancrage', 'Adhérence et ancrage', r`$f_{bd} = 2{,}25\eta_1\eta_2f_{ctd}$ ; $l_{b,rqd} = (\varphi/4)(f_{yd}/f_{bd})$ ; η1 = 0,7 si barres hautes (h > 250)`, BA(3)],
+  ['ba-ancrage', 'l_b,rqd en B500, bonnes conditions', '≈ 46,8φ (C20) ; 40,4φ (C25) ; 35,7φ (C30) ; 32,2φ (C35)', BA(3)],
+  ['ba-poteaux', 'Coefficient α des poteaux', r`$\alpha = 0{,}86/(1 + (\lambda/62)^2)$ si λ ≤ 60 ; $(32/\lambda)^{1,3}$ si 60 < λ ≤ 120`, BA4(true)],
+  ['ba-poteaux', 'Section minimale d’un poteau', r`$A_{s,min} = \max(0{,}10N_{Ed}/f_{yd} ; 0{,}002A_c)$, φ_L ≥ 8 mm`, BA4(true)],
+  ['ba-flexion', 'Flexion simple : démarche', r`$\mu_{cu} = M_u/(bd^2f_{cd})$ ; si ≤ 0,372 : $\beta = (1+\sqrt{1-2\mu})/2$ ; $A_s = M_u/(\beta d f_{yd})$`, BA(5)],
+  ['ba-flexion', 'Sections min / max (poutre)', r`$A_{s,min} = \max(0{,}26f_{ctm}bd/f_{yk} ; 0{,}0013bd)$ ; $A_{s,max} = 0{,}04A_c$`, BA(5)],
+];
+
+export const FLASHCARDS: Flashcard[] = cards.map(([theme, front, back, src], i) => ({
+  id: `stab1-fc-${String(i + 1).padStart(3, '0')}`,
+  subjectId: 'stab1',
+  themeIds: [theme],
+  front,
+  back,
+  source: [src],
+}));

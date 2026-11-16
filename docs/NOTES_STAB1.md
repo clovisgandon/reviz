@@ -271,6 +271,7 @@ Notes brutes détaillées (page par page) : [notes_brutes/](notes_brutes/) — c
 6. **Corrigé TD garage** : W− = « −0,52 » × 2,588 (−0,45 retenu) ; lignes M_N,Rd de l'IPE 120 recopiées de l'IPE 100 ; w3 surestimé et comparé à L/200 au lieu de L/250 ; σ_y/σ_z inversés pour les pannes de 4 m ; tirant bois divisé par 13,3 au lieu de 13,18.
 7. **Corrigé TD1** : f_ck = 24,9 MPa classé « C20 » → C25/30 ; Q14 0,29 MN calculé avec f_cd du C30 → 0,19 MN ; ε_yd = f_yk/E_s au lieu de f_yd/E_s.
 8. **Corrigé TD2** : 2HA20 + 1HA14 = 7,82 cm² (pas 9,36).
+10. **Corrigé TD garage p.20** : flexion déviée de l'IPE 120 écrite « 0,31 + 0,43 = 0,74 » ; or $1{,}80/3{,}20 = 0{,}56$ → **0,31 + 0,56 = 0,87** ≤ 1 (conclusion inchangée).
 9. **Espacements e_h des corrigés TD2 Ex3 (19 mm) et TD5 (35 mm)** : la formule $e_h = (b - 2c_{nom} - 2\varphi_t - n\varphi_L)/(n-1)$ donne 29 mm et 45 mm. Les corrigés semblent retirer 20 mm de plus (méthode non expliquée). L'appli utilise la formule et signale l'écart ; les conclusions (TD2 Ex3 « trop juste », TD5 « OK ») restent à confirmer avec l'enseignant.
 
 ## 21. Écarts avec les valeurs du prompt initial (vérifiés sur les documents)

@@ -1,0 +1,891 @@
+[
+  {
+    "id": "stab1-bois-elu-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : solive GL24h $100\\times250$, intérieur de maison (CS1), combinaison $G + Q$ (cat. A), $k_h = 1{,}09$. Calcule $f_{m,d}$.",
+    "answer": {
+      "value": 16.77,
+      "unit": "MPa"
+    },
+    "explanation": "CS1 + exploitation (moyen terme) → $k_{mod} = 0{,}8$ ; LC → $\\gamma_M = 1{,}25$.\n$$f_{m,d} = \\frac{24\\times0{,}8\\times1{,}091}{1{,}25} = 16{,}77\\ \\text{MPa}$$\nErreurs fréquentes : prendre $k_{mod} = 0{,}9$ (court terme) ou $\\gamma_M = 1{,}3$ (bois massif).",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 7
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "k_mod — BM / LC / LVL / CP (mémo p.7)",
+        "columns": [
+          "Classe de service",
+          "Perm.",
+          "Long terme",
+          "Moyen terme",
+          "Court terme",
+          "Instant."
+        ],
+        "rows": [
+          [
+            "1",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "2",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "3",
+            0.5,
+            0.55,
+            0.65,
+            0.7,
+            0.9
+          ]
+        ]
+      },
+      {
+        "kind": "text",
+        "title": "γ_M (mémo p.7)",
+        "content": "BM 1,30 ; LC 1,25 ; LVL, CP, OSB 1,20 ; assemblages 1,30 ; accidentel 1,00. k_def : CS1 0,6 ; CS2 0,8 ; CS3 2,0."
+      },
+      {
+        "kind": "formula",
+        "title": "Flexion (mémo p.2)",
+        "latex": "f_{m,d} = \\frac{f_{m,k}\\,k_{mod}\\,k_h}{\\gamma_M} \\qquad \\sigma_{m,d} = \\frac{6M}{bh^2}"
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-elu-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : $M_{Ed} = 11{,}88$ kN·m sur une solive $100\\times250$ mm. Calcule $\\sigma_{m,d}$.",
+    "answer": {
+      "value": 11.4,
+      "unit": "MPa"
+    },
+    "explanation": "Section rectangulaire :\n$$\\sigma_{m,d} = \\frac{6M}{bh^2} = \\frac{6\\times11{,}88\\times10^6}{100\\times250^2} = 11{,}4\\ \\text{MPa}$$\nAttention aux unités : M en N·mm (× 10⁶), b et h en mm → MPa.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion (mémo p.2)",
+        "latex": "f_{m,d} = \\frac{f_{m,k}\\,k_{mod}\\,k_h}{\\gamma_M} \\qquad \\sigma_{m,d} = \\frac{6M}{bh^2}"
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-elu-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : $\\sigma_{m,d} = 11{,}4$ MPa et $f_{m,d} = 16{,}77$ MPa. Taux de travail en flexion ?",
+    "answer": {
+      "value": 68,
+      "unit": "%",
+      "tolerancePct": 2
+    },
+    "explanation": "$$\\eta = \\frac{\\sigma_{m,d}}{f_{m,d}} = \\frac{11{,}4}{16{,}77} = 68\\ \\%$$\nη ≤ 100 % → la solive est **vérifiée en flexion**. Conclusion à rédiger : « $\\sigma_{m,d} \\le f_{m,d}$, la poutre convient (taux 68 %) ».",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "tags": [
+      "partiel-2023"
+    ]
+  },
+  {
+    "id": "stab1-bois-elu-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : $V_{Ed} = 8{,}64$ kN sur la solive $100\\times250$ mm. Calcule $\\tau_d$.",
+    "answer": {
+      "value": 0.518,
+      "unit": "MPa"
+    },
+    "explanation": "$$\\tau_d = \\frac{3V}{2bh} = \\frac{3\\times8640}{2\\times100\\times250} = 0{,}518\\ \\text{MPa}$$\nLe facteur 3/2 vient de la répartition parabolique du cisaillement dans un rectangle (maximum à mi-hauteur).",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Cisaillement (mémo p.3)",
+        "latex": "f_{v,d} = \\frac{f_{v,k}\\,k_{mod}\\,k_{cr}}{\\gamma_M},\\ k_{cr} = 1 \\qquad \\tau_d = \\frac{3V}{2bh}"
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-elu-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Partiel 2023 : GL24h ($f_{v,k} = 3{,}5$ MPa), CS1, moyen terme. Calcule $f_{v,d}$.",
+    "answer": {
+      "value": 2.24,
+      "unit": "MPa"
+    },
+    "explanation": "$$f_{v,d} = \\frac{f_{v,k}\\,k_{mod}\\,k_{cr}}{\\gamma_M} = \\frac{3{,}5\\times0{,}8\\times1}{1{,}25} = 2{,}24\\ \\text{MPa}$$\n$\\tau_d = 0{,}52 \\le 2{,}24$ MPa → taux 23 %, vérifié. Pas de $k_h$ en cisaillement ; $k_{cr} = 1$ selon le mémo.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Cisaillement (mémo p.3)",
+        "latex": "f_{v,d} = \\frac{f_{v,k}\\,k_{mod}\\,k_{cr}}{\\gamma_M},\\ k_{cr} = 1 \\qquad \\tau_d = \\frac{3V}{2bh}"
+      },
+      {
+        "kind": "table",
+        "title": "k_mod — BM / LC / LVL / CP (mémo p.7)",
+        "columns": [
+          "Classe de service",
+          "Perm.",
+          "Long terme",
+          "Moyen terme",
+          "Court terme",
+          "Instant."
+        ],
+        "rows": [
+          [
+            "1",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "2",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "3",
+            0.5,
+            0.55,
+            0.65,
+            0.7,
+            0.9
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      "partiel-2023"
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-elu-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD garage : panne GL24h $120\\times280$, CS2, neige < 1000 m (court terme), $k_h = 1{,}08$. Calcule $f_{m,d}$.",
+    "answer": {
+      "value": 18.65,
+      "unit": "MPa"
+    },
+    "explanation": "Court terme en CS2 → $k_{mod} = 0{,}9$ ; LC → $\\gamma_M = 1{,}25$.\n$$f_{m,d} = \\frac{24\\times0{,}9\\times1{,}08}{1{,}25} = 18{,}65\\ \\text{MPa}$$\n(corrigé p.32).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 32
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "k_mod — BM / LC / LVL / CP (mémo p.7)",
+        "columns": [
+          "Classe de service",
+          "Perm.",
+          "Long terme",
+          "Moyen terme",
+          "Court terme",
+          "Instant."
+        ],
+        "rows": [
+          [
+            "1",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "2",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "3",
+            0.5,
+            0.55,
+            0.65,
+            0.7,
+            0.9
+          ]
+        ]
+      },
+      {
+        "kind": "formula",
+        "title": "Flexion (mémo p.2)",
+        "latex": "f_{m,d} = \\frac{f_{m,k}\\,k_{mod}\\,k_h}{\\gamma_M} \\qquad \\sigma_{m,d} = \\frac{6M}{bh^2}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-bois-elu-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "TD garage : $M_{Ed,y} = 27{,}84$ kN·m sur la panne $120\\times280$ mm (h = 280 dans le plan de flexion). Calcule $\\sigma_{m,y,d}$.",
+    "answer": {
+      "value": 17.76,
+      "unit": "MPa"
+    },
+    "explanation": "$$\\sigma_{m,y,d} = \\frac{6\\times27{,}84\\times10^6}{120\\times280^2} = 17{,}76\\ \\text{MPa}$$\nTaux : $17{,}75/18{,}65 = 95\\ \\%$ (corrigé p.32). Autour de z, on inverse b et h : $\\sigma_{m,z,d} = 6M_z/(h\\,b^2)$.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 32
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion (mémo p.2)",
+        "latex": "f_{m,d} = \\frac{f_{m,k}\\,k_{mod}\\,k_h}{\\gamma_M} \\qquad \\sigma_{m,d} = \\frac{6M}{bh^2}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-bois-elu-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD garage, panne de 8 m : $\\sigma_{m,y,d} = 17{,}76$ MPa, $\\sigma_{m,z,d} = 11{,}07$ MPa, $f_{m,d} = 18{,}65$ MPa, $k_m = 0{,}7$. Calcule le **premier** critère de flexion déviée.",
+    "answer": {
+      "value": 1.37,
+      "unit": "",
+      "tolerancePct": 2
+    },
+    "explanation": "$$\\frac{\\sigma_{m,y,d}}{f_{m,y,d}} + k_m\\frac{\\sigma_{m,z,d}}{f_{m,z,d}} = 0{,}952 + 0{,}7\\times0{,}594 = 1{,}37 > 1$$\nSecond critère : $0{,}7\\times0{,}95 + 0{,}59 = 1{,}26 > 1$. **Non vérifié** (137 % / 126 %) → le corrigé ajoute un appui intermédiaire (2 pannes de 4 m).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 34
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion déviée bois",
+        "latex": "\\frac{\\sigma_{m,y,d}}{f_{m,y,d}} + k_m\\frac{\\sigma_{m,z,d}}{f_{m,z,d}} \\le 1 \\quad\\text{et}\\quad k_m\\frac{\\sigma_{m,y,d}}{f_{m,y,d}} + \\frac{\\sigma_{m,z,d}}{f_{m,z,d}} \\le 1"
+      }
+    ]
+  },
+  {
+    "id": "stab1-bois-elu-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "TD garage (bois) : combinaisons ELU 1,35G = 1,57 (k_mod 0,6) ; 1,35G + 1,5Sn = 3,41 (0,9) ; 1,35G + 1,5Sn + 1,5ψ0W = 3,97 (1,1) kN/ml. Laquelle est dimensionnante ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "1,35G (la plus faible charge mais le plus petit k_mod)"
+      },
+      {
+        "id": "b",
+        "text": "1,35G + 1,5Sn"
+      },
+      {
+        "id": "c",
+        "text": "1,35G + 1,5Sn + 1,5ψ0W (la plus forte charge)"
+      },
+      {
+        "id": "d",
+        "text": "on ne peut pas comparer"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "En bois, la résistance dépend de $k_{mod}$ : on compare **charge / $k_{mod}$** (corrigé p.30) : $1{,}57/0{,}6 = 2{,}61$ ; $3{,}41/0{,}9 = 3{,}78$ ; $3{,}97/1{,}1 = 3{,}61$. La plus grande valeur, **3,78 → combinaison 3 (1,35G + 1,5Sn)**, est dimensionnante, même si sa charge n'est pas la plus forte.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 30
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "c": "3,97/1,1 = 3,61 < 3,41/0,9 = 3,78 : le vent apporte k_mod = 1,1."
+    }
+  },
+  {
+    "id": "stab1-bois-elu-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Calcule le rapport charge/k_mod de la combinaison $1{,}35G + 1{,}5S_n = 3{,}41$ kN/ml (CS2, neige < 1000 m).",
+    "answer": {
+      "value": 3.79,
+      "unit": "kN/ml",
+      "tolerancePct": 1
+    },
+    "explanation": "Neige < 1000 m → court terme → $k_{mod} = 0{,}9$ (CS2) :\n$$\\frac{3{,}41}{0{,}9} = 3{,}79\\ \\text{kN/ml}$$\nC'est la plus grande valeur du tableau du corrigé (p.30, arrondi 3,78) → combinaison dimensionnante. Ce rapport sert seulement à **comparer** les combinaisons ; le calcul se fait ensuite avec la vraie charge (3,41) et le vrai $k_{mod}$ (0,9).",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 30
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-bois-elu-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Solive sur deux appuis : $p = 3$ kN/ml, $L = 5$ m. Calcule le moment maximal.",
+    "answer": {
+      "value": 9.375,
+      "unit": "kN·m"
+    },
+    "explanation": "Poutre isostatique sous charge uniforme : $M_{max} = pL^2/8$ (à mi-portée) et $V_{max} = pL/2$ (aux appuis).\n$$M = \\frac{3\\times5^2}{8} = 9{,}375\\ \\text{kN·m}$$\nCes formules servent dans tous les exercices de panne et de solive.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 32
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-bois-elu-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Solive C24 de section $75\\times200$ mm soumise à $M_{Ed} = 4$ kN·m. Calcule $\\sigma_{m,d}$.",
+    "answer": {
+      "value": 8,
+      "unit": "MPa"
+    },
+    "explanation": "$$\\sigma_{m,d} = \\frac{6M}{bh^2} = \\frac{6\\times4\\times10^6}{75\\times200^2} = \\frac{24\\times10^6}{3\\times10^6} = 8{,}0\\ \\text{MPa}$$\nLe module de flexion d'un rectangle vaut $W = bh^2/6$ ; h est la dimension dans le plan de flexion.",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion (mémo p.2)",
+        "latex": "f_{m,d} = \\frac{f_{m,k}\\,k_{mod}\\,k_h}{\\gamma_M} \\qquad \\sigma_{m,d} = \\frac{6M}{bh^2}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-bois-elu-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Bois massif C24, $h = 200$ mm, classe de service 1, action de moyen terme. Calcule $f_{m,d}$.",
+    "answer": {
+      "value": 14.77,
+      "unit": "MPa"
+    },
+    "explanation": "$k_{mod} = 0{,}8$ (CS1, moyen terme) ; BM → $\\gamma_M = 1{,}30$ ; $h = 200 \\ge 150$ → $k_h = 1$.\n$$f_{m,d} = \\frac{24\\times0{,}8\\times1}{1{,}3} = 14{,}77\\ \\text{MPa}$$",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 7
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "k_mod — BM / LC / LVL / CP (mémo p.7)",
+        "columns": [
+          "Classe de service",
+          "Perm.",
+          "Long terme",
+          "Moyen terme",
+          "Court terme",
+          "Instant."
+        ],
+        "rows": [
+          [
+            "1",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "2",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "3",
+            0.5,
+            0.55,
+            0.65,
+            0.7,
+            0.9
+          ]
+        ]
+      },
+      {
+        "kind": "text",
+        "title": "γ_M (mémo p.7)",
+        "content": "BM 1,30 ; LC 1,25 ; LVL, CP, OSB 1,20 ; assemblages 1,30 ; accidentel 1,00. k_def : CS1 0,6 ; CS2 0,8 ; CS3 2,0."
+      },
+      {
+        "kind": "formula",
+        "title": "Flexion (mémo p.2)",
+        "latex": "f_{m,d} = \\frac{f_{m,k}\\,k_{mod}\\,k_h}{\\gamma_M} \\qquad \\sigma_{m,d} = \\frac{6M}{bh^2}"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-bois-elu-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 1,
+    "type": "single",
+    "prompt": "Contrainte de flexion dans une section **rectangulaire** $b\\times h$ :",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$\\sigma = 6M/(bh^2)$"
+      },
+      {
+        "id": "b",
+        "text": "$\\sigma = M/(bh)$"
+      },
+      {
+        "id": "c",
+        "text": "$\\sigma = 3M/(2bh)$"
+      },
+      {
+        "id": "d",
+        "text": "$\\sigma = 12M/(bh^3)$"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Mémo p.2 : section rectangulaire → $\\sigma_{m,d} = 6M/(bh^2)$ (car $W = I/v = (bh^3/12)/(h/2) = bh^2/6$) ; sinon $\\sigma = vM/I$. $3V/(2bh)$ est la formule du **cisaillement**.",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 2
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true,
+    "wrongChoiceHints": {
+      "c": "C’est la contrainte de cisaillement 3V/(2bh), avec V et non M."
+    }
+  },
+  {
+    "id": "stab1-bois-elu-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Poutre $100\\times200$ mm, effort tranchant $V_{Ed} = 10$ kN. Calcule $\\tau_d$.",
+    "answer": {
+      "value": 0.75,
+      "unit": "MPa"
+    },
+    "explanation": "$$\\tau_d = \\frac{3V}{2bh} = \\frac{3\\times10\\,000}{2\\times100\\times200} = 0{,}75\\ \\text{MPa}$$\nÀ comparer à $f_{v,d} = f_{v,k}k_{mod}k_{cr}/\\gamma_M$ (C24 : $f_{v,k} = 4$ MPa).",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 3
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Cisaillement (mémo p.3)",
+        "latex": "f_{v,d} = \\frac{f_{v,k}\\,k_{mod}\\,k_{cr}}{\\gamma_M},\\ k_{cr} = 1 \\qquad \\tau_d = \\frac{3V}{2bh}"
+      }
+    ]
+  },
+  {
+    "id": "stab1-bois-elu-016",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "order",
+    "prompt": "Remets dans l’ordre la vérification d’une solive bois en flexion.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Déterminer la classe de service (lieu)"
+      },
+      {
+        "id": "b",
+        "text": "Déterminer le k_mod (action de plus courte durée de la combinaison)"
+      },
+      {
+        "id": "c",
+        "text": "Calculer k_h et lire γ_M"
+      },
+      {
+        "id": "d",
+        "text": "Calculer f_m,d = f_m,k·k_mod·k_h/γ_M"
+      },
+      {
+        "id": "e",
+        "text": "Calculer σ_m,d = 6M/(bh²)"
+      },
+      {
+        "id": "f",
+        "text": "Conclure avec le taux de travail σ_m,d/f_m,d"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "explanation": "Démarche du partiel 2023 et du TD : CS (maison → 1, garage → 2) → $k_{mod}$ (G + Q cat. A → moyen terme → 0,8 ; neige < 1000 m → 0,9) → $k_h$ (LC h < 600) et $\\gamma_M$ (LC 1,25) → $f_{m,d}$ → $\\sigma_{m,d}$ → η. On termine toujours par une **conclusion rédigée**.",
+    "source": [
+      {
+        "docName": "Partiel_2023_STAB01.pdf",
+        "page": 3
+      },
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 32
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-bois-elu-017",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Dans le critère de flexion déviée bois, où s’applique $k_m = 0{,}7$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "sur le terme de l’autre axe, dans chacun des deux critères"
+      },
+      {
+        "id": "b",
+        "text": "sur les deux termes du même critère"
+      },
+      {
+        "id": "c",
+        "text": "uniquement sur le terme de l’axe fort"
+      },
+      {
+        "id": "d",
+        "text": "sur la résistance f_m,d"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "On vérifie **deux** critères : $\\frac{\\sigma_y}{f_y} + k_m\\frac{\\sigma_z}{f_z} \\le 1$ **et** $k_m\\frac{\\sigma_y}{f_y} + \\frac{\\sigma_z}{f_z} \\le 1$. Le $k_m$ réduit à chaque fois le terme de l'autre axe, car pour un rectangle les contraintes maximales des deux flexions ne s'additionnent pleinement qu'aux angles.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 34
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-bois-elu-018",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Poteau court en C24, CS2, action de moyen terme. Calcule $f_{c,0,d}$ (sans flambement).",
+    "answer": {
+      "value": 12.92,
+      "unit": "MPa"
+    },
+    "explanation": "Mémo p.4 : $f_{c,0,d} = f_{c,0,k}\\,k_{mod}/\\gamma_M$ (pas de $k_h$ en compression).\n$$f_{c,0,d} = \\frac{21\\times0{,}8}{1{,}3} = 12{,}92\\ \\text{MPa}$$\nLe flambement sera traité plus tard ; ici on suppose une pièce courte.",
+    "source": [
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 4
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 8
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Propriétés des bois (mémo p.8), N/mm² et kg/m³",
+        "columns": [
+          "Classe",
+          "f_m,k",
+          "f_t,0,k",
+          "f_c,0,k",
+          "f_v,k",
+          "E_0,mean",
+          "ρ_mean"
+        ],
+        "rows": [
+          [
+            "C24",
+            24,
+            14.5,
+            21,
+            4,
+            11000,
+            420
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "k_mod — BM / LC / LVL / CP (mémo p.7)",
+        "columns": [
+          "Classe de service",
+          "Perm.",
+          "Long terme",
+          "Moyen terme",
+          "Court terme",
+          "Instant."
+        ],
+        "rows": [
+          [
+            "1",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "2",
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.1
+          ],
+          [
+            "3",
+            0.5,
+            0.55,
+            0.65,
+            0.7,
+            0.9
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-bois-elu-019",
+    "subjectId": "stab1",
+    "themeIds": [
+      "bois-elu"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "Tirant C24 $70\\times105$ (CS2), combinaison avec vent, $k_l = 1{,}074$. Calcule $f_{t,0,d}$.",
+    "answer": {
+      "value": 13.18,
+      "unit": "MPa",
+      "tolerancePct": 1.5
+    },
+    "explanation": "Vent → instantané → $k_{mod} = 1{,}1$ ; BM → $\\gamma_M = 1{,}3$.\n$$f_{t,0,d} = \\frac{f_{t,0,k}\\,k_{mod}\\,k_l}{\\gamma_M} = \\frac{14{,}5\\times1{,}1\\times1{,}074}{1{,}3} = 13{,}18\\ \\text{MPa}$$\n(corrigé p.44). Avec la section nette réduite par 2 boulons Ø12 : $\\sigma_{t,0,d} = 1{,}68$ MPa → taux 13 %.",
+    "source": [
+      {
+        "docName": "CORRIGE_TD_2024.pdf",
+        "page": 44
+      },
+      {
+        "docName": "MEMO - STAB - BM - Justification des éléments simples aux EUROCODES 3 & 5 2022.pdf",
+        "page": 4
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Propriétés des bois (mémo p.8), N/mm² et kg/m³",
+        "columns": [
+          "Classe",
+          "f_m,k",
+          "f_t,0,k",
+          "f_c,0,k",
+          "f_v,k",
+          "E_0,mean",
+          "ρ_mean"
+        ],
+        "rows": [
+          [
+            "C24",
+            24,
+            14.5,
+            21,
+            4,
+            11000,
+            420
+          ]
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,901 @@
+[
+  {
+    "id": "stab1-ba-flexion-001",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "TD5, poutre PT3 : $M_u = 150$ kN·m, $b = 0{,}20$ m, $d = 0{,}40$ m, C25/30. Calcule le moment réduit $\\mu_{cu}$.",
+    "answer": {
+      "value": 0.281,
+      "unit": "",
+      "tolerancePct": 1
+    },
+    "explanation": "$f_{cd} = 25/1{,}5 = 16{,}67$ MPa.\n$$\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} = \\frac{0{,}150}{0{,}20\\times0{,}40^2\\times16{,}67} = 0{,}281$$\nUnités cohérentes : MN·m, m et MPa (= MN/m²).",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion simple, section rectangulaire",
+        "latex": "\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} \\quad \\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} \\quad A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} \\quad \\mu_{cu,yd}(\\text{B500}) = 0{,}372"
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-flexion-002",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Moment réduit limite $\\mu_{cu,yd}$ pour un acier **B500** ?",
+    "answer": {
+      "value": 0.372,
+      "unit": "",
+      "tolerancePct": 1
+    },
+    "explanation": "$\\varepsilon_{yd} = 434{,}8/200\\,000 = 2{,}17$ ‰ ; $\\alpha_{yd} = \\dfrac{3{,}5}{3{,}5 + 2{,}17} = 0{,}617$.\n$$\\mu_{cu,yd} = 0{,}8\\,\\alpha_{yd}\\,(1 - 0{,}4\\,\\alpha_{yd}) = 0{,}8\\times0{,}617\\times0{,}753 = 0{,}372$$\n(corrigé TD5 : 0,3717). Au-delà, les aciers tendus ne travaillent plus à $f_{yd}$ → aciers comprimés ou section en Té.",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "valeur EC standard, non trouvée dans le cours"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion simple, section rectangulaire",
+        "latex": "\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} \\quad \\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} \\quad A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} \\quad \\mu_{cu,yd}(\\text{B500}) = 0{,}372"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-flexion-003",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "$\\mu_{cu} = 0{,}281 < \\mu_{cu,yd} = 0{,}372$ : que conclure ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "pas d’aciers comprimés nécessaires ; les aciers tendus travaillent à f_yd"
+      },
+      {
+        "id": "b",
+        "text": "il faut des aciers comprimés"
+      },
+      {
+        "id": "c",
+        "text": "la section est trop grande"
+      },
+      {
+        "id": "d",
+        "text": "il faut passer en section en Té"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Si $\\mu_{cu} \\le \\mu_{cu,yd}$, l'axe neutre est assez haut pour que l'acier tendu dépasse $\\varepsilon_{yd}$ : il travaille à $\\sigma_s = f_{yd}$ et **aucun acier comprimé n'est nécessaire** (corrigé TD5 : « OK »). Sinon, on ajoute des aciers comprimés (avec $d'$) ou on profite de la table de compression (Té).",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-flexion-004",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Pour $\\mu_{cu} = 0{,}281$, calcule le bras de levier relatif $\\beta = z/d$.",
+    "answer": {
+      "value": 0.831,
+      "unit": "",
+      "tolerancePct": 1
+    },
+    "explanation": "$$\\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} = \\frac{1 + \\sqrt{0{,}4375}}{2} = \\frac{1 + 0{,}661}{2} = 0{,}831$$\n(corrigé TD5). Équivalent : $\\alpha_u = 1{,}25(1 - \\sqrt{1 - 2\\mu}) = 0{,}423$ et $\\beta = 1 - 0{,}4\\,\\alpha_u$.",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "valeur EC standard, non trouvée dans le cours"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion simple, section rectangulaire",
+        "latex": "\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} \\quad \\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} \\quad A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} \\quad \\mu_{cu,yd}(\\text{B500}) = 0{,}372"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-flexion-005",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD5 PT3 : $M_u = 150$ kN·m, $\\beta = 0{,}831$, $d = 0{,}40$ m, B500. Section d’acier tendu $A_s$ ?",
+    "answer": {
+      "value": 10.38,
+      "unit": "cm²",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} = \\frac{0{,}150}{0{,}831\\times0{,}40\\times434{,}8} = 1{,}038\\times10^{-3}\\ \\text{m}^2 = 10{,}38\\ \\text{cm}^2$$\n(corrigé TD5). On choisit par exemple 3HA16 + 3HA14 = 10,65 cm².",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion simple, section rectangulaire",
+        "latex": "\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} \\quad \\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} \\quad A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} \\quad \\mu_{cu,yd}(\\text{B500}) = 0{,}372"
+      },
+      {
+        "kind": "table",
+        "title": "Sections d’acier (cm²) pour n barres (corrigé TD1 BA)",
+        "columns": [
+          "φ (mm)",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "rows": [
+          [
+            "6",
+            0.28,
+            0.57,
+            0.85,
+            1.13,
+            1.41,
+            1.7,
+            1.98,
+            2.26
+          ],
+          [
+            "8",
+            0.5,
+            1.01,
+            1.51,
+            2.01,
+            2.51,
+            3.02,
+            3.52,
+            4.02
+          ],
+          [
+            "10",
+            0.79,
+            1.57,
+            2.36,
+            3.14,
+            3.93,
+            4.71,
+            5.5,
+            6.28
+          ],
+          [
+            "12",
+            1.13,
+            2.26,
+            3.39,
+            4.52,
+            5.65,
+            6.79,
+            7.92,
+            9.05
+          ],
+          [
+            "14",
+            1.54,
+            3.08,
+            4.62,
+            6.16,
+            7.7,
+            9.24,
+            10.78,
+            12.32
+          ],
+          [
+            "16",
+            2.01,
+            4.02,
+            6.03,
+            8.04,
+            10.05,
+            12.06,
+            14.07,
+            16.08
+          ],
+          [
+            "20",
+            3.14,
+            6.28,
+            9.42,
+            12.57,
+            15.71,
+            18.85,
+            21.99,
+            25.13
+          ],
+          [
+            "25",
+            4.91,
+            9.82,
+            14.73,
+            19.63,
+            24.54,
+            29.45,
+            34.36,
+            39.27
+          ],
+          [
+            "32",
+            8.04,
+            16.08,
+            24.13,
+            32.17,
+            40.21,
+            48.25,
+            56.3,
+            64.34
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-flexion-006",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD5 PT3 : section minimale (non-fragilité) $A_{s,min} = 0{,}26\\,\\frac{f_{ctm}}{f_{yk}}\\,b\\,d$ avec C25/30, B500, $b = 0{,}20$, $d = 0{,}40$ m ?",
+    "answer": {
+      "value": 1.07,
+      "unit": "cm²",
+      "tolerancePct": 2
+    },
+    "explanation": "$$A_{s,min} = 0{,}26\\times\\frac{2{,}56}{500}\\times0{,}20\\times0{,}40 = 1{,}07\\times10^{-4}\\ \\text{m}^2 = 1{,}07\\ \\text{cm}^2$$\nà comparer aussi à $0{,}0013\\,b\\,d = 1{,}04$ cm² (corrigé TD5 : A_CNF = 1,07 cm²). Largement couvert par 10,38 cm².",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "EN 1992-1-1 §9.2.1.1"
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-flexion-007",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 1,
+    "type": "numeric",
+    "prompt": "Section maximale d’armatures $A_{s,max} = 0{,}04\\,A_c$ pour une poutre $20\\times45$ cm ?",
+    "answer": {
+      "value": 36,
+      "unit": "cm²",
+      "tolerancePct": 0
+    },
+    "explanation": "$A_c = 20\\times45 = 900$ cm² :\n$$A_{s,max} = 0{,}04\\times900 = 36\\ \\text{cm}^2$$\n(corrigé TD5). Au-delà, le bétonnage devient impossible (barres trop serrées) et la section est mal conçue : il faut l'agrandir.",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "EN 1992-1-1 §9.2.1.1"
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-flexion-008",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "Il faut $A_s = 10{,}38$ cm². Le choix **3HA16 + 3HA14** convient-il en section ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "oui : 6,03 + 4,62 = 10,65 cm² ≥ 10,38"
+      },
+      {
+        "id": "b",
+        "text": "non : 9,24 cm² < 10,38"
+      },
+      {
+        "id": "c",
+        "text": "non : il faut 4HA20"
+      },
+      {
+        "id": "d",
+        "text": "oui mais seulement en B400"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "3HA16 = 6,03 cm² et 3HA14 = 4,62 cm² → **10,65 cm² ≥ 10,38** ✓ (corrigé TD5, question 1.2). On vérifie ensuite l'enrobage ($c_{nom} = 25$ mm), l'espacement ($e_h \\ge 20$ mm) et que $d_{réel} = 403 \\ge d_{calcul} = 400$ mm.",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "table",
+        "title": "Sections d’acier (cm²) pour n barres (corrigé TD1 BA)",
+        "columns": [
+          "φ (mm)",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "rows": [
+          [
+            "6",
+            0.28,
+            0.57,
+            0.85,
+            1.13,
+            1.41,
+            1.7,
+            1.98,
+            2.26
+          ],
+          [
+            "8",
+            0.5,
+            1.01,
+            1.51,
+            2.01,
+            2.51,
+            3.02,
+            3.52,
+            4.02
+          ],
+          [
+            "10",
+            0.79,
+            1.57,
+            2.36,
+            3.14,
+            3.93,
+            4.71,
+            5.5,
+            6.28
+          ],
+          [
+            "12",
+            1.13,
+            2.26,
+            3.39,
+            4.52,
+            5.65,
+            6.79,
+            7.92,
+            9.05
+          ],
+          [
+            "14",
+            1.54,
+            3.08,
+            4.62,
+            6.16,
+            7.7,
+            9.24,
+            10.78,
+            12.32
+          ],
+          [
+            "16",
+            2.01,
+            4.02,
+            6.03,
+            8.04,
+            10.05,
+            12.06,
+            14.07,
+            16.08
+          ],
+          [
+            "20",
+            3.14,
+            6.28,
+            9.42,
+            12.57,
+            15.71,
+            18.85,
+            21.99,
+            25.13
+          ],
+          [
+            "25",
+            4.91,
+            9.82,
+            14.73,
+            19.63,
+            24.54,
+            29.45,
+            34.36,
+            39.27
+          ],
+          [
+            "32",
+            8.04,
+            16.08,
+            24.13,
+            32.17,
+            40.21,
+            48.25,
+            56.3,
+            64.34
+          ]
+        ]
+      }
+    ],
+    "examStyle": true
+  },
+  {
+    "id": "stab1-ba-flexion-009",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 3,
+    "type": "numeric",
+    "prompt": "TD5 question 2 : $M_u = 175$ kN·m, $b = 0{,}20$ m, $d = 0{,}40$ m, **C30**, **B400** (pas d'aciers comprimés). Calcule $A_s$.",
+    "answer": {
+      "value": 15.04,
+      "unit": "cm²",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$f_{cd} = 20$ MPa ; $\\mu_{cu} = \\dfrac{0{,}175}{0{,}2\\times0{,}16\\times20} = 0{,}273$.\nB400 : $\\varepsilon_{yd} = 1{,}74$ ‰ → $\\alpha_{yd} = 0{,}668$ → $\\mu_{cu,yd} = 0{,}392$ > μ → pas d'aciers comprimés.\n$\\beta = (1 + \\sqrt{1 - 2\\times0{,}273})/2 = 0{,}837$.\n$$A_s = \\frac{0{,}175}{0{,}837\\times0{,}40\\times347{,}8} = 15{,}04\\ \\text{cm}^2$$\n(pas de corrigé fourni : valeur calculée avec la méthode du TD5). Le sujet propose 3HA20 + 3HA16 = 15,45 cm² ✓.",
+    "source": [
+      {
+        "docName": "Sujets_de_TD_STAB1_BA_2026-2027.pdf",
+        "page": 8
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "corrigé non fourni, calcul selon la méthode du TD5"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion simple, section rectangulaire",
+        "latex": "\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} \\quad \\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} \\quad A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} \\quad \\mu_{cu,yd}(\\text{B500}) = 0{,}372"
+      },
+      {
+        "kind": "table",
+        "title": "Sections d’acier (cm²) pour n barres (corrigé TD1 BA)",
+        "columns": [
+          "φ (mm)",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "rows": [
+          [
+            "6",
+            0.28,
+            0.57,
+            0.85,
+            1.13,
+            1.41,
+            1.7,
+            1.98,
+            2.26
+          ],
+          [
+            "8",
+            0.5,
+            1.01,
+            1.51,
+            2.01,
+            2.51,
+            3.02,
+            3.52,
+            4.02
+          ],
+          [
+            "10",
+            0.79,
+            1.57,
+            2.36,
+            3.14,
+            3.93,
+            4.71,
+            5.5,
+            6.28
+          ],
+          [
+            "12",
+            1.13,
+            2.26,
+            3.39,
+            4.52,
+            5.65,
+            6.79,
+            7.92,
+            9.05
+          ],
+          [
+            "14",
+            1.54,
+            3.08,
+            4.62,
+            6.16,
+            7.7,
+            9.24,
+            10.78,
+            12.32
+          ],
+          [
+            "16",
+            2.01,
+            4.02,
+            6.03,
+            8.04,
+            10.05,
+            12.06,
+            14.07,
+            16.08
+          ],
+          [
+            "20",
+            3.14,
+            6.28,
+            9.42,
+            12.57,
+            15.71,
+            18.85,
+            21.99,
+            25.13
+          ],
+          [
+            "25",
+            4.91,
+            9.82,
+            14.73,
+            19.63,
+            24.54,
+            29.45,
+            34.36,
+            39.27
+          ],
+          [
+            "32",
+            8.04,
+            16.08,
+            24.13,
+            32.17,
+            40.21,
+            48.25,
+            56.3,
+            64.34
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-flexion-010",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 3,
+    "type": "single",
+    "prompt": "TD5 poutre PT5 : $M_u = 432$ kN·m, $b = 0{,}22$ m, $d = 0{,}45$ m, C35, B500. Conclusion du calcul de $\\mu_{cu}$ ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$\\mu_{cu} = 0{,}21$ : pas d'aciers comprimés"
+      },
+      {
+        "id": "b",
+        "text": "$\\mu_{cu} \\approx 0{,}42 > 0{,}372$ : il faut des aciers comprimés (ou une section en Té)"
+      },
+      {
+        "id": "c",
+        "text": "$\\mu_{cu} = 0{,}372$ exactement"
+      },
+      {
+        "id": "d",
+        "text": "la poutre ne peut pas être calculée"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "$f_{cd} = 35/1{,}5 = 23{,}33$ MPa.\n$$\\mu_{cu} = \\frac{0{,}432}{0{,}22\\times0{,}45^2\\times23{,}33} = 0{,}416 > \\mu_{cu,yd} = 0{,}372$$\nLes aciers tendus ne travailleraient plus à $f_{yd}$ : on ajoute des **aciers comprimés** (à $d' = 0{,}04$ m) ou on augmente la section (pas de corrigé fourni pour cette question).",
+    "source": [
+      {
+        "docName": "Sujets_de_TD_STAB1_BA_2026-2027.pdf",
+        "page": 8
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "corrigé non fourni"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion simple, section rectangulaire",
+        "latex": "\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} \\quad \\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} \\quad A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} \\quad \\mu_{cu,yd}(\\text{B500}) = 0{,}372"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-flexion-011",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "TD5 PT3 : $\\beta = 0{,}831$ et $d = 0{,}40$ m. Bras de levier $z$ ?",
+    "answer": {
+      "value": 0.332,
+      "unit": "m",
+      "tolerancePct": 1
+    },
+    "explanation": "$$z = \\beta\\,d = 0{,}831\\times0{,}40 = 0{,}332\\ \\text{m}$$\nz est la distance entre la résultante de compression du béton (à $0{,}4\\,x_u$ de la fibre supérieure) et les aciers tendus : $M_u = F_s\\,z = A_s\\,f_{yd}\\,z$.",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion simple, section rectangulaire",
+        "latex": "\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} \\quad \\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} \\quad A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} \\quad \\mu_{cu,yd}(\\text{B500}) = 0{,}372"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-flexion-012",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 2,
+    "type": "numeric",
+    "prompt": "Pour $\\mu_{cu} = 0{,}281$, calcule la position relative de l’axe neutre $\\alpha_u = 1{,}25(1 - \\sqrt{1 - 2\\mu_{cu}})$.",
+    "answer": {
+      "value": 0.423,
+      "unit": "",
+      "tolerancePct": 1.5
+    },
+    "explanation": "$$\\alpha_u = 1{,}25\\times(1 - \\sqrt{1 - 0{,}5625}) = 1{,}25\\times(1 - 0{,}661) = 0{,}423$$\n$x_u = \\alpha_u\\,d = 0{,}169$ m. Comme $\\alpha_u < \\alpha_{yd} = 0{,}617$, l'acier tendu est plastifié (ε_s > ε_yd).",
+    "source": [
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "relation EC2 standard, cohérente avec le corrigé TD5"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion simple, section rectangulaire",
+        "latex": "\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} \\quad \\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} \\quad A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} \\quad \\mu_{cu,yd}(\\text{B500}) = 0{,}372"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-flexion-013",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 2,
+    "type": "order",
+    "prompt": "Remets dans l’ordre le calcul d’une section rectangulaire en flexion simple (TD5).",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Calculer $f_{cd}$ et $f_{yd}$"
+      },
+      {
+        "id": "b",
+        "text": "Calculer $\\mu_{cu} = M_u/(b d^2 f_{cd})$"
+      },
+      {
+        "id": "c",
+        "text": "Comparer à $\\mu_{cu,yd}$ (0,372 en B500)"
+      },
+      {
+        "id": "d",
+        "text": "Calculer $\\beta = (1 + \\sqrt{1 - 2\\mu_{cu}})/2$"
+      },
+      {
+        "id": "e",
+        "text": "Calculer $A_s = M_u/(\\beta d f_{yd})$"
+      },
+      {
+        "id": "f",
+        "text": "Vérifier A_s,min et A_s,max, choisir les barres, vérifier enrobage, e_h et d réel"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "explanation": "C'est l'enchaînement du corrigé TD5 (poutre PT3) : $f_{cd} = 16{,}67$ → $\\mu_{cu} = 0{,}281$ → < 0,372 OK → $\\beta = 0{,}831$ → $A_s = 10{,}38$ cm² → $A_{CNF} = 1{,}07$, $A_{max} = 36$ → 3HA16 + 3HA14, $c_{nom} = 25$ mm, $e_h$ OK, $d_{réel} = 403$ mm.",
+    "source": [
+      {
+        "docName": "Correction_TD5_moodle.pdf",
+        "page": 1
+      }
+    ],
+    "origin": "builtin"
+  },
+  {
+    "id": "stab1-ba-flexion-014",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 3,
+    "type": "single",
+    "prompt": "TD6 : poutre $b = 0{,}20$ m, $d = 0{,}35$ m, C25/30, $M_u = 190$ kN·m, calculée en section rectangulaire. Que trouve-t-on ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "$\\mu_{cu} \\approx 0{,}28$ : section rectangulaire suffisante"
+      },
+      {
+        "id": "b",
+        "text": "$\\mu_{cu} \\approx 0{,}47 > 0{,}372$ : il faut des aciers comprimés ou étudier la poutre en Té"
+      },
+      {
+        "id": "c",
+        "text": "$\\mu_{cu} \\approx 0{,}10$"
+      },
+      {
+        "id": "d",
+        "text": "$\\mu_{cu} < 0$"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explanation": "$$\\mu_{cu} = \\frac{0{,}190}{0{,}20\\times0{,}35^2\\times16{,}67} = 0{,}465 > 0{,}372$$\nLe sujet le prévoit : « si vous trouvez μ_cu > μ_cu,yd, ne faites pas le calcul avec des aciers comprimés et passez à la question suivante » → étude en **section en Té** (la dalle de 20 cm sert de table de compression). Pas de corrigé fourni.",
+    "source": [
+      {
+        "docName": "Sujets_de_TD_STAB1_BA_2026-2027.pdf",
+        "page": 12
+      },
+      {
+        "docName": "Eurocodes (EN / Annexe nationale)",
+        "note": "corrigé non fourni"
+      }
+    ],
+    "origin": "builtin",
+    "data": [
+      {
+        "kind": "formula",
+        "title": "Flexion simple, section rectangulaire",
+        "latex": "\\mu_{cu} = \\frac{M_u}{b\\,d^2 f_{cd}} \\quad \\beta = \\frac{1 + \\sqrt{1 - 2\\mu_{cu}}}{2} \\quad A_s = \\frac{M_u}{\\beta\\,d\\,f_{yd}} \\quad \\mu_{cu,yd}(\\text{B500}) = 0{,}372"
+      }
+    ]
+  },
+  {
+    "id": "stab1-ba-flexion-015",
+    "subjectId": "stab1",
+    "themeIds": [
+      "ba-flexion"
+    ],
+    "level": 2,
+    "type": "single",
+    "prompt": "TD6 : comment place-t-on les cadres le long de la poutre (suite de Caquot 8-9-10-11-13-16-20-25-35-40 cm) ?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "en commençant par un demi-espacement à l’appui, puis chaque espacement de la suite répété 2 fois"
+      },
+      {
+        "id": "b",
+        "text": "avec un espacement constant de 20 cm"
+      },
+      {
+        "id": "c",
+        "text": "en commençant par 40 cm à l’appui"
+      },
+      {
+        "id": "d",
+        "text": "un seul cadre à chaque appui"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explanation": "Sujet TD6 : « vous prendrez 2 fois chaque espacement dans la suite 8-9-10-11-13-16-20-25-35-40 sachant que vous devez commencer par un **demi-espacement** ». Les cadres sont resserrés près des appuis, là où l'effort tranchant est maximal, puis s'écartent vers mi-portée.",
+    "source": [
+      {
+        "docName": "Sujets_de_TD_STAB1_BA_2026-2027.pdf",
+        "page": 12
+      }
+    ],
+    "origin": "builtin"
+  }
+]
