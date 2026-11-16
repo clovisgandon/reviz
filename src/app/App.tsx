@@ -14,6 +14,11 @@ import { TableExercisePage } from '@/features/table/TableExercisePage';
 import { MockSetupPage } from '@/features/exam/MockSetupPage';
 import { MockExamPage } from '@/features/exam/MockExamPage';
 import { FlashPage } from '@/features/flash/FlashPage';
+import { SubjectEditPage } from '@/features/subjects/SubjectEditPage';
+import { DocumentViewerPage } from '@/features/documents/DocumentViewerPage';
+import { ImportPage } from '@/features/generation/ImportPage';
+import { GeneratePage } from '@/features/generation/GeneratePage';
+import { BankPage, QuestionEditPage } from '@/features/generation/BankPage';
 import { PageHeader } from '@/components/PageHeader';
 
 /** Routage en mode hash (/#/...) : marche sur GitHub Pages sans configuration serveur. */
@@ -25,9 +30,16 @@ export function App() {
         <Route path="serie/:sessionId" element={<QuizPage />} />
         <Route path="table/:genId" element={<TableExercisePage />} />
         <Route path="partiel/:sessionId" element={<MockExamPage />} />
+        <Route path="document/:docId" element={<DocumentViewerPage />} />
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="matieres" element={<SubjectsPage />} />
+          <Route path="matieres/nouvelle" element={<SubjectEditPage />} />
+          <Route path="matieres/:subjectId/modifier" element={<SubjectEditPage />} />
+          <Route path="matieres/:subjectId/importer" element={<ImportPage />} />
+          <Route path="matieres/:subjectId/generer" element={<GeneratePage />} />
+          <Route path="matieres/:subjectId/questions" element={<BankPage />} />
+          <Route path="matieres/:subjectId/question/:questionId" element={<QuestionEditPage />} />
           <Route path="matieres/:subjectId" element={<SubjectPage />} />
           <Route path="matieres/:subjectId/entrainement" element={<QuizSetupPage />} />
           <Route path="matieres/:subjectId/formulaire" element={<FormulairePage />} />

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PageHeader } from '@/components/PageHeader';
-import { setSetting, useSetting } from '@/lib/settings';
+import { DEFAULT_SETTINGS, setSetting, useSetting } from '@/lib/settings';
+import { testKey } from '@/lib/anthropic';
 import { useThemeMode, type ThemeMode } from '@/lib/theme';
 import { isStandalone } from '@/lib/platform';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -41,6 +42,74 @@ function ReportsList() {
           </li>
         ))}
       </ul>
+    </section>
+  );
+}
+
+/** Clé API Anthropic (optionnelle) : stockée sur l'appareil seulement, masquée, testable sans frais. */
+function ApiKeySection() {
+  const key = useSetting('apiKey');
+  const model = useSetting('apiModel');
+  const [draft, setDraft] = useState<string | null>(null);
+  const [show, setShow] = useState(false);
+  const [status, setStatus] = useState('');
+  const [modelDraft, setModelDraft] = useState<string | null>(null);
+  const value = draft ?? key;
+
+  const save = async () => {
+    await setSetting('apiKey', value.trim());
+    setDraft(null);
+    setStatus(value.trim() ? 'Clé enregistrée sur cet appareil.' : 'Clé effacée.');
+  };
+  const test = async () => {
+    setStatus('Test en cours…');
+    try {
+      await testKey(value.trim(), model);
+      setStatus('✅ La clé fonctionne avec ce modèle.');
+    } catch (e) {
+      setStatus(`❌ ${(e as Error).message}`);
+    }
+  };
+
+  return (
+    <section className="card space-y-3 p-4" aria-labelledby="api-h">
+      <h2 id="api-h" className="font-semibold">Génération IA (optionnel)</h2>
+      <p className="text-xs text-muted">
+        Ta clé API Anthropic (console.anthropic.com) permet de générer des QCM depuis tes documents. Elle reste sur cet appareil et n’est envoyée qu’à api.anthropic.com. Chaque génération est facturée sur ton compte Anthropic.
+      </p>
+      <div className="flex gap-2">
+        <input
+          type={show ? 'text' : 'password'}
+          className="field flex-1 font-mono text-sm"
+          autoComplete="off"
+          spellCheck={false}
+          placeholder="sk-ant-…"
+          aria-label="Clé API Anthropic"
+          value={value}
+          onChange={(e) => setDraft(e.target.value)}
+        />
+        <button type="button" className="btn-ghost w-20 shrink-0 px-0 text-sm" onClick={() => setShow((s) => !s)} aria-pressed={show}>
+          {show ? 'Masquer' : 'Voir'}
+        </button>
+      </div>
+      <label className="flex items-center justify-between gap-3">
+        <span className="text-sm">Modèle</span>
+        <input
+          className="field w-48 font-mono text-sm"
+          value={modelDraft ?? model}
+          onChange={(e) => setModelDraft(e.target.value)}
+          onBlur={() => {
+            if (modelDraft !== null) void setSetting('apiModel', modelDraft.trim() || DEFAULT_SETTINGS.apiModel);
+            setModelDraft(null);
+          }}
+          aria-label="Modèle"
+        />
+      </label>
+      <div className="flex gap-2">
+        <button type="button" className="btn-ghost flex-1" disabled={!value.trim()} onClick={test}>Tester la clé</button>
+        <button type="button" className="btn-primary flex-1" disabled={draft === null} onClick={save}>Enregistrer</button>
+      </div>
+      {status && <p role="status" className="text-sm">{status}</p>}
     </section>
   );
 }
@@ -134,6 +203,8 @@ export function SettingsPage() {
             </Row>
           </div>
         </section>
+
+        <ApiKeySection />
 
         <ReportsList />
 

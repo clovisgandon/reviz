@@ -46,7 +46,12 @@ export function on20(score: number, maxScore: number): number {
 /** Texte lisible de la bonne réponse (pour la correction et l'historique). */
 export function answerText(q: Question): string {
   const ans = q.answer;
-  if (isNumericAnswer(ans)) return `${fmt(ans.value, 3)} ${ans.unit}`.trim();
+  if (isNumericAnswer(ans)) {
+    // au moins 3 chiffres significatifs (0,0384 et non 0,038)
+    const a = Math.abs(ans.value);
+    const digits = a > 0 && a < 1 ? Math.min(6, Math.max(3, 2 - Math.floor(Math.log10(a)))) : 3;
+    return `${fmt(ans.value, digits)} ${ans.unit}`.trim();
+  }
   const label = (id: string) => q.choices?.find((c) => c.id === id)?.text ?? id;
   if (q.type === 'order') return ans.map((id, i) => `${i + 1}. ${label(id)}`).join('\n');
   return ans.map(label).join(' ; ');

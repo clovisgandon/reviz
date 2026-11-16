@@ -10,6 +10,9 @@ import { recordSrs } from '@/features/quiz/engine';
 import type { Draft } from '@/components/AnswerInput';
 import EXAMS from '@/subjects/stab1/exams.json';
 
+/** Nombre de questions du partiel blanc d'une matière perso. */
+export const MOCK_QCM_COUNT = 20;
+
 export type MockExercise = { genId: string; seed: number; cas?: number; weight: number; answers: (string | null)[] };
 
 /** Copie de partiel blanc en cours (sauvegardée à chaque saisie). */
@@ -67,7 +70,18 @@ export async function createMock(opts: { subjectId: string; withBA: boolean; dur
   let qcm: Question[];
   let exercises: MockExercise[];
   let title: string;
-  if (opts.official2023) {
+  let scoring = await getSetting('scoring');
+  if (opts.subjectId !== 'stab1') {
+    // Matière perso : QCM seul (pas de générateurs), questions « style examen » en priorité, barème de la matière.
+    const subject = await db.subjects.get(opts.subjectId);
+    const usable = pool.filter((q) => q.type !== 'order');
+    const exam = shuffle(usable.filter((q) => q.examStyle), rand);
+    const rest = shuffle(usable.filter((q) => !q.examStyle), rand);
+    qcm = [...exam, ...rest].slice(0, MOCK_QCM_COUNT);
+    exercises = [];
+    title = `Partiel blanc · ${subject?.name ?? ''}`.trim();
+    if (subject) scoring = subject.examConfig.scoring;
+  } else if (opts.official2023) {
     const ids = EXAMS.find((e) => e.id === 'qcm-neige-vent-A')!.questionIds;
     qcm = (await db.questions.bulkGet(ids)).filter((q): q is Question => !!q);
     exercises = [
@@ -88,7 +102,7 @@ export async function createMock(opts: { subjectId: string; withBA: boolean; dur
   const state: MockState = {
     kind: 'mock', title, questionIds: qcm.map((q) => q.id), choiceOrder: orderFor(qcm, rand), answers: {},
     exercises, qcmWeight: 20 - exercises.reduce((s, e) => s + e.weight, 0),
-    scoring: await getSetting('scoring'), tolerancePct: await getSetting('numericTolerancePct'),
+    scoring, tolerancePct: await getSetting('numericTolerancePct'),
     startedAt: Date.now(), durationMin: opts.durationMin, official: opts.official2023 ? 'partiel-2023' : undefined,
   };
   const session: Session = { id: uid('s-'), subjectId: opts.subjectId, mode: 'exam', createdAt: Date.now(), updatedAt: Date.now(), state };

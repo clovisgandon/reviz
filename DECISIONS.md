@@ -84,6 +84,32 @@ Les corrigés de TD donnent les valeurs mais pas toujours la formule. Formules p
 - **Graphiques** faits main en SVG (pas de bibliothèque) : courbe des notes /20, barres des questions par jour, carte de réussite par thème (une seule teinte, valeur écrite dans chaque case, gris = pas travaillé). Une série par graphique, donc pas de légende ; info-bulle au toucher. Filtres période / matière / mode sur une rangée au-dessus.
 - **Réglages** : durée du partiel blanc et option béton armé par défaut.
 
+## Étape 7 — Matières perso, documents, génération (2026-11-16)
+
+- **Créer une matière** : nom, icône, couleur, date d'examen, thèmes, barème et durée du partiel blanc. L'id est tiré du nom (« Mécanique des sols » → `mecanique-des-sols`). La matière intégrée STAB 1 ne se modifie pas (elle est réinstallée à chaque version) ; une matière perso se supprime avec tout ce qui s'y rattache (questions, documents, historique, révisions).
+- **Modes d'une matière perso** : entraînement, révision des erreurs, Flash (si des cartes sont importées), mort subite, et un partiel blanc QCM seul (20 questions, « style examen » d'abord, barème de la matière). Le contrôle sur table reste réservé aux matières qui ont des générateurs codés (`GENERATORS_BY_SUBJECT`).
+- **Documents** : PDF, images, texte, Markdown, stockés dans IndexedDB (Blob) ; texte extrait page par page avec pdf.js. `navigator.storage.persist()` est redemandé à chaque ajout.
+- **pdf.js 4.10.38, build « legacy »**, chargé à la demande (409 kB) avec son worker précaché (1,4 Mo) pour que la visionneuse marche hors ligne. Le build legacy tourne sur les iOS un peu anciens.
+- **Visionneuse** : une page à la fois, à la largeur de l'écran, nette sur Retina, zoom ×1 à ×3, page précédente / suivante / aller à. Les sources « 📖 Source : X p.23 » deviennent des liens quand un document du même nom (extension facultative) est dans la matière. Pour STAB 1 : il suffit d'ajouter les PDF du cours dans la matière, ils ne sont pas embarqués dans l'appli.
+- **Import JSON tolérant** (`lib/importQuestions.ts`), car les réponses d'IA varient :
+  - le JSON est extrait même entouré de texte ou d'un bloc de code ;
+  - accepte : thème par nom, propositions en simple liste de textes, réponse en texte ou par indice, vrai/faux sans propositions ;
+  - un thème inconnu est créé, un id manquant ou déjà pris est remplacé (une question existante n'est jamais écrasée) ;
+  - chaque question est ensuite validée par le schéma zod strict, et les rejetées sont listées avec leur motif.
+- **Relecture obligatoire** avant ajout : aperçu, modification (éditeur manuel), retrait, puis « Ajouter à la banque ».
+- **Prompt copiable** : il reprend le même prompt système que l'API (règles de qualité, distracteurs classiques, explications qui citent document et page, données d'examen dans `data`, JSON strict), suivi des options choisies. Si le presse-papier est refusé, le prompt s'affiche pour une copie manuelle.
+- **Génération IA** : l'appli appelle directement `api.anthropic.com/v1/messages` depuis le navigateur, avec la clé de l'utilisateur, qui reste sur l'appareil. Modèle par défaut `claude-sonnet-5-5`, modifiable.
+  - **Envoi des documents** : un PDF de 100 pages et 20 Mo au plus part tel quel (bloc `document`, les schémas sont lus). Un PDF plus gros part en texte extrait, par tranches de 80 pages numérotées, en plusieurs requêtes ; les questions sont réparties entre elles.
+  - **Validation** : la réponse est validée, et une seule nouvelle tentative est faite avec la liste des erreurs si le JSON est invalide.
+  - **Refus** : le repli serveur en cas de refus (`fallbacks: "default"`) est activé pour les modèles qui l'acceptent ; un refus final ou une réponse coupée donne un message clair.
+  - **Estimation avant envoi** : les tokens d'entrée sont comptés par l'API (`count_tokens`, gratuit) ; la sortie est estimée à 800 tokens par question ; le prix est affiché pour les modèles connus.
+  - Le coût réel est affiché après la génération.
+- **Réglages** : clé masquée (bouton Voir), modèle, « Tester la clé » (un comptage de tokens, sans frais). Vérifié : l'API accepte bien l'appel direct depuis le navigateur (une fausse clé renvoie 401 et le bon message).
+- **Thèmes proposés par l'IA** à partir des documents (page « Modifier la matière ») ; si les documents ne tiennent pas en une requête, seuls les premiers sont lus et c'est signalé.
+- **Banque de questions** : recherche, filtre par thème, modification et suppression des questions perso ; les questions intégrées sont en lecture seule.
+- **Réponses numériques** : affichées avec au moins 3 chiffres significatifs (0,0384 et non 0,038).
+- **Non testé faute de clé** : un vrai appel de génération (le parcours complet est couvert jusqu'à l'API, et la normalisation des réponses est testée).
+
 ## Reste à faire (étapes suivantes)
 
-Étape 7 : matières personnalisées (documents, lecteur PDF, import JSON, prompt à copier, génération par IA). Étape 8 : finitions, export / import, hors ligne. Étape 9 : vérification finale.
+Étape 8 : finitions (export / import des données, hors ligne vérifié, bannières, error boundary React, découpage du bundle principal par route), README pour débutant. Étape 9 : vérification finale.

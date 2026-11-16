@@ -1,4 +1,4 @@
-/// <reference types="vitest" />
+﻿/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -45,7 +45,7 @@ export default defineConfig({
       workbox: {
         // Tout le bundle (JS, CSS, polices KaTeX, JSON des banques) est précaché :
         // l'appli fonctionne en mode avion après la première visite.
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2,json,webmanifest}'],
+        globPatterns: ['**/*.{js,mjs,css,html,svg,png,ico,woff2,json,webmanifest}'],
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
         navigateFallback: 'index.html',
       },

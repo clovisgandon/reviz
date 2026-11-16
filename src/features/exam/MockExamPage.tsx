@@ -92,7 +92,7 @@ export function MockExamPage() {
           </button>
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-semibold">{st.title}</p>
-            <p className="tabular text-xs text-muted">QCM {qcmDone}/{st.questionIds.length} · exercices {exDone}/{exTotal}</p>
+            <p className="tabular text-xs text-muted">QCM {qcmDone}/{st.questionIds.length}{exTotal > 0 ? ` · exercices ${exDone}/${exTotal}` : ''}</p>
           </div>
           <Chrono startedAt={st.startedAt} durationMin={st.durationMin} onTimeout={submit} />
         </div>

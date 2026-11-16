@@ -34,10 +34,9 @@ export function SubjectsPage() {
             <ChevronRightIcon className="h-5 w-5 text-muted" />
           </Link>
         ))}
-        <button type="button" className="btn-ghost w-full" disabled>
+        <Link to="/matieres/nouvelle" className="btn-ghost w-full">
           + Nouvelle matière
-        </button>
-        <p className="text-center text-xs text-muted">Création de matières : étape 7.</p>
+        </Link>
       </main>
     </>
   );

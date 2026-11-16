@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
+import { matchDoc } from '@/lib/documents';
 import type { Question } from '@/lib/types';
 import { answerText, givenText, type Given } from '@/lib/scoring';
 import { db } from '@/db/db';
@@ -9,18 +11,37 @@ import { Rich, RichInline } from './Rich';
 const LEVELS = ['', '★', '★★', '★★★'];
 export const levelStars = (l: number) => LEVELS[l] ?? '';
 
-/** Sources cliquables (la visionneuse PDF arrivera à l'étape 7). */
+/** Sources : cliquables quand le document est stocké dans l'appli (ouvre la visionneuse à la bonne page). */
 export function Sources({ q }: { q: Question }) {
+  const docs = useLiveQuery(
+    async () => (q.source?.length ? (await db.documents.where('subjectId').equals(q.subjectId).toArray()).map((d) => ({ id: d.id, name: d.name })) : []),
+    [q.subjectId, q.source?.length],
+  );
   if (!q.source?.length) return null;
   return (
     <ul className="mt-3 space-y-1 text-sm text-muted">
-      {q.source.map((s, i) => (
-        <li key={i}>
-          📖 Source : <span className="font-medium text-ink">{s.docName}</span>
-          {s.page ? ` p.${s.page}` : ''}
-          {s.note ? <span> — {s.note}</span> : null}
-        </li>
-      ))}
+      {q.source.map((s, i) => {
+        const d = docs && matchDoc(docs, s.docName);
+        const label = (
+          <>
+            <span className="font-medium text-ink">{s.docName}</span>
+            {s.page ? ` p.${s.page}` : ''}
+          </>
+        );
+        return (
+          <li key={i}>
+            📖 Source :{' '}
+            {d ? (
+              <Link to={`/document/${d.id}${s.page ? `?page=${s.page}` : ''}`} className="underline decoration-steel underline-offset-2">
+                {label}
+              </Link>
+            ) : (
+              label
+            )}
+            {s.note ? <span> — {s.note}</span> : null}
+          </li>
+        );
+      })}
     </ul>
   );
 }

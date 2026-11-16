@@ -7,6 +7,7 @@ import { createSession, dueQuestions } from '@/features/quiz/engine';
 import { getSetting } from '@/lib/settings';
 import { GENERATORS_BY_SUBJECT } from '@/subjects/stab1/generators';
 import STAB1_EXAMS from '@/subjects/stab1/exams.json';
+import { DocumentsSection } from '@/features/documents/DocumentsSection';
 
 type Mode = { id: string; emoji: string; name: string; to?: string; action?: () => void; extra?: string; ready: boolean };
 
@@ -79,8 +80,8 @@ export function SubjectPage() {
   };
 
   const modes: Mode[] = [
-    { id: 'theme', emoji: '🎯', name: 'Entraînement par thème', to: `/matieres/${subjectId}/entrainement`, ready: true },
-    { id: 'srs', emoji: '🔁', name: 'Révision des erreurs', action: revise, ready: true, extra: `${data.due} à revoir` },
+    { id: 'theme', emoji: '🎯', name: 'Entraînement par thème', to: `/matieres/${subjectId}/entrainement`, ready: questions.length > 0 },
+    { id: 'srs', emoji: '🔁', name: 'Révision des erreurs', action: revise, ready: questions.length > 0, extra: `${data.due} à revoir` },
     { id: 'flash', emoji: '🃏', name: 'Flash / Formules', to: `/matieres/${subjectId}/flash`, ready: data.cards > 0, extra: `${data.cards} cartes` },
     { id: 'exam', emoji: '📝', name: 'Partiel blanc', to: `/matieres/${subjectId}/partiel`, ready: questions.length > 0 },
     { id: 'table', emoji: '🧮', name: 'Contrôle sur table', to: `/matieres/${subjectId}/table`, ready: (GENERATORS_BY_SUBJECT[subjectId]?.length ?? 0) > 0 },
@@ -154,13 +155,39 @@ export function SubjectPage() {
           </section>
         )}
 
-        <Link to={`/matieres/${subjectId}/formulaire`} className="card flex min-h-[56px] items-center gap-3 px-4">
-          <span className="text-2xl" aria-hidden>
-            📐
-          </span>
-          <span className="flex-1 font-semibold">Fiche formulaire</span>
-          <span className="text-xs text-muted">tableaux & formules</span>
-        </Link>
+        {subjectId === 'stab1' && (
+          <Link to={`/matieres/${subjectId}/formulaire`} className="card flex min-h-[56px] items-center gap-3 px-4">
+            <span className="text-2xl" aria-hidden>
+              📐
+            </span>
+            <span className="flex-1 font-semibold">Fiche formulaire</span>
+            <span className="text-xs text-muted">tableaux & formules</span>
+          </Link>
+        )}
+
+        <section aria-labelledby="add-h">
+          <h2 id="add-h" className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted">
+            Ajouter des questions
+          </h2>
+          <ul className="card divide-y divide-line">
+            {[
+              { to: 'generer', emoji: '✨', name: 'Générer des QCM avec l’IA', extra: 'clé API' },
+              { to: 'importer', emoji: '📥', name: 'Importer du JSON / copier le prompt', extra: 'gratuit' },
+              { to: 'question/nouvelle', emoji: '✏️', name: 'Écrire une question', extra: '' },
+              { to: 'questions', emoji: '🗂️', name: 'Banque de questions', extra: `${questions.length}` },
+            ].map((l) => (
+              <li key={l.to}>
+                <Link to={`/matieres/${subjectId}/${l.to}`} className="flex min-h-[52px] items-center gap-3 px-4">
+                  <span className="text-xl" aria-hidden>{l.emoji}</span>
+                  <span className="flex-1 text-sm font-semibold">{l.name}</span>
+                  {l.extra && <span className="tabular text-xs text-muted">{l.extra}</span>}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <DocumentsSection subjectId={subjectId} />
 
         <section aria-labelledby="themes-h">
           <h2 id="themes-h" className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted">
@@ -187,6 +214,12 @@ export function SubjectPage() {
           </ul>
           <p className="mt-1 text-xs text-muted">Maîtrise = part des questions du thème réussies la dernière fois.</p>
         </section>
+
+        {!subject.builtIn && (
+          <Link to={`/matieres/${subjectId}/modifier`} className="btn-ghost mb-4 w-full">
+            ⚙️ Modifier la matière (nom, thèmes, barème)
+          </Link>
+        )}
       </main>
     </>
   );
