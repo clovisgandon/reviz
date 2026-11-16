@@ -1,4 +1,4 @@
-// Modèle de données (prompt §7). Les schémas zod de validation sont dans ./schemas.ts.
+﻿// Modèle de données (prompt §7). Les schémas zod de validation sont dans ./schemas.ts.
 
 export type Level = 1 | 2 | 3;
 export type QuestionType = 'single' | 'multi' | 'truefalse' | 'numeric' | 'order';
@@ -96,6 +96,8 @@ export type Flashcard = {
   front: string;
   back: string;
   source?: SourceRef[];
+  /** absent = carte intégrée */
+  origin?: Origin;
 };
 
 export type ErrorReport = { id: string; questionId: string; message: string; createdAt: number };

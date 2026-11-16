@@ -1,7 +1,7 @@
-import { useRegisterSW } from 'virtual:pwa-register/react';
+﻿import { useRegisterSW } from 'virtual:pwa-register/react';
 
 /** Bannière « Nouvelle version dispo » quand le service worker a une mise à jour en attente. */
-export function UpdateBanner() {
+export function UpdateBanner({ hidden = false }: { hidden?: boolean }) {
   const {
     needRefresh: [needRefresh, setNeedRefresh],
     offlineReady: [offlineReady, setOfflineReady],
@@ -13,7 +13,7 @@ export function UpdateBanner() {
     },
   });
 
-  if (!needRefresh && !offlineReady) return null;
+  if (hidden || (!needRefresh && !offlineReady)) return null;
 
   return (
     <div

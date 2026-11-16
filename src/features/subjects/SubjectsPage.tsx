@@ -28,7 +28,7 @@ export function SubjectsPage() {
             <span className="flex-1">
               <span className="block font-semibold">{s.name}</span>
               <span className="tabular text-sm text-muted">
-                {s.count} question{s.count > 1 ? 's' : ''} · {s.themes.length} thèmes
+                {s.count} question{s.count > 1 ? 's' : ''} · {s.themes.length} thème{s.themes.length > 1 ? 's' : ''}
               </span>
             </span>
             <ChevronRightIcon className="h-5 w-5 text-muted" />

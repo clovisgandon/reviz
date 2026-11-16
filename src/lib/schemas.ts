@@ -1,4 +1,4 @@
-import { z } from 'zod';
+﻿import { z } from 'zod';
 
 /** Schémas de validation des banques de questions (JSON intégré, import, génération IA). */
 
@@ -72,4 +72,5 @@ export const FlashcardSchema = z.object({
   front: z.string().min(1),
   back: z.string().min(1),
   source: z.array(SourceSchema).optional(),
+  origin: z.enum(['builtin', 'ai', 'import', 'manual']).optional(),
 });

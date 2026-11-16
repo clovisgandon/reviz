@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { PageHeader } from '@/components/PageHeader';
 import { DEFAULT_SETTINGS, setSetting, useSetting } from '@/lib/settings';
 import { testKey } from '@/lib/anthropic';
+import { BackupSection, ResetSection } from './DataSections';
 import { useThemeMode, type ThemeMode } from '@/lib/theme';
 import { isStandalone } from '@/lib/platform';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -204,9 +205,13 @@ export function SettingsPage() {
           </div>
         </section>
 
+        <BackupSection />
+
         <ApiKeySection />
 
         <ReportsList />
+
+        <ResetSection />
 
         <section className="card space-y-1 p-4 text-sm text-muted">
           <p>
@@ -219,7 +224,6 @@ export function SettingsPage() {
           <p>
             Version : <b className="text-ink">{__APP_VERSION__}</b>
           </p>
-          <p className="pt-2">Clé API, export/import et réinitialisation : étapes 7 et 8.</p>
         </section>
       </main>
     </>

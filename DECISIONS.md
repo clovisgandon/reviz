@@ -110,6 +110,25 @@ Les corrigés de TD donnent les valeurs mais pas toujours la formule. Formules p
 - **Réponses numériques** : affichées avec au moins 3 chiffres significatifs (0,0384 et non 0,038).
 - **Non testé faute de clé** : un vrai appel de génération (le parcours complet est couvert jusqu'à l'API, et la normalisation des réponses est testée).
 
+## Étape 8 — Finitions (2026-11-16)
+
+- **Sauvegarde** (`lib/backup.ts`) : un fichier `.json` (format `reviz-backup`, version 1). Ce qui est livré avec l'appli (questions et cartes intégrées) n'est pas exporté : il revient à l'installation.
+  - **Contenu** : matières, questions et cartes perso, historique, révisions, réglages, signalements, favoris, séries en cours, et documents. Pour les documents, la fiche (nom, texte extrait) est toujours exportée ; les fichiers seulement si l'option est cochée.
+  - **Jamais exportée ni importée** : la clé API (un fichier circule plus facilement qu'un téléphone).
+  - **Sur iPhone** : l'export passe par la feuille de partage (« Enregistrer dans Fichiers »), sinon par un téléchargement.
+  - **Import** : le fichier est entièrement vérifié avant d'écrire quoi que ce soit, puis écrit en une transaction. *Fusionner* met à jour par identifiant sans rien effacer ; *Remplacer* efface d'abord les données perso. STAB 1 reste dans les deux cas, seule sa date d'examen est reprise. Une question illisible est ignorée et comptée.
+- **Cartes Flash importées** : nouveau champ `origin` facultatif (absent = carte intégrée), pour les distinguer à l'export.
+- **Rappel** « Sauvegarde ta progression » sur l'accueil : 7 jours après la dernière sauvegarde, ou après la première activité s'il n'y en a jamais eu.
+- **Réinitialiser l'historique** (Réglages) : toutes les matières ou une seule. Tentatives, révisions et séries en cours sont effacées ; les questions et documents restent.
+- **Filet d'erreur** (ErrorBoundary) : un écran qui plante affiche « Oups » avec *Recharger* / *Accueil* au lieu d'une page blanche. Il se referme quand on change d'écran ; après une mise à jour (un morceau d'appli manquant), le message conseille de recharger.
+- **Écrans chargés à la demande** (`React.lazy`) : le bundle principal passe de 843 à 363 kB. Tout reste précaché (88 fichiers, 3,2 Mo), donc l'appli marche hors ligne.
+- **Service worker** : il est maintenant enregistré quel que soit l'écran d'arrivée (il ne l'était que dans les écrans avec onglets). La bannière de mise à jour est masquée sur les écrans plein écran (série, partiel, contrôle sur table, visionneuse), pour ne pas couvrir les boutons ni pousser à recharger en plein partiel.
+- **Hors ligne vérifié** sur le build de production :
+  - méthode : chargement, serveur arrêté, rechargement ;
+  - les 11 écrans principaux s'ouvrent, et une série (314 questions disponibles) ainsi qu'un exercice du contrôle sur table se lancent sans réseau.
+- **Mode sombre et largeur 390 px** contrôlés (pas de débordement horizontal). Safe areas : déjà en place depuis l'étape 2 (en-têtes, barres du bas, visionneuse).
+- **README** : ajout d'un guide d'utilisation pour débutant (modes, nouvelle matière, mode gratuit, clé API, sauvegarde, dépannage) et de la marche à suivre pour ajouter des générateurs à une autre matière.
+
 ## Reste à faire (étapes suivantes)
 
-Étape 8 : finitions (export / import des données, hors ligne vérifié, bannières, error boundary React, découpage du bundle principal par route), README pour débutant. Étape 9 : vérification finale.
+Étape 9 : vérification finale (build, tests, audit, Lighthouse PWA, passage de chaque écran en 390×844), liste de ce qui reste.

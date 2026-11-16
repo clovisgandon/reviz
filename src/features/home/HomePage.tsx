@@ -1,8 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom';
+﻿import { Link, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/db/db';
 import { PageHeader } from '@/components/PageHeader';
 import { useSetting } from '@/lib/settings';
+import { backupDue } from '@/lib/backup';
 import { streak, successRate, weakestTheme } from '@/lib/stats';
 import { createSession, dueQuestions, type QuizState } from '@/features/quiz/engine';
 
@@ -26,6 +27,7 @@ export function HomePage() {
   const nav = useNavigate();
   const examDate = useSetting('examDate');
   const days = daysUntil(examDate);
+  const lastBackup = useSetting('lastBackupAt');
 
   const data = useLiveQuery(async () => {
     const [session] = await db.sessions.orderBy('updatedAt').reverse().limit(1).toArray();
@@ -36,7 +38,8 @@ export function HomePage() {
     const subjects = await db.subjects.toArray();
     const weakName = weak && subjects.flatMap((s) => s.themes).find((t) => t.id === weak.themeId)?.name;
     const due = (await dueQuestions('stab1')).length;
-    return { session, due, streak: streak(attempts), rate: successRate(attempts), weak: weak && { name: weakName ?? weak.themeId, rate: weak.rate } };
+    const first = attempts.length ? Math.min(...attempts.map((a) => a.startedAt)) : null;
+    return { session, due, first, streak: streak(attempts), rate: successRate(attempts), weak: weak && { name: weakName ?? weak.themeId, rate: weak.rate } };
   }, []);
 
   const revise = async () => {
@@ -53,6 +56,15 @@ export function HomePage() {
     <>
       <PageHeader title={greeting()} />
       <main className="mx-auto max-w-xl space-y-4 px-4">
+        {data && backupDue(lastBackup, data.first) && (
+          <Link to="/reglages#sauvegarde" className="card flex items-center gap-3 border-2 border-warn p-3" onClick={() => setTimeout(() => document.getElementById('sauvegarde')?.scrollIntoView({ behavior: 'smooth' }), 300)}>
+            <span className="text-2xl" aria-hidden>💾</span>
+            <span className="flex-1 text-sm">
+              <b>Sauvegarde ta progression</b>
+              <span className="block text-muted">{lastBackup ? `Dernière sauvegarde il y a ${Math.floor((Date.now() - lastBackup) / 86400000)} jours.` : 'Aucune sauvegarde pour l’instant.'} Exporte tes données dans Réglages.</span>
+            </span>
+          </Link>
+        )}
         <section className="card p-4" aria-label="Compte à rebours">
           {days === null ? (
             <p className="text-muted">

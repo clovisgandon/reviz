@@ -1,4 +1,4 @@
-import { FlashcardSchema, QuestionSchema } from './schemas';
+﻿import { FlashcardSchema, QuestionSchema } from './schemas';
 import type { Flashcard, Origin, Question, Subject, Theme } from './types';
 import { uid } from './random';
 
@@ -151,7 +151,7 @@ export function normalizeImport(raw: unknown, subject: Subject, origin: Origin, 
   });
 
   rawCards.forEach((r, i) => {
-    const c = { ...(r as Raw), subjectId: subject.id, themeIds: themeIdsOf((r ?? {}) as Raw, resolve), id: `${subject.id}-fc-${uid()}` };
+    const c = { ...(r as Raw), subjectId: subject.id, themeIds: themeIdsOf((r ?? {}) as Raw, resolve), id: `${subject.id}-fc-${uid()}`, origin };
     const res = FlashcardSchema.safeParse(c);
     if (res.success) flashcards.push(res.data as Flashcard);
     else errors.push({ index: rawQuestions.length + i, label: `carte : ${labelOf(r, i)}`, messages: res.error.issues.map((x) => `${x.path.join('.')} : ${x.message}`) });
