@@ -5,6 +5,7 @@ import { PageHeader } from '@/components/PageHeader';
 import { newSeed, rng, shuffle } from '@/lib/random';
 import { createSession } from '@/features/quiz/engine';
 import { getSetting } from '@/lib/settings';
+import { GENERATORS_BY_SUBJECT } from '@/subjects/stab1/generators';
 import STAB1_EXAMS from '@/subjects/stab1/exams.json';
 
 type Mode = { id: string; emoji: string; name: string; to?: string; ready: boolean };
@@ -72,7 +73,7 @@ export function SubjectPage() {
     { id: 'srs', emoji: '🔁', name: 'Révision des erreurs', ready: false },
     { id: 'flash', emoji: '🃏', name: 'Flash / Formules', ready: false },
     { id: 'exam', emoji: '📝', name: 'Partiel blanc', ready: false },
-    { id: 'table', emoji: '🧮', name: 'Contrôle sur table', ready: false },
+    { id: 'table', emoji: '🧮', name: 'Contrôle sur table', to: `/matieres/${subjectId}/table`, ready: (GENERATORS_BY_SUBJECT[subjectId]?.length ?? 0) > 0 },
     { id: 'sudden', emoji: '⚡', name: 'Mort subite', ready: questions.length > 0 },
   ];
 

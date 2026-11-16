@@ -7,7 +7,9 @@ import { fmt, fmtDate, fmtDuration } from '@/lib/format';
 import { PageHeader } from '@/components/PageHeader';
 import { Feedback, levelStars } from '@/components/Feedback';
 import { QuestionBody } from '@/components/QuestionCard';
-import { RichInline } from '@/components/Rich';
+import { Rich, RichInline } from '@/components/Rich';
+import { findGenerator } from '@/subjects/stab1/generators';
+import { paramsFor, solve } from '@/features/table/types';
 import type { Given } from '@/lib/scoring';
 import { createSession } from '@/features/quiz/engine';
 
@@ -57,6 +59,35 @@ function ItemReview({ q, item, index }: { q: Question; item: AttemptItem; index:
         </div>
       )}
     </li>
+  );
+}
+
+/** Détail d'un contrôle sur table : chaque étape avec la réponse et la valeur attendue. */
+function TableReview({ attempt }: { attempt: Attempt }) {
+  const nav = useNavigate();
+  const cfg = attempt.config as { generatorId?: string; seed?: number; cas?: string | null };
+  const g = cfg.generatorId ? findGenerator(cfg.generatorId) : undefined;
+  if (!g) return null;
+  const params = paramsFor(g, cfg.seed ?? 0, cfg.cas != null ? Number(cfg.cas) : undefined);
+  const res = solve(g, params, attempt.items.map((i) => (i.given as { value: number | string | null })?.value ?? null), !!(attempt.config as { useMine?: boolean }).useMine);
+  return (
+    <section className="space-y-2" aria-labelledby="steps-h">
+      <h2 id="steps-h" className="font-semibold">Étapes</h2>
+      <ol className="space-y-2">
+        {res.steps.map((st, i) => (
+          <li key={st.step.key} className="card p-3 text-sm">
+            <p className="font-semibold">
+              {attempt.items[i]?.correct ? '✅' : attempt.items[i]?.correct === null ? '➖' : '❌'} {i + 1}. <RichInline text={st.label} />
+            </p>
+            <Rich text={st.explanation} />
+          </li>
+        ))}
+      </ol>
+      <div className="card p-3 text-sm"><Rich text={res.conclusion} /></div>
+      <button type="button" className="btn-accent w-full" onClick={() => nav(`/table/${g.id}?${cfg.cas != null ? `cas=${cfg.cas}` : `seed=${cfg.seed}`}`)}>
+        🔁 Refaire ce sujet
+      </button>
+    </section>
   );
 }
 
@@ -140,6 +171,8 @@ export function ResultsPage() {
             </ul>
           </section>
         )}
+
+        {attempt.mode === 'table' && <TableReview attempt={attempt} />}
 
         {missed.length > 0 && (
           <button type="button" className="btn-accent w-full" onClick={redoMistakes}>

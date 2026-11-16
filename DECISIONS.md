@@ -61,6 +61,18 @@ Les corrigés de TD donnent les valeurs mais pas toujours la formule. Formules p
 - **Chargement différé** des banques JSON (chunks séparés, précachés) : bundle principal 607 kB (194 kB gzip).
 - L'audit tourne aussi dans la GitHub Action avant chaque déploiement.
 
+## Étape 5 — Contrôle sur table (2026-11-16)
+
+- **16 générateurs** (`src/subjects/stab1/generators/`) : A1 neige, A2 vent, A3 combinaisons ; M1 panne IPE, M2 tirant, M3 flexion déviée, M4 traction/compression ; B1 solive, B2 combinaison dimensionnante, B3 tirant bois, B4 flexion déviée bois ; BA1 matériaux, BA2 enrobage, BA3 ancrage, BA4 flexion simple, BA5 poteau.
+- **Architecture** : un générateur = tirage de paramètres (seed reproductible, `?seed=` dans l'URL) + énoncé + blocs Données + liste d'étapes. Chaque étape calcule sa valeur attendue à partir des étapes précédentes ; `solve()` déroule la chaîne. Pour une autre matière : créer `subjects/<id>/generators` et l'ajouter à `GENERATORS_BY_SUBJECT`.
+- **Propagation d'erreur** : par défaut la suite utilise la bonne valeur ; case « continuer avec ma valeur » pour suivre son propre calcul.
+- **Barème** : 1 point par étape, −0,5 si l'indice (formule) a été affiché, 0 si faux ou « Je ne sais pas » ; note /20 enregistrée dans l'historique (mode `table`) avec la seed pour refaire le même sujet.
+- **Cas officiels** jouables (« 📄 ») et testés par Vitest à 1 % près : partiel 2023 métal (avec I_y imposé, puis avec la vraie inertie) et bois, TD garage (tirant, flexion déviée, panne bois, tirant bois, combinaisons, neige), cours (vent La Rochelle, neige toit plat), TD1 à TD5 de BA. 200 tirages aléatoires par générateur sont aussi testés (pas de valeur invalide).
+- **Partiel 2023 métal** : M_Ed est recalculé (3,1 × 5,5²/8 = 11,72 kN·m) ; la tolérance de 2 % accepte aussi le 11,6 de l'énoncé.
+- **Poteaux (BA5)** : A_s calculé avec la vraie équation du 2e degré (k_h dépend de A_s), qui donne les 8,56 cm² que le corrigé TD4 annonce comme solution exacte ; le corrigé affiche aussi 9,6 cm² avec un k_h approché.
+- **Cornières L25×3 et L30×3** (M2) : aires catalogue standard, absentes du poly (signalé dans le bloc Données).
+- **A3** : le soulèvement est calculé avec le W⁻ = −0,45 kN/m² retenu par le corrigé (le corrigé, lui, utilise −0,52 par erreur et trouve −0,905).
+
 ## Reste à faire (étapes suivantes)
 
 Voir le plan du prompt §12 : squelette Vite/React/PWA, moteur QCM, banque STAB 1, générateurs, partiel blanc, matières perso, finitions, vérification.

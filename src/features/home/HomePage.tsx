@@ -80,7 +80,7 @@ export function HomePage() {
             </span>
             <span className="font-semibold">Partiel blanc STAB 1</span>
           </Link>
-          <Link to="/matieres/stab1" className="card flex min-h-[56px] items-center gap-3 px-4">
+          <Link to="/matieres/stab1/table" className="card flex min-h-[56px] items-center gap-3 px-4">
             <span className="text-2xl" aria-hidden>
               🧮
             </span>

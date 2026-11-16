@@ -9,6 +9,8 @@ import { QuizSetupPage } from '@/features/quiz/QuizSetupPage';
 import { QuizPage } from '@/features/quiz/QuizPage';
 import { ResultsPage } from '@/features/results/ResultsPage';
 import { FormulairePage } from '@/features/subjects/FormulairePage';
+import { TableListPage } from '@/features/table/TableListPage';
+import { TableExercisePage } from '@/features/table/TableExercisePage';
 import { PageHeader } from '@/components/PageHeader';
 
 /** Routage en mode hash (/#/...) : marche sur GitHub Pages sans configuration serveur. */
@@ -18,12 +20,14 @@ export function App() {
       <Routes>
         {/* Écran de question en plein écran : actions principales en bas, sans barre d'onglets. */}
         <Route path="serie/:sessionId" element={<QuizPage />} />
+        <Route path="table/:genId" element={<TableExercisePage />} />
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="matieres" element={<SubjectsPage />} />
           <Route path="matieres/:subjectId" element={<SubjectPage />} />
           <Route path="matieres/:subjectId/entrainement" element={<QuizSetupPage />} />
           <Route path="matieres/:subjectId/formulaire" element={<FormulairePage />} />
+          <Route path="matieres/:subjectId/table" element={<TableListPage />} />
           <Route path="resultats/:attemptId" element={<ResultsPage />} />
           <Route path="historique" element={<HistoryPage />} />
           <Route path="reglages" element={<SettingsPage />} />
