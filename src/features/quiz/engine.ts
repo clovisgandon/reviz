@@ -3,6 +3,7 @@ import type { Attempt, AttemptMode, Level, Question } from '@/lib/types';
 import { newSeed, rng, shuffle, uid } from '@/lib/random';
 import { checkAnswer, on20, pointsFor, TRAINING_SCORING, type Given, type Scoring } from '@/lib/scoring';
 import { getSetting } from '@/lib/settings';
+import { dueFirst, nextState } from '@/lib/srs';
 
 /** Réponse enregistrée pour une question de la série. */
 export type QuizAnswer = { given: Given; correct: boolean | null; points: number; timeMs: number };
@@ -132,11 +133,26 @@ export async function finishSession(session: Session, state: QuizState): Promise
     maxScore,
     scoreOn20: on20(score, maxScore),
   };
-  await db.transaction('rw', [db.attempts, db.sessions], async () => {
+  await db.transaction('rw', [db.attempts, db.sessions, db.srs], async () => {
     await db.attempts.put(attempt);
     await db.sessions.delete(session.id);
+    await recordSrs(Object.entries(state.answers).map(([id, a]) => [id, a.correct]));
   });
   return attempt.id;
+}
+
+/** Met à jour la répétition espacée pour les questions répondues (toutes les séries QCM). */
+export async function recordSrs(results: [string, boolean | null][]) {
+  if (!results.length) return;
+  const prev = await db.srs.bulkGet(results.map(([id]) => id));
+  await db.srs.bulkPut(results.map(([id, ok], i) => nextState(prev[i], id, ok)));
+}
+
+/** Questions « dues » d'une matière pour la révision des erreurs (boîtes faibles d'abord). */
+export async function dueQuestions(subjectId: string, now = Date.now()): Promise<Question[]> {
+  const due = dueFirst(await db.srs.toArray(), now);
+  const qs = await db.questions.bulkGet(due.map((s) => s.questionId));
+  return qs.filter((q): q is Question => !!q && q.subjectId === subjectId);
 }
 
 /** Ids des questions déjà vues dans une matière (pour privilégier les nouvelles). */

@@ -73,6 +73,17 @@ Les corrigés de TD donnent les valeurs mais pas toujours la formule. Formules p
 - **Cornières L25×3 et L30×3** (M2) : aires catalogue standard, absentes du poly (signalé dans le bloc Données).
 - **A3** : le soulèvement est calculé avec le W⁻ = −0,45 kN/m² retenu par le corrigé (le corrigé, lui, utilise −0,52 par erreur et trouve −0,905).
 
+## Étape 6 — Partiel blanc, répétition espacée, statistiques (2026-11-16)
+
+- **Répétition espacée** (`lib/srs.ts`) : Leitner à 5 boîtes, intervalles 0 / 1 / 3 / 7 / 16 jours. Une réponse fausse renvoie en boîte 1 (à revoir tout de suite), une juste fait monter d'une boîte. Mis à jour à la fin de chaque série, partiel blanc compris. « Révision de mes erreurs » (accueil et page matière) = jusqu'à 20 questions dues, les boîtes basses d'abord.
+- **Partiel blanc** : 10 questions de QCM (la question « cocher A » en premier, puis un plan par thème) + exercice métal M1 + exercice bois B1, + un exercice BA tiré parmi BA2 à BA5 si l'option est cochée. Barème /20 : QCM 6, métal 5, bois 5, BA 4 ; sans BA : 8 / 6 / 6. Le QCM est noté +2/−1/0 (réglable), ramené à son poids, plancher 0 ; chaque exercice = étapes justes / étapes × poids. Le tout sur une seule page comme sur table, sauvegarde automatique, chrono (90 min par défaut) qui rend la copie à la fin.
+- **Partiel 2023 original** jouable : QCM A + cas officiels M1 et B1, poids 8 / 6 / 6.
+- **Correction** : note par partie, comparaison avec le partiel précédent et la moyenne, courbe des notes, corrigé pas à pas de chaque exercice (même vue que le contrôle sur table).
+- **Flash** : choix des thèmes, carte à retourner, « Je savais / Je ne savais pas » ; une carte ratée revient une fois à la fin ; seul le premier passage compte dans l'historique.
+- **Mort subite** : le record (nombre de bonnes réponses d'affilée) est affiché sur la page matière.
+- **Graphiques** faits main en SVG (pas de bibliothèque) : courbe des notes /20, barres des questions par jour, carte de réussite par thème (une seule teinte, valeur écrite dans chaque case, gris = pas travaillé). Une série par graphique, donc pas de légende ; info-bulle au toucher. Filtres période / matière / mode sur une rangée au-dessus.
+- **Réglages** : durée du partiel blanc et option béton armé par défaut.
+
 ## Reste à faire (étapes suivantes)
 
-Voir le plan du prompt §12 : squelette Vite/React/PWA, moteur QCM, banque STAB 1, générateurs, partiel blanc, matières perso, finitions, vérification.
+Étape 7 : matières personnalisées (documents, lecteur PDF, import JSON, prompt à copier, génération par IA). Étape 8 : finitions, export / import, hors ligne. Étape 9 : vérification finale.

@@ -49,6 +49,8 @@ export function SettingsPage() {
   const examDate = useSetting('examDate');
   const scoring = useSetting('scoring');
   const tolerance = useSetting('numericTolerancePct');
+  const duration = useSetting('examDurationMin');
+  const withBA = useSetting('examIncludeConcrete');
   const [theme, setTheme] = useThemeMode();
   const [persisted, setPersisted] = useState<boolean | null>(null);
 
@@ -114,6 +116,21 @@ export function SettingsPage() {
                 value={tolerance}
                 onChange={(e) => setSetting('numericTolerancePct', Number(e.target.value))}
               />
+            </Row>
+            <Row label="Durée du partiel blanc (min)" htmlFor="dur">
+              <input
+                id="dur"
+                type="number"
+                inputMode="numeric"
+                min={10}
+                step="5"
+                className="field tabular w-24 text-right"
+                value={duration}
+                onChange={(e) => setSetting('examDurationMin', Math.max(10, Number(e.target.value) || 90))}
+              />
+            </Row>
+            <Row label="Partiel blanc avec béton armé" htmlFor="ba">
+              <input id="ba" type="checkbox" className="h-6 w-6 accent-[rgb(var(--c-steel))]" checked={withBA} onChange={(e) => setSetting('examIncludeConcrete', e.target.checked)} />
             </Row>
           </div>
         </section>

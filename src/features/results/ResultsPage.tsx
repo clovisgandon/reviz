@@ -10,6 +10,7 @@ import { QuestionBody } from '@/components/QuestionCard';
 import { Rich, RichInline } from '@/components/Rich';
 import { findGenerator } from '@/subjects/stab1/generators';
 import { paramsFor, solve } from '@/features/table/types';
+import { ScoreLine } from '@/components/Charts';
 import type { Given } from '@/lib/scoring';
 import { createSession } from '@/features/quiz/engine';
 
@@ -63,16 +64,20 @@ function ItemReview({ q, item, index }: { q: Question; item: AttemptItem; index:
 }
 
 /** Détail d'un contrôle sur table : chaque étape avec la réponse et la valeur attendue. */
-function TableReview({ attempt }: { attempt: Attempt }) {
+function TableReview({ genId, seed, cas, items, useMine = false, title = 'Étapes', redo = true }: {
+  genId?: string; seed?: number; cas?: string | number | null; items: AttemptItem[]; useMine?: boolean; title?: string; redo?: boolean;
+}) {
   const nav = useNavigate();
-  const cfg = attempt.config as { generatorId?: string; seed?: number; cas?: string | null };
-  const g = cfg.generatorId ? findGenerator(cfg.generatorId) : undefined;
+  const cfg = { seed, cas };
+  const g = genId ? findGenerator(genId) : undefined;
   if (!g) return null;
-  const params = paramsFor(g, cfg.seed ?? 0, cfg.cas != null ? Number(cfg.cas) : undefined);
-  const res = solve(g, params, attempt.items.map((i) => (i.given as { value: number | string | null })?.value ?? null), !!(attempt.config as { useMine?: boolean }).useMine);
+  const params = paramsFor(g, seed ?? 0, cas != null ? Number(cas) : undefined);
+  const res = solve(g, params, items.map((i) => (i.given as { value: number | string | null })?.value ?? null), useMine);
+  const attempt = { items };
   return (
-    <section className="space-y-2" aria-labelledby="steps-h">
-      <h2 id="steps-h" className="font-semibold">Étapes</h2>
+    <section className="space-y-2">
+      <h2 className="font-semibold">{title}</h2>
+      {title !== 'Étapes' && <div className="card p-3 text-sm"><Rich text={g.statement(params)} /></div>}
       <ol className="space-y-2">
         {res.steps.map((st, i) => (
           <li key={st.step.key} className="card p-3 text-sm">
@@ -84,10 +89,57 @@ function TableReview({ attempt }: { attempt: Attempt }) {
         ))}
       </ol>
       <div className="card p-3 text-sm"><Rich text={res.conclusion} /></div>
-      <button type="button" className="btn-accent w-full" onClick={() => nav(`/table/${g.id}?${cfg.cas != null ? `cas=${cfg.cas}` : `seed=${cfg.seed}`}`)}>
-        🔁 Refaire ce sujet
-      </button>
+      {redo && (
+        <button type="button" className="btn-accent w-full" onClick={() => nav(`/table/${g.id}?${cfg.cas != null ? `cas=${cfg.cas}` : `seed=${cfg.seed}`}`)}>
+          🔁 Refaire ce sujet
+        </button>
+      )}
     </section>
+  );
+}
+
+type MockParts = { qcm: { points: number; max: number; note: number; weight: number }; exercises: { genId: string; title: string; right: number; steps: number; note: number; weight: number }[] };
+
+/** Copie corrigée d'un partiel blanc : note par partie, comparaison, corrigé des exercices. */
+function MockReview({ attempt }: { attempt: Attempt }) {
+  const cfg = attempt.config as { parts: MockParts; exercises: { genId: string; seed: number; cas?: number }[] };
+  const history = useLiveQuery(
+    async () => (await db.attempts.where('subjectId').equals(attempt.subjectId).toArray())
+      .filter((a) => a.mode === 'exam' && (a.config as { mock?: boolean }).mock).sort((a, b) => a.startedAt - b.startedAt),
+    [attempt.subjectId],
+  );
+  const prev = history?.filter((a) => a.startedAt < attempt.startedAt) ?? [];
+  const last = prev.at(-1);
+  const avg = prev.length ? prev.reduce((s, a) => s + a.scoreOn20, 0) / prev.length : null;
+  return (
+    <>
+      <section className="card p-4" aria-labelledby="parts-h">
+        <h2 id="parts-h" className="mb-2 font-semibold">Détail de la note</h2>
+        <table className="w-full text-sm">
+          <tbody className="divide-y divide-line">
+            <tr><td className="py-2">QCM <span className="text-xs text-muted">(brut {fmt(cfg.parts.qcm.points, 1)} pts sur {fmt(cfg.parts.qcm.max)}, plancher 0)</span></td><td className="tabular py-2 text-right font-semibold">{fmt(cfg.parts.qcm.note, 2)} / {fmt(cfg.parts.qcm.weight)}</td></tr>
+            {cfg.parts.exercises.map((e) => (
+              <tr key={e.genId}><td className="py-2">{e.title} ({e.right}/{e.steps} étapes)</td><td className="tabular py-2 text-right font-semibold">{fmt(e.note, 2)} / {fmt(e.weight)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+        {prev.length > 0 && (
+          <p className="mt-3 text-sm">
+            Partiel blanc précédent : <b className="tabular">{fmt(last!.scoreOn20, 1)}/20</b>
+            {' '}({attempt.scoreOn20 >= last!.scoreOn20 ? '+' : ''}{fmt(attempt.scoreOn20 - last!.scoreOn20, 1)}) · moyenne des {prev.length} précédents : <b className="tabular">{fmt(avg!, 1)}</b>
+          </p>
+        )}
+        {history && history.length > 1 && (
+          <div className="mt-3" aria-label="Évolution des notes de partiel blanc">
+            <ScoreLine points={history.map((a) => ({ x: a.startedAt, y: a.scoreOn20, current: a.id === attempt.id }))} />
+          </div>
+        )}
+      </section>
+      {cfg.exercises.map((e, k) => (
+        <TableReview key={k} genId={e.genId} seed={e.seed} cas={e.cas} redo={false}
+          items={attempt.items.filter((i) => i.generatorId === e.genId && i.seed === e.seed)} title={`Corrigé — ${cfg.parts.exercises[k]?.title ?? e.genId}`} />
+      ))}
+    </>
   );
 }
 
@@ -172,7 +224,11 @@ export function ResultsPage() {
           </section>
         )}
 
-        {attempt.mode === 'table' && <TableReview attempt={attempt} />}
+        {attempt.mode === 'table' && (
+          <TableReview genId={(attempt.config as { generatorId?: string }).generatorId} seed={(attempt.config as { seed?: number }).seed}
+            cas={(attempt.config as { cas?: string | null }).cas} items={attempt.items} useMine={!!(attempt.config as { useMine?: boolean }).useMine} />
+        )}
+        {attempt.mode === 'exam' && (attempt.config as { mock?: boolean }).mock && <MockReview attempt={attempt} />}
 
         {missed.length > 0 && (
           <button type="button" className="btn-accent w-full" onClick={redoMistakes}>

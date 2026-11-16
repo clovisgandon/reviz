@@ -4,7 +4,7 @@ import { db } from '@/db/db';
 import { PageHeader } from '@/components/PageHeader';
 import { useSetting } from '@/lib/settings';
 import { streak, successRate, weakestTheme } from '@/lib/stats';
-import type { QuizState } from '@/features/quiz/engine';
+import { createSession, dueQuestions, type QuizState } from '@/features/quiz/engine';
 
 function greeting(d = new Date()) {
   const h = d.getHours();
@@ -35,11 +35,19 @@ export function HomePage() {
     const weak = weakestTheme(attempts, new Map(qs.map((q) => [q!.id, q!])));
     const subjects = await db.subjects.toArray();
     const weakName = weak && subjects.flatMap((s) => s.themes).find((t) => t.id === weak.themeId)?.name;
-    return { session, streak: streak(attempts), rate: successRate(attempts), weak: weak && { name: weakName ?? weak.themeId, rate: weak.rate } };
+    const due = (await dueQuestions('stab1')).length;
+    return { session, due, streak: streak(attempts), rate: successRate(attempts), weak: weak && { name: weakName ?? weak.themeId, rate: weak.rate } };
   }, []);
 
-  const st = data?.session?.state as QuizState | undefined;
-  const progress = st ? `${st.title} · ${Object.keys(st.answers).length}/${st.questionIds.length}` : null;
+  const revise = async () => {
+    const qs = (await dueQuestions('stab1')).slice(0, 20);
+    if (!qs.length) return alert('Rien à revoir pour l’instant : les questions ratées apparaîtront ici.');
+    nav(`/serie/${await createSession({ subjectId: 'stab1', mode: 'srs', title: 'Révision des erreurs', questions: qs, config: {} })}`);
+  };
+
+  const st = data?.session?.state as (QuizState & { kind?: string }) | undefined;
+  const isMock = st?.kind === 'mock';
+  const progress = st ? `${st.title} · ${Object.keys(st.answers).length}/${st.questionIds.length}${isMock ? ' QCM' : ''}` : null;
 
   return (
     <>
@@ -67,14 +75,14 @@ export function HomePage() {
         <button
           type="button"
           className="btn-primary w-full py-4 text-lg"
-          onClick={() => (data?.session ? nav(`/serie/${data.session.id}`) : nav('/matieres/stab1/entrainement'))}
+          onClick={() => (data?.session ? nav(`/${isMock ? 'partiel' : 'serie'}/${data.session.id}`) : nav('/matieres/stab1/entrainement'))}
         >
           {data?.session ? 'Continuer' : 'Commencer une série'}
         </button>
         <p className="-mt-2 text-center text-xs text-muted">{progress ?? 'Aucune série en cours.'}</p>
 
         <section aria-label="Raccourcis" className="grid grid-cols-1 gap-3">
-          <Link to="/matieres/stab1" className="card flex min-h-[56px] items-center gap-3 px-4">
+          <Link to="/matieres/stab1/partiel" className="card flex min-h-[56px] items-center gap-3 px-4">
             <span className="text-2xl" aria-hidden>
               📝
             </span>
@@ -86,12 +94,12 @@ export function HomePage() {
             </span>
             <span className="font-semibold">Contrôle sur table</span>
           </Link>
-          <Link to="/matieres/stab1" className="card flex min-h-[56px] items-center gap-3 px-4">
+          <button type="button" onClick={revise} className="card flex min-h-[56px] items-center gap-3 px-4 text-left">
             <span className="text-2xl" aria-hidden>
               🔁
             </span>
-            <span className="font-semibold">Révision de mes erreurs</span>
-          </Link>
+            <span className="font-semibold">Révision de mes erreurs ({data?.due ?? 0} question{(data?.due ?? 0) > 1 ? 's' : ''})</span>
+          </button>
         </section>
 
         <section aria-label="Statistiques" className="grid grid-cols-3 gap-3 text-center">

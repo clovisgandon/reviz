@@ -3,12 +3,12 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/db/db';
 import { PageHeader } from '@/components/PageHeader';
 import { newSeed, rng, shuffle } from '@/lib/random';
-import { createSession } from '@/features/quiz/engine';
+import { createSession, dueQuestions } from '@/features/quiz/engine';
 import { getSetting } from '@/lib/settings';
 import { GENERATORS_BY_SUBJECT } from '@/subjects/stab1/generators';
 import STAB1_EXAMS from '@/subjects/stab1/exams.json';
 
-type Mode = { id: string; emoji: string; name: string; to?: string; ready: boolean };
+type Mode = { id: string; emoji: string; name: string; to?: string; action?: () => void; extra?: string; ready: boolean };
 
 export function SubjectPage() {
   const { subjectId = '' } = useParams();
@@ -32,7 +32,10 @@ export function SubjectPage() {
         }
         mastery.set(t, m);
       }
-    return { subject, questions, mastery };
+    const due = (await dueQuestions(subjectId)).length;
+    const cards = await db.flashcards.where('subjectId').equals(subjectId).count();
+    const record = Math.max(0, ...attempts.filter((a) => a.mode === 'sudden').map((a) => a.items.filter((i) => i.correct).length));
+    return { subject, questions, mastery, due, cards, record };
   }, [subjectId]);
 
   if (data === undefined) return <PageHeader title="…" back />;
@@ -68,13 +71,20 @@ export function SubjectPage() {
     nav(`/serie/${id}`);
   };
 
+  const revise = async () => {
+    const due = (await dueQuestions(subjectId)).slice(0, 20);
+    if (!due.length) return alert('Aucune question à revoir pour l’instant. Les questions ratées reviennent ici, puis s’espacent quand tu les réussis.');
+    const id = await createSession({ subjectId, mode: 'srs', title: 'Révision des erreurs', questions: due, config: {} });
+    nav(`/serie/${id}`);
+  };
+
   const modes: Mode[] = [
     { id: 'theme', emoji: '🎯', name: 'Entraînement par thème', to: `/matieres/${subjectId}/entrainement`, ready: true },
-    { id: 'srs', emoji: '🔁', name: 'Révision des erreurs', ready: false },
-    { id: 'flash', emoji: '🃏', name: 'Flash / Formules', ready: false },
-    { id: 'exam', emoji: '📝', name: 'Partiel blanc', ready: false },
+    { id: 'srs', emoji: '🔁', name: 'Révision des erreurs', action: revise, ready: true, extra: `${data.due} à revoir` },
+    { id: 'flash', emoji: '🃏', name: 'Flash / Formules', to: `/matieres/${subjectId}/flash`, ready: data.cards > 0, extra: `${data.cards} cartes` },
+    { id: 'exam', emoji: '📝', name: 'Partiel blanc', to: `/matieres/${subjectId}/partiel`, ready: questions.length > 0 },
     { id: 'table', emoji: '🧮', name: 'Contrôle sur table', to: `/matieres/${subjectId}/table`, ready: (GENERATORS_BY_SUBJECT[subjectId]?.length ?? 0) > 0 },
-    { id: 'sudden', emoji: '⚡', name: 'Mort subite', ready: questions.length > 0 },
+    { id: 'sudden', emoji: '⚡', name: 'Mort subite', action: suddenDeath, ready: questions.length > 0, extra: data.record ? `record : ${data.record}` : undefined },
   ];
 
   return (
@@ -93,7 +103,8 @@ export function SubjectPage() {
                     {m.emoji}
                   </span>
                   <span className="text-sm font-semibold">{m.name}</span>
-                  {!m.ready && <span className="text-[11px] text-muted">bientôt</span>}
+                  {m.extra && <span className="tabular text-[11px] text-muted">{m.extra}</span>}
+                  {!m.ready && <span className="text-[11px] text-muted">indisponible</span>}
                 </>
               );
               const cls = 'card flex min-h-[96px] w-full flex-col justify-between p-3 text-left';
@@ -103,8 +114,8 @@ export function SubjectPage() {
                     <Link to={m.to} className={cls}>
                       {inner}
                     </Link>
-                  ) : m.ready && m.id === 'sudden' ? (
-                    <button type="button" onClick={suddenDeath} className={cls}>
+                  ) : m.ready && m.action ? (
+                    <button type="button" onClick={m.action} className={cls}>
                       {inner}
                     </button>
                   ) : (

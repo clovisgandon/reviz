@@ -11,7 +11,7 @@ import { QuestionBody } from '@/components/QuestionCard';
 import { CloseIcon } from '@/components/Icons';
 import { finishSession, grade, saveState, type QuizState } from './engine';
 
-function Chrono({ startedAt, durationMin, onTimeout }: { startedAt: number; durationMin: number; onTimeout: () => void }) {
+export function Chrono({ startedAt, durationMin, onTimeout }: { startedAt: number; durationMin: number; onTimeout: () => void }) {
   const [now, setNow] = useState(Date.now());
   useEffect(() => {
     const t = setInterval(() => setNow(Date.now()), 1000);
