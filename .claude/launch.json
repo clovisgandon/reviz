@@ -2,6 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     { "name": "reviz-preview", "runtimeExecutable": "npm", "runtimeArgs": ["run", "preview", "--", "--port", "4173", "--strictPort"], "port": 4173 },
+    { "name": "reviz-pages", "runtimeExecutable": "cmd", "runtimeArgs": ["/c", "set VITE_BASE=/reviz/&& npm run preview -- --port 4174 --strictPort"], "port": 4174, "url": "http://localhost:4174" },
     { "name": "reviz-dev", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev", "--", "--port", "5173", "--strictPort"], "port": 5173 }
   ]
 }

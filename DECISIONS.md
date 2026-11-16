@@ -129,6 +129,51 @@ Les corrigés de TD donnent les valeurs mais pas toujours la formule. Formules p
 - **Mode sombre et largeur 390 px** contrôlés (pas de débordement horizontal). Safe areas : déjà en place depuis l'étape 2 (en-têtes, barres du bas, visionneuse).
 - **README** : ajout d'un guide d'utilisation pour débutant (modes, nouvelle matière, mode gratuit, clé API, sauvegarde, dépannage) et de la marche à suivre pour ajouter des générateurs à une autre matière.
 
-## Reste à faire (étapes suivantes)
+## Étape 9 — Vérification finale (2026-11-16)
 
-Étape 9 : vérification finale (build, tests, audit, Lighthouse PWA, passage de chaque écran en 390×844), liste de ce qui reste.
+### Résultats
+- `npm run build` : sans erreur, 88 fichiers précachés (3,2 Mo). Testé aussi avec `VITE_BASE=/reviz/`, comme dans la GitHub Action : manifeste, icônes et chemins sont bien sous `/reviz/`.
+- `npm test` : **78 tests verts** (11 fichiers).
+- `npm run audit:questions` : vert. 314 questions, 17 thèmes, niveaux 37 / 43 / 20 %, 152 questions style examen, 67 cartes.
+- **Lighthouse 11.7.1** sur le build `/reviz/`, profil mobile : **PWA 100 · Accessibilité 100 · Bonnes pratiques 100 · Performance 82**.
+  - Lighthouse 12 et suivants n'ont plus de catégorie PWA, d'où la version 11.
+  - La performance est mesurée au premier chargement en 4G simulée : premier affichage 3,0 s, le CSS de KaTeX bloque le rendu. Les ouvertures suivantes viennent du cache.
+- **Passage de chaque écran en 390×844**, en clair et en sombre, sur le build `/reviz/` :
+  - écrans avec onglets : les 18 (dont les résultats d'une série complète et la page introuvable) ;
+  - plein écran : les 16 exercices du contrôle sur table (sujet aléatoire, Données ouvertes), la copie du partiel blanc avec BA, Flash ;
+  - matière perso : les 6 écrans, plus la visionneuse sur un document texte.
+  - Résultat : aucun débordement horizontal, aucun écran planté, aucune erreur JavaScript.
+- **Corrigé pendant la vérification** :
+  - les titres Markdown (`# …`) s'affichaient en brut, notamment dans les documents `.md` : ils sont maintenant gérés, avec un test ;
+  - la barre de défilement des filtres de l'historique est masquée.
+
+### Critères d'acceptation (prompt §13)
+| Critère | État | Comment c'est vérifié |
+|---|---|---|
+| Installable depuis Safari iOS, icône, plein écran, safe areas | ✅ côté appli | manifeste + balises Apple + icônes, Lighthouse PWA 100, safe areas dans le CSS. **À confirmer sur un vrai iPhone.** |
+| Fonctionne en mode avion après la 1re ouverture | ✅ | build de production, serveur coupé : écrans, série et contrôle sur table OK (étape 8) |
+| Menu des matières ; STAB 1 ≥ 300 questions, ≥ 17 thèmes, 3 niveaux | ✅ | audit : 314 / 17 / 3 |
+| Mauvaise réponse → bonne réponse + explication + source | ✅ | audit (explications et sources obligatoires) + tests navigateur |
+| Tableau nécessaire affiché dans le bloc Données | ✅ | audit des banques (étape 4) |
+| Partiel blanc +2/−1/0 + métal + bois (+ BA en option), chrono, /20 | ✅ | tests `mock.test.ts` + partiel complet joué (étape 6) |
+| Contrôle sur table : ≥ 15 générateurs, étapes corrigées, tests verts | ✅ | 16 générateurs, 27 cas officiels à 1 % + 200 tirages par générateur |
+| Historique complet, détail de chaque tentative, graphiques | ✅ | étape 6 + passage 390×844 |
+| Ajout d'une matière + documents + génération (IA avec clé ou JSON sans clé) | ✅ / ⚠️ | tout testé dans le navigateur, sauf **un vrai appel de génération** (pas de clé) ; l'appel direct à l'API est vérifié (une fausse clé renvoie 401) |
+| Export / import des données | ✅ | 5 tests + import par l'interface (étape 8) |
+| Déployé automatiquement sur GitHub Pages ; README clair | ✅ / ⚠️ | workflow `deploy.yml` (tests + audit + build `/reviz/`) prêt et build vérifié ; **le dépôt GitHub reste à créer et à pousser** (README, section « Mettre l'appli en ligne ») |
+
+## Reste à faire
+
+**À faire par toi** (impossible d'ici) :
+1. Créer le dépôt GitHub, pousser, activer Pages (README, étapes 1 à 4).
+2. Installer sur l'iPhone et vérifier : encoche et barre d'accueil (safe areas), choix de fichiers dans l'app Fichiers, export par « Enregistrer dans Fichiers », plein écran.
+3. Si tu veux la génération IA : saisir ta clé, « Tester la clé », puis une première génération de 5 questions pour valider le parcours réel.
+4. Ajouter tes PDF de cours dans STAB 1 pour rendre les sources cliquables.
+
+**Améliorations possibles** (non bloquantes) :
+- **Démarrage** : charger KaTeX seulement quand une formule s'affiche, pour gagner environ 1 s au premier affichage (Lighthouse performance 82).
+- **PDF de plus de 100 pages** : aujourd'hui envoyés à l'IA en texte extrait, donc les schémas sont perdus. On pourrait les découper en vrais PDF de 100 pages (pdf-lib).
+- **Visionneuse** : zoom au pincement et recherche dans le texte (zoom par boutons aujourd'hui).
+- **Cartes Flash** : rendre leur source cliquable, et permettre d'écrire des cartes à la main dans une matière perso (aujourd'hui par import JSON seulement).
+- **Filet d'erreur** : vérifié par relecture, jamais déclenché pour de vrai.
+- **Contrôle sur table d'une autre matière** : l'architecture est prête (README) mais aucun générateur n'est écrit hors STAB 1.

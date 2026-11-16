@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+﻿import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/db/db';
@@ -84,7 +84,7 @@ export function HistoryPage() {
       <PageHeader title="Historique" />
       <main className="mx-auto max-w-xl space-y-4 px-4 pb-4">
         {/* Filtres sur une seule rangée défilante, au-dessus des graphiques */}
-        <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1" role="group" aria-label="Filtres">
+        <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1" role="group" aria-label="Filtres">
           {PERIODS.map((p) => <Chip key={p.id} on={period === p.id} onClick={() => setPeriod(p.id)}>{p.label}</Chip>)}
           <select aria-label="Matière" className="field min-h-[36px] w-auto shrink-0 py-0 text-sm" value={subject} onChange={(e) => setSubject(e.target.value)}>
             <option value="all">Toutes matières</option>

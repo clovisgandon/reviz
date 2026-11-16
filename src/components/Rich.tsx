@@ -3,7 +3,7 @@ import katex from 'katex';
 
 /**
  * Mini-rendu Markdown + KaTeX, sans HTML brut :
- * paragraphes, retours à la ligne, listes « - », **gras**, *italique*, `code`,
+ * titres « # », paragraphes, retours à la ligne, listes « - », **gras**, *italique*, `code`,
  * formules $…$ (en ligne) et $$…$$ (centrées). « \$ » = dollar littéral.
  */
 
@@ -56,13 +56,26 @@ function lines(text: string, keyBase: string): ReactNode[] {
   ]);
 }
 
+const HEADING = /^(#{1,4})\s+(.+)$/;
+
 function blocks(text: string, keyBase: string): ReactNode[] {
   return text
+    // un titre « # … » forme toujours son propre bloc
+    .replace(/^(#{1,4}\s+.+)$/gm, '\n\n$1\n\n')
     .split(/\n{2,}/)
     .map((b) => b.replace(/^\n+|\n+$/g, ''))
     .filter((b) => b.trim() !== '')
     .map((b, i) => {
       const key = `${keyBase}-b${i}`;
+      const h = b.match(HEADING);
+      if (h) {
+        const cls = h[1].length === 1 ? 'mt-3 mb-1 text-lg font-bold' : 'mt-3 mb-1 font-bold';
+        return (
+          <p key={key} role="heading" aria-level={h[1].length + 1} className={cls}>
+            {inline(h[2], key)}
+          </p>
+        );
+      }
       const ls = b.split('\n');
       if (ls.every((l) => /^\s*[-•]\s+/.test(l))) {
         return (
